@@ -1,0 +1,12 @@
+package com.caidt.proto;
+
+
+// --> GetPlayerInfoResponse
+message GetPlayerInfoRequest {
+    required int64 playerId = 1;
+}
+
+message GetPlayerInfoResponse {
+    required int64 playerId = 1;
+    required string name = 2;
+}

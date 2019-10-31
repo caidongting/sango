@@ -1,0 +1,12 @@
+package com.caidt.proto;
+
+
+enum Reason {
+    unknown = 0; // default value
+    server = 1;
+    game = 2;
+    common = 3;
+
+
+}
+

@@ -1,0 +1,8 @@
+group 'com.uuzu'
+version '0.1.0-SNAPSHOT'
+
+archivesBaseName = 'home'
+
+dependencies {
+    implementation project(':shared')
+}

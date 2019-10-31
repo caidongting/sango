@@ -1,0 +1,9 @@
+package com.caidt.proto;
+import "proto_player.proto";
+
+message ScMessage {
+    oneof cmd {
+        GetPlayerInfoResponse getPlayerInfoResponse = 101;
+    }
+
+}
