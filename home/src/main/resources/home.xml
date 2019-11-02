@@ -2,6 +2,6 @@
 <configuration>
 
 	<logger name="com.caidt.MyActor" level="debug"/>
-	<logger name="com.caidt.home.PlayerActor" level="debug"/>
+	<logger name="com.caidt.PlayerActor" level="debug"/>
 
 </configuration>
