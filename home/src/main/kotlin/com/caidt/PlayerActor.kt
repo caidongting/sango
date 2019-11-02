@@ -1,7 +1,7 @@
 package com.caidt
 
+import akka.actor.Cancellable
 import akka.actor.UntypedAbstractActor
-import com.caidt.infrastructure.Ok
 import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.PlayerMessage
 import com.caidt.infrastructure.Tick
@@ -10,6 +10,7 @@ import com.google.protobuf.MessageLite
 import io.netty.channel.Channel
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.time.Duration
 import java.time.Instant
 
 
@@ -57,8 +58,17 @@ open class PlayerActor : UntypedAbstractActor() {
   /** 启动加载 */
   private fun load(playerId: PlayerId) {
     //TODO()
+    scheduleTick()
     logger.info("player: $playerId is up")
   }
+
+  private var tickCancellable: Cancellable? = null
+
+  private fun scheduleTick() {
+    tickCancellable = schedule(Duration.ZERO, Duration.ofSeconds(1L), Tick)
+  }
+
+  fun cancelTick() = tickCancellable?.cancel()
 
   private fun handleOnUp(message: Any?) {
     when (message) {
@@ -73,22 +83,20 @@ open class PlayerActor : UntypedAbstractActor() {
 
   private var client: Channel? = null
 
+  val isOnline: Boolean get() = client?.isActive ?: false
+
   /** 回答客户端消息 */
   fun sendToClient(msg: MessageLite) {
     client?.writeAndFlush(msg)
   }
 
-  fun answerOk() {
-    answer(Ok)
-  }
-
-  /** 发送消息到其他 */
+  /** 回答消息 */
   fun answer(msg: Any) {
     sender.tell(msg, this.self)
   }
 
-  /** 像其他玩家发送消息 */
-  fun sendToPlayer(msg: Any) {
-
+  /** 向其他玩家发送消息 */
+  fun sendToPlayer(playerId: PlayerId, msg: Any) {
+    // playerManager or send to shardRegion
   }
 }
