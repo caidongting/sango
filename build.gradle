@@ -46,6 +46,7 @@ subprojects {
         implementation "org.jetbrains.kotlin:kotlin-reflect"
         implementation "com.typesafe.akka:akka-cluster_2.12:2.5.26"
         implementation "com.typesafe.akka:akka-cluster-tools_2.12:2.5.26"
+        implementation "com.typesafe.akka:akka-cluster-sharding_2.12:2.5.26"
         implementation "com.typesafe.akka:akka-slf4j_2.12:2.5.26"
         implementation "ch.qos.logback:logback-classic:1.2.3"
         implementation "org.hibernate:hibernate-core:3.6.10.Final"

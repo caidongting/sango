@@ -1,21 +1,23 @@
 package com.caidt
 
+import com.caidt.infrastructure.PlayerEnvelope
 import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.PlayerMessage
+import com.google.protobuf.MessageLite
 
 
-fun <T : PlayerMessage> wrapPlayerMessage(playerActor: PlayerActor, msg: T): T {
-  return wrapPlayerMessage(playerActor.playerId, msg)
+fun wrapEnvelope(playerId: PlayerId, msg: Any): PlayerEnvelope {
+  return PlayerEnvelope(playerId, msg)
 }
 
-fun <T : PlayerMessage> wrapPlayerMessage(playerId: PlayerId, msg: T): T {
-  return msg.also { it.playerId = playerId }
+fun PlayerActor.sendMessage(msg: Any) {
+  when (msg) {
+    is PlayerEnvelope -> {}
+    is PlayerMessage -> {}
+    is MessageLite -> {}
+  }
 }
 
-fun PlayerActor.sendMessage(msg: PlayerMessage) {
-  wrapPlayerMessage(this, msg)
-}
+object UP
 
-object UP : PlayerMessage()
-
-class Disconnect : PlayerMessage()
+class Disconnect

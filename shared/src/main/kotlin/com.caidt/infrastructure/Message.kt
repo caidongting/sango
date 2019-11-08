@@ -6,22 +6,19 @@ object Tick
 /** 服务器之间异步简单应答 */
 object Ok
 
-/** 客户端通用返回消息 */
-object OkResponse
-
 /** 玩家消息 */
-open class PlayerMessage {
-  /** 目标 */
-  open var playerId: PlayerId = 0
-}
+data class PlayerEnvelope(val playerId: PlayerId, val payload: Any)
 
 /** 世界消息 */
-open class WorldMessage {
-  var worldId: WorldId = 0
-}
+data class WorldEnvelope(val worldId: WorldId, val payload: WorldMessage)
+
+
+open class PlayerMessage
+
+open class WorldMessage
 
 /** player to player, need answer */
-open class PPMessage {
+open class PPMessage : PlayerMessage() {
   var from: PlayerId = 0
   var to: PlayerId = 0
 }

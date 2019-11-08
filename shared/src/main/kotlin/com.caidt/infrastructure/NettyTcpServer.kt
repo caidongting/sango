@@ -43,12 +43,12 @@ class MyHandler : ChannelInboundHandlerAdapter() {
   }
 
   override fun channelActive(ctx: ChannelHandlerContext) {
-    val attr = ctx.attr(ID)
-    attr.set(1L)
+    ctx.attr(ID).set(1L)
   }
 
   override fun channelRead(ctx: ChannelHandlerContext, msg: Any?) {
     val id = ctx.attr(ID).get()
+    val session = ctx.attr(AttributeKey.valueOf<ChannelSession>(id.toString())).get()
   }
 }
 

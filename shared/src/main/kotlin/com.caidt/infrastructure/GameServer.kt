@@ -1,8 +1,10 @@
 package com.caidt.infrastructure
 
 import akka.actor.ActorSystem
+import akka.cluster.sharding.ShardRegion
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
+import com.caidt.infrastructure.database.shardIdOf
 import org.hibernate.SessionFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -43,4 +45,31 @@ abstract class GameServer(port: Int) {
   fun startNetwork() {
     netty.init()
   }
+}
+
+val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.MessageExtractor {
+  override fun entityId(message: Any): String {
+    return when (message) {
+      is PlayerEnvelope -> message.playerId.toString()
+      is WorldEnvelope -> message.worldId.toString()
+      else -> message.toString()
+    }
+  }
+
+  override fun entityMessage(message: Any): Any {
+    return when (message) {
+      is PlayerEnvelope -> message.payload
+      is WorldEnvelope -> message.payload
+      else -> throw UnsupportedOperationException(message.toString())
+    }
+  }
+
+  override fun shardId(message: Any): String {
+    return when (message) {
+      is PlayerEnvelope -> shardIdOf(message).toString()
+      is WorldEnvelope -> shardIdOf(message).toString()
+      else -> throw UnsupportedOperationException(message.toString())
+    }
+  }
+
 }

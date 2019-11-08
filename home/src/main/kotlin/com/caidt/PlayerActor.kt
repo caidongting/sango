@@ -3,7 +3,7 @@ package com.caidt
 import akka.actor.Cancellable
 import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.PlayerId
-import com.caidt.infrastructure.PlayerMessage
+import com.caidt.infrastructure.PlayerEnvelope
 import com.caidt.infrastructure.Tick
 import com.caidt.infrastructure.entity.PlayerAccountEntity
 import com.google.protobuf.MessageLite
@@ -47,7 +47,7 @@ open class PlayerActor : UntypedAbstractActor() {
     when (message) {
       is MessageLite -> {
       }
-      is PlayerMessage -> {
+      is PlayerEnvelope -> {
         state = State.LOADING
         load(message.playerId)
         state = State.UP

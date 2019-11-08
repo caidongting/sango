@@ -27,10 +27,14 @@ class Session(private val sessionFactory: SessionFactory) {
   }
 
   @Suppress("UNCHECKED_CAST")
-  inline fun <reified T : IEntity> read(clazz: Class<T>, pk: Serializable): T? {
+  inline fun <reified T : IEntity> read(clazz: Class<T>, pk: Serializable): T {
     return exec { session ->
       session.get(clazz, pk)
-    } as T?
+    } as T
+  }
+
+  fun <T : IEntity> finaAll(clazz: Class<T>): List<T> {
+    return exec { it.createCriteria(clazz).list().distinct() } as List<T>
   }
 
   fun save(entity: IEntity) {

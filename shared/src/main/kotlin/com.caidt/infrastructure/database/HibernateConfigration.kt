@@ -19,7 +19,11 @@ import java.util.*
 
 fun shardIdOf(entity: PlayerEntity): ShardId = shardIdOf(entity.playerId)
 
+fun shardIdOf(envelope: PlayerEnvelope): ShardId = shardIdOf(envelope.playerId)
+
 fun shardIdOf(entity: WorldEntity): ShardId = shardIdOf(entity.worldId)
+
+fun shardIdOf(envelope: WorldEnvelope): ShardId = shardIdOf(envelope.worldId)
 
 fun shardIdOf(uid: Long): ShardId = ShardId((uid % VIRTUAL_NUM).toInt())
 
