@@ -1,7 +1,6 @@
 package com.caidt.infrastructure.database
 
 import com.caidt.infrastructure.entity.PlayerAccountEntity
-import com.caidt.infrastructure.entity.PlayerEntity
 import org.hibernate.Session
 import org.hibernate.SessionFactory
 import java.io.Serializable
@@ -29,8 +28,8 @@ class Session(private val sessionFactory: SessionFactory) {
     }
   }
 
-  @Suppress("UNCHECKED_CAST")
   fun <T : IEntity> read(clazz: Class<T>, pk: Serializable): T {
+    @Suppress("UNCHECKED_CAST")
     return exec { session ->
       session.get(clazz, pk)
     } as T
@@ -74,6 +73,7 @@ abstract class DataContainer<T : IEntity, E : EntityWrapper<T>> {
 
 /**
  * wrap the database entity for convenience of use
+ * contain entity or not, unknown now, waiting for more discover
  */
 abstract class EntityWrapper<T : IEntity> {
 
@@ -88,8 +88,8 @@ abstract class EntityWrapper<T : IEntity> {
 }
 
 class PlayerAccount(
-    val entity: PlayerAccountEntity
-): EntityWrapper<PlayerAccountEntity>() {
+    entity: PlayerAccountEntity
+) : EntityWrapper<PlayerAccountEntity>() {
 
   override fun primaryKey(): Serializable {
     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.

@@ -1,13 +1,11 @@
 package com.caidt
 
 import akka.actor.Cancellable
+import akka.actor.Props
 import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.PlayerEnvelope
 import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.Tick
-import com.caidt.infrastructure.database.DataContainer
-import com.caidt.infrastructure.database.EntityWrapper
-import com.caidt.infrastructure.database.IEntity
 import com.caidt.infrastructure.entity.PlayerAccountEntity
 import com.google.protobuf.MessageLite
 import io.netty.channel.Channel
@@ -20,6 +18,10 @@ import java.time.Instant
 open class PlayerActor : UntypedAbstractActor() {
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
+
+  companion object {
+    fun props(): Props = Props.create { PlayerActor() }
+  }
 
   enum class State {
     INIT,
@@ -73,7 +75,9 @@ open class PlayerActor : UntypedAbstractActor() {
     tickCancellable = schedule(Duration.ZERO, Duration.ofSeconds(1L), Tick)
   }
 
-  fun cancelTick() = tickCancellable?.cancel()
+  fun cancelTick() {
+    tickCancellable?.cancel()
+  }
 
   private fun handleOnUp(message: Any?) {
     when (message) {
