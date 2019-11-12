@@ -4,6 +4,9 @@ import akka.actor.ActorRef
 import akka.actor.ActorSystem
 import akka.cluster.sharding.ClusterSharding
 import akka.cluster.sharding.ShardRegion
+import akka.cluster.sharding.typed.ShardingEnvelope
+import akka.cluster.sharding.typed.`ShardingEnvelope$`
+import akka.cluster.sharding.typed.internal.protobuf.ShardingMessages
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
 import com.caidt.infrastructure.database.shardIdOf
@@ -49,7 +52,7 @@ abstract class GameServer(port: Int) {
   abstract fun close()
 
   fun startActorSystem() {
-    actorSystem = ActorSystem.apply()
+    actorSystem = ActorSystem.create()
   }
 
   fun startNetwork() {
@@ -87,7 +90,7 @@ val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.Messag
     return when (message) {
       is PlayerEnvelope -> message.payload
       is WorldEnvelope -> message.payload
-      else -> throw UnsupportedOperationException(message.toString())
+      else -> message.toString()
     }
   }
 
@@ -95,7 +98,7 @@ val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.Messag
     return when (message) {
       is PlayerEnvelope -> shardIdOf(message).toString()
       is WorldEnvelope -> shardIdOf(message).toString()
-      else -> throw UnsupportedOperationException(message.toString())
+      else -> message.toString()
     }
   }
 

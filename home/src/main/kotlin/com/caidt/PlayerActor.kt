@@ -5,6 +5,9 @@ import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.PlayerEnvelope
 import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.Tick
+import com.caidt.infrastructure.database.DataContainer
+import com.caidt.infrastructure.database.EntityWrapper
+import com.caidt.infrastructure.database.IEntity
 import com.caidt.infrastructure.entity.PlayerAccountEntity
 import com.google.protobuf.MessageLite
 import io.netty.channel.Channel
@@ -74,8 +77,14 @@ open class PlayerActor : UntypedAbstractActor() {
 
   private fun handleOnUp(message: Any?) {
     when (message) {
-      Tick -> commonTick(Instant.now())
+      Tick -> tick(Instant.now())
     }
+  }
+
+  private fun tick(now: Instant) {
+    // database DataContainer check
+    //
+    commonTick(now)
   }
 
   /** 处理player常规定时任务 */

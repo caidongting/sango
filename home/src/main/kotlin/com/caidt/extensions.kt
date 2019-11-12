@@ -12,7 +12,8 @@ fun Actor.schedule(initialDelay: Duration, interval: Duration, msg: Any, sender:
   return context().system().scheduler().schedule(initialDelay, interval, self(), msg, context().dispatcher(), sender)
 }
 
-fun Actor.schedule(initialDelay: Long, unit: TimeUnit, interval: Long, intervalUnit: TimeUnit, msg: Any, sender: ActorRef = ActorRef.noSender()): Cancellable {
+fun Actor.schedule(initialDelay: Long, unit: TimeUnit, interval: Long, intervalUnit: TimeUnit,
+                   msg: Any, sender: ActorRef = ActorRef.noSender()): Cancellable {
   return context().system().scheduler().schedule(
       FiniteDuration(initialDelay, unit), FiniteDuration(interval, intervalUnit), self(), msg, context().dispatcher(), sender)
 }
