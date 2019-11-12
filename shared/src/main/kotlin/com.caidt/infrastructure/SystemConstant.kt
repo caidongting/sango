@@ -13,3 +13,5 @@ const val PHYSICAL_NUM = 10
 
 /** hibernate config file */
 const val HIBERNATE_CFG_FILE = "hibernate.cfg.xml"
+
+const val LARGE_MAILBOX = "large_mailbox"

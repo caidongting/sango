@@ -14,7 +14,7 @@ class JobActor : UntypedAbstractActor() {
 
   companion object {
     fun props(): Props {
-      return Props.create { JobActor() }
+      return Props.create { JobActor() }.withMailbox("large-mailbox")
     }
   }
 
@@ -46,7 +46,7 @@ class EventBus(actorSystem: ActorSystem) {
     fire("recordPowerChange") {
 
     }
-    fire("Record") {
+    fire("record") {
 
     }
   }

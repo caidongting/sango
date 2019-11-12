@@ -2,8 +2,8 @@ package com.caidt
 
 import akka.actor.Cancellable
 import akka.actor.UntypedAbstractActor
-import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.PlayerEnvelope
+import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.Tick
 import com.caidt.infrastructure.entity.PlayerAccountEntity
 import com.google.protobuf.MessageLite
@@ -30,6 +30,8 @@ open class PlayerActor : UntypedAbstractActor() {
   private var state: State = State.INIT
 
   private lateinit var playerAccount: PlayerAccountEntity
+
+  val eventBus: EventBus get() = Home.eventBus
 
 
   override fun onReceive(message: Any?) {

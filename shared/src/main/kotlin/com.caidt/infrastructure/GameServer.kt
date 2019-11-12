@@ -1,6 +1,8 @@
 package com.caidt.infrastructure
 
+import akka.actor.ActorRef
 import akka.actor.ActorSystem
+import akka.cluster.sharding.ClusterSharding
 import akka.cluster.sharding.ShardRegion
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
@@ -8,8 +10,10 @@ import com.caidt.infrastructure.database.shardIdOf
 import org.hibernate.SessionFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.util.*
 
 enum class Role {
+  gate,
   home,
   world,
   data,
@@ -34,6 +38,12 @@ abstract class GameServer(port: Int) {
   /** netty actor session*/
   private val netty: NettyTcpServer = NettyTcpServer(port = port)
 
+  lateinit var homeProxy: ActorRef
+    private set
+
+  lateinit var worldProxy: ActorRef
+    private set
+
   abstract fun init()
 
   abstract fun close()
@@ -45,6 +55,23 @@ abstract class GameServer(port: Int) {
   fun startNetwork() {
     netty.init()
   }
+
+  fun startHomeProxy() {
+    homeProxy = ClusterSharding.get(actorSystem).startProxy("homeProxy", Optional.of(Role.home.name), messageExtractor)
+  }
+
+  fun closeHomeProxy() {
+    homeProxy.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
+  }
+
+  fun startWorldProxy() {
+    worldProxy = ClusterSharding.get(actorSystem).startProxy("worldProxy", Optional.of(Role.world.name), messageExtractor)
+  }
+
+  fun closeWorldProxy() {
+    worldProxy.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
+  }
+
 }
 
 val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.MessageExtractor {
