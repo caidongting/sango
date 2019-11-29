@@ -4,6 +4,7 @@ import akka.actor.ActorRef
 import akka.actor.ActorSystem
 import akka.actor.Props
 import akka.actor.UntypedAbstractActor
+import com.caidt.infrastructure.LARGE_MAILBOX
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -14,7 +15,7 @@ class JobActor : UntypedAbstractActor() {
 
   companion object {
     fun props(): Props {
-      return Props.create { JobActor() }.withMailbox("large-mailbox")
+      return Props.create { JobActor() }.withMailbox(LARGE_MAILBOX)
     }
   }
 
