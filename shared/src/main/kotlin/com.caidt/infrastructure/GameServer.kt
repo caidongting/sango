@@ -4,9 +4,6 @@ import akka.actor.ActorRef
 import akka.actor.ActorSystem
 import akka.cluster.sharding.ClusterSharding
 import akka.cluster.sharding.ShardRegion
-import akka.cluster.sharding.typed.ShardingEnvelope
-import akka.cluster.sharding.typed.`ShardingEnvelope$`
-import akka.cluster.sharding.typed.internal.protobuf.ShardingMessages
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
 import com.caidt.infrastructure.database.shardIdOf
@@ -41,6 +38,11 @@ abstract class GameServer(port: Int) {
   /** netty actor session*/
   private val netty: NettyTcpServer = NettyTcpServer(port = port)
 
+  /** znode */
+
+  lateinit var shardRegion: ActorRef
+    protected set
+
   lateinit var homeProxy: ActorRef
     private set
 
@@ -51,12 +53,22 @@ abstract class GameServer(port: Int) {
 
   abstract fun close()
 
-  fun startActorSystem() {
+  fun beforeInit() {
+    startActorSystem()
+  }
+
+  private fun startActorSystem() {
     actorSystem = ActorSystem.create()
   }
 
   fun startNetwork() {
     netty.init()
+  }
+
+  fun closeShardRegion() {
+    if (this::shardRegion.isInitialized) {
+      shardRegion.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
+    }
   }
 
   fun startHomeProxy() {
