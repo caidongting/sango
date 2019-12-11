@@ -6,6 +6,8 @@ import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.PlayerEnvelope
 import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.Tick
+import com.caidt.infrastructure.database.DataContainer
+import com.caidt.infrastructure.database.PlayerDC
 import com.caidt.infrastructure.entity.PlayerAccountEntity
 import com.google.protobuf.MessageLite
 import io.netty.channel.Channel
@@ -13,6 +15,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.time.Duration
 import java.time.Instant
+import kotlin.reflect.KClass
 
 
 open class PlayerActor : UntypedAbstractActor() {
@@ -113,5 +116,11 @@ open class PlayerActor : UntypedAbstractActor() {
   /** 向其他玩家发送消息 */
   fun sendToPlayer(playerId: PlayerId, msg: Any) {
     // playerManager or send to shardRegion
+  }
+
+  val playerDC: PlayerDC get() = getDC(PlayerDC::class)
+
+  fun <E : Any> getDC(clazz: KClass<E>): E {
+    TODO()
   }
 }

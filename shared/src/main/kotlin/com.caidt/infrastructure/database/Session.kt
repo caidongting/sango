@@ -1,10 +1,14 @@
 package com.caidt.infrastructure.database
 
+import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.entity.PlayerAccountEntity
 import org.hibernate.Session
 import org.hibernate.SessionFactory
 import java.io.Serializable
 import java.time.Duration
+import java.util.concurrent.Executor
+import java.util.concurrent.Executors
+import kotlin.reflect.KClass
 
 interface IEntity {
   fun primaryKey(): Serializable
@@ -45,6 +49,28 @@ class Session(private val sessionFactory: SessionFactory) {
   }
 }
 
+class Worker : UntypedAbstractActor() {
+  override fun onReceive(message: Any?) {
+    when (message) {
+      is Runnable -> message.run()
+    }
+  }
+}
+
+object DataContainerManager {
+
+  private val containerMap: Map<KClass<*>, DataContainer<*, *>> = hashMapOf()
+
+  private val dbRead: Executor = Executor { }
+  private val dbWrite: Executor = Executors.newSingleThreadExecutor()
+  private val exec: HashMap<String, Executor> = hashMapOf()
+
+  fun <T : Any> getOrLoad(clazz: KClass<T>): T {
+    TODO()
+  }
+
+}
+
 // 数据库表 容器
 abstract class DataContainer<T : IEntity, E : EntityWrapper<T>> {
 
@@ -61,21 +87,28 @@ abstract class DataContainer<T : IEntity, E : EntityWrapper<T>> {
   }
 
   fun wrap(entity: T, clazz: Class<E>) {
+    val wrapper = clazz.newInstance()
+    wrapper.init(entity)
+    wrap(wrapper)
   }
 
   private fun wrap(wrapper: E): E {
     map[wrapper.primaryKey()] = wrapper
     return wrapper
   }
-
-  operator fun get(primaryKey: Serializable): E? = map[primaryKey]
 }
 
 /**
- * wrap the database entity for convenience of use
+ * wrap the database entity for convenience of use.
  * contain entity or not, unknown now, waiting for more discover
  */
 abstract class EntityWrapper<T : IEntity> {
+
+  private lateinit var entity: T
+
+  fun init(entity: T) {
+    this.entity = entity
+  }
 
   // primaryKey
   abstract fun primaryKey(): Serializable
@@ -87,9 +120,7 @@ abstract class EntityWrapper<T : IEntity> {
   abstract fun toEntity(): T
 }
 
-class PlayerAccount(
-    entity: PlayerAccountEntity
-) : EntityWrapper<PlayerAccountEntity>() {
+class PlayerAccount : EntityWrapper<PlayerAccountEntity>() {
 
   override fun primaryKey(): Serializable {
     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
@@ -102,4 +133,11 @@ class PlayerAccount(
   override fun toEntity(): PlayerAccountEntity {
     TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
   }
+}
+
+class PlayerDC : DataContainer<PlayerAccountEntity, PlayerAccount>() {
+  override fun load(entity: PlayerAccountEntity) {
+    val e = wrap(entity, PlayerAccount::class.java)
+  }
+
 }
