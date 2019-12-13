@@ -23,16 +23,11 @@ class JobActor : UntypedAbstractActor() {
 
   override fun onReceive(message: Any?) {
     when (message) {
-      is NamedRunnable -> {
-        message.exec.run()
-      }
+      is NamedRunnable -> message.exec.run()
     }
+
   }
 
-}
-
-fun ActorRef.tellNoSender(message: Any) {
-  this.tell(message, ActorRef.noSender())
 }
 
 class EventBus(actorSystem: ActorSystem) {

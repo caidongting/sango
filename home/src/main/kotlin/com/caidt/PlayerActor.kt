@@ -1,16 +1,15 @@
 package com.caidt
 
+import akka.actor.ActorRef
 import akka.actor.Cancellable
 import akka.actor.Props
 import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.PlayerEnvelope
 import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.Tick
-import com.caidt.infrastructure.database.DataContainer
 import com.caidt.infrastructure.database.PlayerDC
 import com.caidt.infrastructure.entity.PlayerAccountEntity
 import com.google.protobuf.MessageLite
-import io.netty.channel.Channel
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.time.Duration
@@ -99,13 +98,18 @@ open class PlayerActor : UntypedAbstractActor() {
     //
   }
 
-  private var client: Channel? = null
+  private var client: ActorRef? = null
 
-  val isOnline: Boolean get() = client?.isActive ?: false
+  val isOnline: Boolean get() = client != null
+
+  fun disconnect() {
+    client = null
+    logger.info("player:$playerId was disconnected!")
+  }
 
   /** 回答客户端消息 */
   fun sendToClient(msg: MessageLite) {
-    client?.writeAndFlush(msg)
+    client?.tell(msg, self)
   }
 
   /** 回答消息 */

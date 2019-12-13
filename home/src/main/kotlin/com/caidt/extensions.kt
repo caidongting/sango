@@ -23,3 +23,7 @@ fun Actor.schedule(initialDelay: Long, unit: TimeUnit, interval: Long, intervalU
 fun PlayerActor.answerOk() {
   this.answer(Ok)
 }
+
+fun ActorRef.tellNoSender(message: Any) {
+  this.tell(message, ActorRef.noSender())
+}

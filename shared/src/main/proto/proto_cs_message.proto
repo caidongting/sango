@@ -1,10 +1,12 @@
 package com.caidt.proto;
+import "proto_base.proto";
 import "proto_player.proto";
 
 message CsMessage {
 
     oneof cmd {
-        GetPlayerInfoRequest getPlayerInfoRequest = 101;
+        LoginRequest loginRequest = 101;
+        GetPlayerInfoRequest getPlayerInfoRequest = 102;
     }
 
 }

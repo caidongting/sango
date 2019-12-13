@@ -1,0 +1,5 @@
+package com.caidt.proto;
+
+message Rank {
+
+}
