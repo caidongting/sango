@@ -2,12 +2,10 @@
 
 package com.caidt.infrastructure.entity
 
+import com.caidt.infrastructure.NoArg
 import com.caidt.infrastructure.database.IEntity
 import java.io.Serializable
-import javax.persistence.Column
-import javax.persistence.Entity
-import javax.persistence.Id
-import javax.persistence.Table
+import javax.persistence.*
 
 interface PlayerEntity : IEntity {
   val playerId: Long
@@ -26,5 +24,35 @@ data class PlayerAccountEntity(
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return this.playerId
+  }
+}
+
+@NoArg
+data class ItemPk(
+    @Id
+    @Column(name = "item")
+    val uid: Long,
+    @Id
+    @Column(name = "player_id")
+    override val playerId: Long
+) : PlayerEntity {
+  override fun primaryKey(): Serializable {
+    return this
+  }
+}
+
+@Entity
+@Table(name = "item")
+@IdClass(ItemPk::class)
+data class ItemEntity(
+    @Id
+    @Column(name = "item")
+    val uid: Long,
+    @Id
+    @Column(name = "player_id")
+    override val playerId: Long
+) : PlayerEntity {
+  override fun primaryKey(): Serializable {
+    return ItemPk(uid, playerId)
   }
 }

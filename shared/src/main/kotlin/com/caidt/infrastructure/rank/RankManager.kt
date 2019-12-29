@@ -1,7 +1,6 @@
 package com.caidt.infrastructure.rank
 
 import java.time.Instant
-import kotlin.reflect.KProperty
 import kotlin.reflect.KProperty1
 
 

@@ -68,6 +68,7 @@ open class PlayerActor : UntypedAbstractActor() {
   private fun load(playerId: PlayerId) {
     //TODO()
     scheduleTick()
+    // 加载少量必要数据，避免浪费
     logger.info("player: $playerId is up")
   }
 

@@ -1,6 +1,8 @@
 package com.caidt.infrastructure
 
 enum class Reason {
+  /**  未知错误*/
+  UNKNOWN,
   /** 系统错误*/
   SYSTEM,
   /** 游戏错误*/

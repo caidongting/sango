@@ -11,7 +11,6 @@ class MyActor : AbstractActor() {
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
 
   companion object {
-    @JvmStatic
     fun props(): Props {
       return Props.create(MyActor::class.java, ::MyActor)
           .withDispatcher("my-dispatcher")

@@ -10,7 +10,7 @@ import java.util.concurrent.Executor
 import java.util.concurrent.Executors
 import kotlin.reflect.KClass
 
-interface IEntity {
+interface IEntity : Serializable {
   fun primaryKey(): Serializable
 }
 
