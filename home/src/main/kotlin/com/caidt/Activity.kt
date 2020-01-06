@@ -4,11 +4,11 @@ import java.time.Instant
 import java.time.LocalTime
 
 class Activity(
-    val uid: Long,
-    val type: Int,
-    val name: String,
-    val startTime: Instant,
-    val endTime: Instant
+  val uid: Long,
+  val type: Int,
+  val name: String,
+  val startTime: Instant,
+  val endTime: Instant
 )
 
 

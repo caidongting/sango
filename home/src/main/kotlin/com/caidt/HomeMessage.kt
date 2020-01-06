@@ -12,9 +12,12 @@ fun wrapEnvelope(playerId: PlayerId, msg: Any): PlayerEnvelope {
 
 fun PlayerActor.sendMessage(msg: Any) {
   when (msg) {
-    is PlayerEnvelope -> {}
-    is PlayerMessage -> {}
-    is MessageLite -> {}
+    is PlayerEnvelope -> {
+    }
+    is PlayerMessage -> {
+    }
+    is MessageLite -> {
+    }
   }
 }
 

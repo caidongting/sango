@@ -1,4 +1,6 @@
 rootProject.name = 'sango'
 include 'home'
 include 'shared'
+include 'gate'
+include 'world'
 

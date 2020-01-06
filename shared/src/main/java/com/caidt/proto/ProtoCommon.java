@@ -4,171 +4,171 @@
 package com.caidt.proto;
 
 public final class ProtoCommon {
-    private ProtoCommon() {
-    }
+  private ProtoCommon() {
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistryLite registry) {
-    }
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistryLite registry) {
+  }
 
-    public static void registerAllExtensions(
-            com.google.protobuf.ExtensionRegistry registry) {
-        registerAllExtensions(
-                (com.google.protobuf.ExtensionRegistryLite) registry);
+  public static void registerAllExtensions(
+      com.google.protobuf.ExtensionRegistry registry) {
+    registerAllExtensions(
+        (com.google.protobuf.ExtensionRegistryLite) registry);
+  }
+
+  /**
+   * Protobuf enum {@code com.com.caidt.proto.Reason}
+   */
+  public enum Reason
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * default value
+     * </pre>
+     *
+     * <code>unknown = 0;</code>
+     */
+    unknown(0),
+    /**
+     * <code>server = 1;</code>
+     */
+    server(1),
+    /**
+     * <code>game = 2;</code>
+     */
+    game(2),
+    /**
+     * <code>common = 3;</code>
+     */
+    common(3),
+    ;
+
+    /**
+     * <pre>
+     * default value
+     * </pre>
+     *
+     * <code>unknown = 0;</code>
+     */
+    public static final int unknown_VALUE = 0;
+    /**
+     * <code>server = 1;</code>
+     */
+    public static final int server_VALUE = 1;
+    /**
+     * <code>game = 2;</code>
+     */
+    public static final int game_VALUE = 2;
+    /**
+     * <code>common = 3;</code>
+     */
+    public static final int common_VALUE = 3;
+
+
+    public final int getNumber() {
+      return value;
     }
 
     /**
-     * Protobuf enum {@code com.com.caidt.proto.Reason}
+     * @deprecated Use {@link #forNumber(int)} instead.
      */
-    public enum Reason
-            implements com.google.protobuf.ProtocolMessageEnum {
-        /**
-         * <pre>
-         * default value
-         * </pre>
-         *
-         * <code>unknown = 0;</code>
-         */
-        unknown(0),
-        /**
-         * <code>server = 1;</code>
-         */
-        server(1),
-        /**
-         * <code>game = 2;</code>
-         */
-        game(2),
-        /**
-         * <code>common = 3;</code>
-         */
-        common(3),
-        ;
-
-        /**
-         * <pre>
-         * default value
-         * </pre>
-         *
-         * <code>unknown = 0;</code>
-         */
-        public static final int unknown_VALUE = 0;
-        /**
-         * <code>server = 1;</code>
-         */
-        public static final int server_VALUE = 1;
-        /**
-         * <code>game = 2;</code>
-         */
-        public static final int game_VALUE = 2;
-        /**
-         * <code>common = 3;</code>
-         */
-        public static final int common_VALUE = 3;
-
-
-        public final int getNumber() {
-            return value;
-        }
-
-        /**
-         * @deprecated Use {@link #forNumber(int)} instead.
-         */
-        @java.lang.Deprecated
-        public static Reason valueOf(int value) {
-            return forNumber(value);
-        }
-
-        public static Reason forNumber(int value) {
-            switch (value) {
-                case 0:
-                    return unknown;
-                case 1:
-                    return server;
-                case 2:
-                    return game;
-                case 3:
-                    return common;
-                default:
-                    return null;
-            }
-        }
-
-        public static com.google.protobuf.Internal.EnumLiteMap<Reason>
-        internalGetValueMap() {
-            return internalValueMap;
-        }
-
-        private static final com.google.protobuf.Internal.EnumLiteMap<
-                Reason> internalValueMap =
-                new com.google.protobuf.Internal.EnumLiteMap<Reason>() {
-                    public Reason findValueByNumber(int number) {
-                        return Reason.forNumber(number);
-                    }
-                };
-
-        public final com.google.protobuf.Descriptors.EnumValueDescriptor
-        getValueDescriptor() {
-            return getDescriptor().getValues().get(ordinal());
-        }
-
-        public final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptorForType() {
-            return getDescriptor();
-        }
-
-        public static final com.google.protobuf.Descriptors.EnumDescriptor
-        getDescriptor() {
-            return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(0);
-        }
-
-        private static final Reason[] VALUES = values();
-
-        public static Reason valueOf(
-                com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
-            if (desc.getType() != getDescriptor()) {
-                throw new java.lang.IllegalArgumentException(
-                        "EnumValueDescriptor is not for this type.");
-            }
-            return VALUES[desc.getIndex()];
-        }
-
-        private final int value;
-
-        private Reason(int value) {
-            this.value = value;
-        }
-
-        // @@protoc_insertion_point(enum_scope:com.com.caidt.proto.Reason)
+    @java.lang.Deprecated
+    public static Reason valueOf(int value) {
+      return forNumber(value);
     }
 
-
-    public static com.google.protobuf.Descriptors.FileDescriptor
-    getDescriptor() {
-        return descriptor;
+    public static Reason forNumber(int value) {
+      switch (value) {
+        case 0:
+          return unknown;
+        case 1:
+          return server;
+        case 2:
+          return game;
+        case 3:
+          return common;
+        default:
+          return null;
+      }
     }
 
-    private static com.google.protobuf.Descriptors.FileDescriptor
-            descriptor;
+    public static com.google.protobuf.Internal.EnumLiteMap<Reason>
+    internalGetValueMap() {
+      return internalValueMap;
+    }
 
-    static {
-        java.lang.String[] descriptorData = {
-                "\n\022proto_common.proto\022\017com.com.caidt.proto*7\n" +
-                        "\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001\022\010\n\004game" +
-                        "\020\002\022\n\n\006common\020\003"
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Reason> internalValueMap =
+        new com.google.protobuf.Internal.EnumLiteMap<Reason>() {
+          public Reason findValueByNumber(int number) {
+            return Reason.forNumber(number);
+          }
         };
-        com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-                new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
-                    public com.google.protobuf.ExtensionRegistry assignDescriptors(
-                            com.google.protobuf.Descriptors.FileDescriptor root) {
-                        descriptor = root;
-                        return null;
-                    }
-                };
-        com.google.protobuf.Descriptors.FileDescriptor
-                .internalBuildGeneratedFileFrom(descriptorData,
-                        new com.google.protobuf.Descriptors.FileDescriptor[]{
-                        }, assigner);
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+    getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
     }
 
-    // @@protoc_insertion_point(outer_class_scope)
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+    getDescriptorForType() {
+      return getDescriptor();
+    }
+
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+    getDescriptor() {
+      return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final Reason[] VALUES = values();
+
+    public static Reason valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Reason(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.com.caidt.proto.Reason)
+  }
+
+
+  public static com.google.protobuf.Descriptors.FileDescriptor
+  getDescriptor() {
+    return descriptor;
+  }
+
+  private static com.google.protobuf.Descriptors.FileDescriptor
+      descriptor;
+
+  static {
+    java.lang.String[] descriptorData = {
+        "\n\022proto_common.proto\022\017com.com.caidt.proto*7\n" +
+            "\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001\022\010\n\004game" +
+            "\020\002\022\n\n\006common\020\003"
+    };
+    com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
+        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+          public com.google.protobuf.ExtensionRegistry assignDescriptors(
+              com.google.protobuf.Descriptors.FileDescriptor root) {
+            descriptor = root;
+            return null;
+          }
+        };
+    com.google.protobuf.Descriptors.FileDescriptor
+        .internalBuildGeneratedFileFrom(descriptorData,
+            new com.google.protobuf.Descriptors.FileDescriptor[]{
+            }, assigner);
+  }
+
+  // @@protoc_insertion_point(outer_class_scope)
 }

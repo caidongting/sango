@@ -15,12 +15,12 @@ interface PlayerEntity : IEntity {
 @Entity
 @Table(name = "player_account")
 data class PlayerAccountEntity(
-    @Id
-    @Column(name = "player_id")
-    override val playerId: Long,
+  @Id
+  @Column(name = "player_id")
+  override val playerId: Long,
 
-    @Column(name = "name")
-    var name: String
+  @Column(name = "name")
+  var name: String
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return this.playerId
@@ -29,12 +29,12 @@ data class PlayerAccountEntity(
 
 @NoArg
 data class ItemPk(
-    @Id
-    @Column(name = "item")
-    val uid: Long,
-    @Id
-    @Column(name = "player_id")
-    override val playerId: Long
+  @Id
+  @Column(name = "item")
+  val uid: Long,
+  @Id
+  @Column(name = "player_id")
+  override val playerId: Long
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return this
@@ -45,12 +45,12 @@ data class ItemPk(
 @Table(name = "item")
 @IdClass(ItemPk::class)
 data class ItemEntity(
-    @Id
-    @Column(name = "item")
-    val uid: Long,
-    @Id
-    @Column(name = "player_id")
-    override val playerId: Long
+  @Id
+  @Column(name = "item")
+  val uid: Long,
+  @Id
+  @Column(name = "player_id")
+  override val playerId: Long
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return ItemPk(uid, playerId)

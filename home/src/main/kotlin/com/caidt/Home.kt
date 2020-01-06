@@ -29,6 +29,6 @@ object Home : GameServer(port = 2552) {
   fun startShardRegion() {
     val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
     shardRegion = ClusterSharding.get(actorSystem)
-        .start(javaClass.name, PlayerActor.props(), settings, messageExtractor)
+      .start(javaClass.name, PlayerActor.props(), settings, messageExtractor)
   }
 }

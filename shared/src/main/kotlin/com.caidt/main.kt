@@ -13,7 +13,7 @@ class MyActor : AbstractActor() {
   companion object {
     fun props(): Props {
       return Props.create(MyActor::class.java, ::MyActor)
-          .withDispatcher("my-dispatcher")
+        .withDispatcher("my-dispatcher")
     }
   }
 
@@ -24,13 +24,13 @@ class MyActor : AbstractActor() {
    */
   override fun createReceive(): Receive {
     return receiveBuilder()
-        .match(String::class.java) {
-          handle(it)
-        }
-        .match(Int::class.java) {
-          handle(it)
-        }
-        .build()
+      .match(String::class.java) {
+        handle(it)
+      }
+      .match(Int::class.java) {
+        handle(it)
+      }
+      .build()
   }
 
   private fun handle(msg: Any) {

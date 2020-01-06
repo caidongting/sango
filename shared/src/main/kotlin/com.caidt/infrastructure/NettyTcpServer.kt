@@ -16,19 +16,19 @@ class NettyTcpServer(private val port: Int) {
 
   fun init() {
     bootstrap = ServerBootstrap()
-        .group(NioEventLoopGroup(), NioEventLoopGroup())
-        .channel(NioServerSocketChannel::class.java)
-        .childOption(ChannelOption.SO_BACKLOG, 128)
-        .childOption(ChannelOption.SO_KEEPALIVE, true)
-        .childHandler(object : ChannelInitializer<SocketChannel>() {
-          override fun initChannel(ch: SocketChannel) {
-            ch.pipeline()
-                .addLast(LengthFieldBasedFrameDecoder(2048, 0, 4))
-                .addLast(ProtobufVarint32FrameDecoder())
-                .addLast(MyHandler())
-          }
+      .group(NioEventLoopGroup(), NioEventLoopGroup())
+      .channel(NioServerSocketChannel::class.java)
+      .childOption(ChannelOption.SO_BACKLOG, 128)
+      .childOption(ChannelOption.SO_KEEPALIVE, true)
+      .childHandler(object : ChannelInitializer<SocketChannel>() {
+        override fun initChannel(ch: SocketChannel) {
+          ch.pipeline()
+            .addLast(LengthFieldBasedFrameDecoder(2048, 0, 4))
+            .addLast(ProtobufVarint32FrameDecoder())
+            .addLast(MyHandler())
+        }
 
-        })
+      })
 
     bootstrap.bind(port).sync()
   }

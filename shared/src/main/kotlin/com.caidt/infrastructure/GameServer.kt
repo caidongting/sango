@@ -39,6 +39,7 @@ abstract class GameServer(port: Int) {
   private val netty: NettyTcpServer = NettyTcpServer(port = port)
 
   /** znode */
+  private val znode = Znode()
 
   lateinit var shardRegion: ActorRef
     protected set
@@ -54,7 +55,12 @@ abstract class GameServer(port: Int) {
   abstract fun close()
 
   fun beforeInit() {
+    znode.start()
     startActorSystem()
+  }
+
+  fun afterClose() {
+    znode.close()
   }
 
   private fun startActorSystem() {
@@ -80,7 +86,8 @@ abstract class GameServer(port: Int) {
   }
 
   fun startWorldProxy() {
-    worldProxy = ClusterSharding.get(actorSystem).startProxy("worldProxy", Optional.of(Role.world.name), messageExtractor)
+    worldProxy =
+      ClusterSharding.get(actorSystem).startProxy("worldProxy", Optional.of(Role.world.name), messageExtractor)
   }
 
   fun closeWorldProxy() {

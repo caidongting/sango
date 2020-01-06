@@ -1,6 +1,5 @@
-package com.caidt.world
+package com.caidt
 
-import akka.cluster.client.ClusterClientReceptionist
 import com.caidt.infrastructure.GameServer
 import com.caidt.infrastructure.Role
 
