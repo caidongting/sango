@@ -2,3 +2,5 @@
 /.gradle/
 /shared/build/
 *.iml
+.idea
+*/build

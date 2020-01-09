@@ -4,9 +4,7 @@
 package com.caidt.proto;
 
 public final class ProtoBase {
-  private ProtoBase() {
-  }
-
+  private ProtoBase() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -16,16 +14,14 @@ public final class ProtoBase {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-
   public interface RequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.Request)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.Request)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required int32 id = 1;</code>
      */
     boolean hasId();
-
     /**
      * <code>required int32 id = 1;</code>
      */
@@ -35,53 +31,44 @@ public final class ProtoBase {
      * <code>required string token = 2;</code>
      */
     boolean hasToken();
-
     /**
      * <code>required string token = 2;</code>
      */
     java.lang.String getToken();
-
     /**
      * <code>required string token = 2;</code>
      */
     com.google.protobuf.ByteString
-    getTokenBytes();
+        getTokenBytes();
 
     /**
-     * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+     * <code>required bytes req = 3;</code>
      */
     boolean hasReq();
-
     /**
-     * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+     * <code>required bytes req = 3;</code>
      */
-    com.caidt.proto.ProtoCsMessage.CsMessage getReq();
-
-    /**
-     * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
-     */
-    com.caidt.proto.ProtoCsMessage.CsMessageOrBuilder getReqOrBuilder();
+    com.google.protobuf.ByteString getReq();
   }
-
   /**
    * <pre>
    * --&gt; Response
    * </pre>
-   * <p>
-   * Protobuf type {@code com.com.caidt.proto.Request}
+   *
+   * Protobuf type {@code com.caidt.proto.Request}
    */
-  public static final class Request extends
+  public  static final class Request extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.Request)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.Request)
       RequestOrBuilder {
     // Use Request.newBuilder() to construct.
     private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private Request() {
       id_ = 0;
       token_ = "";
+      req_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -89,7 +76,6 @@ public final class ProtoBase {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private Request(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -108,7 +94,7 @@ public final class ProtoBase {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -125,16 +111,8 @@ public final class ProtoBase {
               break;
             }
             case 26: {
-              com.caidt.proto.ProtoCsMessage.CsMessage.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000004) == 0x00000004)) {
-                subBuilder = req_.toBuilder();
-              }
-              req_ = input.readMessage(com.caidt.proto.ProtoCsMessage.CsMessage.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(req_);
-                req_ = subBuilder.buildPartial();
-              }
               bitField0_ |= 0x00000004;
+              req_ = input.readBytes();
               break;
             }
           }
@@ -149,14 +127,13 @@ public final class ProtoBase {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Request_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Request_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoBase.Request.class, com.caidt.proto.ProtoBase.Request.Builder.class);
@@ -165,14 +142,12 @@ public final class ProtoBase {
     private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
-
     /**
      * <code>required int32 id = 1;</code>
      */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int32 id = 1;</code>
      */
@@ -182,14 +157,12 @@ public final class ProtoBase {
 
     public static final int TOKEN_FIELD_NUMBER = 2;
     private volatile java.lang.Object token_;
-
     /**
      * <code>required string token = 2;</code>
      */
     public boolean hasToken() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required string token = 2;</code>
      */
@@ -198,7 +171,7 @@ public final class ProtoBase {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -207,15 +180,14 @@ public final class ProtoBase {
         return s;
       }
     }
-
     /**
      * <code>required string token = 2;</code>
      */
     public com.google.protobuf.ByteString
-    getTokenBytes() {
+        getTokenBytes() {
       java.lang.Object ref = token_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         token_ = b;
@@ -226,31 +198,21 @@ public final class ProtoBase {
     }
 
     public static final int REQ_FIELD_NUMBER = 3;
-    private com.caidt.proto.ProtoCsMessage.CsMessage req_;
-
+    private com.google.protobuf.ByteString req_;
     /**
-     * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+     * <code>required bytes req = 3;</code>
      */
     public boolean hasReq() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-
     /**
-     * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+     * <code>required bytes req = 3;</code>
      */
-    public com.caidt.proto.ProtoCsMessage.CsMessage getReq() {
-      return req_ == null ? com.caidt.proto.ProtoCsMessage.CsMessage.getDefaultInstance() : req_;
-    }
-
-    /**
-     * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
-     */
-    public com.caidt.proto.ProtoCsMessage.CsMessageOrBuilder getReqOrBuilder() {
-      return req_ == null ? com.caidt.proto.ProtoCsMessage.CsMessage.getDefaultInstance() : req_;
+    public com.google.protobuf.ByteString getReq() {
+      return req_;
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -268,16 +230,12 @@ public final class ProtoBase {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getReq().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, id_);
       }
@@ -285,7 +243,7 @@ public final class ProtoBase {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, token_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeMessage(3, getReq());
+        output.writeBytes(3, req_);
       }
       unknownFields.writeTo(output);
     }
@@ -297,14 +255,14 @@ public final class ProtoBase {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, id_);
+          .computeInt32Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, token_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(3, getReq());
+          .computeBytesSize(3, req_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -312,11 +270,10 @@ public final class ProtoBase {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoBase.Request)) {
         return super.equals(obj);
@@ -372,32 +329,27 @@ public final class ProtoBase {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -405,13 +357,11 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -419,14 +369,12 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Request parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -435,18 +383,13 @@ public final class ProtoBase {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoBase.Request prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -458,31 +401,30 @@ public final class ProtoBase {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * <pre>
      * --&gt; Response
      * </pre>
-     * <p>
-     * Protobuf type {@code com.com.caidt.proto.Request}
+     *
+     * Protobuf type {@code com.caidt.proto.Request}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.Request)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.Request)
         com.caidt.proto.ProtoBase.RequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Request_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Request_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoBase.Request.class, com.caidt.proto.ProtoBase.Request.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoBase.Request.newBuilder()
+      // Construct using com.caidt.proto.ProtoBase.Request.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -492,31 +434,24 @@ public final class ProtoBase {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
-          getReqFieldBuilder();
+                .alwaysUseFieldBuilders) {
         }
       }
-
       public Builder clear() {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
         token_ = "";
         bitField0_ = (bitField0_ & ~0x00000002);
-        if (reqBuilder_ == null) {
-          req_ = null;
-        } else {
-          reqBuilder_.clear();
-        }
+        req_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000004);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Request_descriptor;
       }
 
@@ -547,11 +482,7 @@ public final class ProtoBase {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        if (reqBuilder_ == null) {
-          result.req_ = req_;
-        } else {
-          result.req_ = reqBuilder_.build();
-        }
+        result.req_ = req_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -560,38 +491,32 @@ public final class ProtoBase {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoBase.Request) {
-          return mergeFrom((com.caidt.proto.ProtoBase.Request) other);
+          return mergeFrom((com.caidt.proto.ProtoBase.Request)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -609,7 +534,7 @@ public final class ProtoBase {
           onChanged();
         }
         if (other.hasReq()) {
-          mergeReq(other.getReq());
+          setReq(other.getReq());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -624,9 +549,6 @@ public final class ProtoBase {
           return false;
         }
         if (!hasReq()) {
-          return false;
-        }
-        if (!getReq().isInitialized()) {
           return false;
         }
         return true;
@@ -649,25 +571,21 @@ public final class ProtoBase {
         }
         return this;
       }
-
       private int bitField0_;
 
-      private int id_;
-
+      private int id_ ;
       /**
        * <code>required int32 id = 1;</code>
        */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
-
       /**
        * <code>required int32 id = 1;</code>
        */
@@ -677,7 +595,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required int32 id = 1;</code>
        */
@@ -689,14 +606,12 @@ public final class ProtoBase {
       }
 
       private java.lang.Object token_ = "";
-
       /**
        * <code>required string token = 2;</code>
        */
       public boolean hasToken() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required string token = 2;</code>
        */
@@ -714,15 +629,14 @@ public final class ProtoBase {
           return (java.lang.String) ref;
         }
       }
-
       /**
        * <code>required string token = 2;</code>
        */
       public com.google.protobuf.ByteString
-      getTokenBytes() {
+          getTokenBytes() {
         java.lang.Object ref = token_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           token_ = b;
@@ -731,21 +645,19 @@ public final class ProtoBase {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <code>required string token = 2;</code>
        */
       public Builder setToken(
           java.lang.String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000002;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         token_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <code>required string token = 2;</code>
        */
@@ -755,148 +667,54 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required string token = 2;</code>
        */
       public Builder setTokenBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000002;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         token_ = value;
         onChanged();
         return this;
       }
 
-      private com.caidt.proto.ProtoCsMessage.CsMessage req_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoCsMessage.CsMessage, com.caidt.proto.ProtoCsMessage.CsMessage.Builder, com.caidt.proto.ProtoCsMessage.CsMessageOrBuilder> reqBuilder_;
-
+      private com.google.protobuf.ByteString req_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+       * <code>required bytes req = 3;</code>
        */
       public boolean hasReq() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-
       /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+       * <code>required bytes req = 3;</code>
        */
-      public com.caidt.proto.ProtoCsMessage.CsMessage getReq() {
-        if (reqBuilder_ == null) {
-          return req_ == null ? com.caidt.proto.ProtoCsMessage.CsMessage.getDefaultInstance() : req_;
-        } else {
-          return reqBuilder_.getMessage();
-        }
+      public com.google.protobuf.ByteString getReq() {
+        return req_;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+       * <code>required bytes req = 3;</code>
        */
-      public Builder setReq(com.caidt.proto.ProtoCsMessage.CsMessage value) {
-        if (reqBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          req_ = value;
-          onChanged();
-        } else {
-          reqBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000004;
+      public Builder setReq(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
+        req_ = value;
+        onChanged();
         return this;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
-       */
-      public Builder setReq(
-          com.caidt.proto.ProtoCsMessage.CsMessage.Builder builderForValue) {
-        if (reqBuilder_ == null) {
-          req_ = builderForValue.build();
-          onChanged();
-        } else {
-          reqBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
-       */
-      public Builder mergeReq(com.caidt.proto.ProtoCsMessage.CsMessage value) {
-        if (reqBuilder_ == null) {
-          if (((bitField0_ & 0x00000004) == 0x00000004) &&
-              req_ != null &&
-              req_ != com.caidt.proto.ProtoCsMessage.CsMessage.getDefaultInstance()) {
-            req_ =
-                com.caidt.proto.ProtoCsMessage.CsMessage.newBuilder(req_).mergeFrom(value).buildPartial();
-          } else {
-            req_ = value;
-          }
-          onChanged();
-        } else {
-          reqBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000004;
-        return this;
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
+       * <code>required bytes req = 3;</code>
        */
       public Builder clearReq() {
-        if (reqBuilder_ == null) {
-          req_ = null;
-          onChanged();
-        } else {
-          reqBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000004);
+        req_ = getDefaultInstance().getReq();
+        onChanged();
         return this;
       }
-
-      /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
-       */
-      public com.caidt.proto.ProtoCsMessage.CsMessage.Builder getReqBuilder() {
-        bitField0_ |= 0x00000004;
-        onChanged();
-        return getReqFieldBuilder().getBuilder();
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
-       */
-      public com.caidt.proto.ProtoCsMessage.CsMessageOrBuilder getReqOrBuilder() {
-        if (reqBuilder_ != null) {
-          return reqBuilder_.getMessageOrBuilder();
-        } else {
-          return req_ == null ?
-              com.caidt.proto.ProtoCsMessage.CsMessage.getDefaultInstance() : req_;
-        }
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.CsMessage req = 3;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoCsMessage.CsMessage, com.caidt.proto.ProtoCsMessage.CsMessage.Builder, com.caidt.proto.ProtoCsMessage.CsMessageOrBuilder>
-      getReqFieldBuilder() {
-        if (reqBuilder_ == null) {
-          reqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.caidt.proto.ProtoCsMessage.CsMessage, com.caidt.proto.ProtoCsMessage.CsMessage.Builder, com.caidt.proto.ProtoCsMessage.CsMessageOrBuilder>(
-              getReq(),
-              getParentForChildren(),
-              isClean());
-          req_ = null;
-        }
-        return reqBuilder_;
-      }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -908,12 +726,11 @@ public final class ProtoBase {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.Request)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.Request)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.Request)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.Request)
     private static final com.caidt.proto.ProtoBase.Request DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoBase.Request();
     }
@@ -922,14 +739,13 @@ public final class ProtoBase {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<Request>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Request>
         PARSER = new com.google.protobuf.AbstractParser<Request>() {
       public Request parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Request(input, extensionRegistry);
+          return new Request(input, extensionRegistry);
       }
     };
 
@@ -949,49 +765,41 @@ public final class ProtoBase {
   }
 
   public interface ResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.Response)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.Response)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required int32 id = 1;</code>
      */
     boolean hasId();
-
     /**
      * <code>required int32 id = 1;</code>
      */
     int getId();
 
     /**
-     * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+     * <code>required bytes resp = 2;</code>
      */
     boolean hasResp();
-
     /**
-     * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+     * <code>required bytes resp = 2;</code>
      */
-    com.caidt.proto.ProtoScMessage.ScMessage getResp();
-
-    /**
-     * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
-     */
-    com.caidt.proto.ProtoScMessage.ScMessageOrBuilder getRespOrBuilder();
+    com.google.protobuf.ByteString getResp();
   }
-
   /**
-   * Protobuf type {@code com.com.caidt.proto.Response}
+   * Protobuf type {@code com.caidt.proto.Response}
    */
-  public static final class Response extends
+  public  static final class Response extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.Response)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.Response)
       ResponseOrBuilder {
     // Use Response.newBuilder() to construct.
     private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private Response() {
       id_ = 0;
+      resp_ = com.google.protobuf.ByteString.EMPTY;
     }
 
     @java.lang.Override
@@ -999,7 +807,6 @@ public final class ProtoBase {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private Response(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1018,7 +825,7 @@ public final class ProtoBase {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -1029,16 +836,8 @@ public final class ProtoBase {
               break;
             }
             case 18: {
-              com.caidt.proto.ProtoScMessage.ScMessage.Builder subBuilder = null;
-              if (((bitField0_ & 0x00000002) == 0x00000002)) {
-                subBuilder = resp_.toBuilder();
-              }
-              resp_ = input.readMessage(com.caidt.proto.ProtoScMessage.ScMessage.PARSER, extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(resp_);
-                resp_ = subBuilder.buildPartial();
-              }
               bitField0_ |= 0x00000002;
+              resp_ = input.readBytes();
               break;
             }
           }
@@ -1053,14 +852,13 @@ public final class ProtoBase {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Response_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Response_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoBase.Response.class, com.caidt.proto.ProtoBase.Response.Builder.class);
@@ -1069,14 +867,12 @@ public final class ProtoBase {
     private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
-
     /**
      * <code>required int32 id = 1;</code>
      */
     public boolean hasId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int32 id = 1;</code>
      */
@@ -1085,31 +881,21 @@ public final class ProtoBase {
     }
 
     public static final int RESP_FIELD_NUMBER = 2;
-    private com.caidt.proto.ProtoScMessage.ScMessage resp_;
-
+    private com.google.protobuf.ByteString resp_;
     /**
-     * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+     * <code>required bytes resp = 2;</code>
      */
     public boolean hasResp() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
-     * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+     * <code>required bytes resp = 2;</code>
      */
-    public com.caidt.proto.ProtoScMessage.ScMessage getResp() {
-      return resp_ == null ? com.caidt.proto.ProtoScMessage.ScMessage.getDefaultInstance() : resp_;
-    }
-
-    /**
-     * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
-     */
-    public com.caidt.proto.ProtoScMessage.ScMessageOrBuilder getRespOrBuilder() {
-      return resp_ == null ? com.caidt.proto.ProtoScMessage.ScMessage.getDefaultInstance() : resp_;
+    public com.google.protobuf.ByteString getResp() {
+      return resp_;
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1123,21 +909,17 @@ public final class ProtoBase {
         memoizedIsInitialized = 0;
         return false;
       }
-      if (!getResp().isInitialized()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
       memoizedIsInitialized = 1;
       return true;
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt32(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
-        output.writeMessage(2, getResp());
+        output.writeBytes(2, resp_);
       }
       unknownFields.writeTo(output);
     }
@@ -1149,11 +931,11 @@ public final class ProtoBase {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt32Size(1, id_);
+          .computeInt32Size(1, id_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, getResp());
+          .computeBytesSize(2, resp_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1161,11 +943,10 @@ public final class ProtoBase {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoBase.Response)) {
         return super.equals(obj);
@@ -1212,32 +993,27 @@ public final class ProtoBase {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1245,13 +1021,11 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1259,14 +1033,12 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Response parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1275,18 +1047,13 @@ public final class ProtoBase {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoBase.Response prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1298,27 +1065,26 @@ public final class ProtoBase {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
-     * Protobuf type {@code com.com.caidt.proto.Response}
+     * Protobuf type {@code com.caidt.proto.Response}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.Response)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.Response)
         com.caidt.proto.ProtoBase.ResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Response_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Response_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoBase.Response.class, com.caidt.proto.ProtoBase.Response.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoBase.Response.newBuilder()
+      // Construct using com.caidt.proto.ProtoBase.Response.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -1328,29 +1094,22 @@ public final class ProtoBase {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
-          getRespFieldBuilder();
+                .alwaysUseFieldBuilders) {
         }
       }
-
       public Builder clear() {
         super.clear();
         id_ = 0;
         bitField0_ = (bitField0_ & ~0x00000001);
-        if (respBuilder_ == null) {
-          resp_ = null;
-        } else {
-          respBuilder_.clear();
-        }
+        resp_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Response_descriptor;
       }
 
@@ -1377,11 +1136,7 @@ public final class ProtoBase {
         if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
           to_bitField0_ |= 0x00000002;
         }
-        if (respBuilder_ == null) {
-          result.resp_ = resp_;
-        } else {
-          result.resp_ = respBuilder_.build();
-        }
+        result.resp_ = resp_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1390,38 +1145,32 @@ public final class ProtoBase {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoBase.Response) {
-          return mergeFrom((com.caidt.proto.ProtoBase.Response) other);
+          return mergeFrom((com.caidt.proto.ProtoBase.Response)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -1434,7 +1183,7 @@ public final class ProtoBase {
           setId(other.getId());
         }
         if (other.hasResp()) {
-          mergeResp(other.getResp());
+          setResp(other.getResp());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1446,9 +1195,6 @@ public final class ProtoBase {
           return false;
         }
         if (!hasResp()) {
-          return false;
-        }
-        if (!getResp().isInitialized()) {
           return false;
         }
         return true;
@@ -1471,25 +1217,21 @@ public final class ProtoBase {
         }
         return this;
       }
-
       private int bitField0_;
 
-      private int id_;
-
+      private int id_ ;
       /**
        * <code>required int32 id = 1;</code>
        */
       public boolean hasId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int32 id = 1;</code>
        */
       public int getId() {
         return id_;
       }
-
       /**
        * <code>required int32 id = 1;</code>
        */
@@ -1499,7 +1241,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required int32 id = 1;</code>
        */
@@ -1510,133 +1251,40 @@ public final class ProtoBase {
         return this;
       }
 
-      private com.caidt.proto.ProtoScMessage.ScMessage resp_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoScMessage.ScMessage, com.caidt.proto.ProtoScMessage.ScMessage.Builder, com.caidt.proto.ProtoScMessage.ScMessageOrBuilder> respBuilder_;
-
+      private com.google.protobuf.ByteString resp_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+       * <code>required bytes resp = 2;</code>
        */
       public boolean hasResp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+       * <code>required bytes resp = 2;</code>
        */
-      public com.caidt.proto.ProtoScMessage.ScMessage getResp() {
-        if (respBuilder_ == null) {
-          return resp_ == null ? com.caidt.proto.ProtoScMessage.ScMessage.getDefaultInstance() : resp_;
-        } else {
-          return respBuilder_.getMessage();
-        }
+      public com.google.protobuf.ByteString getResp() {
+        return resp_;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+       * <code>required bytes resp = 2;</code>
        */
-      public Builder setResp(com.caidt.proto.ProtoScMessage.ScMessage value) {
-        if (respBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          resp_ = value;
-          onChanged();
-        } else {
-          respBuilder_.setMessage(value);
-        }
-        bitField0_ |= 0x00000002;
+      public Builder setResp(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
+        resp_ = value;
+        onChanged();
         return this;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
-       */
-      public Builder setResp(
-          com.caidt.proto.ProtoScMessage.ScMessage.Builder builderForValue) {
-        if (respBuilder_ == null) {
-          resp_ = builderForValue.build();
-          onChanged();
-        } else {
-          respBuilder_.setMessage(builderForValue.build());
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
-       */
-      public Builder mergeResp(com.caidt.proto.ProtoScMessage.ScMessage value) {
-        if (respBuilder_ == null) {
-          if (((bitField0_ & 0x00000002) == 0x00000002) &&
-              resp_ != null &&
-              resp_ != com.caidt.proto.ProtoScMessage.ScMessage.getDefaultInstance()) {
-            resp_ =
-                com.caidt.proto.ProtoScMessage.ScMessage.newBuilder(resp_).mergeFrom(value).buildPartial();
-          } else {
-            resp_ = value;
-          }
-          onChanged();
-        } else {
-          respBuilder_.mergeFrom(value);
-        }
-        bitField0_ |= 0x00000002;
-        return this;
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
+       * <code>required bytes resp = 2;</code>
        */
       public Builder clearResp() {
-        if (respBuilder_ == null) {
-          resp_ = null;
-          onChanged();
-        } else {
-          respBuilder_.clear();
-        }
         bitField0_ = (bitField0_ & ~0x00000002);
+        resp_ = getDefaultInstance().getResp();
+        onChanged();
         return this;
       }
-
-      /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
-       */
-      public com.caidt.proto.ProtoScMessage.ScMessage.Builder getRespBuilder() {
-        bitField0_ |= 0x00000002;
-        onChanged();
-        return getRespFieldBuilder().getBuilder();
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
-       */
-      public com.caidt.proto.ProtoScMessage.ScMessageOrBuilder getRespOrBuilder() {
-        if (respBuilder_ != null) {
-          return respBuilder_.getMessageOrBuilder();
-        } else {
-          return resp_ == null ?
-              com.caidt.proto.ProtoScMessage.ScMessage.getDefaultInstance() : resp_;
-        }
-      }
-
-      /**
-       * <code>required .com.com.caidt.proto.ScMessage resp = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoScMessage.ScMessage, com.caidt.proto.ProtoScMessage.ScMessage.Builder, com.caidt.proto.ProtoScMessage.ScMessageOrBuilder>
-      getRespFieldBuilder() {
-        if (respBuilder_ == null) {
-          respBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.caidt.proto.ProtoScMessage.ScMessage, com.caidt.proto.ProtoScMessage.ScMessage.Builder, com.caidt.proto.ProtoScMessage.ScMessageOrBuilder>(
-              getResp(),
-              getParentForChildren(),
-              isClean());
-          resp_ = null;
-        }
-        return respBuilder_;
-      }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -1648,12 +1296,11 @@ public final class ProtoBase {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.Response)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.Response)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.Response)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.Response)
     private static final com.caidt.proto.ProtoBase.Response DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoBase.Response();
     }
@@ -1662,14 +1309,13 @@ public final class ProtoBase {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<Response>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Response>
         PARSER = new com.google.protobuf.AbstractParser<Response>() {
       public Response parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Response(input, extensionRegistry);
+          return new Response(input, extensionRegistry);
       }
     };
 
@@ -1689,36 +1335,33 @@ public final class ProtoBase {
   }
 
   public interface PingOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.Ping)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.Ping)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
     boolean hasClientMillis();
-
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
     long getClientMillis();
   }
-
   /**
    * <pre>
    * 心跳检测 --&gt; Pong
    * </pre>
-   * <p>
-   * Protobuf type {@code com.com.caidt.proto.Ping}
+   *
+   * Protobuf type {@code com.caidt.proto.Ping}
    */
-  public static final class Ping extends
+  public  static final class Ping extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.Ping)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.Ping)
       PingOrBuilder {
     // Use Ping.newBuilder() to construct.
     private Ping(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private Ping() {
       clientMillis_ = 0L;
     }
@@ -1728,7 +1371,6 @@ public final class ProtoBase {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private Ping(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1747,7 +1389,7 @@ public final class ProtoBase {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -1769,14 +1411,13 @@ public final class ProtoBase {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Ping_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Ping_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoBase.Ping.class, com.caidt.proto.ProtoBase.Ping.Builder.class);
@@ -1785,14 +1426,12 @@ public final class ProtoBase {
     private int bitField0_;
     public static final int CLIENTMILLIS_FIELD_NUMBER = 1;
     private long clientMillis_;
-
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
     public boolean hasClientMillis() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
@@ -1801,7 +1440,6 @@ public final class ProtoBase {
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1816,7 +1454,7 @@ public final class ProtoBase {
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, clientMillis_);
       }
@@ -1830,7 +1468,7 @@ public final class ProtoBase {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(1, clientMillis_);
+          .computeInt64Size(1, clientMillis_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1838,11 +1476,10 @@ public final class ProtoBase {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoBase.Ping)) {
         return super.equals(obj);
@@ -1881,32 +1518,27 @@ public final class ProtoBase {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1914,13 +1546,11 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1928,14 +1558,12 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Ping parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1944,18 +1572,13 @@ public final class ProtoBase {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoBase.Ping prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1967,31 +1590,30 @@ public final class ProtoBase {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * <pre>
      * 心跳检测 --&gt; Pong
      * </pre>
-     * <p>
-     * Protobuf type {@code com.com.caidt.proto.Ping}
+     *
+     * Protobuf type {@code com.caidt.proto.Ping}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.Ping)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.Ping)
         com.caidt.proto.ProtoBase.PingOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Ping_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Ping_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoBase.Ping.class, com.caidt.proto.ProtoBase.Ping.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoBase.Ping.newBuilder()
+      // Construct using com.caidt.proto.ProtoBase.Ping.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2001,13 +1623,11 @@ public final class ProtoBase {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
+                .alwaysUseFieldBuilders) {
         }
       }
-
       public Builder clear() {
         super.clear();
         clientMillis_ = 0L;
@@ -2016,7 +1636,7 @@ public final class ProtoBase {
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Ping_descriptor;
       }
 
@@ -2048,38 +1668,32 @@ public final class ProtoBase {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoBase.Ping) {
-          return mergeFrom((com.caidt.proto.ProtoBase.Ping) other);
+          return mergeFrom((com.caidt.proto.ProtoBase.Ping)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -2120,25 +1734,21 @@ public final class ProtoBase {
         }
         return this;
       }
-
       private int bitField0_;
 
-      private long clientMillis_;
-
+      private long clientMillis_ ;
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
       public boolean hasClientMillis() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
       public long getClientMillis() {
         return clientMillis_;
       }
-
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
@@ -2148,7 +1758,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
@@ -2158,7 +1767,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -2170,12 +1778,11 @@ public final class ProtoBase {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.Ping)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.Ping)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.Ping)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.Ping)
     private static final com.caidt.proto.ProtoBase.Ping DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoBase.Ping();
     }
@@ -2184,14 +1791,13 @@ public final class ProtoBase {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<Ping>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Ping>
         PARSER = new com.google.protobuf.AbstractParser<Ping>() {
       public Ping parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Ping(input, extensionRegistry);
+          return new Ping(input, extensionRegistry);
       }
     };
 
@@ -2211,14 +1817,13 @@ public final class ProtoBase {
   }
 
   public interface PongOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.Pong)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.Pong)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
     boolean hasClientMillis();
-
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
@@ -2228,25 +1833,22 @@ public final class ProtoBase {
      * <code>required int64 serverMillis = 2;</code>
      */
     boolean hasServerMillis();
-
     /**
      * <code>required int64 serverMillis = 2;</code>
      */
     long getServerMillis();
   }
-
   /**
-   * Protobuf type {@code com.com.caidt.proto.Pong}
+   * Protobuf type {@code com.caidt.proto.Pong}
    */
-  public static final class Pong extends
+  public  static final class Pong extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.Pong)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.Pong)
       PongOrBuilder {
     // Use Pong.newBuilder() to construct.
     private Pong(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private Pong() {
       clientMillis_ = 0L;
       serverMillis_ = 0L;
@@ -2257,7 +1859,6 @@ public final class ProtoBase {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private Pong(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2276,7 +1877,7 @@ public final class ProtoBase {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -2303,14 +1904,13 @@ public final class ProtoBase {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Pong_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Pong_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoBase.Pong.class, com.caidt.proto.ProtoBase.Pong.Builder.class);
@@ -2319,14 +1919,12 @@ public final class ProtoBase {
     private int bitField0_;
     public static final int CLIENTMILLIS_FIELD_NUMBER = 1;
     private long clientMillis_;
-
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
     public boolean hasClientMillis() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 clientMillis = 1;</code>
      */
@@ -2336,14 +1934,12 @@ public final class ProtoBase {
 
     public static final int SERVERMILLIS_FIELD_NUMBER = 2;
     private long serverMillis_;
-
     /**
      * <code>required int64 serverMillis = 2;</code>
      */
     public boolean hasServerMillis() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required int64 serverMillis = 2;</code>
      */
@@ -2352,7 +1948,6 @@ public final class ProtoBase {
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2371,7 +1966,7 @@ public final class ProtoBase {
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, clientMillis_);
       }
@@ -2388,11 +1983,11 @@ public final class ProtoBase {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(1, clientMillis_);
+          .computeInt64Size(1, clientMillis_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(2, serverMillis_);
+          .computeInt64Size(2, serverMillis_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2400,11 +1995,10 @@ public final class ProtoBase {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoBase.Pong)) {
         return super.equals(obj);
@@ -2453,32 +2047,27 @@ public final class ProtoBase {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2486,13 +2075,11 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2500,14 +2087,12 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.Pong parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2516,18 +2101,13 @@ public final class ProtoBase {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoBase.Pong prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2539,27 +2119,26 @@ public final class ProtoBase {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
-     * Protobuf type {@code com.com.caidt.proto.Pong}
+     * Protobuf type {@code com.caidt.proto.Pong}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.Pong)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.Pong)
         com.caidt.proto.ProtoBase.PongOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Pong_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Pong_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoBase.Pong.class, com.caidt.proto.ProtoBase.Pong.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoBase.Pong.newBuilder()
+      // Construct using com.caidt.proto.ProtoBase.Pong.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2569,13 +2148,11 @@ public final class ProtoBase {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
+                .alwaysUseFieldBuilders) {
         }
       }
-
       public Builder clear() {
         super.clear();
         clientMillis_ = 0L;
@@ -2586,7 +2163,7 @@ public final class ProtoBase {
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_Pong_descriptor;
       }
 
@@ -2622,38 +2199,32 @@ public final class ProtoBase {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoBase.Pong) {
-          return mergeFrom((com.caidt.proto.ProtoBase.Pong) other);
+          return mergeFrom((com.caidt.proto.ProtoBase.Pong)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -2700,25 +2271,21 @@ public final class ProtoBase {
         }
         return this;
       }
-
       private int bitField0_;
 
-      private long clientMillis_;
-
+      private long clientMillis_ ;
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
       public boolean hasClientMillis() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
       public long getClientMillis() {
         return clientMillis_;
       }
-
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
@@ -2728,7 +2295,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 clientMillis = 1;</code>
        */
@@ -2739,22 +2305,19 @@ public final class ProtoBase {
         return this;
       }
 
-      private long serverMillis_;
-
+      private long serverMillis_ ;
       /**
        * <code>required int64 serverMillis = 2;</code>
        */
       public boolean hasServerMillis() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required int64 serverMillis = 2;</code>
        */
       public long getServerMillis() {
         return serverMillis_;
       }
-
       /**
        * <code>required int64 serverMillis = 2;</code>
        */
@@ -2764,7 +2327,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 serverMillis = 2;</code>
        */
@@ -2774,7 +2336,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -2786,12 +2347,11 @@ public final class ProtoBase {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.Pong)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.Pong)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.Pong)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.Pong)
     private static final com.caidt.proto.ProtoBase.Pong DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoBase.Pong();
     }
@@ -2800,14 +2360,13 @@ public final class ProtoBase {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<Pong>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<Pong>
         PARSER = new com.google.protobuf.AbstractParser<Pong>() {
       public Pong parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Pong(input, extensionRegistry);
+          return new Pong(input, extensionRegistry);
       }
     };
 
@@ -2827,58 +2386,52 @@ public final class ProtoBase {
   }
 
   public interface LoginRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.LoginRequest)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.LoginRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required string username = 1;</code>
      */
     boolean hasUsername();
-
     /**
      * <code>required string username = 1;</code>
      */
     java.lang.String getUsername();
-
     /**
      * <code>required string username = 1;</code>
      */
     com.google.protobuf.ByteString
-    getUsernameBytes();
+        getUsernameBytes();
 
     /**
      * <code>required string password = 2;</code>
      */
     boolean hasPassword();
-
     /**
      * <code>required string password = 2;</code>
      */
     java.lang.String getPassword();
-
     /**
      * <code>required string password = 2;</code>
      */
     com.google.protobuf.ByteString
-    getPasswordBytes();
+        getPasswordBytes();
   }
-
   /**
    * <pre>
    * 登录请求 --&gt; LoginResponse
    * </pre>
-   * <p>
-   * Protobuf type {@code com.com.caidt.proto.LoginRequest}
+   *
+   * Protobuf type {@code com.caidt.proto.LoginRequest}
    */
-  public static final class LoginRequest extends
+  public  static final class LoginRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.LoginRequest)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.LoginRequest)
       LoginRequestOrBuilder {
     // Use LoginRequest.newBuilder() to construct.
     private LoginRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private LoginRequest() {
       username_ = "";
       password_ = "";
@@ -2889,7 +2442,6 @@ public final class ProtoBase {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private LoginRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2908,7 +2460,7 @@ public final class ProtoBase {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -2937,14 +2489,13 @@ public final class ProtoBase {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoBase.LoginRequest.class, com.caidt.proto.ProtoBase.LoginRequest.Builder.class);
@@ -2953,14 +2504,12 @@ public final class ProtoBase {
     private int bitField0_;
     public static final int USERNAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object username_;
-
     /**
      * <code>required string username = 1;</code>
      */
     public boolean hasUsername() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required string username = 1;</code>
      */
@@ -2969,7 +2518,7 @@ public final class ProtoBase {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -2978,15 +2527,14 @@ public final class ProtoBase {
         return s;
       }
     }
-
     /**
      * <code>required string username = 1;</code>
      */
     public com.google.protobuf.ByteString
-    getUsernameBytes() {
+        getUsernameBytes() {
       java.lang.Object ref = username_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         username_ = b;
@@ -2998,14 +2546,12 @@ public final class ProtoBase {
 
     public static final int PASSWORD_FIELD_NUMBER = 2;
     private volatile java.lang.Object password_;
-
     /**
      * <code>required string password = 2;</code>
      */
     public boolean hasPassword() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required string password = 2;</code>
      */
@@ -3014,7 +2560,7 @@ public final class ProtoBase {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -3023,15 +2569,14 @@ public final class ProtoBase {
         return s;
       }
     }
-
     /**
      * <code>required string password = 2;</code>
      */
     public com.google.protobuf.ByteString
-    getPasswordBytes() {
+        getPasswordBytes() {
       java.lang.Object ref = password_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         password_ = b;
@@ -3042,7 +2587,6 @@ public final class ProtoBase {
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3061,7 +2605,7 @@ public final class ProtoBase {
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, username_);
       }
@@ -3088,11 +2632,10 @@ public final class ProtoBase {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoBase.LoginRequest)) {
         return super.equals(obj);
@@ -3139,32 +2682,27 @@ public final class ProtoBase {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3172,13 +2710,11 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3186,14 +2722,12 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.LoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3202,18 +2736,13 @@ public final class ProtoBase {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoBase.LoginRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3225,31 +2754,30 @@ public final class ProtoBase {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * <pre>
      * 登录请求 --&gt; LoginResponse
      * </pre>
-     * <p>
-     * Protobuf type {@code com.com.caidt.proto.LoginRequest}
+     *
+     * Protobuf type {@code com.caidt.proto.LoginRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.LoginRequest)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.LoginRequest)
         com.caidt.proto.ProtoBase.LoginRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoBase.LoginRequest.class, com.caidt.proto.ProtoBase.LoginRequest.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoBase.LoginRequest.newBuilder()
+      // Construct using com.caidt.proto.ProtoBase.LoginRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3259,13 +2787,11 @@ public final class ProtoBase {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
+                .alwaysUseFieldBuilders) {
         }
       }
-
       public Builder clear() {
         super.clear();
         username_ = "";
@@ -3276,7 +2802,7 @@ public final class ProtoBase {
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginRequest_descriptor;
       }
 
@@ -3312,38 +2838,32 @@ public final class ProtoBase {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoBase.LoginRequest) {
-          return mergeFrom((com.caidt.proto.ProtoBase.LoginRequest) other);
+          return mergeFrom((com.caidt.proto.ProtoBase.LoginRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -3394,18 +2914,15 @@ public final class ProtoBase {
         }
         return this;
       }
-
       private int bitField0_;
 
       private java.lang.Object username_ = "";
-
       /**
        * <code>required string username = 1;</code>
        */
       public boolean hasUsername() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required string username = 1;</code>
        */
@@ -3423,15 +2940,14 @@ public final class ProtoBase {
           return (java.lang.String) ref;
         }
       }
-
       /**
        * <code>required string username = 1;</code>
        */
       public com.google.protobuf.ByteString
-      getUsernameBytes() {
+          getUsernameBytes() {
         java.lang.Object ref = username_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           username_ = b;
@@ -3440,21 +2956,19 @@ public final class ProtoBase {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <code>required string username = 1;</code>
        */
       public Builder setUsername(
           java.lang.String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         username_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <code>required string username = 1;</code>
        */
@@ -3464,30 +2978,27 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required string username = 1;</code>
        */
       public Builder setUsernameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000001;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000001;
         username_ = value;
         onChanged();
         return this;
       }
 
       private java.lang.Object password_ = "";
-
       /**
        * <code>required string password = 2;</code>
        */
       public boolean hasPassword() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required string password = 2;</code>
        */
@@ -3505,15 +3016,14 @@ public final class ProtoBase {
           return (java.lang.String) ref;
         }
       }
-
       /**
        * <code>required string password = 2;</code>
        */
       public com.google.protobuf.ByteString
-      getPasswordBytes() {
+          getPasswordBytes() {
         java.lang.Object ref = password_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           password_ = b;
@@ -3522,21 +3032,19 @@ public final class ProtoBase {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <code>required string password = 2;</code>
        */
       public Builder setPassword(
           java.lang.String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000002;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         password_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <code>required string password = 2;</code>
        */
@@ -3546,21 +3054,19 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required string password = 2;</code>
        */
       public Builder setPasswordBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000002;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         password_ = value;
         onChanged();
         return this;
       }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -3572,12 +3078,11 @@ public final class ProtoBase {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.LoginRequest)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.LoginRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.LoginRequest)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.LoginRequest)
     private static final com.caidt.proto.ProtoBase.LoginRequest DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoBase.LoginRequest();
     }
@@ -3586,14 +3091,13 @@ public final class ProtoBase {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<LoginRequest>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<LoginRequest>
         PARSER = new com.google.protobuf.AbstractParser<LoginRequest>() {
       public LoginRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginRequest(input, extensionRegistry);
+          return new LoginRequest(input, extensionRegistry);
       }
     };
 
@@ -3613,47 +3117,42 @@ public final class ProtoBase {
   }
 
   public interface LoginResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.LoginResponse)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.LoginResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required int64 serverId = 1;</code>
      */
     boolean hasServerId();
-
     /**
      * <code>required int64 serverId = 1;</code>
      */
     long getServerId();
 
     /**
-     * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+     * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
      */
     boolean hasPlayer();
-
     /**
-     * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+     * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
      */
     com.caidt.proto.ProtoBase.PlayerInfo getPlayer();
-
     /**
-     * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+     * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
      */
     com.caidt.proto.ProtoBase.PlayerInfoOrBuilder getPlayerOrBuilder();
   }
-
   /**
-   * Protobuf type {@code com.com.caidt.proto.LoginResponse}
+   * Protobuf type {@code com.caidt.proto.LoginResponse}
    */
-  public static final class LoginResponse extends
+  public  static final class LoginResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.LoginResponse)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.LoginResponse)
       LoginResponseOrBuilder {
     // Use LoginResponse.newBuilder() to construct.
     private LoginResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private LoginResponse() {
       serverId_ = 0L;
     }
@@ -3663,7 +3162,6 @@ public final class ProtoBase {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private LoginResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3682,7 +3180,7 @@ public final class ProtoBase {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -3717,14 +3215,13 @@ public final class ProtoBase {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoBase.LoginResponse.class, com.caidt.proto.ProtoBase.LoginResponse.Builder.class);
@@ -3733,14 +3230,12 @@ public final class ProtoBase {
     private int bitField0_;
     public static final int SERVERID_FIELD_NUMBER = 1;
     private long serverId_;
-
     /**
      * <code>required int64 serverId = 1;</code>
      */
     public boolean hasServerId() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 serverId = 1;</code>
      */
@@ -3750,30 +3245,26 @@ public final class ProtoBase {
 
     public static final int PLAYER_FIELD_NUMBER = 2;
     private com.caidt.proto.ProtoBase.PlayerInfo player_;
-
     /**
-     * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+     * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
      */
     public boolean hasPlayer() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
-     * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+     * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
      */
     public com.caidt.proto.ProtoBase.PlayerInfo getPlayer() {
       return player_ == null ? com.caidt.proto.ProtoBase.PlayerInfo.getDefaultInstance() : player_;
     }
-
     /**
-     * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+     * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
      */
     public com.caidt.proto.ProtoBase.PlayerInfoOrBuilder getPlayerOrBuilder() {
       return player_ == null ? com.caidt.proto.ProtoBase.PlayerInfo.getDefaultInstance() : player_;
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3796,7 +3287,7 @@ public final class ProtoBase {
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, serverId_);
       }
@@ -3813,11 +3304,11 @@ public final class ProtoBase {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(1, serverId_);
+          .computeInt64Size(1, serverId_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(2, getPlayer());
+          .computeMessageSize(2, getPlayer());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -3825,11 +3316,10 @@ public final class ProtoBase {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoBase.LoginResponse)) {
         return super.equals(obj);
@@ -3877,32 +3367,27 @@ public final class ProtoBase {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3910,13 +3395,11 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3924,14 +3407,12 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.LoginResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3940,18 +3421,13 @@ public final class ProtoBase {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoBase.LoginResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3963,27 +3439,26 @@ public final class ProtoBase {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
-     * Protobuf type {@code com.com.caidt.proto.LoginResponse}
+     * Protobuf type {@code com.caidt.proto.LoginResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.LoginResponse)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.LoginResponse)
         com.caidt.proto.ProtoBase.LoginResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoBase.LoginResponse.class, com.caidt.proto.ProtoBase.LoginResponse.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoBase.LoginResponse.newBuilder()
+      // Construct using com.caidt.proto.ProtoBase.LoginResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3993,14 +3468,12 @@ public final class ProtoBase {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
+                .alwaysUseFieldBuilders) {
           getPlayerFieldBuilder();
         }
       }
-
       public Builder clear() {
         super.clear();
         serverId_ = 0L;
@@ -4015,7 +3488,7 @@ public final class ProtoBase {
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_LoginResponse_descriptor;
       }
 
@@ -4055,38 +3528,32 @@ public final class ProtoBase {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoBase.LoginResponse) {
-          return mergeFrom((com.caidt.proto.ProtoBase.LoginResponse) other);
+          return mergeFrom((com.caidt.proto.ProtoBase.LoginResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -4136,25 +3603,21 @@ public final class ProtoBase {
         }
         return this;
       }
-
       private int bitField0_;
 
-      private long serverId_;
-
+      private long serverId_ ;
       /**
        * <code>required int64 serverId = 1;</code>
        */
       public boolean hasServerId() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 serverId = 1;</code>
        */
       public long getServerId() {
         return serverId_;
       }
-
       /**
        * <code>required int64 serverId = 1;</code>
        */
@@ -4164,7 +3627,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 serverId = 1;</code>
        */
@@ -4178,16 +3640,14 @@ public final class ProtoBase {
       private com.caidt.proto.ProtoBase.PlayerInfo player_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.caidt.proto.ProtoBase.PlayerInfo, com.caidt.proto.ProtoBase.PlayerInfo.Builder, com.caidt.proto.ProtoBase.PlayerInfoOrBuilder> playerBuilder_;
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public boolean hasPlayer() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public com.caidt.proto.ProtoBase.PlayerInfo getPlayer() {
         if (playerBuilder_ == null) {
@@ -4196,9 +3656,8 @@ public final class ProtoBase {
           return playerBuilder_.getMessage();
         }
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public Builder setPlayer(com.caidt.proto.ProtoBase.PlayerInfo value) {
         if (playerBuilder_ == null) {
@@ -4213,9 +3672,8 @@ public final class ProtoBase {
         bitField0_ |= 0x00000002;
         return this;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public Builder setPlayer(
           com.caidt.proto.ProtoBase.PlayerInfo.Builder builderForValue) {
@@ -4228,9 +3686,8 @@ public final class ProtoBase {
         bitField0_ |= 0x00000002;
         return this;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public Builder mergePlayer(com.caidt.proto.ProtoBase.PlayerInfo value) {
         if (playerBuilder_ == null) {
@@ -4238,7 +3695,7 @@ public final class ProtoBase {
               player_ != null &&
               player_ != com.caidt.proto.ProtoBase.PlayerInfo.getDefaultInstance()) {
             player_ =
-                com.caidt.proto.ProtoBase.PlayerInfo.newBuilder(player_).mergeFrom(value).buildPartial();
+              com.caidt.proto.ProtoBase.PlayerInfo.newBuilder(player_).mergeFrom(value).buildPartial();
           } else {
             player_ = value;
           }
@@ -4249,9 +3706,8 @@ public final class ProtoBase {
         bitField0_ |= 0x00000002;
         return this;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public Builder clearPlayer() {
         if (playerBuilder_ == null) {
@@ -4263,18 +3719,16 @@ public final class ProtoBase {
         bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public com.caidt.proto.ProtoBase.PlayerInfo.Builder getPlayerBuilder() {
         bitField0_ |= 0x00000002;
         onChanged();
         return getPlayerFieldBuilder().getBuilder();
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       public com.caidt.proto.ProtoBase.PlayerInfoOrBuilder getPlayerOrBuilder() {
         if (playerBuilder_ != null) {
@@ -4284,24 +3738,22 @@ public final class ProtoBase {
               com.caidt.proto.ProtoBase.PlayerInfo.getDefaultInstance() : player_;
         }
       }
-
       /**
-       * <code>required .com.com.caidt.proto.PlayerInfo player = 2;</code>
+       * <code>required .com.caidt.proto.PlayerInfo player = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoBase.PlayerInfo, com.caidt.proto.ProtoBase.PlayerInfo.Builder, com.caidt.proto.ProtoBase.PlayerInfoOrBuilder>
-      getPlayerFieldBuilder() {
+          com.caidt.proto.ProtoBase.PlayerInfo, com.caidt.proto.ProtoBase.PlayerInfo.Builder, com.caidt.proto.ProtoBase.PlayerInfoOrBuilder> 
+          getPlayerFieldBuilder() {
         if (playerBuilder_ == null) {
           playerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.caidt.proto.ProtoBase.PlayerInfo, com.caidt.proto.ProtoBase.PlayerInfo.Builder, com.caidt.proto.ProtoBase.PlayerInfoOrBuilder>(
-              getPlayer(),
-              getParentForChildren(),
-              isClean());
+                  getPlayer(),
+                  getParentForChildren(),
+                  isClean());
           player_ = null;
         }
         return playerBuilder_;
       }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -4313,12 +3765,11 @@ public final class ProtoBase {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.LoginResponse)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.LoginResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.LoginResponse)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.LoginResponse)
     private static final com.caidt.proto.ProtoBase.LoginResponse DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoBase.LoginResponse();
     }
@@ -4327,14 +3778,13 @@ public final class ProtoBase {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<LoginResponse>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<LoginResponse>
         PARSER = new com.google.protobuf.AbstractParser<LoginResponse>() {
       public LoginResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new LoginResponse(input, extensionRegistry);
+          return new LoginResponse(input, extensionRegistry);
       }
     };
 
@@ -4354,14 +3804,13 @@ public final class ProtoBase {
   }
 
   public interface PlayerInfoOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.PlayerInfo)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.PlayerInfo)
       com.google.protobuf.MessageOrBuilder {
 
     /**
      * <code>required int64 uid = 1;</code>
      */
     boolean hasUid();
-
     /**
      * <code>required int64 uid = 1;</code>
      */
@@ -4371,61 +3820,54 @@ public final class ProtoBase {
      * <code>required string name = 2;</code>
      */
     boolean hasName();
-
     /**
      * <code>required string name = 2;</code>
      */
     java.lang.String getName();
-
     /**
      * <code>required string name = 2;</code>
      */
     com.google.protobuf.ByteString
-    getNameBytes();
+        getNameBytes();
 
     /**
      * <code>optional string nickname = 3;</code>
      */
     boolean hasNickname();
-
     /**
      * <code>optional string nickname = 3;</code>
      */
     java.lang.String getNickname();
-
     /**
      * <code>optional string nickname = 3;</code>
      */
     com.google.protobuf.ByteString
-    getNicknameBytes();
+        getNicknameBytes();
 
     /**
      * <code>optional int64 power = 4;</code>
      */
     boolean hasPower();
-
     /**
      * <code>optional int64 power = 4;</code>
      */
     long getPower();
   }
-
   /**
    * <pre>
    * 玩家信息
    * </pre>
-   * <p>
-   * Protobuf type {@code com.com.caidt.proto.PlayerInfo}
+   *
+   * Protobuf type {@code com.caidt.proto.PlayerInfo}
    */
-  public static final class PlayerInfo extends
+  public  static final class PlayerInfo extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.PlayerInfo)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.PlayerInfo)
       PlayerInfoOrBuilder {
     // Use PlayerInfo.newBuilder() to construct.
     private PlayerInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private PlayerInfo() {
       uid_ = 0L;
       name_ = "";
@@ -4438,7 +3880,6 @@ public final class ProtoBase {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private PlayerInfo(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4457,7 +3898,7 @@ public final class ProtoBase {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -4496,14 +3937,13 @@ public final class ProtoBase {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_PlayerInfo_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_PlayerInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoBase.PlayerInfo.class, com.caidt.proto.ProtoBase.PlayerInfo.Builder.class);
@@ -4512,14 +3952,12 @@ public final class ProtoBase {
     private int bitField0_;
     public static final int UID_FIELD_NUMBER = 1;
     private long uid_;
-
     /**
      * <code>required int64 uid = 1;</code>
      */
     public boolean hasUid() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
-
     /**
      * <code>required int64 uid = 1;</code>
      */
@@ -4529,14 +3967,12 @@ public final class ProtoBase {
 
     public static final int NAME_FIELD_NUMBER = 2;
     private volatile java.lang.Object name_;
-
     /**
      * <code>required string name = 2;</code>
      */
     public boolean hasName() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
-
     /**
      * <code>required string name = 2;</code>
      */
@@ -4545,7 +3981,7 @@ public final class ProtoBase {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -4554,15 +3990,14 @@ public final class ProtoBase {
         return s;
       }
     }
-
     /**
      * <code>required string name = 2;</code>
      */
     public com.google.protobuf.ByteString
-    getNameBytes() {
+        getNameBytes() {
       java.lang.Object ref = name_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         name_ = b;
@@ -4574,14 +4009,12 @@ public final class ProtoBase {
 
     public static final int NICKNAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object nickname_;
-
     /**
      * <code>optional string nickname = 3;</code>
      */
     public boolean hasNickname() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
-
     /**
      * <code>optional string nickname = 3;</code>
      */
@@ -4590,7 +4023,7 @@ public final class ProtoBase {
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
-        com.google.protobuf.ByteString bs =
+        com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
         if (bs.isValidUtf8()) {
@@ -4599,15 +4032,14 @@ public final class ProtoBase {
         return s;
       }
     }
-
     /**
      * <code>optional string nickname = 3;</code>
      */
     public com.google.protobuf.ByteString
-    getNicknameBytes() {
+        getNicknameBytes() {
       java.lang.Object ref = nickname_;
       if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b =
+        com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
         nickname_ = b;
@@ -4619,14 +4051,12 @@ public final class ProtoBase {
 
     public static final int POWER_FIELD_NUMBER = 4;
     private long power_;
-
     /**
      * <code>optional int64 power = 4;</code>
      */
     public boolean hasPower() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
-
     /**
      * <code>optional int64 power = 4;</code>
      */
@@ -4635,7 +4065,6 @@ public final class ProtoBase {
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4654,7 +4083,7 @@ public final class ProtoBase {
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         output.writeInt64(1, uid_);
       }
@@ -4677,7 +4106,7 @@ public final class ProtoBase {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(1, uid_);
+          .computeInt64Size(1, uid_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, name_);
@@ -4687,7 +4116,7 @@ public final class ProtoBase {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-            .computeInt64Size(4, power_);
+          .computeInt64Size(4, power_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4695,11 +4124,10 @@ public final class ProtoBase {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoBase.PlayerInfo)) {
         return super.equals(obj);
@@ -4766,32 +4194,27 @@ public final class ProtoBase {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4799,13 +4222,11 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4813,14 +4234,12 @@ public final class ProtoBase {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoBase.PlayerInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4829,18 +4248,13 @@ public final class ProtoBase {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoBase.PlayerInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4852,31 +4266,30 @@ public final class ProtoBase {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
      * <pre>
      * 玩家信息
      * </pre>
-     * <p>
-     * Protobuf type {@code com.com.caidt.proto.PlayerInfo}
+     *
+     * Protobuf type {@code com.caidt.proto.PlayerInfo}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.PlayerInfo)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.PlayerInfo)
         com.caidt.proto.ProtoBase.PlayerInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_PlayerInfo_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_PlayerInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoBase.PlayerInfo.class, com.caidt.proto.ProtoBase.PlayerInfo.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoBase.PlayerInfo.newBuilder()
+      // Construct using com.caidt.proto.ProtoBase.PlayerInfo.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4886,13 +4299,11 @@ public final class ProtoBase {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
+                .alwaysUseFieldBuilders) {
         }
       }
-
       public Builder clear() {
         super.clear();
         uid_ = 0L;
@@ -4907,7 +4318,7 @@ public final class ProtoBase {
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoBase.internal_static_com_caidt_proto_PlayerInfo_descriptor;
       }
 
@@ -4951,38 +4362,32 @@ public final class ProtoBase {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoBase.PlayerInfo) {
-          return mergeFrom((com.caidt.proto.ProtoBase.PlayerInfo) other);
+          return mergeFrom((com.caidt.proto.ProtoBase.PlayerInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -5039,25 +4444,21 @@ public final class ProtoBase {
         }
         return this;
       }
-
       private int bitField0_;
 
-      private long uid_;
-
+      private long uid_ ;
       /**
        * <code>required int64 uid = 1;</code>
        */
       public boolean hasUid() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
-
       /**
        * <code>required int64 uid = 1;</code>
        */
       public long getUid() {
         return uid_;
       }
-
       /**
        * <code>required int64 uid = 1;</code>
        */
@@ -5067,7 +4468,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required int64 uid = 1;</code>
        */
@@ -5079,14 +4479,12 @@ public final class ProtoBase {
       }
 
       private java.lang.Object name_ = "";
-
       /**
        * <code>required string name = 2;</code>
        */
       public boolean hasName() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
-
       /**
        * <code>required string name = 2;</code>
        */
@@ -5104,15 +4502,14 @@ public final class ProtoBase {
           return (java.lang.String) ref;
         }
       }
-
       /**
        * <code>required string name = 2;</code>
        */
       public com.google.protobuf.ByteString
-      getNameBytes() {
+          getNameBytes() {
         java.lang.Object ref = name_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           name_ = b;
@@ -5121,21 +4518,19 @@ public final class ProtoBase {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <code>required string name = 2;</code>
        */
       public Builder setName(
           java.lang.String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000002;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         name_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <code>required string name = 2;</code>
        */
@@ -5145,30 +4540,27 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>required string name = 2;</code>
        */
       public Builder setNameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000002;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000002;
         name_ = value;
         onChanged();
         return this;
       }
 
       private java.lang.Object nickname_ = "";
-
       /**
        * <code>optional string nickname = 3;</code>
        */
       public boolean hasNickname() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
-
       /**
        * <code>optional string nickname = 3;</code>
        */
@@ -5186,15 +4578,14 @@ public final class ProtoBase {
           return (java.lang.String) ref;
         }
       }
-
       /**
        * <code>optional string nickname = 3;</code>
        */
       public com.google.protobuf.ByteString
-      getNicknameBytes() {
+          getNicknameBytes() {
         java.lang.Object ref = nickname_;
         if (ref instanceof String) {
-          com.google.protobuf.ByteString b =
+          com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
           nickname_ = b;
@@ -5203,21 +4594,19 @@ public final class ProtoBase {
           return (com.google.protobuf.ByteString) ref;
         }
       }
-
       /**
        * <code>optional string nickname = 3;</code>
        */
       public Builder setNickname(
           java.lang.String value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000004;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         nickname_ = value;
         onChanged();
         return this;
       }
-
       /**
        * <code>optional string nickname = 3;</code>
        */
@@ -5227,37 +4616,33 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>optional string nickname = 3;</code>
        */
       public Builder setNicknameBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
-          throw new NullPointerException();
-        }
-        bitField0_ |= 0x00000004;
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000004;
         nickname_ = value;
         onChanged();
         return this;
       }
 
-      private long power_;
-
+      private long power_ ;
       /**
        * <code>optional int64 power = 4;</code>
        */
       public boolean hasPower() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
-
       /**
        * <code>optional int64 power = 4;</code>
        */
       public long getPower() {
         return power_;
       }
-
       /**
        * <code>optional int64 power = 4;</code>
        */
@@ -5267,7 +4652,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       /**
        * <code>optional int64 power = 4;</code>
        */
@@ -5277,7 +4661,6 @@ public final class ProtoBase {
         onChanged();
         return this;
       }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -5289,12 +4672,11 @@ public final class ProtoBase {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.PlayerInfo)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.PlayerInfo)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.PlayerInfo)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.PlayerInfo)
     private static final com.caidt.proto.ProtoBase.PlayerInfo DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoBase.PlayerInfo();
     }
@@ -5303,14 +4685,13 @@ public final class ProtoBase {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<PlayerInfo>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<PlayerInfo>
         PARSER = new com.google.protobuf.AbstractParser<PlayerInfo>() {
       public PlayerInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new PlayerInfo(input, extensionRegistry);
+          return new PlayerInfo(input, extensionRegistry);
       }
     };
 
@@ -5330,67 +4711,63 @@ public final class ProtoBase {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_Request_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_Request_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_Request_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_Response_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_Response_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_Response_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_Ping_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_Ping_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_Ping_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_Pong_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_Pong_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_Pong_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_LoginRequest_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_LoginRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_LoginRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_LoginResponse_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_LoginResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_LoginResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_PlayerInfo_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_PlayerInfo_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_PlayerInfo_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
-  getDescriptor() {
+      getDescriptor() {
     return descriptor;
   }
-
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
-
   static {
     java.lang.String[] descriptorData = {
-        "\n\020proto_base.proto\022\017com.com.caidt.proto\032\026pro" +
-            "to_cs_message.proto\032\026proto_sc_message.pr" +
-            "oto\"M\n\007Request\022\n\n\002id\030\001 \002(\005\022\r\n\005token\030\002 \002(" +
-            "\t\022\'\n\003req\030\003 \002(\0132\032.com.com.caidt.proto.CsMessa" +
-            "ge\"@\n\010Response\022\n\n\002id\030\001 \002(\005\022(\n\004resp\030\002 \002(\013" +
-            "2\032.com.com.caidt.proto.ScMessage\"\034\n\004Ping\022\024\n\014" +
-            "clientMillis\030\001 \002(\003\"2\n\004Pong\022\024\n\014clientMill" +
-            "is\030\001 \002(\003\022\024\n\014serverMillis\030\002 \002(\003\"2\n\014LoginR" +
-            "equest\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 \002" +
-            "(\t\"N\n\rLoginResponse\022\020\n\010serverId\030\001 \002(\003\022+\n",
-        "\006player\030\002 \002(\0132\033.com.com.caidt.proto.PlayerIn" +
-            "fo\"H\n\nPlayerInfo\022\013\n\003uid\030\001 \002(\003\022\014\n\004name\030\002 " +
-            "\002(\t\022\020\n\010nickname\030\003 \001(\t\022\r\n\005power\030\004 \001(\003"
+      "\n\020proto_base.proto\022\017com.caidt.proto\"1\n\007R" +
+      "equest\022\n\n\002id\030\001 \002(\005\022\r\n\005token\030\002 \002(\t\022\013\n\003req" +
+      "\030\003 \002(\014\"$\n\010Response\022\n\n\002id\030\001 \002(\005\022\014\n\004resp\030\002" +
+      " \002(\014\"\034\n\004Ping\022\024\n\014clientMillis\030\001 \002(\003\"2\n\004Po" +
+      "ng\022\024\n\014clientMillis\030\001 \002(\003\022\024\n\014serverMillis" +
+      "\030\002 \002(\003\"2\n\014LoginRequest\022\020\n\010username\030\001 \002(\t" +
+      "\022\020\n\010password\030\002 \002(\t\"N\n\rLoginResponse\022\020\n\010s" +
+      "erverId\030\001 \002(\003\022+\n\006player\030\002 \002(\0132\033.com.caid" +
+      "t.proto.PlayerInfo\"H\n\nPlayerInfo\022\013\n\003uid\030" +
+      "\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n\010nickname\030\003 \001(\t\022\r\n",
+      "\005power\030\004 \001(\003"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
@@ -5398,55 +4775,51 @@ public final class ProtoBase {
           }
         };
     com.google.protobuf.Descriptors.FileDescriptor
-        .internalBuildGeneratedFileFrom(descriptorData,
-            new com.google.protobuf.Descriptors.FileDescriptor[]{
-                com.caidt.proto.ProtoCsMessage.getDescriptor(),
-                com.caidt.proto.ProtoScMessage.getDescriptor(),
-            }, assigner);
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        }, assigner);
     internal_static_com_caidt_proto_Request_descriptor =
-        getDescriptor().getMessageTypes().get(0);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_com_caidt_proto_Request_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Request_descriptor,
-        new java.lang.String[]{"Id", "Token", "Req",});
+        new java.lang.String[] { "Id", "Token", "Req", });
     internal_static_com_caidt_proto_Response_descriptor =
-        getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_com_caidt_proto_Response_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Response_descriptor,
-        new java.lang.String[]{"Id", "Resp",});
+        new java.lang.String[] { "Id", "Resp", });
     internal_static_com_caidt_proto_Ping_descriptor =
-        getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_com_caidt_proto_Ping_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Ping_descriptor,
-        new java.lang.String[]{"ClientMillis",});
+        new java.lang.String[] { "ClientMillis", });
     internal_static_com_caidt_proto_Pong_descriptor =
-        getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_com_caidt_proto_Pong_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Pong_descriptor,
-        new java.lang.String[]{"ClientMillis", "ServerMillis",});
+        new java.lang.String[] { "ClientMillis", "ServerMillis", });
     internal_static_com_caidt_proto_LoginRequest_descriptor =
-        getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_com_caidt_proto_LoginRequest_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_LoginRequest_descriptor,
-        new java.lang.String[]{"Username", "Password",});
+        new java.lang.String[] { "Username", "Password", });
     internal_static_com_caidt_proto_LoginResponse_descriptor =
-        getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_com_caidt_proto_LoginResponse_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_LoginResponse_descriptor,
-        new java.lang.String[]{"ServerId", "Player",});
+        new java.lang.String[] { "ServerId", "Player", });
     internal_static_com_caidt_proto_PlayerInfo_descriptor =
-        getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_com_caidt_proto_PlayerInfo_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_PlayerInfo_descriptor,
-        new java.lang.String[]{"Uid", "Name", "Nickname", "Power",});
-    com.caidt.proto.ProtoCsMessage.getDescriptor();
-    com.caidt.proto.ProtoScMessage.getDescriptor();
+        new java.lang.String[] { "Uid", "Name", "Nickname", "Power", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

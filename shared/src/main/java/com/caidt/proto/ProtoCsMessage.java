@@ -4,9 +4,7 @@
 package com.caidt.proto;
 
 public final class ProtoCsMessage {
-  private ProtoCsMessage() {
-  }
-
+  private ProtoCsMessage() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -16,41 +14,49 @@ public final class ProtoCsMessage {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-
   public interface CsMessageOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.com.caidt.proto.CsMessage)
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.CsMessage)
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+     * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+     */
+    boolean hasLoginRequest();
+    /**
+     * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+     */
+    com.caidt.proto.ProtoBase.LoginRequest getLoginRequest();
+    /**
+     * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+     */
+    com.caidt.proto.ProtoBase.LoginRequestOrBuilder getLoginRequestOrBuilder();
+
+    /**
+     * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
      */
     boolean hasGetPlayerInfoRequest();
-
     /**
-     * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+     * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
      */
     com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest getGetPlayerInfoRequest();
-
     /**
-     * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+     * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
      */
     com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder getGetPlayerInfoRequestOrBuilder();
 
     public com.caidt.proto.ProtoCsMessage.CsMessage.CmdCase getCmdCase();
   }
-
   /**
-   * Protobuf type {@code com.com.caidt.proto.CsMessage}
+   * Protobuf type {@code com.caidt.proto.CsMessage}
    */
-  public static final class CsMessage extends
+  public  static final class CsMessage extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.com.caidt.proto.CsMessage)
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.CsMessage)
       CsMessageOrBuilder {
     // Use CsMessage.newBuilder() to construct.
     private CsMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-
     private CsMessage() {
     }
 
@@ -59,7 +65,6 @@ public final class ProtoCsMessage {
     getUnknownFields() {
       return this.unknownFields;
     }
-
     private CsMessage(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -78,14 +83,28 @@ public final class ProtoCsMessage {
               break;
             default: {
               if (!parseUnknownField(input, unknownFields,
-                  extensionRegistry, tag)) {
+                                     extensionRegistry, tag)) {
                 done = true;
               }
               break;
             }
             case 810: {
-              com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder subBuilder = null;
+              com.caidt.proto.ProtoBase.LoginRequest.Builder subBuilder = null;
               if (cmdCase_ == 101) {
+                subBuilder = ((com.caidt.proto.ProtoBase.LoginRequest) cmd_).toBuilder();
+              }
+              cmd_ =
+                  input.readMessage(com.caidt.proto.ProtoBase.LoginRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.caidt.proto.ProtoBase.LoginRequest) cmd_);
+                cmd_ = subBuilder.buildPartial();
+              }
+              cmdCase_ = 101;
+              break;
+            }
+            case 818: {
+              com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder subBuilder = null;
+              if (cmdCase_ == 102) {
                 subBuilder = ((com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_).toBuilder();
               }
               cmd_ =
@@ -94,7 +113,7 @@ public final class ProtoCsMessage {
                 subBuilder.mergeFrom((com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_);
                 cmd_ = subBuilder.buildPartial();
               }
-              cmdCase_ = 101;
+              cmdCase_ = 102;
               break;
             }
           }
@@ -109,14 +128,13 @@ public final class ProtoCsMessage {
         makeExtensionsImmutable();
       }
     }
-
     public static final com.google.protobuf.Descriptors.Descriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-    internalGetFieldAccessorTable() {
+        internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.caidt.proto.ProtoCsMessage.CsMessage.class, com.caidt.proto.ProtoCsMessage.CsMessage.Builder.class);
@@ -125,17 +143,15 @@ public final class ProtoCsMessage {
     private int bitField0_;
     private int cmdCase_ = 0;
     private java.lang.Object cmd_;
-
     public enum CmdCase
         implements com.google.protobuf.Internal.EnumLite {
-      GETPLAYERINFOREQUEST(101),
+      LOGINREQUEST(101),
+      GETPLAYERINFOREQUEST(102),
       CMD_NOT_SET(0);
       private final int value;
-
       private CmdCase(int value) {
         this.value = value;
       }
-
       /**
        * @deprecated Use {@link #forNumber(int)} instead.
        */
@@ -146,21 +162,16 @@ public final class ProtoCsMessage {
 
       public static CmdCase forNumber(int value) {
         switch (value) {
-          case 101:
-            return GETPLAYERINFOREQUEST;
-          case 0:
-            return CMD_NOT_SET;
-          default:
-            return null;
+          case 101: return LOGINREQUEST;
+          case 102: return GETPLAYERINFOREQUEST;
+          case 0: return CMD_NOT_SET;
+          default: return null;
         }
       }
-
       public int getNumber() {
         return this.value;
       }
-    }
-
-    ;
+    };
 
     public CmdCase
     getCmdCase() {
@@ -168,42 +179,70 @@ public final class ProtoCsMessage {
           cmdCase_);
     }
 
-    public static final int GETPLAYERINFOREQUEST_FIELD_NUMBER = 101;
-
+    public static final int LOGINREQUEST_FIELD_NUMBER = 101;
     /**
-     * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+     * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
      */
-    public boolean hasGetPlayerInfoRequest() {
+    public boolean hasLoginRequest() {
       return cmdCase_ == 101;
     }
-
     /**
-     * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+     * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+     */
+    public com.caidt.proto.ProtoBase.LoginRequest getLoginRequest() {
+      if (cmdCase_ == 101) {
+         return (com.caidt.proto.ProtoBase.LoginRequest) cmd_;
+      }
+      return com.caidt.proto.ProtoBase.LoginRequest.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+     */
+    public com.caidt.proto.ProtoBase.LoginRequestOrBuilder getLoginRequestOrBuilder() {
+      if (cmdCase_ == 101) {
+         return (com.caidt.proto.ProtoBase.LoginRequest) cmd_;
+      }
+      return com.caidt.proto.ProtoBase.LoginRequest.getDefaultInstance();
+    }
+
+    public static final int GETPLAYERINFOREQUEST_FIELD_NUMBER = 102;
+    /**
+     * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
+     */
+    public boolean hasGetPlayerInfoRequest() {
+      return cmdCase_ == 102;
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
      */
     public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest getGetPlayerInfoRequest() {
-      if (cmdCase_ == 101) {
-        return (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_;
+      if (cmdCase_ == 102) {
+         return (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_;
       }
       return com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
     }
-
     /**
-     * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+     * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
      */
     public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder getGetPlayerInfoRequestOrBuilder() {
-      if (cmdCase_ == 101) {
-        return (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_;
+      if (cmdCase_ == 102) {
+         return (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_;
       }
       return com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
     }
 
     private byte memoizedIsInitialized = -1;
-
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
       if (isInitialized == 0) return false;
 
+      if (hasLoginRequest()) {
+        if (!getLoginRequest().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       if (hasGetPlayerInfoRequest()) {
         if (!getGetPlayerInfoRequest().isInitialized()) {
           memoizedIsInitialized = 0;
@@ -215,9 +254,12 @@ public final class ProtoCsMessage {
     }
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
-        throws java.io.IOException {
+                        throws java.io.IOException {
       if (cmdCase_ == 101) {
-        output.writeMessage(101, (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_);
+        output.writeMessage(101, (com.caidt.proto.ProtoBase.LoginRequest) cmd_);
+      }
+      if (cmdCase_ == 102) {
+        output.writeMessage(102, (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_);
       }
       unknownFields.writeTo(output);
     }
@@ -229,7 +271,11 @@ public final class ProtoCsMessage {
       size = 0;
       if (cmdCase_ == 101) {
         size += com.google.protobuf.CodedOutputStream
-            .computeMessageSize(101, (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_);
+          .computeMessageSize(101, (com.caidt.proto.ProtoBase.LoginRequest) cmd_);
+      }
+      if (cmdCase_ == 102) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(102, (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -237,11 +283,10 @@ public final class ProtoCsMessage {
     }
 
     private static final long serialVersionUID = 0L;
-
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
-        return true;
+       return true;
       }
       if (!(obj instanceof com.caidt.proto.ProtoCsMessage.CsMessage)) {
         return super.equals(obj);
@@ -254,6 +299,10 @@ public final class ProtoCsMessage {
       if (!result) return false;
       switch (cmdCase_) {
         case 101:
+          result = result && getLoginRequest()
+              .equals(other.getLoginRequest());
+          break;
+        case 102:
           result = result && getGetPlayerInfoRequest()
               .equals(other.getGetPlayerInfoRequest());
           break;
@@ -273,6 +322,10 @@ public final class ProtoCsMessage {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       switch (cmdCase_) {
         case 101:
+          hash = (37 * hash) + LOGINREQUEST_FIELD_NUMBER;
+          hash = (53 * hash) + getLoginRequest().hashCode();
+          break;
+        case 102:
           hash = (37 * hash) + GETPLAYERINFOREQUEST_FIELD_NUMBER;
           hash = (53 * hash) + getGetPlayerInfoRequest().hashCode();
           break;
@@ -289,32 +342,27 @@ public final class ProtoCsMessage {
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -322,13 +370,11 @@ public final class ProtoCsMessage {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -336,14 +382,12 @@ public final class ProtoCsMessage {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -352,18 +396,13 @@ public final class ProtoCsMessage {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    public Builder newBuilderForType() {
-      return newBuilder();
-    }
-
+    public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-
     public static Builder newBuilder(com.caidt.proto.ProtoCsMessage.CsMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -375,27 +414,26 @@ public final class ProtoCsMessage {
       Builder builder = new Builder(parent);
       return builder;
     }
-
     /**
-     * Protobuf type {@code com.com.caidt.proto.CsMessage}
+     * Protobuf type {@code com.caidt.proto.CsMessage}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.com.caidt.proto.CsMessage)
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.CsMessage)
         com.caidt.proto.ProtoCsMessage.CsMessageOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
-      getDescriptor() {
+          getDescriptor() {
         return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internalGetFieldAccessorTable() {
+          internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
                 com.caidt.proto.ProtoCsMessage.CsMessage.class, com.caidt.proto.ProtoCsMessage.CsMessage.Builder.class);
       }
 
-      // Construct using com.com.caidt.proto.ProtoCsMessage.CsMessage.newBuilder()
+      // Construct using com.caidt.proto.ProtoCsMessage.CsMessage.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -405,13 +443,11 @@ public final class ProtoCsMessage {
         super(parent);
         maybeForceBuilderInitialization();
       }
-
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
-            .alwaysUseFieldBuilders) {
+                .alwaysUseFieldBuilders) {
         }
       }
-
       public Builder clear() {
         super.clear();
         cmdCase_ = 0;
@@ -420,7 +456,7 @@ public final class ProtoCsMessage {
       }
 
       public com.google.protobuf.Descriptors.Descriptor
-      getDescriptorForType() {
+          getDescriptorForType() {
         return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_descriptor;
       }
 
@@ -441,6 +477,13 @@ public final class ProtoCsMessage {
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (cmdCase_ == 101) {
+          if (loginRequestBuilder_ == null) {
+            result.cmd_ = cmd_;
+          } else {
+            result.cmd_ = loginRequestBuilder_.build();
+          }
+        }
+        if (cmdCase_ == 102) {
           if (getPlayerInfoRequestBuilder_ == null) {
             result.cmd_ = cmd_;
           } else {
@@ -456,38 +499,32 @@ public final class ProtoCsMessage {
       public Builder clone() {
         return (Builder) super.clone();
       }
-
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.setField(field, value);
       }
-
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
-
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
-
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           int index, Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
-
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
           Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
-
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoCsMessage.CsMessage) {
-          return mergeFrom((com.caidt.proto.ProtoCsMessage.CsMessage) other);
+          return mergeFrom((com.caidt.proto.ProtoCsMessage.CsMessage)other);
         } else {
           super.mergeFrom(other);
           return this;
@@ -497,6 +534,10 @@ public final class ProtoCsMessage {
       public Builder mergeFrom(com.caidt.proto.ProtoCsMessage.CsMessage other) {
         if (other == com.caidt.proto.ProtoCsMessage.CsMessage.getDefaultInstance()) return this;
         switch (other.getCmdCase()) {
+          case LOGINREQUEST: {
+            mergeLoginRequest(other.getLoginRequest());
+            break;
+          }
           case GETPLAYERINFOREQUEST: {
             mergeGetPlayerInfoRequest(other.getGetPlayerInfoRequest());
             break;
@@ -511,6 +552,11 @@ public final class ProtoCsMessage {
       }
 
       public final boolean isInitialized() {
+        if (hasLoginRequest()) {
+          if (!getLoginRequest().isInitialized()) {
+            return false;
+          }
+        }
         if (hasGetPlayerInfoRequest()) {
           if (!getGetPlayerInfoRequest().isInitialized()) {
             return false;
@@ -536,12 +582,10 @@ public final class ProtoCsMessage {
         }
         return this;
       }
-
       private int cmdCase_ = 0;
       private java.lang.Object cmd_;
-
       public CmdCase
-      getCmdCase() {
+          getCmdCase() {
         return CmdCase.forNumber(
             cmdCase_);
       }
@@ -556,34 +600,167 @@ public final class ProtoCsMessage {
       private int bitField0_;
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder> getPlayerInfoRequestBuilder_;
-
+          com.caidt.proto.ProtoBase.LoginRequest, com.caidt.proto.ProtoBase.LoginRequest.Builder, com.caidt.proto.ProtoBase.LoginRequestOrBuilder> loginRequestBuilder_;
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
-      public boolean hasGetPlayerInfoRequest() {
+      public boolean hasLoginRequest() {
         return cmdCase_ == 101;
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      public com.caidt.proto.ProtoBase.LoginRequest getLoginRequest() {
+        if (loginRequestBuilder_ == null) {
+          if (cmdCase_ == 101) {
+            return (com.caidt.proto.ProtoBase.LoginRequest) cmd_;
+          }
+          return com.caidt.proto.ProtoBase.LoginRequest.getDefaultInstance();
+        } else {
+          if (cmdCase_ == 101) {
+            return loginRequestBuilder_.getMessage();
+          }
+          return com.caidt.proto.ProtoBase.LoginRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      public Builder setLoginRequest(com.caidt.proto.ProtoBase.LoginRequest value) {
+        if (loginRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmd_ = value;
+          onChanged();
+        } else {
+          loginRequestBuilder_.setMessage(value);
+        }
+        cmdCase_ = 101;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      public Builder setLoginRequest(
+          com.caidt.proto.ProtoBase.LoginRequest.Builder builderForValue) {
+        if (loginRequestBuilder_ == null) {
+          cmd_ = builderForValue.build();
+          onChanged();
+        } else {
+          loginRequestBuilder_.setMessage(builderForValue.build());
+        }
+        cmdCase_ = 101;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      public Builder mergeLoginRequest(com.caidt.proto.ProtoBase.LoginRequest value) {
+        if (loginRequestBuilder_ == null) {
+          if (cmdCase_ == 101 &&
+              cmd_ != com.caidt.proto.ProtoBase.LoginRequest.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoBase.LoginRequest.newBuilder((com.caidt.proto.ProtoBase.LoginRequest) cmd_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            cmd_ = value;
+          }
+          onChanged();
+        } else {
+          if (cmdCase_ == 101) {
+            loginRequestBuilder_.mergeFrom(value);
+          }
+          loginRequestBuilder_.setMessage(value);
+        }
+        cmdCase_ = 101;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      public Builder clearLoginRequest() {
+        if (loginRequestBuilder_ == null) {
+          if (cmdCase_ == 101) {
+            cmdCase_ = 0;
+            cmd_ = null;
+            onChanged();
+          }
+        } else {
+          if (cmdCase_ == 101) {
+            cmdCase_ = 0;
+            cmd_ = null;
+          }
+          loginRequestBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      public com.caidt.proto.ProtoBase.LoginRequest.Builder getLoginRequestBuilder() {
+        return getLoginRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      public com.caidt.proto.ProtoBase.LoginRequestOrBuilder getLoginRequestOrBuilder() {
+        if ((cmdCase_ == 101) && (loginRequestBuilder_ != null)) {
+          return loginRequestBuilder_.getMessageOrBuilder();
+        } else {
+          if (cmdCase_ == 101) {
+            return (com.caidt.proto.ProtoBase.LoginRequest) cmd_;
+          }
+          return com.caidt.proto.ProtoBase.LoginRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoBase.LoginRequest, com.caidt.proto.ProtoBase.LoginRequest.Builder, com.caidt.proto.ProtoBase.LoginRequestOrBuilder> 
+          getLoginRequestFieldBuilder() {
+        if (loginRequestBuilder_ == null) {
+          if (!(cmdCase_ == 101)) {
+            cmd_ = com.caidt.proto.ProtoBase.LoginRequest.getDefaultInstance();
+          }
+          loginRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.caidt.proto.ProtoBase.LoginRequest, com.caidt.proto.ProtoBase.LoginRequest.Builder, com.caidt.proto.ProtoBase.LoginRequestOrBuilder>(
+                  (com.caidt.proto.ProtoBase.LoginRequest) cmd_,
+                  getParentForChildren(),
+                  isClean());
+          cmd_ = null;
+        }
+        cmdCase_ = 101;
+        onChanged();;
+        return loginRequestBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder> getPlayerInfoRequestBuilder_;
+      /**
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
+       */
+      public boolean hasGetPlayerInfoRequest() {
+        return cmdCase_ == 102;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest getGetPlayerInfoRequest() {
         if (getPlayerInfoRequestBuilder_ == null) {
-          if (cmdCase_ == 101) {
+          if (cmdCase_ == 102) {
             return (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_;
           }
           return com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
         } else {
-          if (cmdCase_ == 101) {
+          if (cmdCase_ == 102) {
             return getPlayerInfoRequestBuilder_.getMessage();
           }
           return com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
         }
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       public Builder setGetPlayerInfoRequest(com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest value) {
         if (getPlayerInfoRequestBuilder_ == null) {
@@ -595,12 +772,11 @@ public final class ProtoCsMessage {
         } else {
           getPlayerInfoRequestBuilder_.setMessage(value);
         }
-        cmdCase_ = 101;
+        cmdCase_ = 102;
         return this;
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       public Builder setGetPlayerInfoRequest(
           com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder builderForValue) {
@@ -610,16 +786,15 @@ public final class ProtoCsMessage {
         } else {
           getPlayerInfoRequestBuilder_.setMessage(builderForValue.build());
         }
-        cmdCase_ = 101;
+        cmdCase_ = 102;
         return this;
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       public Builder mergeGetPlayerInfoRequest(com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest value) {
         if (getPlayerInfoRequestBuilder_ == null) {
-          if (cmdCase_ == 101 &&
+          if (cmdCase_ == 102 &&
               cmd_ != com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance()) {
             cmd_ = com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.newBuilder((com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_)
                 .mergeFrom(value).buildPartial();
@@ -628,27 +803,26 @@ public final class ProtoCsMessage {
           }
           onChanged();
         } else {
-          if (cmdCase_ == 101) {
+          if (cmdCase_ == 102) {
             getPlayerInfoRequestBuilder_.mergeFrom(value);
           }
           getPlayerInfoRequestBuilder_.setMessage(value);
         }
-        cmdCase_ = 101;
+        cmdCase_ = 102;
         return this;
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       public Builder clearGetPlayerInfoRequest() {
         if (getPlayerInfoRequestBuilder_ == null) {
-          if (cmdCase_ == 101) {
+          if (cmdCase_ == 102) {
             cmdCase_ = 0;
             cmd_ = null;
             onChanged();
           }
         } else {
-          if (cmdCase_ == 101) {
+          if (cmdCase_ == 102) {
             cmdCase_ = 0;
             cmd_ = null;
           }
@@ -656,51 +830,46 @@ public final class ProtoCsMessage {
         }
         return this;
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder getGetPlayerInfoRequestBuilder() {
         return getGetPlayerInfoRequestFieldBuilder().getBuilder();
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder getGetPlayerInfoRequestOrBuilder() {
-        if ((cmdCase_ == 101) && (getPlayerInfoRequestBuilder_ != null)) {
+        if ((cmdCase_ == 102) && (getPlayerInfoRequestBuilder_ != null)) {
           return getPlayerInfoRequestBuilder_.getMessageOrBuilder();
         } else {
-          if (cmdCase_ == 101) {
+          if (cmdCase_ == 102) {
             return (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_;
           }
           return com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
         }
       }
-
       /**
-       * <code>optional .com.com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 101;</code>
+       * <code>optional .com.caidt.proto.GetPlayerInfoRequest getPlayerInfoRequest = 102;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder>
-      getGetPlayerInfoRequestFieldBuilder() {
+          com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder> 
+          getGetPlayerInfoRequestFieldBuilder() {
         if (getPlayerInfoRequestBuilder_ == null) {
-          if (!(cmdCase_ == 101)) {
+          if (!(cmdCase_ == 102)) {
             cmd_ = com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
           }
           getPlayerInfoRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
               com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder>(
-              (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_,
-              getParentForChildren(),
-              isClean());
+                  (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_,
+                  getParentForChildren(),
+                  isClean());
           cmd_ = null;
         }
-        cmdCase_ = 101;
-        onChanged();
-        ;
+        cmdCase_ = 102;
+        onChanged();;
         return getPlayerInfoRequestBuilder_;
       }
-
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -712,12 +881,11 @@ public final class ProtoCsMessage {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.com.caidt.proto.CsMessage)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.CsMessage)
     }
 
-    // @@protoc_insertion_point(class_scope:com.com.caidt.proto.CsMessage)
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.CsMessage)
     private static final com.caidt.proto.ProtoCsMessage.CsMessage DEFAULT_INSTANCE;
-
     static {
       DEFAULT_INSTANCE = new com.caidt.proto.ProtoCsMessage.CsMessage();
     }
@@ -726,14 +894,13 @@ public final class ProtoCsMessage {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated
-    public static final com.google.protobuf.Parser<CsMessage>
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<CsMessage>
         PARSER = new com.google.protobuf.AbstractParser<CsMessage>() {
       public CsMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new CsMessage(input, extensionRegistry);
+          return new CsMessage(input, extensionRegistry);
       }
     };
 
@@ -753,28 +920,28 @@ public final class ProtoCsMessage {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-      internal_static_com_caidt_proto_CsMessage_descriptor;
-  private static final
-  com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    internal_static_com_caidt_proto_CsMessage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_CsMessage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
-  getDescriptor() {
+      getDescriptor() {
     return descriptor;
   }
-
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
-
   static {
     java.lang.String[] descriptorData = {
-        "\n\026proto_cs_message.proto\022\017com.com.caidt.prot" +
-            "o\032\022proto_player.proto\"Y\n\tCsMessage\022E\n\024ge" +
-            "tPlayerInfoRequest\030e \001(\0132%.com.com.caidt.pro" +
-            "to.GetPlayerInfoRequestH\000B\005\n\003cmd"
+      "\n\026proto_cs_message.proto\022\017com.caidt.prot" +
+      "o\032\020proto_base.proto\032\022proto_player.proto\"" +
+      "\220\001\n\tCsMessage\0225\n\014loginRequest\030e \001(\0132\035.co" +
+      "m.caidt.proto.LoginRequestH\000\022E\n\024getPlaye" +
+      "rInfoRequest\030f \001(\0132%.com.caidt.proto.Get" +
+      "PlayerInfoRequestH\000B\005\n\003cmd"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
@@ -782,16 +949,18 @@ public final class ProtoCsMessage {
           }
         };
     com.google.protobuf.Descriptors.FileDescriptor
-        .internalBuildGeneratedFileFrom(descriptorData,
-            new com.google.protobuf.Descriptors.FileDescriptor[]{
-                com.caidt.proto.ProtoPlayer.getDescriptor(),
-            }, assigner);
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.caidt.proto.ProtoBase.getDescriptor(),
+          com.caidt.proto.ProtoPlayer.getDescriptor(),
+        }, assigner);
     internal_static_com_caidt_proto_CsMessage_descriptor =
-        getDescriptor().getMessageTypes().get(0);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_com_caidt_proto_CsMessage_fieldAccessorTable = new
-        com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_CsMessage_descriptor,
-        new java.lang.String[]{"GetPlayerInfoRequest", "Cmd",});
+        new java.lang.String[] { "LoginRequest", "GetPlayerInfoRequest", "Cmd", });
+    com.caidt.proto.ProtoBase.getDescriptor();
     com.caidt.proto.ProtoPlayer.getDescriptor();
   }
 

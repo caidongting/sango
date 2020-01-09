@@ -4,9 +4,7 @@
 package com.caidt.proto;
 
 public final class ProtoCommon {
-  private ProtoCommon() {
-  }
-
+  private ProtoCommon() {}
   public static void registerAllExtensions(
       com.google.protobuf.ExtensionRegistryLite registry) {
   }
@@ -16,9 +14,8 @@ public final class ProtoCommon {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-
   /**
-   * Protobuf enum {@code com.com.caidt.proto.Reason}
+   * Protobuf enum {@code com.caidt.proto.Reason}
    */
   public enum Reason
       implements com.google.protobuf.ProtocolMessageEnum {
@@ -80,44 +77,36 @@ public final class ProtoCommon {
 
     public static Reason forNumber(int value) {
       switch (value) {
-        case 0:
-          return unknown;
-        case 1:
-          return server;
-        case 2:
-          return game;
-        case 3:
-          return common;
-        default:
-          return null;
+        case 0: return unknown;
+        case 1: return server;
+        case 2: return game;
+        case 3: return common;
+        default: return null;
       }
     }
 
     public static com.google.protobuf.Internal.EnumLiteMap<Reason>
-    internalGetValueMap() {
+        internalGetValueMap() {
       return internalValueMap;
     }
-
     private static final com.google.protobuf.Internal.EnumLiteMap<
         Reason> internalValueMap =
-        new com.google.protobuf.Internal.EnumLiteMap<Reason>() {
-          public Reason findValueByNumber(int number) {
-            return Reason.forNumber(number);
-          }
-        };
+          new com.google.protobuf.Internal.EnumLiteMap<Reason>() {
+            public Reason findValueByNumber(int number) {
+              return Reason.forNumber(number);
+            }
+          };
 
     public final com.google.protobuf.Descriptors.EnumValueDescriptor
-    getValueDescriptor() {
+        getValueDescriptor() {
       return getDescriptor().getValues().get(ordinal());
     }
-
     public final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptorForType() {
+        getDescriptorForType() {
       return getDescriptor();
     }
-
     public static final com.google.protobuf.Descriptors.EnumDescriptor
-    getDescriptor() {
+        getDescriptor() {
       return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(0);
     }
 
@@ -127,7 +116,7 @@ public final class ProtoCommon {
         com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
       if (desc.getType() != getDescriptor()) {
         throw new java.lang.IllegalArgumentException(
-            "EnumValueDescriptor is not for this type.");
+          "EnumValueDescriptor is not for this type.");
       }
       return VALUES[desc.getIndex()];
     }
@@ -138,26 +127,24 @@ public final class ProtoCommon {
       this.value = value;
     }
 
-    // @@protoc_insertion_point(enum_scope:com.com.caidt.proto.Reason)
+    // @@protoc_insertion_point(enum_scope:com.caidt.proto.Reason)
   }
 
 
   public static com.google.protobuf.Descriptors.FileDescriptor
-  getDescriptor() {
+      getDescriptor() {
     return descriptor;
   }
-
-  private static com.google.protobuf.Descriptors.FileDescriptor
+  private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
-
   static {
     java.lang.String[] descriptorData = {
-        "\n\022proto_common.proto\022\017com.com.caidt.proto*7\n" +
-            "\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001\022\010\n\004game" +
-            "\020\002\022\n\n\006common\020\003"
+      "\n\022proto_common.proto\022\017com.caidt.proto*7\n" +
+      "\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001\022\010\n\004game" +
+      "\020\002\022\n\n\006common\020\003"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
-        new com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner() {
+        new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
           public com.google.protobuf.ExtensionRegistry assignDescriptors(
               com.google.protobuf.Descriptors.FileDescriptor root) {
             descriptor = root;
@@ -165,9 +152,9 @@ public final class ProtoCommon {
           }
         };
     com.google.protobuf.Descriptors.FileDescriptor
-        .internalBuildGeneratedFileFrom(descriptorData,
-            new com.google.protobuf.Descriptors.FileDescriptor[]{
-            }, assigner);
+      .internalBuildGeneratedFileFrom(descriptorData,
+        new com.google.protobuf.Descriptors.FileDescriptor[] {
+        }, assigner);
   }
 
   // @@protoc_insertion_point(outer_class_scope)

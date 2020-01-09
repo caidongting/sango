@@ -1,16 +1,15 @@
+syntax = "proto2";
 package com.caidt.proto;
-import "proto_cs_message.proto";
-import "proto_sc_message.proto";
 
 // --> Response
 message Request {
     required int32 id = 1;
     required string token = 2;
-    required CsMessage req = 3;
+    required bytes req = 3;
 }
 message Response {
     required int32 id = 1;
-    required ScMessage resp = 2;
+    required bytes resp = 2;
 }
 
 // 心跳检测 --> Pong

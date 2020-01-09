@@ -13,12 +13,11 @@ object Home : GameServer(port = 2552) {
 
   val eventBus: EventBus = EventBus(actorSystem)
 
-  override fun init() {
-    beforeInit()
-    startNetwork()
-
+  override fun start() {
     startShardRegion()
     startWorldProxy()
+    startSystem()
+    startNetwork()
   }
 
   override fun close() {
@@ -31,4 +30,9 @@ object Home : GameServer(port = 2552) {
     shardRegion = ClusterSharding.get(actorSystem)
       .start(javaClass.name, PlayerActor.props(), settings, messageExtractor)
   }
+}
+
+
+fun main() {
+  Home.start()
 }

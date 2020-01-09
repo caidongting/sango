@@ -8,8 +8,7 @@ object World : GameServer(port = 2553) {
 
   override val role: Role = Role.world
 
-  override fun init() {
-//    ClusterClientReceptionist.get(actorSystem).
+  override fun start() {
   }
 
   override fun close() {

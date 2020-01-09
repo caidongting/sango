@@ -2,6 +2,9 @@ package com.caidt.infrastructure
 
 import akka.actor.ActorRef
 import akka.actor.ActorSystem
+import akka.actor.Address
+import akka.cluster.Cluster
+import akka.cluster.ClusterEvent.MemberEvent
 import akka.cluster.sharding.ClusterSharding
 import akka.cluster.sharding.ShardRegion
 import com.caidt.infrastructure.database.Session
@@ -32,11 +35,10 @@ abstract class GameServer(port: Int) {
   val dao: Session by lazy { Session(sessionFactory) }
 
   /** actor system */
-  lateinit var actorSystem: ActorSystem
-    private set
+  val actorSystem: ActorSystem = ActorSystem.create()
 
   /** netty actor session*/
-  private val netty: NettyTcpServer = NettyTcpServer(port = port)
+  private val netty: NettyTcpServer = NettyTcpServer(port = 12121)
 
   /** znode */
   private val znode = Znode()
@@ -50,21 +52,30 @@ abstract class GameServer(port: Int) {
   lateinit var worldProxy: ActorRef
     private set
 
-  abstract fun init()
+  abstract fun start()
 
   abstract fun close()
 
+  fun startSystem() {
+    val cluster = Cluster.get(actorSystem)
+    val seedNodes = listOf(cluster.selfAddress())
+    cluster.joinSeedNodes(seedNodes)
+    cluster.registerOnMemberUp {
+      cluster.subscribe(shardRegion, MemberEvent::class.java)
+    }
+  }
+
   fun beforeInit() {
-    znode.start()
-    startActorSystem()
+//    znode.start()
+  }
+
+  fun getSeedNodes(): List<Address> {
+    // todo: 向zookeeper请求集群配置信息，获取所有结点信息
+    TODO()
   }
 
   fun afterClose() {
-    znode.close()
-  }
-
-  private fun startActorSystem() {
-    actorSystem = ActorSystem.create()
+//    znode.close()
   }
 
   fun startNetwork() {
