@@ -3,13 +3,16 @@ package com.caidt.infrastructure
 import akka.actor.ActorRef
 import akka.actor.ActorSystem
 import akka.actor.Address
+import akka.actor.Props
 import akka.cluster.Cluster
-import akka.cluster.ClusterEvent.MemberEvent
 import akka.cluster.sharding.ClusterSharding
+import akka.cluster.sharding.ClusterShardingSettings
 import akka.cluster.sharding.ShardRegion
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
 import com.caidt.infrastructure.database.shardIdOf
+import com.typesafe.config.Config
+import com.typesafe.config.ConfigFactory
 import org.hibernate.SessionFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -19,8 +22,16 @@ enum class Role {
   gate,
   home,
   world,
+  battle,
   data,
   ;
+}
+
+fun getRemoteSeedNodes(): List<Address> {
+  return listOf(
+    Address("akka.tcp", CLUSTER_NAME, localHost, 2552),
+    Address("akka.tcp", CLUSTER_NAME, localHost, 2553)
+  )
 }
 
 abstract class GameServer(port: Int) {
@@ -35,7 +46,9 @@ abstract class GameServer(port: Int) {
   val dao: Session by lazy { Session(sessionFactory) }
 
   /** actor system */
-  val actorSystem: ActorSystem = ActorSystem.create()
+  val actorSystem: ActorSystem by lazy { ActorSystem.create(CLUSTER_NAME) }
+
+  val cluster: Cluster = Cluster.get(actorSystem)
 
   /** netty actor session*/
   private val netty: NettyTcpServer = NettyTcpServer(port = 12121)
@@ -44,7 +57,7 @@ abstract class GameServer(port: Int) {
   private val znode = Znode()
 
   lateinit var shardRegion: ActorRef
-    protected set
+    private set
 
   lateinit var homeProxy: ActorRef
     private set
@@ -56,22 +69,35 @@ abstract class GameServer(port: Int) {
 
   abstract fun close()
 
+  fun buildActorSystem() {
+    val config: Config = ConfigFactory.load("application.conf")
+    val system = ActorSystem.create(CLUSTER_NAME, config)
+  }
+
   fun startSystem() {
-    val cluster = Cluster.get(actorSystem)
-    val seedNodes = listOf(cluster.selfAddress())
+//    cluster.join(cluster.selfMember().address())
+    val seedNodes = getSeedNodes()
     cluster.joinSeedNodes(seedNodes)
+//    cluster.join(cluster.selfAddress())
     cluster.registerOnMemberUp {
-      cluster.subscribe(shardRegion, MemberEvent::class.java)
+      logger.info("cluster is Up!")
     }
+  }
+
+  fun closeSystem() {
+//    cluster.leave(cluster.selfAddress())
   }
 
   fun beforeInit() {
 //    znode.start()
   }
 
-  fun getSeedNodes(): List<Address> {
-    // todo: 向zookeeper请求集群配置信息，获取所有结点信息
-    TODO()
+  private fun getSeedNodes(): List<Address> {
+    val list = getRemoteSeedNodes().toMutableList()
+    if (list.first() != cluster.selfAddress()) {
+      list.remove(cluster.selfAddress())
+    }
+    return list
   }
 
   fun afterClose() {
@@ -82,6 +108,13 @@ abstract class GameServer(port: Int) {
     netty.init()
   }
 
+  fun startShardRegion(entity: Class<*>) {
+    val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
+    shardRegion = ClusterSharding.get(actorSystem)
+      .start(javaClass.typeName, Props.create(entity), settings, messageExtractor)
+    logger.info("${role.name} cluster sharding started!")
+  }
+
   fun closeShardRegion() {
     if (this::shardRegion.isInitialized) {
       shardRegion.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
@@ -89,7 +122,8 @@ abstract class GameServer(port: Int) {
   }
 
   fun startHomeProxy() {
-    homeProxy = ClusterSharding.get(actorSystem).startProxy("homeProxy", Optional.of(Role.home.name), messageExtractor)
+    homeProxy = ClusterSharding.get(actorSystem)
+      .startProxy("homeProxy", Optional.of(Role.home.name), messageExtractor)
   }
 
   fun closeHomeProxy() {

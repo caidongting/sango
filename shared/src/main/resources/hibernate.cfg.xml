@@ -16,6 +16,7 @@
 
         <!-- mapping class -->
         <mapping class="com.caidt.infrastructure.entity.PlayerAccountEntity"/>
+        <mapping class="com.caidt.infrastructure.entity.ItemEntity"/>
 
     </session-factory>
 </hibernate-configuration>

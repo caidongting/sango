@@ -7,7 +7,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.net.InetAddress
 
-val localHost = InetAddress.getLocalHost().hostAddress
+
 
 const val zooKeeperPath = "192.168.199.240:2181,192.168.199.240:2182,192.168.199.240:2183"
 

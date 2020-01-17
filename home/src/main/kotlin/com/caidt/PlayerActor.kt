@@ -21,10 +21,6 @@ open class PlayerActor : UntypedAbstractActor() {
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
 
-  companion object {
-    fun props(): Props = Props.create(PlayerActor::class.java) { PlayerActor() }
-  }
-
   enum class State {
     INIT,
     UP,

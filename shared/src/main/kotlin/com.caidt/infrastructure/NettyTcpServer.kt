@@ -7,6 +7,7 @@ import io.netty.channel.socket.SocketChannel
 import io.netty.channel.socket.nio.NioServerSocketChannel
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder
 import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder
+import io.netty.handler.traffic.ChannelTrafficShapingHandler
 import io.netty.util.AttributeKey
 
 
@@ -23,6 +24,7 @@ class NettyTcpServer(private val port: Int) {
       .childHandler(object : ChannelInitializer<SocketChannel>() {
         override fun initChannel(ch: SocketChannel) {
           ch.pipeline()
+            .addLast(ChannelTrafficShapingHandler(5L))
             .addLast(LengthFieldBasedFrameDecoder(2048, 0, 4))
             .addLast(ProtobufVarint32FrameDecoder())
             .addLast(MyHandler())

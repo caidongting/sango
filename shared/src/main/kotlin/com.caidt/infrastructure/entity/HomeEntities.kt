@@ -1,5 +1,3 @@
-@file:Suppress("JpaObjectClassSignatureInspection")
-
 package com.caidt.infrastructure.entity
 
 import com.caidt.infrastructure.NoArg
@@ -30,8 +28,9 @@ data class PlayerAccountEntity(
 @NoArg
 data class ItemPk(
   @Id
-  @Column(name = "item")
+  @Column(name = "uid")
   val uid: Long,
+
   @Id
   @Column(name = "player_id")
   override val playerId: Long
@@ -46,11 +45,15 @@ data class ItemPk(
 @IdClass(ItemPk::class)
 data class ItemEntity(
   @Id
-  @Column(name = "item")
+  @Column(name = "uid")
   val uid: Long,
+
   @Id
   @Column(name = "player_id")
-  override val playerId: Long
+  override val playerId: Long,
+
+  @Column(name = "count")
+  var count: Long
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return ItemPk(uid, playerId)
