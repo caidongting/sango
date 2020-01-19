@@ -3,13 +3,13 @@ package com.caidt.infrastructure.database
 import com.caidt.infrastructure.*
 import com.caidt.infrastructure.entity.PlayerEntity
 import com.caidt.infrastructure.entity.WorldEntity
-import org.hibernate.SessionFactory
 import org.hibernate.cfg.Configuration
 import org.hibernate.shards.ShardId
 import org.hibernate.shards.ShardedConfiguration
 import org.hibernate.shards.cfg.ConfigurationToShardConfigurationAdapter
 import org.hibernate.shards.cfg.ShardConfiguration
 import org.hibernate.shards.cfg.ShardedEnvironment.SHARD_ID_PROPERTY
+import org.hibernate.shards.session.ShardedSessionFactory
 import org.hibernate.shards.strategy.ShardStrategyFactory
 import org.hibernate.shards.strategy.ShardStrategyImpl
 import org.hibernate.shards.strategy.access.SequentialShardAccessStrategy
@@ -19,15 +19,11 @@ import java.util.*
 
 fun shardIdOf(entity: PlayerEntity): ShardId = shardIdOf(entity.playerId)
 
-fun shardIdOf(envelope: PlayerEnvelope): ShardId = shardIdOf(envelope.playerId)
-
 fun shardIdOf(entity: WorldEntity): ShardId = shardIdOf(entity.worldId)
-
-fun shardIdOf(envelope: WorldEnvelope): ShardId = shardIdOf(envelope.worldId)
 
 fun shardIdOf(uid: Long): ShardId = ShardId((uid % VIRTUAL_NUM).toInt())
 
-fun buildSessionFactory(): SessionFactory {
+fun buildSessionFactory(): ShardedSessionFactory {
   val configFile = HIBERNATE_CFG_FILE
   val prototypeConfig = Configuration().configure(configFile)
   val shardConfigs: List<ShardConfiguration> = buildShardConfigs(configFile)

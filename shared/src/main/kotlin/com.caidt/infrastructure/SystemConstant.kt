@@ -13,6 +13,9 @@ const val VIRTUAL_NUM = 100
 /** 物理结点数 */
 const val PHYSICAL_NUM = 10
 
+/** 每结点shards数量 */
+const val NUMBER_OF_SHARDS = 1000
+
 /** hibernate config file */
 const val HIBERNATE_CFG_FILE = "hibernate.cfg.xml"
 

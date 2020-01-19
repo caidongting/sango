@@ -2,10 +2,8 @@ package com.caidt
 
 import akka.actor.ActorRef
 import akka.actor.Cancellable
-import akka.actor.Props
 import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.PlayerEnvelope
-import com.caidt.infrastructure.PlayerId
 import com.caidt.infrastructure.Tick
 import com.caidt.infrastructure.database.PlayerDC
 import com.caidt.infrastructure.entity.PlayerAccountEntity
@@ -28,7 +26,7 @@ open class PlayerActor : UntypedAbstractActor() {
     DOWN,
   }
 
-  val playerId: PlayerId get() = playerAccount.playerId
+  val playerId: Long get() = playerAccount.playerId
 
   private var state: State = State.INIT
 
@@ -61,7 +59,7 @@ open class PlayerActor : UntypedAbstractActor() {
   }
 
   /** 启动加载 */
-  private fun load(playerId: PlayerId) {
+  private fun load(playerId: Long) {
     //TODO()
     scheduleTick()
     // 加载少量必要数据，避免浪费
@@ -115,7 +113,7 @@ open class PlayerActor : UntypedAbstractActor() {
   }
 
   /** 向其他玩家发送消息 */
-  fun sendToPlayer(playerId: PlayerId, msg: Any) {
+  fun sendToPlayer(playerId: Long, msg: Any) {
     // playerManager or send to shardRegion
   }
 

@@ -7,10 +7,10 @@ object Tick
 object Ok
 
 /** 玩家消息 */
-data class PlayerEnvelope(val playerId: PlayerId, val payload: Any)
+data class PlayerEnvelope(val playerId: Long, val payload: Any)
 
 /** 世界消息 */
-data class WorldEnvelope(val worldId: WorldId, val payload: WorldMessage)
+data class WorldEnvelope(val worldId: Long, val payload: WorldMessage)
 
 
 open class PlayerMessage
@@ -19,6 +19,6 @@ open class WorldMessage
 
 /** player to player, need answer */
 open class PPMessage : PlayerMessage() {
-  var from: PlayerId = 0
-  var to: PlayerId = 0
+  var from: Long = 0
+  var to: Long = 0
 }

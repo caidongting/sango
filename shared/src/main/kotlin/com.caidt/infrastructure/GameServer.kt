@@ -10,14 +10,13 @@ import akka.cluster.sharding.ClusterShardingSettings
 import akka.cluster.sharding.ShardRegion
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
-import com.caidt.infrastructure.database.shardIdOf
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
-import org.hibernate.SessionFactory
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.util.*
 
+@Suppress("EnumEntryName")
 enum class Role {
   gate,
   home,
@@ -34,19 +33,17 @@ fun getRemoteSeedNodes(): List<Address> {
   )
 }
 
-abstract class GameServer(port: Int) {
+abstract class GameServer(val port: Int) {
 
   abstract val role: Role
 
   val logger: Logger = LoggerFactory.getLogger(javaClass)
 
   /** hibernate */
-  private val sessionFactory: SessionFactory by lazy { buildSessionFactory() }
-
-  val dao: Session by lazy { Session(sessionFactory) }
+  val dao: Session by lazy { Session(buildSessionFactory()) }
 
   /** actor system */
-  val actorSystem: ActorSystem by lazy { ActorSystem.create(CLUSTER_NAME) }
+  val actorSystem: ActorSystem by lazy { buildActorSystem() }
 
   val cluster: Cluster = Cluster.get(actorSystem)
 
@@ -69,18 +66,22 @@ abstract class GameServer(port: Int) {
 
   abstract fun close()
 
-  fun buildActorSystem() {
-    val config: Config = ConfigFactory.load("application.conf")
-    val system = ActorSystem.create(CLUSTER_NAME, config)
+  private fun buildActorSystem(): ActorSystem {
+    val config: Config = ConfigFactory.parseString("akka.remote.netty.tcp.port=$port")
+      .withFallback(ConfigFactory.load())
+    return ActorSystem.create(CLUSTER_NAME, config)
   }
 
   fun startSystem() {
+    znode.start()
+
+    actorSystem.whenTerminated.handle { _, _ -> close() }
 //    cluster.join(cluster.selfMember().address())
     val seedNodes = getSeedNodes()
     cluster.joinSeedNodes(seedNodes)
 //    cluster.join(cluster.selfAddress())
     cluster.registerOnMemberUp {
-      logger.info("cluster is Up!")
+      logger.info("cluster start ${cluster.state()}")
     }
   }
 
@@ -88,15 +89,11 @@ abstract class GameServer(port: Int) {
 //    cluster.leave(cluster.selfAddress())
   }
 
-  fun beforeInit() {
-//    znode.start()
-  }
-
   private fun getSeedNodes(): List<Address> {
     val list = getRemoteSeedNodes().toMutableList()
-    if (list.first() != cluster.selfAddress()) {
-      list.remove(cluster.selfAddress())
-    }
+//    if (list.first() != cluster.selfAddress()) {
+//      list.remove(cluster.selfAddress())
+//    }
     return list
   }
 
@@ -111,8 +108,7 @@ abstract class GameServer(port: Int) {
   fun startShardRegion(entity: Class<*>) {
     val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
     shardRegion = ClusterSharding.get(actorSystem)
-      .start(javaClass.typeName, Props.create(entity), settings, messageExtractor)
-    logger.info("${role.name} cluster sharding started!")
+      .start(javaClass.simpleName, Props.create(entity), settings, messageExtractor)
   }
 
   fun closeShardRegion() {
@@ -141,6 +137,8 @@ abstract class GameServer(port: Int) {
 
 }
 
+fun shardRegionIdOf(uid: Long): Long = uid % NUMBER_OF_SHARDS
+
 val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.MessageExtractor {
   override fun entityId(message: Any): String {
     return when (message) {
@@ -160,8 +158,8 @@ val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.Messag
 
   override fun shardId(message: Any): String {
     return when (message) {
-      is PlayerEnvelope -> shardIdOf(message).toString()
-      is WorldEnvelope -> shardIdOf(message).toString()
+      is PlayerEnvelope -> shardRegionIdOf(message.playerId).toString()
+      is WorldEnvelope -> shardRegionIdOf(message.worldId).toString()
       else -> message.toString()
     }
   }
