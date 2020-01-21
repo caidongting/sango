@@ -2,9 +2,9 @@
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
     <data-source source="LOCAL" name="hibernate.cfg.xml/Hibernate" uuid="f0b14120-7d77-4386-8f20-8fb6f0f5a113">
+      <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
-      <configured-by-url>true</configured-by-url>
       <remarks>Hibernate
 
 D:/workspace/github/sango/shared/src/main/resources/hibernate.cfg.xml</remarks>

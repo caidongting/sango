@@ -4,9 +4,9 @@ import org.apache.curator.framework.CuratorFrameworkFactory
 import org.apache.curator.retry.ExponentialBackoffRetry
 import org.apache.zookeeper.CreateMode
 
+const val zooKeeperPath = "192.168.199.240:2181,192.168.199.240:2182,192.168.199.240:2183"
 
 fun initZookeeper() {
-  val zooKeeperPath = "192.168.199.240:2181,192.168.199.240:2182,192.168.199.240:2183"
   val curatorFramework = CuratorFrameworkFactory.builder()
     .connectString(zooKeeperPath)
     .sessionTimeoutMs(4000)

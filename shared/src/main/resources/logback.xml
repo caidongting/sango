@@ -43,5 +43,7 @@
 
 	<logger name="akka.cluster.sharding.ShardRegion" level="debug"/>
 	<logger name="akka.cluster.sharding.ClusterSharding" level="debug"/>
+	
+	<logger name="org.apache.zookeeper.ClientCnxn" level="debug"/>
 
 </configuration>

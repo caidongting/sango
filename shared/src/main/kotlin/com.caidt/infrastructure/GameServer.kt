@@ -28,8 +28,8 @@ enum class Role {
 
 fun getRemoteSeedNodes(): List<Address> {
   return listOf(
-    Address("akka.tcp", CLUSTER_NAME, localHost, 2552),
-    Address("akka.tcp", CLUSTER_NAME, localHost, 2553)
+    Address("akka.tcp", CLUSTER_NAME, localhost, 2552),
+    Address("akka.tcp", CLUSTER_NAME, localhost, 2553)
   )
 }
 
@@ -45,13 +45,13 @@ abstract class GameServer(val port: Int) {
   /** actor system */
   val actorSystem: ActorSystem by lazy { buildActorSystem() }
 
-  val cluster: Cluster = Cluster.get(actorSystem)
+  private val cluster: Cluster = Cluster.get(actorSystem)
 
   /** netty actor session*/
   private val netty: NettyTcpServer = NettyTcpServer(port = 12121)
 
   /** znode */
-  private val znode = Znode()
+  private val znode = ZNode()
 
   lateinit var shardRegion: ActorRef
     private set
@@ -67,26 +67,28 @@ abstract class GameServer(val port: Int) {
   abstract fun close()
 
   private fun buildActorSystem(): ActorSystem {
-    val config: Config = ConfigFactory.parseString("akka.remote.netty.tcp.port=$port")
-      .withFallback(ConfigFactory.load())
+    val additionConfig: String = """
+      akka.remote.netty.tcp.port=$port
+    """.trimIndent()
+    val config: Config = ConfigFactory.parseString(additionConfig).withFallback(ConfigFactory.load())
     return ActorSystem.create(CLUSTER_NAME, config)
   }
 
   fun startSystem() {
-    znode.start()
+//    znode.start()
 
     actorSystem.whenTerminated.handle { _, _ -> close() }
-//    cluster.join(cluster.selfMember().address())
+//    val seedNodes = znode.getSeedNodes()
     val seedNodes = getSeedNodes()
     cluster.joinSeedNodes(seedNodes)
-//    cluster.join(cluster.selfAddress())
     cluster.registerOnMemberUp {
-      logger.info("cluster start ${cluster.state()}")
+      logger.info("cluster is Up!")
     }
   }
 
   fun closeSystem() {
 //    cluster.leave(cluster.selfAddress())
+//    znode.close()
   }
 
   private fun getSeedNodes(): List<Address> {
@@ -109,6 +111,7 @@ abstract class GameServer(val port: Int) {
     val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
     shardRegion = ClusterSharding.get(actorSystem)
       .start(javaClass.simpleName, Props.create(entity), settings, messageExtractor)
+    logger.info("cluster shardRegion is started!")
   }
 
   fun closeShardRegion() {
@@ -137,8 +140,6 @@ abstract class GameServer(val port: Int) {
 
 }
 
-fun shardRegionIdOf(uid: Long): Long = uid % NUMBER_OF_SHARDS
-
 val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.MessageExtractor {
   override fun entityId(message: Any): String {
     return when (message) {
@@ -158,8 +159,8 @@ val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.Messag
 
   override fun shardId(message: Any): String {
     return when (message) {
-      is PlayerEnvelope -> shardRegionIdOf(message.playerId).toString()
-      is WorldEnvelope -> shardRegionIdOf(message.worldId).toString()
+      is PlayerEnvelope -> (message.playerId % NUMBER_OF_SHARDS).toString()
+      is WorldEnvelope -> (message.worldId % NUMBER_OF_SHARDS).toString()
       else -> message.toString()
     }
   }

@@ -1,14 +1,15 @@
 package com.caidt.infrastructure
 
+import akka.actor.Address
+import com.alibaba.fastjson.JSON
+import com.fasterxml.jackson.databind.ObjectMapper
 import org.apache.curator.framework.CuratorFramework
 import org.apache.curator.framework.CuratorFrameworkFactory
 import org.apache.curator.retry.ExponentialBackoffRetry
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
-const val zooKeeperPath = "192.168.199.240:2181,192.168.199.240:2182,192.168.199.240:2183"
-
-class Znode {
+class ZNode {
 
   private lateinit var curatorFramework: CuratorFramework
 
@@ -37,6 +38,13 @@ class Znode {
 //      .and().create().forPath("")
 //      .and().delete().forPath("")
 //      .and().commit()
+  }
+
+  fun getSeedNodes(): List<Address> {
+    val user = System.getProperty("user")
+    val bytes = curatorFramework.data.forPath("/$user/seedNodes")
+    val list = ObjectMapper().readValue(bytes, ArrayList::class.java)
+    return JSON.parseObject(bytes, List::class.java)
   }
 
   fun close() {

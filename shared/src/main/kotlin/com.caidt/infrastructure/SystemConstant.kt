@@ -25,4 +25,7 @@ const val SMALL_MAILBOX = "akka.actor.small-unbounded-mailbox"
 /** 集群名称，各节点相同 */
 const val CLUSTER_NAME = "cluster"
 
-val localHost: String = InetAddress.getLocalHost().hostAddress
+/** 本机ip 需确定在unix环境下是否适用 */
+val localhost: String = InetAddress.getLocalHost().hostAddress
+/** 是否开发模式 */
+val isDev: Boolean get() = System.getenv("MODE") == "dev"

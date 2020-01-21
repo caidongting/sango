@@ -1,8 +1,10 @@
 package com.caidt
 
 import akka.actor.*
+import org.apache.kafka.clients.producer.KafkaProducer
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.util.*
 
 
 class MyActor : AbstractActor() {
@@ -47,4 +49,7 @@ fun main() {
   val sourceArr = arrayOf("k", "o", "t", "l", "i", "n")
   val targetArr = sourceArr.copyInto(arrayOfNulls<String>(6), 3, startIndex = 3, endIndex = 6)
   println(targetArr)
+
+  val properties = Properties()
+  val producer = KafkaProducer<String, String>(properties)
 }

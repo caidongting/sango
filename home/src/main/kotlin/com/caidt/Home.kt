@@ -13,13 +13,14 @@ object Home : GameServer(port = 2552) {
   override fun start() {
     startSystem()
     startShardRegion()
-    startWorldProxy()
     startNetwork()
+    startWorldProxy()
   }
 
   override fun close() {
-    closeShardRegion()
     closeWorldProxy()
+    closeShardRegion()
+    closeSystem()
   }
 
   fun startShardRegion() {

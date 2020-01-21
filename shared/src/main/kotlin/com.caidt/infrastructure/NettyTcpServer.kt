@@ -13,10 +13,8 @@ import io.netty.util.AttributeKey
 
 class NettyTcpServer(private val port: Int) {
 
-  private lateinit var bootstrap: ServerBootstrap
-
   fun init() {
-    bootstrap = ServerBootstrap()
+    val bootstrap: ServerBootstrap = ServerBootstrap()
       .group(NioEventLoopGroup(), NioEventLoopGroup())
       .channel(NioServerSocketChannel::class.java)
       .childOption(ChannelOption.SO_BACKLOG, 128)

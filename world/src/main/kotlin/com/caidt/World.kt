@@ -30,6 +30,6 @@ object World : GameServer(port = 2553) {
 
 fun main() {
   World.start()
-  Thread.sleep(5000L)
+  Thread.sleep(10000L)
   World.homeProxy.tell(PlayerEnvelope(1L, Ok), ActorRef.noSender())
 }

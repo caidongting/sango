@@ -9,7 +9,7 @@ class RankManager(val maxRank: Int) {
 
 }
 
-data class Rank(
+data class RankHolder(
   val rank: Int,
   val type: Int,
   var data: RankData,
