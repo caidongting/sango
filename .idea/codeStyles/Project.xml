@@ -2,11 +2,12 @@
   <code_scheme name="Project" version="173">
     <option name="OTHER_INDENT_OPTIONS">
       <value>
+        <option name="INDENT_SIZE" value="2" />
         <option name="TAB_SIZE" value="2" />
       </value>
     </option>
     <JetCodeStyleSettings>
-      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OLD_DEFAULTS" />
+      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
     </JetCodeStyleSettings>
     <MySQLCodeStyleSettings version="2">
       <option name="KEYWORD_CASE" value="0" />
@@ -38,7 +39,7 @@
       <option name="BLOCK_COMMENT_AT_FIRST_COLUMN" value="false" />
     </codeStyleSettings>
     <codeStyleSettings language="kotlin">
-      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OLD_DEFAULTS" />
+      <option name="CODE_STYLE_DEFAULTS" value="KOTLIN_OFFICIAL" />
       <option name="LINE_COMMENT_AT_FIRST_COLUMN" value="false" />
       <option name="BLOCK_COMMENT_AT_FIRST_COLUMN" value="false" />
       <option name="LINE_COMMENT_ADD_SPACE" value="true" />

@@ -10,6 +10,8 @@
       <module name="sango.shared.test" target="1.8" />
       <module name="sango.world.main" target="1.8" />
       <module name="sango.world.test" target="1.8" />
+      <module name="shared.main" target="1.8" />
+      <module name="shared.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

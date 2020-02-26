@@ -1,8 +1,4 @@
 group 'com.uuzu'
-version '0.1.0-SNAPSHOT'
+version '1.0-SNAPSHOT'
 
 archivesBaseName = 'world'
-
-dependencies {
-    implementation project(':shared')
-}
