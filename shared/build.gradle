@@ -1,0 +1,51 @@
+buildscript {
+    ext {
+        protobufVersion = "0.8.10"
+    }
+    repositories {
+        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+        mavenCentral()
+    }
+    dependencies {
+        classpath "com.google.protobuf:protobuf-gradle-plugin:$protobufVersion"
+    }
+}
+
+group = 'com.uuzu'
+version = '1.0-SNAPSHOT'
+
+apply plugin: 'com.google.protobuf'
+
+sourceSets {
+    main {
+        proto { srcDir { 'src/main/proto' } }
+    }
+}
+
+repositories {
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
+//    maven { url "http://localhost:8081/repository/maven-public/" }
+    mavenCentral()
+}
+
+dependencies {
+    implementation fileTree(dir: 'lib', includes: ['*jar'])
+    implementation "com.google.protobuf:protobuf-java:2.5.0"
+}
+
+protobuf {
+    generatedFilesBaseDir = "$projectDir/src"
+    // Configure the protoc executable
+    protoc {
+        // Download from repositories
+        artifact = 'com.google.protobuf:protoc:3.0.0'
+    }
+
+    generateProtoTasks {
+        // all() returns the collection of all protoc tasks
+        all().each { task ->
+            // Here you can configure the task
+        }
+    }
+}
+

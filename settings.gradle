@@ -3,5 +3,5 @@ include 'home'
 include 'gate'
 include 'world'
 
-includeFlat 'shared'
+include 'shared'
 

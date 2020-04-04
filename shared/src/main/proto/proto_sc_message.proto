@@ -1,0 +1,12 @@
+syntax = "proto2";
+package com.caidt.proto;
+import "proto_base.proto";
+import "proto_player.proto";
+
+message ScMessage {
+    oneof cmd {
+        LoginResponse loginResponse = 101;
+        GetPlayerInfoResponse getPlayerInfoResponse = 102;
+    }
+
+}

@@ -3,19 +3,15 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/sango.iml" filepath="$PROJECT_DIR$/.idea/modules/sango.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/sango.iml" filepath="$PROJECT_DIR$/.idea/modules/sango.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/gate/sango.gate.iml" filepath="$PROJECT_DIR$/.idea/modules/gate/sango.gate.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gate/sango.gate.iml" filepath="$PROJECT_DIR$/.idea/modules/gate/sango.gate.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gate/sango.gate.main.iml" filepath="$PROJECT_DIR$/.idea/modules/gate/sango.gate.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/gate/sango.gate.test.iml" filepath="$PROJECT_DIR$/.idea/modules/gate/sango.gate.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/home/sango.home.iml" filepath="$PROJECT_DIR$/.idea/modules/home/sango.home.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/home/sango.home.iml" filepath="$PROJECT_DIR$/.idea/modules/home/sango.home.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/home/sango.home.main.iml" filepath="$PROJECT_DIR$/.idea/modules/home/sango.home.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/home/sango.home.test.iml" filepath="$PROJECT_DIR$/.idea/modules/home/sango.home.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/608553310/sango.shared.iml" filepath="$PROJECT_DIR$/.idea/modules/608553310/sango.shared.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/608553310/sango.shared.main.iml" filepath="$PROJECT_DIR$/.idea/modules/608553310/sango.shared.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/608553310/sango.shared.test.iml" filepath="$PROJECT_DIR$/.idea/modules/608553310/sango.shared.test.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/world/sango.world.iml" filepath="$PROJECT_DIR$/.idea/modules/world/sango.world.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/sango.shared.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/sango.shared.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/sango.shared.main.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/sango.shared.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/shared/sango.shared.test.iml" filepath="$PROJECT_DIR$/.idea/modules/shared/sango.shared.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/world/sango.world.iml" filepath="$PROJECT_DIR$/.idea/modules/world/sango.world.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/world/sango.world.main.iml" filepath="$PROJECT_DIR$/.idea/modules/world/sango.world.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/world/sango.world.test.iml" filepath="$PROJECT_DIR$/.idea/modules/world/sango.world.test.iml" />
