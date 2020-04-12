@@ -1,10 +1,6 @@
 package com.caidt
 
-import com.google.common.collect.Maps
 import org.slf4j.LoggerFactory
-import java.util.*
-import kotlin.collections.HashMap
-import kotlin.collections.set
 import kotlin.reflect.KClass
 
 
@@ -53,15 +49,4 @@ fun create(number: Int, clazz: KClass<*>): String {
         
     }
 """
-}
-
-fun main() {
-  (0..6).forEach {
-    val f = create(it, String::class)
-    println(f)
-  }
-  val map: MutableMap<Int, Int> = HashMap()
-  map[1] = 2
-  map[1] = 3
-  val xx: EnumMap<TestCmd, Int> = Maps.newEnumMap(TestCmd::class.java)
 }

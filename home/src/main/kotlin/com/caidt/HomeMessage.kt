@@ -1,7 +1,7 @@
 package com.caidt
 
-import com.caidt.infrastructure.PlayerEnvelope
-import com.caidt.infrastructure.PlayerMessage
+import com.caidt.share.PlayerEnvelope
+import com.caidt.share.PlayerMessage
 import com.google.protobuf.MessageLite
 
 

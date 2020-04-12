@@ -2,6 +2,7 @@ package com.caidt
 
 import com.caidt.infrastructure.GameServer
 import com.caidt.infrastructure.Role
+import com.caidt.infrastructure.config.ExcelConfigs
 
 
 object Home : GameServer(port = 2552) {
@@ -15,15 +16,16 @@ object Home : GameServer(port = 2552) {
     startShardRegion()
     startNetwork()
     startWorldProxy()
+
+    ExcelConfigs.init()
   }
 
   override fun close() {
     closeWorldProxy()
-    closeShardRegion()
     closeSystem()
   }
 
-  fun startShardRegion() {
+  private fun startShardRegion() {
     startShardRegion(PlayerActor::class.java)
   }
 }

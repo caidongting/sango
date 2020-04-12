@@ -107,7 +107,7 @@ public final class ProtoCommon {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(0);
+      return ProtoCommon.getDescriptor().getEnumTypes().get(0);
     }
 
     private static final Reason[] VALUES = values();

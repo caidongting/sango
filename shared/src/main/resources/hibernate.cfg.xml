@@ -15,8 +15,8 @@
         <property name="hibernate.hbm2ddl.auto">update</property>
 
         <!-- mapping class -->
-        <mapping class="com.caidt.infrastructure.entity.PlayerAccountEntity"/>
-        <mapping class="com.caidt.infrastructure.entity.ItemEntity"/>
+        <mapping class="com.caidt.share.entity.PlayerAccountEntity"/>
+        <mapping class="com.caidt.share.entity.ItemEntity"/>
 
     </session-factory>
 </hibernate-configuration>

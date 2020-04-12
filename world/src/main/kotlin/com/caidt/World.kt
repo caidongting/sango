@@ -2,8 +2,8 @@ package com.caidt
 
 import akka.actor.ActorRef
 import com.caidt.infrastructure.GameServer
-import com.caidt.infrastructure.Ok
-import com.caidt.infrastructure.PlayerEnvelope
+import com.caidt.share.Ok
+import com.caidt.share.PlayerEnvelope
 import com.caidt.infrastructure.Role
 
 
@@ -15,16 +15,16 @@ object World : GameServer(port = 2553) {
     startSystem()
     startShardRegion()
     startHomeProxy()
-//    startNetwork()
+    startNetwork()
   }
 
-  fun startShardRegion() {
+  private fun startShardRegion() {
     startShardRegion(WorldActor::class.java)
   }
 
   override fun close() {
-    closeShardRegion()
     closeHomeProxy()
+    closeSystem()
   }
 }
 
