@@ -50,10 +50,7 @@ class ZNode {
 
   fun getSeedNodes(): List<Address> {
     val user = System.getProperty("user")
-    val bytes = curatorFramework.data
-      .usingWatcher(CuratorWatcher { event: WatchedEvent ->
-
-      }).forPath("/$user/seedNodes")
+    val bytes = curatorFramework.data.forPath("/$user/seedNodes")
     val list = ObjectMapper().readValue(bytes, ArrayList::class.java)
     return JSON.parseObject(bytes, List::class.java)
   }

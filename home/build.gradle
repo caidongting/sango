@@ -2,3 +2,7 @@ group 'com.uuzu'
 version '1.0-SNAPSHOT'
 
 archivesBaseName = 'home'
+
+dependencies {
+    implementation project(":shared")
+}

@@ -13,7 +13,10 @@ fun initZookeeper() {
     .retryPolicy(ExponentialBackoffRetry(1000, 3))
     .build()
   curatorFramework.start()
-  val node = "/data"
+
+
+  // 1. 创建节点
+  val node = "/${CLUSTER_NAME}"
   val data = curatorFramework.checkExists().forPath(node)
   if (data == null) {
     curatorFramework.create()
@@ -21,5 +24,9 @@ fun initZookeeper() {
       .withMode(CreateMode.PERSISTENT)
       .forPath(node, "0".toByteArray())
   }
+
+  // 2. 填充seedNodes
+
+
   curatorFramework.close()
 }

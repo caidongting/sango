@@ -21,10 +21,13 @@ enum class PathType {
   CLASSPATH,
 
   /** 绝对路径 */
-  ABSOLUTE
+  ABSOLUTE;
 }
 
-class ExcelFile private constructor(private val filePath: String, private val pathType: PathType) : Closeable {
+class ExcelFile private constructor(
+  private val filePath: String,
+  private val pathType: PathType
+) : Closeable {
 
   private var workbook: XSSFWorkbook? = null
   private var input: InputStream? = null
@@ -88,7 +91,7 @@ class ExcelFile private constructor(private val filePath: String, private val pa
     foreachRow(sheet, parser)
   }
 
-  private fun foreachRow(sheet: XSSFSheet, parser: (Row) -> Unit) {
+  fun foreachRow(sheet: XSSFSheet, parser: (Row) -> Unit) {
     val columnBiMap = makeColumnMap(sheet)
     val lastRowNum = sheet.lastRowNum // 0-based
     var exception: Throwable? = null
@@ -136,7 +139,7 @@ class ExcelFile private constructor(private val filePath: String, private val pa
       ?: throw IllegalArgumentException("cannot find sheet $sheetName in $filePath")
   }
 
-  private fun getSheetAt(sheetIndex: Int): XSSFSheet {
+  fun getSheetAt(sheetIndex: Int): XSSFSheet {
     return workbook?.getSheetAt(sheetIndex)
       ?: throw IllegalArgumentException("cannot find sheet index $sheetIndex in $filePath")
   }
@@ -146,7 +149,7 @@ class ExcelFile private constructor(private val filePath: String, private val pa
      * 解析excel，路径类型默认为classpath
      */
     @JvmStatic
-    fun parse(filePath: String, parser: (excel: ExcelFile) -> Unit) {
+    fun parse(filePath: String, parser: (ExcelFile) -> Unit) {
       parse(filePath, PathType.CLASSPATH, parser)
     }
 
@@ -154,7 +157,7 @@ class ExcelFile private constructor(private val filePath: String, private val pa
      * 解析excel，指定路径类型
      */
     @JvmStatic
-    fun parse(filePath: String, pathType: PathType, parser: (excel: ExcelFile) -> Unit) {
+    fun parse(filePath: String, pathType: PathType, parser: (ExcelFile) -> Unit) {
       ExcelFile(filePath, pathType).open().use { excel -> parser.invoke(excel) }
     }
   }
@@ -167,7 +170,10 @@ class ExcelFile private constructor(private val filePath: String, private val pa
  * @author liul
  * @since 2013年9月2日
  */
-class Row(private val xssfRow: XSSFRow, private val columnBiMap: Map<String, Int>) {
+class Row(
+  private val xssfRow: XSSFRow,
+  private val columnBiMap: Map<String, Int>
+) {
 
   private var curCellIndex = 0
 

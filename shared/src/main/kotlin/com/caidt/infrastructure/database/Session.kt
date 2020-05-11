@@ -27,7 +27,7 @@ class Session(private val sessionFactory: SessionFactory) {
     return exec { session -> session.get(clazz, pk) } as T
   }
 
-  fun <T : IEntity> finaAll(clazz: Class<T>): List<T> {
+  fun <T : IEntity> findAll(clazz: Class<T>): List<T> {
     @Suppress("UNCHECKED_CAST")
     return exec { it.createCriteria(clazz).list().distinct() } as List<T>
   }

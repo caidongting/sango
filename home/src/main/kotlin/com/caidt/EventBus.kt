@@ -6,8 +6,10 @@ import akka.actor.Props
 import akka.actor.UntypedAbstractActor
 import com.caidt.infrastructure.LARGE_MAILBOX
 import com.caidt.share.tellNoSender
+import kotlinx.coroutines.CoroutineScope
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import kotlin.coroutines.CoroutineContext
 
 
 class NamedRunnable(val name: String, val exec: Runnable)
@@ -34,9 +36,12 @@ class JobActor : UntypedAbstractActor() {
 class EventBus(actorSystem: ActorSystem) {
 
   private val executor: ActorRef = actorSystem.actorOf(JobActor.props())
+  // private val coroutineContext: CoroutineContext = CoroutineContext()
 
   private fun fire(name: String, exec: () -> Unit) {
     executor.tellNoSender(NamedRunnable(name, Runnable { exec() }))
+
+
   }
 
   fun firePowerChange(player: PlayerActor, power: Int) {

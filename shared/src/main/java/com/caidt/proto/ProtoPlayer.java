@@ -93,14 +93,14 @@ public final class ProtoPlayer {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_descriptor;
+      return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_fieldAccessorTable
+      return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProtoPlayer.GetPlayerInfoRequest.class, ProtoPlayer.GetPlayerInfoRequest.Builder.class);
+              com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.class, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder.class);
     }
 
     private int bitField0_;
@@ -161,10 +161,10 @@ public final class ProtoPlayer {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ProtoPlayer.GetPlayerInfoRequest)) {
+      if (!(obj instanceof com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest)) {
         return super.equals(obj);
       }
-      ProtoPlayer.GetPlayerInfoRequest other = (ProtoPlayer.GetPlayerInfoRequest) obj;
+      com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest other = (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) obj;
 
       boolean result = true;
       result = result && (hasPlayerId() == other.hasPlayerId());
@@ -193,58 +193,58 @@ public final class ProtoPlayer {
       return hash;
     }
 
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(byte[] data)
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseDelimitedFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoPlayer.GetPlayerInfoRequest parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -256,7 +256,7 @@ public final class ProtoPlayer {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ProtoPlayer.GetPlayerInfoRequest prototype) {
+    public static Builder newBuilder(com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -280,17 +280,17 @@ public final class ProtoPlayer {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.caidt.proto.GetPlayerInfoRequest)
-        ProtoPlayer.GetPlayerInfoRequestOrBuilder {
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_descriptor;
+        return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_fieldAccessorTable
+        return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoPlayer.GetPlayerInfoRequest.class, ProtoPlayer.GetPlayerInfoRequest.Builder.class);
+                com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.class, com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.Builder.class);
       }
 
       // Construct using com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.newBuilder()
@@ -317,23 +317,23 @@ public final class ProtoPlayer {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_descriptor;
+        return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoRequest_descriptor;
       }
 
-      public ProtoPlayer.GetPlayerInfoRequest getDefaultInstanceForType() {
-        return ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
+      public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
       }
 
-      public ProtoPlayer.GetPlayerInfoRequest build() {
-        ProtoPlayer.GetPlayerInfoRequest result = buildPartial();
+      public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest build() {
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public ProtoPlayer.GetPlayerInfoRequest buildPartial() {
-        ProtoPlayer.GetPlayerInfoRequest result = new ProtoPlayer.GetPlayerInfoRequest(this);
+      public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest buildPartial() {
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest result = new com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -372,16 +372,16 @@ public final class ProtoPlayer {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ProtoPlayer.GetPlayerInfoRequest) {
-          return mergeFrom((ProtoPlayer.GetPlayerInfoRequest)other);
+        if (other instanceof com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) {
+          return mergeFrom((com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ProtoPlayer.GetPlayerInfoRequest other) {
-        if (other == ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest other) {
+        if (other == com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance()) return this;
         if (other.hasPlayerId()) {
           setPlayerId(other.getPlayerId());
         }
@@ -401,11 +401,11 @@ public final class ProtoPlayer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ProtoPlayer.GetPlayerInfoRequest parsedMessage = null;
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ProtoPlayer.GetPlayerInfoRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -462,12 +462,12 @@ public final class ProtoPlayer {
     }
 
     // @@protoc_insertion_point(class_scope:com.caidt.proto.GetPlayerInfoRequest)
-    private static final ProtoPlayer.GetPlayerInfoRequest DEFAULT_INSTANCE;
+    private static final com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ProtoPlayer.GetPlayerInfoRequest();
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest();
     }
 
-    public static ProtoPlayer.GetPlayerInfoRequest getDefaultInstance() {
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -490,7 +490,7 @@ public final class ProtoPlayer {
       return PARSER;
     }
 
-    public ProtoPlayer.GetPlayerInfoRequest getDefaultInstanceForType() {
+    public com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -592,14 +592,14 @@ public final class ProtoPlayer {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_descriptor;
+      return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_fieldAccessorTable
+      return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProtoPlayer.GetPlayerInfoResponse.class, ProtoPlayer.GetPlayerInfoResponse.Builder.class);
+              com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.class, com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.Builder.class);
     }
 
     private int bitField0_;
@@ -712,10 +712,10 @@ public final class ProtoPlayer {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ProtoPlayer.GetPlayerInfoResponse)) {
+      if (!(obj instanceof com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse)) {
         return super.equals(obj);
       }
-      ProtoPlayer.GetPlayerInfoResponse other = (ProtoPlayer.GetPlayerInfoResponse) obj;
+      com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse other = (com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse) obj;
 
       boolean result = true;
       result = result && (hasPlayerId() == other.hasPlayerId());
@@ -753,58 +753,58 @@ public final class ProtoPlayer {
       return hash;
     }
 
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(byte[] data)
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseDelimitedFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoPlayer.GetPlayerInfoResponse parseFrom(
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -816,7 +816,7 @@ public final class ProtoPlayer {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ProtoPlayer.GetPlayerInfoResponse prototype) {
+    public static Builder newBuilder(com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -836,17 +836,17 @@ public final class ProtoPlayer {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.caidt.proto.GetPlayerInfoResponse)
-        ProtoPlayer.GetPlayerInfoResponseOrBuilder {
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_descriptor;
+        return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_fieldAccessorTable
+        return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoPlayer.GetPlayerInfoResponse.class, ProtoPlayer.GetPlayerInfoResponse.Builder.class);
+                com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.class, com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.Builder.class);
       }
 
       // Construct using com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.newBuilder()
@@ -875,23 +875,23 @@ public final class ProtoPlayer {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_descriptor;
+        return com.caidt.proto.ProtoPlayer.internal_static_com_caidt_proto_GetPlayerInfoResponse_descriptor;
       }
 
-      public ProtoPlayer.GetPlayerInfoResponse getDefaultInstanceForType() {
-        return ProtoPlayer.GetPlayerInfoResponse.getDefaultInstance();
+      public com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.getDefaultInstance();
       }
 
-      public ProtoPlayer.GetPlayerInfoResponse build() {
-        ProtoPlayer.GetPlayerInfoResponse result = buildPartial();
+      public com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse build() {
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public ProtoPlayer.GetPlayerInfoResponse buildPartial() {
-        ProtoPlayer.GetPlayerInfoResponse result = new ProtoPlayer.GetPlayerInfoResponse(this);
+      public com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse buildPartial() {
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse result = new com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -934,16 +934,16 @@ public final class ProtoPlayer {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ProtoPlayer.GetPlayerInfoResponse) {
-          return mergeFrom((ProtoPlayer.GetPlayerInfoResponse)other);
+        if (other instanceof com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse) {
+          return mergeFrom((com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ProtoPlayer.GetPlayerInfoResponse other) {
-        if (other == ProtoPlayer.GetPlayerInfoResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse other) {
+        if (other == com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.getDefaultInstance()) return this;
         if (other.hasPlayerId()) {
           setPlayerId(other.getPlayerId());
         }
@@ -971,11 +971,11 @@ public final class ProtoPlayer {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ProtoPlayer.GetPlayerInfoResponse parsedMessage = null;
+        com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ProtoPlayer.GetPlayerInfoResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1108,12 +1108,12 @@ public final class ProtoPlayer {
     }
 
     // @@protoc_insertion_point(class_scope:com.caidt.proto.GetPlayerInfoResponse)
-    private static final ProtoPlayer.GetPlayerInfoResponse DEFAULT_INSTANCE;
+    private static final com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ProtoPlayer.GetPlayerInfoResponse();
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse();
     }
 
-    public static ProtoPlayer.GetPlayerInfoResponse getDefaultInstance() {
+    public static com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1136,7 +1136,7 @@ public final class ProtoPlayer {
       return PARSER;
     }
 
-    public ProtoPlayer.GetPlayerInfoResponse getDefaultInstanceForType() {
+    public com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 

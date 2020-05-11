@@ -9,17 +9,14 @@ annotation class DoNotLoad
 
 abstract class ExcelConfig {
 
-  private lateinit var manager: ExcelManager
-
-  internal fun setManager(manager: ExcelManager) {
-    this.manager = manager
-  }
-
   /**
    * 用于在[afterLoadAll]阶段对其他[ExcelConfig]的依赖，若用于[load]阶段，需要注意加载关系
    */
-  fun <T : ExcelConfig> getConfig(clazz: Class<T>): T {
-    return manager.getConfig(clazz)
+  lateinit var manager: ExcelManager
+    private set
+
+  internal fun setManager(manager: ExcelManager) {
+    this.manager = manager
   }
 
   abstract fun load()

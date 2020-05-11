@@ -10,8 +10,7 @@ object DataContainerManager {
   private val containerMap: Map<KClass<*>, DataContainer<*, *>> = hashMapOf()
 
   private val dbRead: Executor = Executor { }
-  private val dbWrite: Executor =
-    Executors.newSingleThreadExecutor()
+  private val dbWrite: Executor = Executors.newSingleThreadExecutor()
   private val exec: HashMap<String, Executor> = hashMapOf()
 
   fun <T : Any> getOrLoad(clazz: KClass<T>): T {

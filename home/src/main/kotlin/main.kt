@@ -1,23 +1,24 @@
-fun main() {
-  val map = hashMapOf(
-    1 to 1,
-    2 to 2
-  )
-  map.mapValues { entry -> entry.value * entry.value }
-}
+import kotlinx.coroutines.coroutineScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
-data class Attribute<T : Comparable<T>>(
-  var value: T,
-  val min: T,
-  val max: T
-) : Comparable<Attribute<T>> {
 
-  init {
-    require(min <= value)
-    require(value <= max)
+fun main() = runBlocking {
+  launch {
+    delay(1000L)
+    println("World")
   }
 
-  override fun compareTo(other: Attribute<T>): Int {
-    return value.compareTo(other.value)
+  coroutineScope { // Creates a coroutine scope
+    launch {
+      delay(500L)
+      println("Task from nested launch")
+    }
+
+    delay(100L)
+    println("Task from coroutine scope") // This line will be printed before the nested launch
   }
+
+  println("hello")
 }

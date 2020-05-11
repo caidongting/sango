@@ -30,7 +30,7 @@ class RobotConfig : ExcelConfig() {
     return notNull(robotMap[uid]) { "cfg not found uid=$uid" }
   }
 
-  fun getRobot(name: String): RobotCfg? {
+  fun getRobot(name: String): RobotCfg {
     return notNull(robotNameMap[name]) { "cfg not found name=$name" }
   }
 

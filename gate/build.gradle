@@ -2,3 +2,7 @@ group 'com.uuzu'
 version '1.0-SNAPSHOT'
 
 archivesBaseName = 'gate'
+
+dependencies {
+    implementation project(":shared")
+}

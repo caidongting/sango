@@ -73,14 +73,14 @@ public final class ProtoRank {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ProtoRank.internal_static_com_caidt_proto_Rank_descriptor;
+      return com.caidt.proto.ProtoRank.internal_static_com_caidt_proto_Rank_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ProtoRank.internal_static_com_caidt_proto_Rank_fieldAccessorTable
+      return com.caidt.proto.ProtoRank.internal_static_com_caidt_proto_Rank_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ProtoRank.Rank.class, ProtoRank.Rank.Builder.class);
+              com.caidt.proto.ProtoRank.Rank.class, com.caidt.proto.ProtoRank.Rank.Builder.class);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -114,10 +114,10 @@ public final class ProtoRank {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ProtoRank.Rank)) {
+      if (!(obj instanceof com.caidt.proto.ProtoRank.Rank)) {
         return super.equals(obj);
       }
-      ProtoRank.Rank other = (ProtoRank.Rank) obj;
+      com.caidt.proto.ProtoRank.Rank other = (com.caidt.proto.ProtoRank.Rank) obj;
 
       boolean result = true;
       result = result && unknownFields.equals(other.unknownFields);
@@ -136,58 +136,58 @@ public final class ProtoRank {
       return hash;
     }
 
-    public static ProtoRank.Rank parseFrom(
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoRank.Rank parseFrom(
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoRank.Rank parseFrom(byte[] data)
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ProtoRank.Rank parseFrom(
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ProtoRank.Rank parseFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoRank.Rank parseFrom(
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoRank.Rank parseDelimitedFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoRank.Rank parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ProtoRank.Rank parseDelimitedFrom(
+    public static com.caidt.proto.ProtoRank.Rank parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ProtoRank.Rank parseFrom(
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ProtoRank.Rank parseFrom(
+    public static com.caidt.proto.ProtoRank.Rank parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -199,7 +199,7 @@ public final class ProtoRank {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ProtoRank.Rank prototype) {
+    public static Builder newBuilder(com.caidt.proto.ProtoRank.Rank prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -219,17 +219,17 @@ public final class ProtoRank {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:com.caidt.proto.Rank)
-        ProtoRank.RankOrBuilder {
+        com.caidt.proto.ProtoRank.RankOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ProtoRank.internal_static_com_caidt_proto_Rank_descriptor;
+        return com.caidt.proto.ProtoRank.internal_static_com_caidt_proto_Rank_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ProtoRank.internal_static_com_caidt_proto_Rank_fieldAccessorTable
+        return com.caidt.proto.ProtoRank.internal_static_com_caidt_proto_Rank_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ProtoRank.Rank.class, ProtoRank.Rank.Builder.class);
+                com.caidt.proto.ProtoRank.Rank.class, com.caidt.proto.ProtoRank.Rank.Builder.class);
       }
 
       // Construct using com.caidt.proto.ProtoRank.Rank.newBuilder()
@@ -254,23 +254,23 @@ public final class ProtoRank {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ProtoRank.internal_static_com_caidt_proto_Rank_descriptor;
+        return com.caidt.proto.ProtoRank.internal_static_com_caidt_proto_Rank_descriptor;
       }
 
-      public ProtoRank.Rank getDefaultInstanceForType() {
-        return ProtoRank.Rank.getDefaultInstance();
+      public com.caidt.proto.ProtoRank.Rank getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoRank.Rank.getDefaultInstance();
       }
 
-      public ProtoRank.Rank build() {
-        ProtoRank.Rank result = buildPartial();
+      public com.caidt.proto.ProtoRank.Rank build() {
+        com.caidt.proto.ProtoRank.Rank result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public ProtoRank.Rank buildPartial() {
-        ProtoRank.Rank result = new ProtoRank.Rank(this);
+      public com.caidt.proto.ProtoRank.Rank buildPartial() {
+        com.caidt.proto.ProtoRank.Rank result = new com.caidt.proto.ProtoRank.Rank(this);
         onBuilt();
         return result;
       }
@@ -302,16 +302,16 @@ public final class ProtoRank {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ProtoRank.Rank) {
-          return mergeFrom((ProtoRank.Rank)other);
+        if (other instanceof com.caidt.proto.ProtoRank.Rank) {
+          return mergeFrom((com.caidt.proto.ProtoRank.Rank)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ProtoRank.Rank other) {
-        if (other == ProtoRank.Rank.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.caidt.proto.ProtoRank.Rank other) {
+        if (other == com.caidt.proto.ProtoRank.Rank.getDefaultInstance()) return this;
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -325,11 +325,11 @@ public final class ProtoRank {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ProtoRank.Rank parsedMessage = null;
+        com.caidt.proto.ProtoRank.Rank parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ProtoRank.Rank) e.getUnfinishedMessage();
+          parsedMessage = (com.caidt.proto.ProtoRank.Rank) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -353,12 +353,12 @@ public final class ProtoRank {
     }
 
     // @@protoc_insertion_point(class_scope:com.caidt.proto.Rank)
-    private static final ProtoRank.Rank DEFAULT_INSTANCE;
+    private static final com.caidt.proto.ProtoRank.Rank DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ProtoRank.Rank();
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoRank.Rank();
     }
 
-    public static ProtoRank.Rank getDefaultInstance() {
+    public static com.caidt.proto.ProtoRank.Rank getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
@@ -381,7 +381,7 @@ public final class ProtoRank {
       return PARSER;
     }
 
-    public ProtoRank.Rank getDefaultInstanceForType() {
+    public com.caidt.proto.ProtoRank.Rank getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
