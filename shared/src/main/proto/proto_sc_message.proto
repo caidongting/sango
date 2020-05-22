@@ -2,11 +2,16 @@ syntax = "proto2";
 package com.caidt.proto;
 import "proto_base.proto";
 import "proto_player.proto";
+import "proto_activity.proto";
 
 message ScMessage {
+
     oneof cmd {
         LoginResponse loginResponse = 101;
         GetPlayerInfoResponse getPlayerInfoResponse = 102;
+        GetAllActivityResponse GetAllActivityResponse = 103;
+        GetActivityResponse getActivityResponse = 104;
+        ScActivity scActivity = 105;
     }
 
 }

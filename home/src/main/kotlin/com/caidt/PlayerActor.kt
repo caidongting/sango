@@ -31,9 +31,11 @@ open class PlayerActor : UntypedAbstractActor() {
 
   private var state: State = State.INIT
 
-  private lateinit var playerAccount: PlayerAccountEntity
+  private val playerAccount: PlayerAccountEntity get() = playerDC.entity
 
   val eventBus: EventBus get() = Home.eventBus
+
+  val commonTick: CommonTick get() = Home.commonTick
 
 
   override fun onReceive(message: Any?) {
@@ -91,7 +93,7 @@ open class PlayerActor : UntypedAbstractActor() {
 
   /** 处理player常规定时任务 */
   private fun commonTick(now: Instant) {
-    //
+    commonTick.tick(this, now)
   }
 
   private var client: ActorRef? = null

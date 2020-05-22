@@ -5,15 +5,17 @@ import java.net.JarURLConnection
 import java.util.jar.JarFile
 
 /**
- * 扫描[packageName]下面的类, 可过滤
+ * 扫描[pkgName]下面的类, 可过滤
  */
-fun scanPackage(packageName: String, filter: (Class<*>) -> Boolean = { true }): List<Class<*>> {
+fun scanPackage(pkgName: String, filter: (Class<*>) -> Boolean = { true }): List<Class<*>> {
+//  val pkg = Package.getPackage(pkgName)
+//  pkg.javaClass.classLoader.getResources()
   val result: MutableList<Class<*>> = arrayListOf()
-  val urls = Thread.currentThread().contextClassLoader.getResources(packageName.replace('.', '/'))
+  val urls = Thread.currentThread().contextClassLoader.getResources(pkgName.replace('.', '/'))
   while (urls.hasMoreElements()) {
     val url = urls.nextElement()
     when (url.protocol) {
-      "file" -> scanFile(packageName, File(url.file), result, filter)
+      "file" -> scanFile(pkgName, File(url.file), result, filter)
       "jar" -> {
         val urlConnection = url.openConnection() as JarURLConnection
         scanJar(urlConnection.jarFile, result, filter)
@@ -26,15 +28,15 @@ fun scanPackage(packageName: String, filter: (Class<*>) -> Boolean = { true }): 
 }
 
 
-internal fun scanFile(packageName: String, file: File, result: MutableList<Class<*>>, filter: (Class<*>) -> Boolean) {
+internal fun scanFile(pkgName: String, file: File, result: MutableList<Class<*>>, filter: (Class<*>) -> Boolean) {
   if (file.isDirectory) {
     file.listFiles()?.forEach {
-      val newPackageName = if (it.isDirectory) packageName + "." + it.name else packageName
-      scanFile(newPackageName, it, result, filter)
+      val newPkgName = if (it.isDirectory) pkgName + "." + it.name else pkgName
+      scanFile(newPkgName, it, result, filter)
     }
   } else if (file.name.endsWith(".class")) {
     val classname = file.name.replace(".class", "")
-    val clazz = Class.forName("$packageName.$classname")
+    val clazz = Class.forName("$pkgName.$classname")
     if (!clazz.isSynthetic && filter.invoke(clazz)) {
       result.add(clazz)
     }

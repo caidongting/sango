@@ -1,0 +1,32 @@
+syntax = "proto2";
+package com.caidt.proto;
+
+// 获取所有在线活动 --> GetAllActivityResponse
+message GetAllActivityRequest {
+
+}
+message GetAllActivityResponse {
+    repeated Activity activities = 1; // 所有在线活动
+}
+
+message Activity {
+    required int32 uid = 1;
+    required int32 type = 2;
+    optional string name = 3;
+    required int64 startTime = 4;
+    required int64 endTime = 5;
+    optional int32 readPoint = 6; // 红点信息，是否放在这里有待商榷
+}
+
+// 获取活动时间信息 --> GetActivityResponse
+message GetActivityRequest {
+    required int32 uid = 1;
+}
+message GetActivityResponse {
+    optional Activity activity = 1;
+}
+
+// 推送活动信息
+message ScActivity {
+    repeated Activity activities = 1; // 发生改变的活动 ps: 增加或者修改
+}

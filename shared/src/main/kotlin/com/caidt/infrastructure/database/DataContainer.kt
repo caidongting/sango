@@ -17,14 +17,26 @@ abstract class DataContainer<T : IEntity, E : EntityWrapper<T>> {
     return wrap(creator(entity))
   }
 
+  // 适用于只有一个entity参数的
   fun wrap(entity: T, clazz: Class<E>) {
-    val wrapper = clazz.newInstance()
-    wrapper.init(entity)
+    val wrapper = clazz.getConstructor().newInstance()
     wrap(wrapper)
   }
 
   private fun wrap(wrapper: E): E {
     map[wrapper.primaryKey()] = wrapper
+    EntityWrapperManager.update(wrapper)
     return wrapper
+  }
+
+  fun save(wrapper: E): E {
+    map[wrapper.primaryKey()] = wrapper
+    EntityWrapperManager.save(wrapper)
+    return wrapper
+  }
+
+  fun delete(wrapper: E) {
+    map.remove(wrapper.primaryKey())
+    EntityWrapperManager.delete(wrapper)
   }
 }

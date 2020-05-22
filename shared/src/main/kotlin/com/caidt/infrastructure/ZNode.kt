@@ -1,7 +1,6 @@
 package com.caidt.infrastructure
 
 import akka.actor.Address
-import com.alibaba.fastjson.JSON
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.apache.curator.framework.CuratorFramework
 import org.apache.curator.framework.CuratorFrameworkFactory
@@ -52,7 +51,7 @@ class ZNode {
     val user = System.getProperty("user")
     val bytes = curatorFramework.data.forPath("/$user/seedNodes")
     val list = ObjectMapper().readValue(bytes, ArrayList::class.java)
-    return JSON.parseObject(bytes, List::class.java)
+    return listOf()
   }
 
   fun close() {

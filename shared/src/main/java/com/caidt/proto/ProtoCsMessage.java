@@ -44,6 +44,32 @@ public final class ProtoCsMessage {
      */
     com.caidt.proto.ProtoPlayer.GetPlayerInfoRequestOrBuilder getGetPlayerInfoRequestOrBuilder();
 
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+     */
+    boolean hasGetAllActivityRequest();
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetAllActivityRequest getGetAllActivityRequest();
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetAllActivityRequestOrBuilder getGetAllActivityRequestOrBuilder();
+
+    /**
+     * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+     */
+    boolean hasGetActivityRequest();
+    /**
+     * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetActivityRequest getGetActivityRequest();
+    /**
+     * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetActivityRequestOrBuilder getGetActivityRequestOrBuilder();
+
     public com.caidt.proto.ProtoCsMessage.CsMessage.CmdCase getCmdCase();
   }
   /**
@@ -116,6 +142,34 @@ public final class ProtoCsMessage {
               cmdCase_ = 102;
               break;
             }
+            case 826: {
+              com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder subBuilder = null;
+              if (cmdCase_ == 103) {
+                subBuilder = ((com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_).toBuilder();
+              }
+              cmd_ =
+                  input.readMessage(com.caidt.proto.ProtoActivity.GetAllActivityRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_);
+                cmd_ = subBuilder.buildPartial();
+              }
+              cmdCase_ = 103;
+              break;
+            }
+            case 834: {
+              com.caidt.proto.ProtoActivity.GetActivityRequest.Builder subBuilder = null;
+              if (cmdCase_ == 104) {
+                subBuilder = ((com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_).toBuilder();
+              }
+              cmd_ =
+                  input.readMessage(com.caidt.proto.ProtoActivity.GetActivityRequest.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_);
+                cmd_ = subBuilder.buildPartial();
+              }
+              cmdCase_ = 104;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -147,6 +201,8 @@ public final class ProtoCsMessage {
         implements com.google.protobuf.Internal.EnumLite {
       LOGINREQUEST(101),
       GETPLAYERINFOREQUEST(102),
+      GETALLACTIVITYREQUEST(103),
+      GETACTIVITYREQUEST(104),
       CMD_NOT_SET(0);
       private final int value;
       private CmdCase(int value) {
@@ -164,6 +220,8 @@ public final class ProtoCsMessage {
         switch (value) {
           case 101: return LOGINREQUEST;
           case 102: return GETPLAYERINFOREQUEST;
+          case 103: return GETALLACTIVITYREQUEST;
+          case 104: return GETACTIVITYREQUEST;
           case 0: return CMD_NOT_SET;
           default: return null;
         }
@@ -231,6 +289,58 @@ public final class ProtoCsMessage {
       return com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest.getDefaultInstance();
     }
 
+    public static final int GETALLACTIVITYREQUEST_FIELD_NUMBER = 103;
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+     */
+    public boolean hasGetAllActivityRequest() {
+      return cmdCase_ == 103;
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetAllActivityRequest getGetAllActivityRequest() {
+      if (cmdCase_ == 103) {
+         return (com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetAllActivityRequestOrBuilder getGetAllActivityRequestOrBuilder() {
+      if (cmdCase_ == 103) {
+         return (com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance();
+    }
+
+    public static final int GETACTIVITYREQUEST_FIELD_NUMBER = 104;
+    /**
+     * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+     */
+    public boolean hasGetActivityRequest() {
+      return cmdCase_ == 104;
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetActivityRequest getGetActivityRequest() {
+      if (cmdCase_ == 104) {
+         return (com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetActivityRequestOrBuilder getGetActivityRequestOrBuilder() {
+      if (cmdCase_ == 104) {
+         return (com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -249,6 +359,12 @@ public final class ProtoCsMessage {
           return false;
         }
       }
+      if (hasGetActivityRequest()) {
+        if (!getGetActivityRequest().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -260,6 +376,12 @@ public final class ProtoCsMessage {
       }
       if (cmdCase_ == 102) {
         output.writeMessage(102, (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_);
+      }
+      if (cmdCase_ == 103) {
+        output.writeMessage(103, (com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_);
+      }
+      if (cmdCase_ == 104) {
+        output.writeMessage(104, (com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_);
       }
       unknownFields.writeTo(output);
     }
@@ -276,6 +398,14 @@ public final class ProtoCsMessage {
       if (cmdCase_ == 102) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(102, (com.caidt.proto.ProtoPlayer.GetPlayerInfoRequest) cmd_);
+      }
+      if (cmdCase_ == 103) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(103, (com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_);
+      }
+      if (cmdCase_ == 104) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(104, (com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -306,6 +436,14 @@ public final class ProtoCsMessage {
           result = result && getGetPlayerInfoRequest()
               .equals(other.getGetPlayerInfoRequest());
           break;
+        case 103:
+          result = result && getGetAllActivityRequest()
+              .equals(other.getGetAllActivityRequest());
+          break;
+        case 104:
+          result = result && getGetActivityRequest()
+              .equals(other.getGetActivityRequest());
+          break;
         case 0:
         default:
       }
@@ -328,6 +466,14 @@ public final class ProtoCsMessage {
         case 102:
           hash = (37 * hash) + GETPLAYERINFOREQUEST_FIELD_NUMBER;
           hash = (53 * hash) + getGetPlayerInfoRequest().hashCode();
+          break;
+        case 103:
+          hash = (37 * hash) + GETALLACTIVITYREQUEST_FIELD_NUMBER;
+          hash = (53 * hash) + getGetAllActivityRequest().hashCode();
+          break;
+        case 104:
+          hash = (37 * hash) + GETACTIVITYREQUEST_FIELD_NUMBER;
+          hash = (53 * hash) + getGetActivityRequest().hashCode();
           break;
         case 0:
         default:
@@ -490,6 +636,20 @@ public final class ProtoCsMessage {
             result.cmd_ = getPlayerInfoRequestBuilder_.build();
           }
         }
+        if (cmdCase_ == 103) {
+          if (getAllActivityRequestBuilder_ == null) {
+            result.cmd_ = cmd_;
+          } else {
+            result.cmd_ = getAllActivityRequestBuilder_.build();
+          }
+        }
+        if (cmdCase_ == 104) {
+          if (getActivityRequestBuilder_ == null) {
+            result.cmd_ = cmd_;
+          } else {
+            result.cmd_ = getActivityRequestBuilder_.build();
+          }
+        }
         result.bitField0_ = to_bitField0_;
         result.cmdCase_ = cmdCase_;
         onBuilt();
@@ -542,6 +702,14 @@ public final class ProtoCsMessage {
             mergeGetPlayerInfoRequest(other.getGetPlayerInfoRequest());
             break;
           }
+          case GETALLACTIVITYREQUEST: {
+            mergeGetAllActivityRequest(other.getGetAllActivityRequest());
+            break;
+          }
+          case GETACTIVITYREQUEST: {
+            mergeGetActivityRequest(other.getGetActivityRequest());
+            break;
+          }
           case CMD_NOT_SET: {
             break;
           }
@@ -559,6 +727,11 @@ public final class ProtoCsMessage {
         }
         if (hasGetPlayerInfoRequest()) {
           if (!getGetPlayerInfoRequest().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasGetActivityRequest()) {
+          if (!getGetActivityRequest().isInitialized()) {
             return false;
           }
         }
@@ -870,6 +1043,278 @@ public final class ProtoCsMessage {
         onChanged();;
         return getPlayerInfoRequestBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetAllActivityRequest, com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder, com.caidt.proto.ProtoActivity.GetAllActivityRequestOrBuilder> getAllActivityRequestBuilder_;
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public boolean hasGetAllActivityRequest() {
+        return cmdCase_ == 103;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetAllActivityRequest getGetAllActivityRequest() {
+        if (getAllActivityRequestBuilder_ == null) {
+          if (cmdCase_ == 103) {
+            return (com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance();
+        } else {
+          if (cmdCase_ == 103) {
+            return getAllActivityRequestBuilder_.getMessage();
+          }
+          return com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public Builder setGetAllActivityRequest(com.caidt.proto.ProtoActivity.GetAllActivityRequest value) {
+        if (getAllActivityRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmd_ = value;
+          onChanged();
+        } else {
+          getAllActivityRequestBuilder_.setMessage(value);
+        }
+        cmdCase_ = 103;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public Builder setGetAllActivityRequest(
+          com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder builderForValue) {
+        if (getAllActivityRequestBuilder_ == null) {
+          cmd_ = builderForValue.build();
+          onChanged();
+        } else {
+          getAllActivityRequestBuilder_.setMessage(builderForValue.build());
+        }
+        cmdCase_ = 103;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public Builder mergeGetAllActivityRequest(com.caidt.proto.ProtoActivity.GetAllActivityRequest value) {
+        if (getAllActivityRequestBuilder_ == null) {
+          if (cmdCase_ == 103 &&
+              cmd_ != com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetAllActivityRequest.newBuilder((com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            cmd_ = value;
+          }
+          onChanged();
+        } else {
+          if (cmdCase_ == 103) {
+            getAllActivityRequestBuilder_.mergeFrom(value);
+          }
+          getAllActivityRequestBuilder_.setMessage(value);
+        }
+        cmdCase_ = 103;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public Builder clearGetAllActivityRequest() {
+        if (getAllActivityRequestBuilder_ == null) {
+          if (cmdCase_ == 103) {
+            cmdCase_ = 0;
+            cmd_ = null;
+            onChanged();
+          }
+        } else {
+          if (cmdCase_ == 103) {
+            cmdCase_ = 0;
+            cmd_ = null;
+          }
+          getAllActivityRequestBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder getGetAllActivityRequestBuilder() {
+        return getGetAllActivityRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetAllActivityRequestOrBuilder getGetAllActivityRequestOrBuilder() {
+        if ((cmdCase_ == 103) && (getAllActivityRequestBuilder_ != null)) {
+          return getAllActivityRequestBuilder_.getMessageOrBuilder();
+        } else {
+          if (cmdCase_ == 103) {
+            return (com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityRequest getAllActivityRequest = 103;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetAllActivityRequest, com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder, com.caidt.proto.ProtoActivity.GetAllActivityRequestOrBuilder> 
+          getGetAllActivityRequestFieldBuilder() {
+        if (getAllActivityRequestBuilder_ == null) {
+          if (!(cmdCase_ == 103)) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance();
+          }
+          getAllActivityRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.caidt.proto.ProtoActivity.GetAllActivityRequest, com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder, com.caidt.proto.ProtoActivity.GetAllActivityRequestOrBuilder>(
+                  (com.caidt.proto.ProtoActivity.GetAllActivityRequest) cmd_,
+                  getParentForChildren(),
+                  isClean());
+          cmd_ = null;
+        }
+        cmdCase_ = 103;
+        onChanged();;
+        return getAllActivityRequestBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetActivityRequest, com.caidt.proto.ProtoActivity.GetActivityRequest.Builder, com.caidt.proto.ProtoActivity.GetActivityRequestOrBuilder> getActivityRequestBuilder_;
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public boolean hasGetActivityRequest() {
+        return cmdCase_ == 104;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetActivityRequest getGetActivityRequest() {
+        if (getActivityRequestBuilder_ == null) {
+          if (cmdCase_ == 104) {
+            return (com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance();
+        } else {
+          if (cmdCase_ == 104) {
+            return getActivityRequestBuilder_.getMessage();
+          }
+          return com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public Builder setGetActivityRequest(com.caidt.proto.ProtoActivity.GetActivityRequest value) {
+        if (getActivityRequestBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmd_ = value;
+          onChanged();
+        } else {
+          getActivityRequestBuilder_.setMessage(value);
+        }
+        cmdCase_ = 104;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public Builder setGetActivityRequest(
+          com.caidt.proto.ProtoActivity.GetActivityRequest.Builder builderForValue) {
+        if (getActivityRequestBuilder_ == null) {
+          cmd_ = builderForValue.build();
+          onChanged();
+        } else {
+          getActivityRequestBuilder_.setMessage(builderForValue.build());
+        }
+        cmdCase_ = 104;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public Builder mergeGetActivityRequest(com.caidt.proto.ProtoActivity.GetActivityRequest value) {
+        if (getActivityRequestBuilder_ == null) {
+          if (cmdCase_ == 104 &&
+              cmd_ != com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetActivityRequest.newBuilder((com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            cmd_ = value;
+          }
+          onChanged();
+        } else {
+          if (cmdCase_ == 104) {
+            getActivityRequestBuilder_.mergeFrom(value);
+          }
+          getActivityRequestBuilder_.setMessage(value);
+        }
+        cmdCase_ = 104;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public Builder clearGetActivityRequest() {
+        if (getActivityRequestBuilder_ == null) {
+          if (cmdCase_ == 104) {
+            cmdCase_ = 0;
+            cmd_ = null;
+            onChanged();
+          }
+        } else {
+          if (cmdCase_ == 104) {
+            cmdCase_ = 0;
+            cmd_ = null;
+          }
+          getActivityRequestBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetActivityRequest.Builder getGetActivityRequestBuilder() {
+        return getGetActivityRequestFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetActivityRequestOrBuilder getGetActivityRequestOrBuilder() {
+        if ((cmdCase_ == 104) && (getActivityRequestBuilder_ != null)) {
+          return getActivityRequestBuilder_.getMessageOrBuilder();
+        } else {
+          if (cmdCase_ == 104) {
+            return (com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityRequest getActivityRequest = 104;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetActivityRequest, com.caidt.proto.ProtoActivity.GetActivityRequest.Builder, com.caidt.proto.ProtoActivity.GetActivityRequestOrBuilder> 
+          getGetActivityRequestFieldBuilder() {
+        if (getActivityRequestBuilder_ == null) {
+          if (!(cmdCase_ == 104)) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance();
+          }
+          getActivityRequestBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.caidt.proto.ProtoActivity.GetActivityRequest, com.caidt.proto.ProtoActivity.GetActivityRequest.Builder, com.caidt.proto.ProtoActivity.GetActivityRequestOrBuilder>(
+                  (com.caidt.proto.ProtoActivity.GetActivityRequest) cmd_,
+                  getParentForChildren(),
+                  isClean());
+          cmd_ = null;
+        }
+        cmdCase_ = 104;
+        onChanged();;
+        return getActivityRequestBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -934,11 +1379,15 @@ public final class ProtoCsMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\026proto_cs_message.proto\022\017com.caidt.prot" +
-      "o\032\020proto_base.proto\032\022proto_player.proto\"" +
-      "\220\001\n\tCsMessage\0225\n\014loginRequest\030e \001(\0132\035.co" +
-      "m.caidt.proto.LoginRequestH\000\022E\n\024getPlaye" +
-      "rInfoRequest\030f \001(\0132%.com.caidt.proto.Get" +
-      "PlayerInfoRequestH\000B\005\n\003cmd"
+      "o\032\020proto_base.proto\032\022proto_player.proto\032" +
+      "\024proto_activity.proto\"\234\002\n\tCsMessage\0225\n\014l" +
+      "oginRequest\030e \001(\0132\035.com.caidt.proto.Logi" +
+      "nRequestH\000\022E\n\024getPlayerInfoRequest\030f \001(\013" +
+      "2%.com.caidt.proto.GetPlayerInfoRequestH" +
+      "\000\022G\n\025getAllActivityRequest\030g \001(\0132&.com.c" +
+      "aidt.proto.GetAllActivityRequestH\000\022A\n\022ge" +
+      "tActivityRequest\030h \001(\0132#.com.caidt.proto" +
+      ".GetActivityRequestH\000B\005\n\003cmd"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -953,15 +1402,17 @@ public final class ProtoCsMessage {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.caidt.proto.ProtoBase.getDescriptor(),
           com.caidt.proto.ProtoPlayer.getDescriptor(),
+          com.caidt.proto.ProtoActivity.getDescriptor(),
         }, assigner);
     internal_static_com_caidt_proto_CsMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_caidt_proto_CsMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_CsMessage_descriptor,
-        new java.lang.String[] { "LoginRequest", "GetPlayerInfoRequest", "Cmd", });
+        new java.lang.String[] { "LoginRequest", "GetPlayerInfoRequest", "GetAllActivityRequest", "GetActivityRequest", "Cmd", });
     com.caidt.proto.ProtoBase.getDescriptor();
     com.caidt.proto.ProtoPlayer.getDescriptor();
+    com.caidt.proto.ProtoActivity.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

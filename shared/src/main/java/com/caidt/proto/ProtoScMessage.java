@@ -44,6 +44,45 @@ public final class ProtoScMessage {
      */
     com.caidt.proto.ProtoPlayer.GetPlayerInfoResponseOrBuilder getGetPlayerInfoResponseOrBuilder();
 
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     */
+    boolean hasGetAllActivityResponse();
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetAllActivityResponse getGetAllActivityResponse();
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder();
+
+    /**
+     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     */
+    boolean hasGetActivityResponse();
+    /**
+     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetActivityResponse getGetActivityResponse();
+    /**
+     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     */
+    com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder getGetActivityResponseOrBuilder();
+
+    /**
+     * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+     */
+    boolean hasScActivity();
+    /**
+     * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+     */
+    com.caidt.proto.ProtoActivity.ScActivity getScActivity();
+    /**
+     * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+     */
+    com.caidt.proto.ProtoActivity.ScActivityOrBuilder getScActivityOrBuilder();
+
     public com.caidt.proto.ProtoScMessage.ScMessage.CmdCase getCmdCase();
   }
   /**
@@ -116,6 +155,48 @@ public final class ProtoScMessage {
               cmdCase_ = 102;
               break;
             }
+            case 826: {
+              com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder subBuilder = null;
+              if (cmdCase_ == 103) {
+                subBuilder = ((com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_).toBuilder();
+              }
+              cmd_ =
+                  input.readMessage(com.caidt.proto.ProtoActivity.GetAllActivityResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_);
+                cmd_ = subBuilder.buildPartial();
+              }
+              cmdCase_ = 103;
+              break;
+            }
+            case 834: {
+              com.caidt.proto.ProtoActivity.GetActivityResponse.Builder subBuilder = null;
+              if (cmdCase_ == 104) {
+                subBuilder = ((com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_).toBuilder();
+              }
+              cmd_ =
+                  input.readMessage(com.caidt.proto.ProtoActivity.GetActivityResponse.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_);
+                cmd_ = subBuilder.buildPartial();
+              }
+              cmdCase_ = 104;
+              break;
+            }
+            case 842: {
+              com.caidt.proto.ProtoActivity.ScActivity.Builder subBuilder = null;
+              if (cmdCase_ == 105) {
+                subBuilder = ((com.caidt.proto.ProtoActivity.ScActivity) cmd_).toBuilder();
+              }
+              cmd_ =
+                  input.readMessage(com.caidt.proto.ProtoActivity.ScActivity.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.ScActivity) cmd_);
+                cmd_ = subBuilder.buildPartial();
+              }
+              cmdCase_ = 105;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -147,6 +228,9 @@ public final class ProtoScMessage {
         implements com.google.protobuf.Internal.EnumLite {
       LOGINRESPONSE(101),
       GETPLAYERINFORESPONSE(102),
+      GETALLACTIVITYRESPONSE(103),
+      GETACTIVITYRESPONSE(104),
+      SCACTIVITY(105),
       CMD_NOT_SET(0);
       private final int value;
       private CmdCase(int value) {
@@ -164,6 +248,9 @@ public final class ProtoScMessage {
         switch (value) {
           case 101: return LOGINRESPONSE;
           case 102: return GETPLAYERINFORESPONSE;
+          case 103: return GETALLACTIVITYRESPONSE;
+          case 104: return GETACTIVITYRESPONSE;
+          case 105: return SCACTIVITY;
           case 0: return CMD_NOT_SET;
           default: return null;
         }
@@ -231,6 +318,84 @@ public final class ProtoScMessage {
       return com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse.getDefaultInstance();
     }
 
+    public static final int GETALLACTIVITYRESPONSE_FIELD_NUMBER = 103;
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     */
+    public boolean hasGetAllActivityResponse() {
+      return cmdCase_ == 103;
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetAllActivityResponse getGetAllActivityResponse() {
+      if (cmdCase_ == 103) {
+         return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder() {
+      if (cmdCase_ == 103) {
+         return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+    }
+
+    public static final int GETACTIVITYRESPONSE_FIELD_NUMBER = 104;
+    /**
+     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     */
+    public boolean hasGetActivityResponse() {
+      return cmdCase_ == 104;
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetActivityResponse getGetActivityResponse() {
+      if (cmdCase_ == 104) {
+         return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     */
+    public com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder getGetActivityResponseOrBuilder() {
+      if (cmdCase_ == 104) {
+         return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+    }
+
+    public static final int SCACTIVITY_FIELD_NUMBER = 105;
+    /**
+     * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+     */
+    public boolean hasScActivity() {
+      return cmdCase_ == 105;
+    }
+    /**
+     * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+     */
+    public com.caidt.proto.ProtoActivity.ScActivity getScActivity() {
+      if (cmdCase_ == 105) {
+         return (com.caidt.proto.ProtoActivity.ScActivity) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.ScActivity.getDefaultInstance();
+    }
+    /**
+     * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+     */
+    public com.caidt.proto.ProtoActivity.ScActivityOrBuilder getScActivityOrBuilder() {
+      if (cmdCase_ == 105) {
+         return (com.caidt.proto.ProtoActivity.ScActivity) cmd_;
+      }
+      return com.caidt.proto.ProtoActivity.ScActivity.getDefaultInstance();
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -249,6 +414,24 @@ public final class ProtoScMessage {
           return false;
         }
       }
+      if (hasGetAllActivityResponse()) {
+        if (!getGetAllActivityResponse().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasGetActivityResponse()) {
+        if (!getGetActivityResponse().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      if (hasScActivity()) {
+        if (!getScActivity().isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
       memoizedIsInitialized = 1;
       return true;
     }
@@ -260,6 +443,15 @@ public final class ProtoScMessage {
       }
       if (cmdCase_ == 102) {
         output.writeMessage(102, (com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse) cmd_);
+      }
+      if (cmdCase_ == 103) {
+        output.writeMessage(103, (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_);
+      }
+      if (cmdCase_ == 104) {
+        output.writeMessage(104, (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_);
+      }
+      if (cmdCase_ == 105) {
+        output.writeMessage(105, (com.caidt.proto.ProtoActivity.ScActivity) cmd_);
       }
       unknownFields.writeTo(output);
     }
@@ -276,6 +468,18 @@ public final class ProtoScMessage {
       if (cmdCase_ == 102) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(102, (com.caidt.proto.ProtoPlayer.GetPlayerInfoResponse) cmd_);
+      }
+      if (cmdCase_ == 103) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(103, (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_);
+      }
+      if (cmdCase_ == 104) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(104, (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_);
+      }
+      if (cmdCase_ == 105) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(105, (com.caidt.proto.ProtoActivity.ScActivity) cmd_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -306,6 +510,18 @@ public final class ProtoScMessage {
           result = result && getGetPlayerInfoResponse()
               .equals(other.getGetPlayerInfoResponse());
           break;
+        case 103:
+          result = result && getGetAllActivityResponse()
+              .equals(other.getGetAllActivityResponse());
+          break;
+        case 104:
+          result = result && getGetActivityResponse()
+              .equals(other.getGetActivityResponse());
+          break;
+        case 105:
+          result = result && getScActivity()
+              .equals(other.getScActivity());
+          break;
         case 0:
         default:
       }
@@ -328,6 +544,18 @@ public final class ProtoScMessage {
         case 102:
           hash = (37 * hash) + GETPLAYERINFORESPONSE_FIELD_NUMBER;
           hash = (53 * hash) + getGetPlayerInfoResponse().hashCode();
+          break;
+        case 103:
+          hash = (37 * hash) + GETALLACTIVITYRESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getGetAllActivityResponse().hashCode();
+          break;
+        case 104:
+          hash = (37 * hash) + GETACTIVITYRESPONSE_FIELD_NUMBER;
+          hash = (53 * hash) + getGetActivityResponse().hashCode();
+          break;
+        case 105:
+          hash = (37 * hash) + SCACTIVITY_FIELD_NUMBER;
+          hash = (53 * hash) + getScActivity().hashCode();
           break;
         case 0:
         default:
@@ -490,6 +718,27 @@ public final class ProtoScMessage {
             result.cmd_ = getPlayerInfoResponseBuilder_.build();
           }
         }
+        if (cmdCase_ == 103) {
+          if (getAllActivityResponseBuilder_ == null) {
+            result.cmd_ = cmd_;
+          } else {
+            result.cmd_ = getAllActivityResponseBuilder_.build();
+          }
+        }
+        if (cmdCase_ == 104) {
+          if (getActivityResponseBuilder_ == null) {
+            result.cmd_ = cmd_;
+          } else {
+            result.cmd_ = getActivityResponseBuilder_.build();
+          }
+        }
+        if (cmdCase_ == 105) {
+          if (scActivityBuilder_ == null) {
+            result.cmd_ = cmd_;
+          } else {
+            result.cmd_ = scActivityBuilder_.build();
+          }
+        }
         result.bitField0_ = to_bitField0_;
         result.cmdCase_ = cmdCase_;
         onBuilt();
@@ -542,6 +791,18 @@ public final class ProtoScMessage {
             mergeGetPlayerInfoResponse(other.getGetPlayerInfoResponse());
             break;
           }
+          case GETALLACTIVITYRESPONSE: {
+            mergeGetAllActivityResponse(other.getGetAllActivityResponse());
+            break;
+          }
+          case GETACTIVITYRESPONSE: {
+            mergeGetActivityResponse(other.getGetActivityResponse());
+            break;
+          }
+          case SCACTIVITY: {
+            mergeScActivity(other.getScActivity());
+            break;
+          }
           case CMD_NOT_SET: {
             break;
           }
@@ -559,6 +820,21 @@ public final class ProtoScMessage {
         }
         if (hasGetPlayerInfoResponse()) {
           if (!getGetPlayerInfoResponse().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasGetAllActivityResponse()) {
+          if (!getGetAllActivityResponse().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasGetActivityResponse()) {
+          if (!getGetActivityResponse().isInitialized()) {
+            return false;
+          }
+        }
+        if (hasScActivity()) {
+          if (!getScActivity().isInitialized()) {
             return false;
           }
         }
@@ -870,6 +1146,414 @@ public final class ProtoScMessage {
         onChanged();;
         return getPlayerInfoResponseBuilder_;
       }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetAllActivityResponse, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder> getAllActivityResponseBuilder_;
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public boolean hasGetAllActivityResponse() {
+        return cmdCase_ == 103;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetAllActivityResponse getGetAllActivityResponse() {
+        if (getAllActivityResponseBuilder_ == null) {
+          if (cmdCase_ == 103) {
+            return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+        } else {
+          if (cmdCase_ == 103) {
+            return getAllActivityResponseBuilder_.getMessage();
+          }
+          return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public Builder setGetAllActivityResponse(com.caidt.proto.ProtoActivity.GetAllActivityResponse value) {
+        if (getAllActivityResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmd_ = value;
+          onChanged();
+        } else {
+          getAllActivityResponseBuilder_.setMessage(value);
+        }
+        cmdCase_ = 103;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public Builder setGetAllActivityResponse(
+          com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder builderForValue) {
+        if (getAllActivityResponseBuilder_ == null) {
+          cmd_ = builderForValue.build();
+          onChanged();
+        } else {
+          getAllActivityResponseBuilder_.setMessage(builderForValue.build());
+        }
+        cmdCase_ = 103;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public Builder mergeGetAllActivityResponse(com.caidt.proto.ProtoActivity.GetAllActivityResponse value) {
+        if (getAllActivityResponseBuilder_ == null) {
+          if (cmdCase_ == 103 &&
+              cmd_ != com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetAllActivityResponse.newBuilder((com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            cmd_ = value;
+          }
+          onChanged();
+        } else {
+          if (cmdCase_ == 103) {
+            getAllActivityResponseBuilder_.mergeFrom(value);
+          }
+          getAllActivityResponseBuilder_.setMessage(value);
+        }
+        cmdCase_ = 103;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public Builder clearGetAllActivityResponse() {
+        if (getAllActivityResponseBuilder_ == null) {
+          if (cmdCase_ == 103) {
+            cmdCase_ = 0;
+            cmd_ = null;
+            onChanged();
+          }
+        } else {
+          if (cmdCase_ == 103) {
+            cmdCase_ = 0;
+            cmd_ = null;
+          }
+          getAllActivityResponseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder getGetAllActivityResponseBuilder() {
+        return getGetAllActivityResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder() {
+        if ((cmdCase_ == 103) && (getAllActivityResponseBuilder_ != null)) {
+          return getAllActivityResponseBuilder_.getMessageOrBuilder();
+        } else {
+          if (cmdCase_ == 103) {
+            return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetAllActivityResponse, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder> 
+          getGetAllActivityResponseFieldBuilder() {
+        if (getAllActivityResponseBuilder_ == null) {
+          if (!(cmdCase_ == 103)) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+          }
+          getAllActivityResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.caidt.proto.ProtoActivity.GetAllActivityResponse, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder>(
+                  (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_,
+                  getParentForChildren(),
+                  isClean());
+          cmd_ = null;
+        }
+        cmdCase_ = 103;
+        onChanged();;
+        return getAllActivityResponseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetActivityResponse, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder> getActivityResponseBuilder_;
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public boolean hasGetActivityResponse() {
+        return cmdCase_ == 104;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetActivityResponse getGetActivityResponse() {
+        if (getActivityResponseBuilder_ == null) {
+          if (cmdCase_ == 104) {
+            return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+        } else {
+          if (cmdCase_ == 104) {
+            return getActivityResponseBuilder_.getMessage();
+          }
+          return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public Builder setGetActivityResponse(com.caidt.proto.ProtoActivity.GetActivityResponse value) {
+        if (getActivityResponseBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmd_ = value;
+          onChanged();
+        } else {
+          getActivityResponseBuilder_.setMessage(value);
+        }
+        cmdCase_ = 104;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public Builder setGetActivityResponse(
+          com.caidt.proto.ProtoActivity.GetActivityResponse.Builder builderForValue) {
+        if (getActivityResponseBuilder_ == null) {
+          cmd_ = builderForValue.build();
+          onChanged();
+        } else {
+          getActivityResponseBuilder_.setMessage(builderForValue.build());
+        }
+        cmdCase_ = 104;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public Builder mergeGetActivityResponse(com.caidt.proto.ProtoActivity.GetActivityResponse value) {
+        if (getActivityResponseBuilder_ == null) {
+          if (cmdCase_ == 104 &&
+              cmd_ != com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetActivityResponse.newBuilder((com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            cmd_ = value;
+          }
+          onChanged();
+        } else {
+          if (cmdCase_ == 104) {
+            getActivityResponseBuilder_.mergeFrom(value);
+          }
+          getActivityResponseBuilder_.setMessage(value);
+        }
+        cmdCase_ = 104;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public Builder clearGetActivityResponse() {
+        if (getActivityResponseBuilder_ == null) {
+          if (cmdCase_ == 104) {
+            cmdCase_ = 0;
+            cmd_ = null;
+            onChanged();
+          }
+        } else {
+          if (cmdCase_ == 104) {
+            cmdCase_ = 0;
+            cmd_ = null;
+          }
+          getActivityResponseBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetActivityResponse.Builder getGetActivityResponseBuilder() {
+        return getGetActivityResponseFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      public com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder getGetActivityResponseOrBuilder() {
+        if ((cmdCase_ == 104) && (getActivityResponseBuilder_ != null)) {
+          return getActivityResponseBuilder_.getMessageOrBuilder();
+        } else {
+          if (cmdCase_ == 104) {
+            return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.GetActivityResponse, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder> 
+          getGetActivityResponseFieldBuilder() {
+        if (getActivityResponseBuilder_ == null) {
+          if (!(cmdCase_ == 104)) {
+            cmd_ = com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+          }
+          getActivityResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.caidt.proto.ProtoActivity.GetActivityResponse, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder>(
+                  (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_,
+                  getParentForChildren(),
+                  isClean());
+          cmd_ = null;
+        }
+        cmdCase_ = 104;
+        onChanged();;
+        return getActivityResponseBuilder_;
+      }
+
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.ScActivity, com.caidt.proto.ProtoActivity.ScActivity.Builder, com.caidt.proto.ProtoActivity.ScActivityOrBuilder> scActivityBuilder_;
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public boolean hasScActivity() {
+        return cmdCase_ == 105;
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public com.caidt.proto.ProtoActivity.ScActivity getScActivity() {
+        if (scActivityBuilder_ == null) {
+          if (cmdCase_ == 105) {
+            return (com.caidt.proto.ProtoActivity.ScActivity) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.ScActivity.getDefaultInstance();
+        } else {
+          if (cmdCase_ == 105) {
+            return scActivityBuilder_.getMessage();
+          }
+          return com.caidt.proto.ProtoActivity.ScActivity.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public Builder setScActivity(com.caidt.proto.ProtoActivity.ScActivity value) {
+        if (scActivityBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          cmd_ = value;
+          onChanged();
+        } else {
+          scActivityBuilder_.setMessage(value);
+        }
+        cmdCase_ = 105;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public Builder setScActivity(
+          com.caidt.proto.ProtoActivity.ScActivity.Builder builderForValue) {
+        if (scActivityBuilder_ == null) {
+          cmd_ = builderForValue.build();
+          onChanged();
+        } else {
+          scActivityBuilder_.setMessage(builderForValue.build());
+        }
+        cmdCase_ = 105;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public Builder mergeScActivity(com.caidt.proto.ProtoActivity.ScActivity value) {
+        if (scActivityBuilder_ == null) {
+          if (cmdCase_ == 105 &&
+              cmd_ != com.caidt.proto.ProtoActivity.ScActivity.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoActivity.ScActivity.newBuilder((com.caidt.proto.ProtoActivity.ScActivity) cmd_)
+                .mergeFrom(value).buildPartial();
+          } else {
+            cmd_ = value;
+          }
+          onChanged();
+        } else {
+          if (cmdCase_ == 105) {
+            scActivityBuilder_.mergeFrom(value);
+          }
+          scActivityBuilder_.setMessage(value);
+        }
+        cmdCase_ = 105;
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public Builder clearScActivity() {
+        if (scActivityBuilder_ == null) {
+          if (cmdCase_ == 105) {
+            cmdCase_ = 0;
+            cmd_ = null;
+            onChanged();
+          }
+        } else {
+          if (cmdCase_ == 105) {
+            cmdCase_ = 0;
+            cmd_ = null;
+          }
+          scActivityBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public com.caidt.proto.ProtoActivity.ScActivity.Builder getScActivityBuilder() {
+        return getScActivityFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      public com.caidt.proto.ProtoActivity.ScActivityOrBuilder getScActivityOrBuilder() {
+        if ((cmdCase_ == 105) && (scActivityBuilder_ != null)) {
+          return scActivityBuilder_.getMessageOrBuilder();
+        } else {
+          if (cmdCase_ == 105) {
+            return (com.caidt.proto.ProtoActivity.ScActivity) cmd_;
+          }
+          return com.caidt.proto.ProtoActivity.ScActivity.getDefaultInstance();
+        }
+      }
+      /**
+       * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.ScActivity, com.caidt.proto.ProtoActivity.ScActivity.Builder, com.caidt.proto.ProtoActivity.ScActivityOrBuilder> 
+          getScActivityFieldBuilder() {
+        if (scActivityBuilder_ == null) {
+          if (!(cmdCase_ == 105)) {
+            cmd_ = com.caidt.proto.ProtoActivity.ScActivity.getDefaultInstance();
+          }
+          scActivityBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.caidt.proto.ProtoActivity.ScActivity, com.caidt.proto.ProtoActivity.ScActivity.Builder, com.caidt.proto.ProtoActivity.ScActivityOrBuilder>(
+                  (com.caidt.proto.ProtoActivity.ScActivity) cmd_,
+                  getParentForChildren(),
+                  isClean());
+          cmd_ = null;
+        }
+        cmdCase_ = 105;
+        onChanged();;
+        return scActivityBuilder_;
+      }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
@@ -934,11 +1618,17 @@ public final class ProtoScMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\026proto_sc_message.proto\022\017com.caidt.prot" +
-      "o\032\020proto_base.proto\032\022proto_player.proto\"" +
-      "\224\001\n\tScMessage\0227\n\rloginResponse\030e \001(\0132\036.c" +
-      "om.caidt.proto.LoginResponseH\000\022G\n\025getPla" +
-      "yerInfoResponse\030f \001(\0132&.com.caidt.proto." +
-      "GetPlayerInfoResponseH\000B\005\n\003cmd"
+      "o\032\020proto_base.proto\032\022proto_player.proto\032" +
+      "\024proto_activity.proto\"\327\002\n\tScMessage\0227\n\rl" +
+      "oginResponse\030e \001(\0132\036.com.caidt.proto.Log" +
+      "inResponseH\000\022G\n\025getPlayerInfoResponse\030f " +
+      "\001(\0132&.com.caidt.proto.GetPlayerInfoRespo" +
+      "nseH\000\022I\n\026GetAllActivityResponse\030g \001(\0132\'." +
+      "com.caidt.proto.GetAllActivityResponseH\000" +
+      "\022C\n\023getActivityResponse\030h \001(\0132$.com.caid" +
+      "t.proto.GetActivityResponseH\000\0221\n\nscActiv",
+      "ity\030i \001(\0132\033.com.caidt.proto.ScActivityH\000" +
+      "B\005\n\003cmd"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -953,15 +1643,17 @@ public final class ProtoScMessage {
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.caidt.proto.ProtoBase.getDescriptor(),
           com.caidt.proto.ProtoPlayer.getDescriptor(),
+          com.caidt.proto.ProtoActivity.getDescriptor(),
         }, assigner);
     internal_static_com_caidt_proto_ScMessage_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_com_caidt_proto_ScMessage_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_ScMessage_descriptor,
-        new java.lang.String[] { "LoginResponse", "GetPlayerInfoResponse", "Cmd", });
+        new java.lang.String[] { "LoginResponse", "GetPlayerInfoResponse", "GetAllActivityResponse", "GetActivityResponse", "ScActivity", "Cmd", });
     com.caidt.proto.ProtoBase.getDescriptor();
     com.caidt.proto.ProtoPlayer.getDescriptor();
+    com.caidt.proto.ProtoActivity.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

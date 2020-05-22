@@ -22,9 +22,9 @@ class Session(private val sessionFactory: SessionFactory) {
     }
   }
 
-  fun <T : IEntity> read(clazz: Class<T>, pk: Serializable): T {
+  fun <T : IEntity> read(clazz: Class<T>, pk: Serializable): T? {
     @Suppress("UNCHECKED_CAST")
-    return exec { session -> session.get(clazz, pk) } as T
+    return exec { session -> session.get(clazz, pk) } as T?
   }
 
   fun <T : IEntity> findAll(clazz: Class<T>): List<T> {

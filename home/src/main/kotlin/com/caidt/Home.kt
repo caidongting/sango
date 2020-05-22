@@ -11,6 +11,8 @@ object Home : GameServer(port = 2552) {
 
   val eventBus: EventBus = EventBus(actorSystem)
 
+  val commonTick: CommonTick = CommonTick(actorSystem)
+
   override fun start() {
     startSystem()
     startShardRegion()
