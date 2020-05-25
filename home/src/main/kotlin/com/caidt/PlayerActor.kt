@@ -1,9 +1,9 @@
 package com.caidt
 
 import akka.actor.ActorRef
-import akka.actor.Cancellable
 import akka.actor.UntypedAbstractActor
 import com.caidt.dataContainer.PlayerDC
+import com.caidt.proto.ProtoCsMessage
 import com.caidt.share.PlayerEnvelope
 import com.caidt.share.Tick
 import com.caidt.share.entity.PlayerAccountEntity
@@ -41,48 +41,51 @@ open class PlayerActor : UntypedAbstractActor() {
   override fun onReceive(message: Any?) {
     when (state) {
       State.INIT -> handleOnInit(message)
+      State.LOADING -> Unit
       State.UP -> handleOnUp(message)
-      State.LOADING -> {
-      }
-      State.DOWN -> {
-      }
+      State.DOWN -> down() // todo： 需要下线处理
     }
   }
 
   private fun handleOnInit(message: Any?) {
     when (message) {
-      is MessageLite -> {
-      }
-      is PlayerEnvelope -> {
-        state = State.LOADING
-        load(message.playerId)
-        state = State.UP
+      is PlayerEnvelope -> { // 收到的第一个消息，加载基本信息
+        loading(message.playerId)
+        // todo: 同时处理该消息
       }
     }
   }
 
   /** 启动加载 */
-  private fun load(playerId: Long) {
-    //TODO()
-    scheduleTick()
-    // 加载少量必要数据，避免浪费
+  private fun loading(playerId: Long) {
+    state = State.LOADING
+    // 定时
+    schedule(Duration.ZERO, Duration.ofSeconds(1L), Tick)
+    // todo: 加载少量必要数据，避免浪费
+    state = State.UP
     logger.info("player: $playerId is up")
   }
 
-  private var tickCancellable: Cancellable? = null
+  /** actor down */
+  private fun down() {
 
-  private fun scheduleTick() {
-    tickCancellable = schedule(Duration.ZERO, Duration.ofSeconds(1L), Tick)
-  }
-
-  fun cancelTick() {
-    tickCancellable?.cancel()
+    disconnect()
   }
 
   private fun handleOnUp(message: Any?) {
     when (message) {
       Tick -> tick(Instant.now())
+      // msg from client
+      is ProtoCsMessage.CsMessage -> handleCsMessage(msg = message)
+      is MessageLite -> { // 来自其他地方的proto message直接转发到client
+        client?.tell(message, self)
+      }
     }
+  }
+
+  private fun handleCsMessage(msg: ProtoCsMessage.CsMessage) {
+    val handler = csMessageHandlers[msg.cmdCase]
+    handler?.invoke(this, msg) ?: throw UnsupportedOperationException("not supported")
   }
 
   private fun tick(now: Instant) {
@@ -100,7 +103,8 @@ open class PlayerActor : UntypedAbstractActor() {
 
   val isOnline: Boolean get() = client != null
 
-  fun disconnect() {
+  /** 断开与客户端的连接 */
+  private fun disconnect() {
     client = null
     logger.info("player:$playerId was disconnected!")
   }
@@ -113,11 +117,6 @@ open class PlayerActor : UntypedAbstractActor() {
   /** 回答消息 */
   fun answer(msg: Any) {
     sender.tell(msg, this.self)
-  }
-
-  /** 向其他玩家发送消息 */
-  fun sendToPlayer(playerId: Long, msg: Any) {
-    // playerManager or send to shardRegion
   }
 
   val playerDC: PlayerDC get() = getDC(PlayerDC::class)

@@ -19,7 +19,7 @@ class CommonTick(actorSystem: ActorSystem) {
 
   fun tick(playerActor: PlayerActor, now: Instant) {
     common.tick("resource", 1L) {
-
+      playerService.calcResource(playerActor, now)
     }
 
     testTicker.tick {

@@ -2317,7 +2317,7 @@ public final class ProtoActivity {
   }
   /**
    * <pre>
-   * 获取活动时间信息
+   * 获取活动时间信息 --&gt; GetActivityResponse
    * </pre>
    *
    * Protobuf type {@code com.caidt.proto.GetActivityRequest}
@@ -2559,7 +2559,7 @@ public final class ProtoActivity {
     }
     /**
      * <pre>
-     * 获取活动时间信息
+     * 获取活动时间信息 --&gt; GetActivityResponse
      * </pre>
      *
      * Protobuf type {@code com.caidt.proto.GetActivityRequest}

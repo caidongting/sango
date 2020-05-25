@@ -7,6 +7,8 @@ class PlayerManager {
   /** <playerName, PlayerActor> */
   val playerNameMap: Map<String, PlayerActor> = hashMapOf()
 
-
+  fun getOrCreate(playerId: Long) {
+//    Home.shardRegion.
+  }
 
 }

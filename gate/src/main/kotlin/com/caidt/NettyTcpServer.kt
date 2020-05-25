@@ -1,19 +1,24 @@
-package com.caidt.infrastructure
+package com.caidt
 
+import com.caidt.proto.ProtoDescriptor
 import io.netty.bootstrap.ServerBootstrap
-import io.netty.channel.*
+import io.netty.channel.ChannelInitializer
+import io.netty.channel.ChannelOption
 import io.netty.channel.nio.NioEventLoopGroup
 import io.netty.channel.socket.SocketChannel
 import io.netty.channel.socket.nio.NioServerSocketChannel
 import io.netty.handler.codec.LengthFieldBasedFrameDecoder
-import io.netty.handler.codec.protobuf.ProtobufVarint32FrameDecoder
+import io.netty.handler.codec.LengthFieldPrepender
+import io.netty.handler.codec.bytes.ByteArrayDecoder
+import io.netty.handler.codec.bytes.ByteArrayEncoder
+import io.netty.handler.codec.protobuf.ProtobufDecoder
+import io.netty.handler.codec.protobuf.ProtobufEncoder
 import io.netty.handler.traffic.ChannelTrafficShapingHandler
-import io.netty.util.AttributeKey
 
 
 class NettyTcpServer(private val port: Int) {
 
-  fun init() {
+  fun start() {
     val bootstrap: ServerBootstrap = ServerBootstrap()
       .group(NioEventLoopGroup(), NioEventLoopGroup())
       .channel(NioServerSocketChannel::class.java)
@@ -23,9 +28,16 @@ class NettyTcpServer(private val port: Int) {
         override fun initChannel(ch: SocketChannel) {
           ch.pipeline()
             .addLast(ChannelTrafficShapingHandler(5L))
+            // decoder
             .addLast(LengthFieldBasedFrameDecoder(2048, 0, 4))
-            .addLast(ProtobufVarint32FrameDecoder())
-            .addLast(MyHandler())
+            .addLast(ProtobufDecoder(ProtoDescriptor.Request.getDefaultInstance()))
+            .addLast(ByteArrayDecoder()) // 原则上禁止，这里仅做对比
+            .addLast(ProtoMessageHandler())
+
+            // encoder
+            .addLast(LengthFieldPrepender(4))
+            .addLast(ProtobufEncoder())
+            .addLast(ByteArrayEncoder()) // 直接返回字节数组，如大数据 战报，文件等
         }
 
       })
@@ -34,23 +46,3 @@ class NettyTcpServer(private val port: Int) {
   }
 }
 
-@ChannelHandler.Sharable
-class MyHandler : ChannelInboundHandlerAdapter() {
-
-  companion object {
-    private val ID: AttributeKey<Long> = AttributeKey.valueOf("ID")
-    private val SESSION: AttributeKey<ChannelSession> = AttributeKey.valueOf("session")
-  }
-
-  override fun channelActive(ctx: ChannelHandlerContext) {
-    ctx.channel().attr(ID).set(1L)
-  }
-
-  override fun channelRead(ctx: ChannelHandlerContext, msg: Any?) {
-    val id = ctx.channel().attr(ID).get()
-    val session = ctx.channel().attr(SESSION).get()
-  }
-}
-
-// 负责与player通信
-class ChannelSession

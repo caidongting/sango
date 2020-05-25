@@ -3,12 +3,13 @@ package com.caidt.proto;
 
 // --> Response
 message Request {
-    required int32 id = 1;
-    required string token = 2;
-    required bytes req = 3;
+    required int64 uid = 1;
+    required int32 index = 2;
+    required string token = 3; // token: playerId | serverId | signKey | timestamp
+    required bytes req = 4;
 }
 message Response {
-    required int32 id = 1;
+    required int32 index = 1;
     required bytes resp = 2;
 }
 

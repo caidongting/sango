@@ -49,9 +49,6 @@ abstract class GameServer(val port: Int) {
 
   private val cluster: Cluster = Cluster.get(actorSystem)
 
-  /** netty actor session*/
-  private val netty: NettyTcpServer = NettyTcpServer(port = 12121)
-
   /** znode */
   private val znode = ZNode()
 
@@ -103,10 +100,6 @@ abstract class GameServer(val port: Int) {
     return list
   }
 
-  fun startNetwork() {
-    netty.init()
-  }
-
   fun startShardRegion(entity: Class<*>) {
     val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
     shardRegion = ClusterSharding.get(actorSystem)
@@ -115,9 +108,9 @@ abstract class GameServer(val port: Int) {
   }
 
   private fun closeShardRegion() {
-    if (this::shardRegion.isInitialized) {
+//    if (this::shardRegion.isInitialized) {
       shardRegion.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
-    }
+//    }
   }
 
   fun startHomeProxy() {

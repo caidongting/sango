@@ -1,10 +1,10 @@
 package com.caidt
 
-import akka.actor.ActorRef
 import com.caidt.infrastructure.GameServer
+import com.caidt.infrastructure.Role
 import com.caidt.share.Ok
 import com.caidt.share.PlayerEnvelope
-import com.caidt.infrastructure.Role
+import com.caidt.share.tellNoSender
 
 
 object World : GameServer(port = 2553) {
@@ -14,8 +14,8 @@ object World : GameServer(port = 2553) {
   override fun start() {
     startSystem()
     startShardRegion()
+    startWorldProxy()
     startHomeProxy()
-    startNetwork()
   }
 
   private fun startShardRegion() {
@@ -24,6 +24,7 @@ object World : GameServer(port = 2553) {
 
   override fun close() {
     closeHomeProxy()
+    closeWorldProxy()
     closeSystem()
   }
 }
@@ -31,5 +32,5 @@ object World : GameServer(port = 2553) {
 fun main() {
   World.start()
   Thread.sleep(10000L)
-  World.homeProxy.tell(PlayerEnvelope(1L, Ok), ActorRef.noSender())
+  World.homeProxy.tellNoSender(PlayerEnvelope(1L, Ok))
 }

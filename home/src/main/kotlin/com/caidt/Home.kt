@@ -16,7 +16,7 @@ object Home : GameServer(port = 2552) {
   override fun start() {
     startSystem()
     startShardRegion()
-    startNetwork()
+    startHomeProxy()
     startWorldProxy()
 
     ExcelConfigs.init()
@@ -24,6 +24,7 @@ object Home : GameServer(port = 2552) {
 
   override fun close() {
     closeWorldProxy()
+    closeHomeProxy()
     closeSystem()
   }
 
