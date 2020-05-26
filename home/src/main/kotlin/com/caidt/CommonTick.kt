@@ -17,9 +17,9 @@ class CommonTick(actorSystem: ActorSystem) {
   private val testTicker: TickTimer = TickTimer(executor, 5)
 
 
-  fun tick(playerActor: PlayerActor, now: Instant) {
+  fun tick(player: PlayerActor, now: Instant) {
     common.tick("resource", 1L) {
-      playerService.calcResource(playerActor, now)
+      playerService.calcResource(player, now)
     }
 
     testTicker.tick {

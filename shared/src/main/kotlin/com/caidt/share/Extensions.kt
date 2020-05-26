@@ -35,6 +35,14 @@ fun ActorRef.tellNoSender(message: Any) {
   this.tell(message, ActorRef.noSender())
 }
 
+fun wrapPlayerEnvelope(playerId: Long, msg: Any): PlayerEnvelope {
+  return PlayerEnvelope(playerId, msg)
+}
+
+fun wrapWorldEnvelope(worldId: Long, msg: Any): WorldEnvelope {
+  return WorldEnvelope(worldId, msg)
+}
+
 
 class NamedRunnable(val name: String, val exec: Runnable)
 
@@ -46,7 +54,6 @@ class Worker : UntypedAbstractActor() {
     fun props(): Props {
       return Props.create(Worker::class.java)
         .withMailbox(LARGE_MAILBOX)
-//        .withDispatcher("default-dispatcher")
     }
   }
 

@@ -1,9 +1,13 @@
 package com.caidt
 
 import akka.actor.ActorRef
+import akka.actor.Cancellable
 import akka.actor.UntypedAbstractActor
 import com.caidt.dataContainer.PlayerDC
+import com.caidt.memory.DataContainer
+import com.caidt.memory.DataContainerManager
 import com.caidt.proto.ProtoCsMessage
+import com.caidt.share.Disconnect
 import com.caidt.share.PlayerEnvelope
 import com.caidt.share.Tick
 import com.caidt.share.entity.PlayerAccountEntity
@@ -29,13 +33,15 @@ open class PlayerActor : UntypedAbstractActor() {
 
   val playerId: Long get() = playerAccount.playerId
 
+  val worldId: Long get() = playerAccount.worldId
+
   private var state: State = State.INIT
 
   private val playerAccount: PlayerAccountEntity get() = playerDC.entity
 
-  val eventBus: EventBus get() = Home.eventBus
+  val eventBus: EventBus by lazy { EventBus(context.system) }
 
-  val commonTick: CommonTick get() = Home.commonTick
+  val commonTick: CommonTick by lazy { CommonTick(context.system) }
 
 
   override fun onReceive(message: Any?) {
@@ -43,13 +49,13 @@ open class PlayerActor : UntypedAbstractActor() {
       State.INIT -> handleOnInit(message)
       State.LOADING -> Unit
       State.UP -> handleOnUp(message)
-      State.DOWN -> down() // todo： 需要下线处理
+      State.DOWN -> down()
     }
   }
 
   private fun handleOnInit(message: Any?) {
     when (message) {
-      is PlayerEnvelope -> { // 收到的第一个消息，加载基本信息
+      is PlayerEnvelope -> { // 收到的第一个[PlayerEnvelope]消息，加载基本信息
         loading(message.playerId)
         // todo: 同时处理该消息
       }
@@ -59,16 +65,28 @@ open class PlayerActor : UntypedAbstractActor() {
   /** 启动加载 */
   private fun loading(playerId: Long) {
     state = State.LOADING
-    // 定时
-    schedule(Duration.ZERO, Duration.ofSeconds(1L), Tick)
     // todo: 加载少量必要数据，避免浪费
+    // 定时
+    scheduleTick()
     state = State.UP
     logger.info("player: $playerId is up")
   }
 
-  /** actor down */
-  private fun down() {
+  private var cancelTick: Cancellable? = null
 
+  private fun scheduleTick() {
+    cancelTick = schedule(Duration.ZERO, Duration.ofSeconds(1L), Tick)
+  }
+
+  private fun cancelTick() {
+    cancelTick?.cancel()
+    cancelTick = null
+  }
+
+  /** 下线处理 */
+  private fun down() {
+    // todo: 钝化 ？什么意思？清空状态，但不销毁actor?
+    cancelTick()
     disconnect()
   }
 
@@ -88,14 +106,10 @@ open class PlayerActor : UntypedAbstractActor() {
     handler?.invoke(this, msg) ?: throw UnsupportedOperationException("not supported")
   }
 
+  /** 处理player常规定时任务 */
   private fun tick(now: Instant) {
     // database DataContainer check
     //
-    commonTick(now)
-  }
-
-  /** 处理player常规定时任务 */
-  private fun commonTick(now: Instant) {
     commonTick.tick(this, now)
   }
 
@@ -105,6 +119,7 @@ open class PlayerActor : UntypedAbstractActor() {
 
   /** 断开与客户端的连接 */
   private fun disconnect() {
+    client?.tell(Disconnect, self)
     client = null
     logger.info("player:$playerId was disconnected!")
   }
@@ -121,7 +136,15 @@ open class PlayerActor : UntypedAbstractActor() {
 
   val playerDC: PlayerDC get() = getDC(PlayerDC::class)
 
-  fun <E : Any> getDC(clazz: KClass<E>): E {
-    TODO()
+  inline fun <reified E : DataContainer<*, *>> getDC(clazz: KClass<E>): E {
+    return DataContainerManager.getOrLoad(playerId, clazz)
+  }
+
+  fun require(dc: DataContainer<*, *>) {
+
+  }
+
+  fun require(dc1: DataContainer<*, *>, dc2: DataContainer<*, *>) {
+
   }
 }

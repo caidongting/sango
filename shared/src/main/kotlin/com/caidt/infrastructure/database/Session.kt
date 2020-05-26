@@ -35,4 +35,8 @@ class Session(private val sessionFactory: SessionFactory) {
   fun saveOrUpdate(entity: IEntity) {
     exec { session -> session.saveOrUpdate(entity) }
   }
+
+  fun delete(entity: IEntity) {
+    exec { session -> session.delete(entity) }
+  }
 }

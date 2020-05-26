@@ -1,25 +1,30 @@
 package com.caidt
 
-import com.caidt.share.PlayerEnvelope
-import com.caidt.share.PlayerMessage
-import com.google.protobuf.MessageLite
+import com.caidt.share.*
 
 
-fun wrapEnvelope(playerId: Long, msg: Any): PlayerEnvelope {
-  return PlayerEnvelope(playerId, msg)
+/** 通用应答（服务器内部消息） */
+fun PlayerActor.answerOk() {
+  this.answer(Ok)
+}
+
+/** 向其他玩家发送消息 */
+fun PlayerActor.sendToPlayer(playerId: Long, msg: Any) {
+  val envelope = PlayerEnvelope(playerId, msg)
+  Home.homeProxy.tell(envelope, self)
+}
+
+fun PlayerActor.answer() {
+
 }
 
 fun PlayerActor.sendMessage(msg: Any) {
   when (msg) {
-    is PlayerEnvelope -> {
-    }
-    is PlayerMessage -> {
-    }
-    is MessageLite -> {
+    is PlayerEnvelope -> Home.homeProxy.tell(msg, self)
+    is WorldEnvelope -> Home.worldProxy.tell(msg, self)
+    is WorldMessage -> {
+      val envelope = wrapWorldEnvelope(worldId, msg)
+      Home.worldProxy.tell(envelope, self)
     }
   }
 }
-
-object UP
-
-class Disconnect

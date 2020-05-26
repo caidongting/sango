@@ -2,6 +2,7 @@ package com.caidt
 
 import akka.actor.UntypedAbstractActor
 import com.caidt.proto.ProtoCsMessage
+import com.caidt.proto.ProtoCsMessage.CsMessage.CmdCase.LOGINREQUEST
 import com.caidt.proto.ProtoDescriptor
 import com.caidt.proto.ProtoScMessage
 import com.caidt.share.Disconnect
@@ -15,15 +16,19 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
 
   override fun onReceive(message: Any?) {
     when (message) {
-      Disconnect -> ctx.disconnect()
-//      is ProtoCsMessage.CsMessage -> handleCsMessage(playerId, message)
-      is ProtoDescriptor.Request -> handleClientMessage(msg = message)
+      // msg from client
+      is ProtoDescriptor.Request -> handleClientMessage(message)
+      // msg from server
+      Disconnect -> disconnect()
       is ProtoScMessage.ScMessage -> handleScMessage(message)
       is ByteArray -> ctx.write(message) // 大文件直接传输字节流
-      is MessageLite -> {
-      } // 默认的
+      is MessageLite -> handleMessageLite(message) // 默认的
       else -> unhandled(message)
     }
+  }
+
+  private fun disconnect() {
+    ctx.disconnect()
   }
 
   private fun handleClientMessage(msg: ProtoDescriptor.Request) {
@@ -31,14 +36,6 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
 
     val csMessage = ProtoCsMessage.CsMessage.parseFrom(msg.req)
     handleCsMessage(msg.uid, csMessage)
-  }
-
-  private fun handleCsMessage(uid: Long, csMessage: ProtoCsMessage.CsMessage) {
-    when (csMessage.cmdCase) {
-      in csMessageToWorld -> sendToWorld(uid, csMessage)
-      in csMessageToHome -> sendToHome(uid, csMessage)
-      else -> sendToHome(uid, csMessage)
-    }
   }
 
   /** 验证消息合法性 */
@@ -51,6 +48,16 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
     return true
   }
 
+  private fun handleCsMessage(uid: Long, csMessage: ProtoCsMessage.CsMessage) {
+    when (csMessage.cmdCase) {
+      LOGINREQUEST -> login(csMessage.loginRequest)
+      in csMessageToWorld -> sendToWorld(uid, csMessage)
+      in csMessageToHome -> sendToHome(uid, csMessage)
+      else -> sendToHome(uid, csMessage)
+    }
+  }
+
+
   private fun sendToHome(playerId: Long, msg: MessageLite) {
     val envelope = PlayerEnvelope(playerId, msg)
     Gate.homeProxy.tell(envelope, self)
@@ -61,7 +68,7 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
     Gate.worldProxy.tell(envelope, self)
   }
 
-  private fun handleMessageList(msg: MessageLite) {
+  private fun handleMessageLite(msg: MessageLite) {
     ProtoScMessage.ScMessage.newBuilder().apply {
 //      setField(msg)
     }
@@ -74,9 +81,9 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
     ctx.writeAndFlush(builder.build())
   }
 
-  private fun handleServerMessage(msg: ProtoDescriptor.Response) {
-    // 看是否有监听的，若监听则分发
-    ctx.writeAndFlush(msg)
+  /** 验证玩家账户信息 */
+  private fun login(msg: ProtoDescriptor.LoginRequest) {
+
   }
 
 

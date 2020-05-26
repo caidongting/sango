@@ -1,8 +1,10 @@
 package com.caidt.infrastructure.config
 
 import com.caidt.util.scanPackage
+import com.google.common.base.Stopwatch
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import java.util.concurrent.TimeUnit
 
 /** 被标记的[ExcelConfig]不会加载 */
 annotation class DoNotLoad
@@ -38,13 +40,16 @@ class ExcelManager {
   }
 
   fun loadAll(packageName: String) {
-    val classes = scanPackage(packageName) {
-      !it.isAnnotationPresent(DoNotLoad::class.java) &&
-          ExcelConfig::class.java.isAssignableFrom(it) && !it.kotlin.isAbstract
-    }
+    val stopwatch = Stopwatch.createStarted()
+    val classes = scanAllExcelConfig(packageName)
+    stopwatch.stop()
+    logger.info("scan all excel cost: ${stopwatch.elapsed(TimeUnit.MILLISECONDS)} ms")
+
+    stopwatch.reset()
     // todo: 个别[ExcelConfig]之间有依赖关系，需要设置加载顺序
     @Suppress("UNCHECKED_CAST")
     classes.forEach { clazz -> reload(clazz as Class<out ExcelConfig>) }
+    logger.info("load all excel cost: ${stopwatch.elapsed(TimeUnit.MILLISECONDS)} ms")
   }
 
   private fun reload(clazz: Class<out ExcelConfig>) {
@@ -70,4 +75,11 @@ class ExcelManager {
 
 }
 
+internal fun scanAllExcelConfig(packageName: String): List<Class<*>> {
+  return scanPackage(packageName) {
+    ExcelConfig::class.java.isAssignableFrom(it) &&
+        it != ExcelConfig::class.java &&
+        !it.isAnnotationPresent(DoNotLoad::class.java)
+  }
+}
 

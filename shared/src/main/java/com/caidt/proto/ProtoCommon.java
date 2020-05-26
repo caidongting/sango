@@ -130,6 +130,2870 @@ public final class ProtoCommon {
     // @@protoc_insertion_point(enum_scope:com.caidt.proto.Reason)
   }
 
+  /**
+   * <pre>
+   * 资源类型
+   * </pre>
+   *
+   * Protobuf enum {@code com.caidt.proto.Resource}
+   */
+  public enum Resource
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * 金币
+     * </pre>
+     *
+     * <code>GOLD = 1;</code>
+     */
+    GOLD(1),
+    /**
+     * <pre>
+     * 木材
+     * </pre>
+     *
+     * <code>WOOD = 2;</code>
+     */
+    WOOD(2),
+    /**
+     * <pre>
+     * 铁
+     * </pre>
+     *
+     * <code>IRON = 3;</code>
+     */
+    IRON(3),
+    ;
+
+    /**
+     * <pre>
+     * 金币
+     * </pre>
+     *
+     * <code>GOLD = 1;</code>
+     */
+    public static final int GOLD_VALUE = 1;
+    /**
+     * <pre>
+     * 木材
+     * </pre>
+     *
+     * <code>WOOD = 2;</code>
+     */
+    public static final int WOOD_VALUE = 2;
+    /**
+     * <pre>
+     * 铁
+     * </pre>
+     *
+     * <code>IRON = 3;</code>
+     */
+    public static final int IRON_VALUE = 3;
+
+
+    public final int getNumber() {
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Resource valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static Resource forNumber(int value) {
+      switch (value) {
+        case 1: return GOLD;
+        case 2: return WOOD;
+        case 3: return IRON;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Resource>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Resource> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Resource>() {
+            public Resource findValueByNumber(int number) {
+              return Resource.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(1);
+    }
+
+    private static final Resource[] VALUES = values();
+
+    public static Resource valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Resource(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.caidt.proto.Resource)
+  }
+
+  /**
+   * <pre>
+   * 道具类型
+   * </pre>
+   *
+   * Protobuf enum {@code com.caidt.proto.ItemType}
+   */
+  public enum ItemType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * 普通道具
+     * </pre>
+     *
+     * <code>NORMAL = 0;</code>
+     */
+    NORMAL(0),
+    /**
+     * <pre>
+     * 随机道具
+     * </pre>
+     *
+     * <code>RANDOM = 1;</code>
+     */
+    RANDOM(1),
+    /**
+     * <pre>
+     * 唯一道具
+     * </pre>
+     *
+     * <code>UNIQUE = 2;</code>
+     */
+    UNIQUE(2),
+    ;
+
+    /**
+     * <pre>
+     * 普通道具
+     * </pre>
+     *
+     * <code>NORMAL = 0;</code>
+     */
+    public static final int NORMAL_VALUE = 0;
+    /**
+     * <pre>
+     * 随机道具
+     * </pre>
+     *
+     * <code>RANDOM = 1;</code>
+     */
+    public static final int RANDOM_VALUE = 1;
+    /**
+     * <pre>
+     * 唯一道具
+     * </pre>
+     *
+     * <code>UNIQUE = 2;</code>
+     */
+    public static final int UNIQUE_VALUE = 2;
+
+
+    public final int getNumber() {
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static ItemType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static ItemType forNumber(int value) {
+      switch (value) {
+        case 0: return NORMAL;
+        case 1: return RANDOM;
+        case 2: return UNIQUE;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<ItemType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        ItemType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<ItemType>() {
+            public ItemType findValueByNumber(int number) {
+              return ItemType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final ItemType[] VALUES = values();
+
+    public static ItemType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private ItemType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.caidt.proto.ItemType)
+  }
+
+  public interface DisplayResourceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.DisplayResource)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int32 id = 1;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>required int32 id = 1;</code>
+     */
+    int getId();
+
+    /**
+     * <code>required .com.caidt.proto.Resource type = 2;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required .com.caidt.proto.Resource type = 2;</code>
+     */
+    com.caidt.proto.ProtoCommon.Resource getType();
+
+    /**
+     * <code>required int64 count = 3;</code>
+     */
+    boolean hasCount();
+    /**
+     * <code>required int64 count = 3;</code>
+     */
+    long getCount();
+  }
+  /**
+   * <pre>
+   * 资源
+   * </pre>
+   *
+   * Protobuf type {@code com.caidt.proto.DisplayResource}
+   */
+  public  static final class DisplayResource extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.DisplayResource)
+      DisplayResourceOrBuilder {
+    // Use DisplayResource.newBuilder() to construct.
+    private DisplayResource(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DisplayResource() {
+      id_ = 0;
+      type_ = 1;
+      count_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DisplayResource(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              id_ = input.readInt32();
+              break;
+            }
+            case 16: {
+              int rawValue = input.readEnum();
+              com.caidt.proto.ProtoCommon.Resource value = com.caidt.proto.ProtoCommon.Resource.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(2, rawValue);
+              } else {
+                bitField0_ |= 0x00000002;
+                type_ = rawValue;
+              }
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              count_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayResource_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayResource_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.caidt.proto.ProtoCommon.DisplayResource.class, com.caidt.proto.ProtoCommon.DisplayResource.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>required int32 id = 1;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int32 id = 1;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 2;
+    private int type_;
+    /**
+     * <code>required .com.caidt.proto.Resource type = 2;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required .com.caidt.proto.Resource type = 2;</code>
+     */
+    public com.caidt.proto.ProtoCommon.Resource getType() {
+      com.caidt.proto.ProtoCommon.Resource result = com.caidt.proto.ProtoCommon.Resource.valueOf(type_);
+      return result == null ? com.caidt.proto.ProtoCommon.Resource.GOLD : result;
+    }
+
+    public static final int COUNT_FIELD_NUMBER = 3;
+    private long count_;
+    /**
+     * <code>required int64 count = 3;</code>
+     */
+    public boolean hasCount() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required int64 count = 3;</code>
+     */
+    public long getCount() {
+      return count_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt32(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeEnum(2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt64(3, count_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(2, type_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(3, count_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.caidt.proto.ProtoCommon.DisplayResource)) {
+        return super.equals(obj);
+      }
+      com.caidt.proto.ProtoCommon.DisplayResource other = (com.caidt.proto.ProtoCommon.DisplayResource) obj;
+
+      boolean result = true;
+      result = result && (hasId() == other.hasId());
+      if (hasId()) {
+        result = result && (getId()
+            == other.getId());
+      }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && type_ == other.type_;
+      }
+      result = result && (hasCount() == other.hasCount());
+      if (hasCount()) {
+        result = result && (getCount()
+            == other.getCount());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + type_;
+      }
+      if (hasCount()) {
+        hash = (37 * hash) + COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCount());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayResource parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.caidt.proto.ProtoCommon.DisplayResource prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 资源
+     * </pre>
+     *
+     * Protobuf type {@code com.caidt.proto.DisplayResource}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.DisplayResource)
+        com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayResource_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayResource_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.caidt.proto.ProtoCommon.DisplayResource.class, com.caidt.proto.ProtoCommon.DisplayResource.Builder.class);
+      }
+
+      // Construct using com.caidt.proto.ProtoCommon.DisplayResource.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        type_ = 1;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        count_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayResource_descriptor;
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayResource getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoCommon.DisplayResource.getDefaultInstance();
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayResource build() {
+        com.caidt.proto.ProtoCommon.DisplayResource result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayResource buildPartial() {
+        com.caidt.proto.ProtoCommon.DisplayResource result = new com.caidt.proto.ProtoCommon.DisplayResource(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.count_ = count_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.caidt.proto.ProtoCommon.DisplayResource) {
+          return mergeFrom((com.caidt.proto.ProtoCommon.DisplayResource)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.caidt.proto.ProtoCommon.DisplayResource other) {
+        if (other == com.caidt.proto.ProtoCommon.DisplayResource.getDefaultInstance()) return this;
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        if (other.hasCount()) {
+          setCount(other.getCount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasId()) {
+          return false;
+        }
+        if (!hasType()) {
+          return false;
+        }
+        if (!hasCount()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.caidt.proto.ProtoCommon.DisplayResource parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.caidt.proto.ProtoCommon.DisplayResource) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private int id_ ;
+      /**
+       * <code>required int32 id = 1;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000001;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 id = 1;</code>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 1;
+      /**
+       * <code>required .com.caidt.proto.Resource type = 2;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required .com.caidt.proto.Resource type = 2;</code>
+       */
+      public com.caidt.proto.ProtoCommon.Resource getType() {
+        com.caidt.proto.ProtoCommon.Resource result = com.caidt.proto.ProtoCommon.Resource.valueOf(type_);
+        return result == null ? com.caidt.proto.ProtoCommon.Resource.GOLD : result;
+      }
+      /**
+       * <code>required .com.caidt.proto.Resource type = 2;</code>
+       */
+      public Builder setType(com.caidt.proto.ProtoCommon.Resource value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000002;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .com.caidt.proto.Resource type = 2;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        type_ = 1;
+        onChanged();
+        return this;
+      }
+
+      private long count_ ;
+      /**
+       * <code>required int64 count = 3;</code>
+       */
+      public boolean hasCount() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required int64 count = 3;</code>
+       */
+      public long getCount() {
+        return count_;
+      }
+      /**
+       * <code>required int64 count = 3;</code>
+       */
+      public Builder setCount(long value) {
+        bitField0_ |= 0x00000004;
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 count = 3;</code>
+       */
+      public Builder clearCount() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        count_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.DisplayResource)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.DisplayResource)
+    private static final com.caidt.proto.ProtoCommon.DisplayResource DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoCommon.DisplayResource();
+    }
+
+    public static com.caidt.proto.ProtoCommon.DisplayResource getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<DisplayResource>
+        PARSER = new com.google.protobuf.AbstractParser<DisplayResource>() {
+      public DisplayResource parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new DisplayResource(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DisplayResource> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DisplayResource> getParserForType() {
+      return PARSER;
+    }
+
+    public com.caidt.proto.ProtoCommon.DisplayResource getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DisplayItemOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.DisplayItem)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>required int64 uid = 1;</code>
+     */
+    boolean hasUid();
+    /**
+     * <code>required int64 uid = 1;</code>
+     */
+    long getUid();
+
+    /**
+     * <code>required int32 id = 2;</code>
+     */
+    boolean hasId();
+    /**
+     * <code>required int32 id = 2;</code>
+     */
+    int getId();
+
+    /**
+     * <code>required .com.caidt.proto.ItemType type = 3;</code>
+     */
+    boolean hasType();
+    /**
+     * <code>required .com.caidt.proto.ItemType type = 3;</code>
+     */
+    com.caidt.proto.ProtoCommon.ItemType getType();
+
+    /**
+     * <code>required int64 count = 4;</code>
+     */
+    boolean hasCount();
+    /**
+     * <code>required int64 count = 4;</code>
+     */
+    long getCount();
+  }
+  /**
+   * <pre>
+   * 道具
+   * </pre>
+   *
+   * Protobuf type {@code com.caidt.proto.DisplayItem}
+   */
+  public  static final class DisplayItem extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.DisplayItem)
+      DisplayItemOrBuilder {
+    // Use DisplayItem.newBuilder() to construct.
+    private DisplayItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DisplayItem() {
+      uid_ = 0L;
+      id_ = 0;
+      type_ = 0;
+      count_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DisplayItem(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              bitField0_ |= 0x00000001;
+              uid_ = input.readInt64();
+              break;
+            }
+            case 16: {
+              bitField0_ |= 0x00000002;
+              id_ = input.readInt32();
+              break;
+            }
+            case 24: {
+              int rawValue = input.readEnum();
+              com.caidt.proto.ProtoCommon.ItemType value = com.caidt.proto.ProtoCommon.ItemType.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(3, rawValue);
+              } else {
+                bitField0_ |= 0x00000004;
+                type_ = rawValue;
+              }
+              break;
+            }
+            case 32: {
+              bitField0_ |= 0x00000008;
+              count_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayItem_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayItem_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.caidt.proto.ProtoCommon.DisplayItem.class, com.caidt.proto.ProtoCommon.DisplayItem.Builder.class);
+    }
+
+    private int bitField0_;
+    public static final int UID_FIELD_NUMBER = 1;
+    private long uid_;
+    /**
+     * <code>required int64 uid = 1;</code>
+     */
+    public boolean hasUid() {
+      return ((bitField0_ & 0x00000001) == 0x00000001);
+    }
+    /**
+     * <code>required int64 uid = 1;</code>
+     */
+    public long getUid() {
+      return uid_;
+    }
+
+    public static final int ID_FIELD_NUMBER = 2;
+    private int id_;
+    /**
+     * <code>required int32 id = 2;</code>
+     */
+    public boolean hasId() {
+      return ((bitField0_ & 0x00000002) == 0x00000002);
+    }
+    /**
+     * <code>required int32 id = 2;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 3;
+    private int type_;
+    /**
+     * <code>required .com.caidt.proto.ItemType type = 3;</code>
+     */
+    public boolean hasType() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <code>required .com.caidt.proto.ItemType type = 3;</code>
+     */
+    public com.caidt.proto.ProtoCommon.ItemType getType() {
+      com.caidt.proto.ProtoCommon.ItemType result = com.caidt.proto.ProtoCommon.ItemType.valueOf(type_);
+      return result == null ? com.caidt.proto.ProtoCommon.ItemType.NORMAL : result;
+    }
+
+    public static final int COUNT_FIELD_NUMBER = 4;
+    private long count_;
+    /**
+     * <code>required int64 count = 4;</code>
+     */
+    public boolean hasCount() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <code>required int64 count = 4;</code>
+     */
+    public long getCount() {
+      return count_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      if (!hasUid()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasId()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasType()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      if (!hasCount()) {
+        memoizedIsInitialized = 0;
+        return false;
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        output.writeInt64(1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        output.writeInt32(2, id_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeEnum(3, type_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        output.writeInt64(4, count_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (((bitField0_ & 0x00000001) == 0x00000001)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, uid_);
+      }
+      if (((bitField0_ & 0x00000002) == 0x00000002)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(2, id_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(3, type_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, count_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.caidt.proto.ProtoCommon.DisplayItem)) {
+        return super.equals(obj);
+      }
+      com.caidt.proto.ProtoCommon.DisplayItem other = (com.caidt.proto.ProtoCommon.DisplayItem) obj;
+
+      boolean result = true;
+      result = result && (hasUid() == other.hasUid());
+      if (hasUid()) {
+        result = result && (getUid()
+            == other.getUid());
+      }
+      result = result && (hasId() == other.hasId());
+      if (hasId()) {
+        result = result && (getId()
+            == other.getId());
+      }
+      result = result && (hasType() == other.hasType());
+      if (hasType()) {
+        result = result && type_ == other.type_;
+      }
+      result = result && (hasCount() == other.hasCount());
+      if (hasCount()) {
+        result = result && (getCount()
+            == other.getCount());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasUid()) {
+        hash = (37 * hash) + UID_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getUid());
+      }
+      if (hasId()) {
+        hash = (37 * hash) + ID_FIELD_NUMBER;
+        hash = (53 * hash) + getId();
+      }
+      if (hasType()) {
+        hash = (37 * hash) + TYPE_FIELD_NUMBER;
+        hash = (53 * hash) + type_;
+      }
+      if (hasCount()) {
+        hash = (37 * hash) + COUNT_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getCount());
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayItem parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.caidt.proto.ProtoCommon.DisplayItem prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 道具
+     * </pre>
+     *
+     * Protobuf type {@code com.caidt.proto.DisplayItem}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.DisplayItem)
+        com.caidt.proto.ProtoCommon.DisplayItemOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayItem_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.caidt.proto.ProtoCommon.DisplayItem.class, com.caidt.proto.ProtoCommon.DisplayItem.Builder.class);
+      }
+
+      // Construct using com.caidt.proto.ProtoCommon.DisplayItem.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        uid_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000001);
+        id_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000002);
+        type_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        count_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayItem_descriptor;
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayItem getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoCommon.DisplayItem.getDefaultInstance();
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayItem build() {
+        com.caidt.proto.ProtoCommon.DisplayItem result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayItem buildPartial() {
+        com.caidt.proto.ProtoCommon.DisplayItem result = new com.caidt.proto.ProtoCommon.DisplayItem(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
+        if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+          to_bitField0_ |= 0x00000001;
+        }
+        result.uid_ = uid_;
+        if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+          to_bitField0_ |= 0x00000002;
+        }
+        result.id_ = id_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.type_ = type_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.count_ = count_;
+        result.bitField0_ = to_bitField0_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.caidt.proto.ProtoCommon.DisplayItem) {
+          return mergeFrom((com.caidt.proto.ProtoCommon.DisplayItem)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.caidt.proto.ProtoCommon.DisplayItem other) {
+        if (other == com.caidt.proto.ProtoCommon.DisplayItem.getDefaultInstance()) return this;
+        if (other.hasUid()) {
+          setUid(other.getUid());
+        }
+        if (other.hasId()) {
+          setId(other.getId());
+        }
+        if (other.hasType()) {
+          setType(other.getType());
+        }
+        if (other.hasCount()) {
+          setCount(other.getCount());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        if (!hasUid()) {
+          return false;
+        }
+        if (!hasId()) {
+          return false;
+        }
+        if (!hasType()) {
+          return false;
+        }
+        if (!hasCount()) {
+          return false;
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.caidt.proto.ProtoCommon.DisplayItem parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.caidt.proto.ProtoCommon.DisplayItem) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private long uid_ ;
+      /**
+       * <code>required int64 uid = 1;</code>
+       */
+      public boolean hasUid() {
+        return ((bitField0_ & 0x00000001) == 0x00000001);
+      }
+      /**
+       * <code>required int64 uid = 1;</code>
+       */
+      public long getUid() {
+        return uid_;
+      }
+      /**
+       * <code>required int64 uid = 1;</code>
+       */
+      public Builder setUid(long value) {
+        bitField0_ |= 0x00000001;
+        uid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 uid = 1;</code>
+       */
+      public Builder clearUid() {
+        bitField0_ = (bitField0_ & ~0x00000001);
+        uid_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int id_ ;
+      /**
+       * <code>required int32 id = 2;</code>
+       */
+      public boolean hasId() {
+        return ((bitField0_ & 0x00000002) == 0x00000002);
+      }
+      /**
+       * <code>required int32 id = 2;</code>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>required int32 id = 2;</code>
+       */
+      public Builder setId(int value) {
+        bitField0_ |= 0x00000002;
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int32 id = 2;</code>
+       */
+      public Builder clearId() {
+        bitField0_ = (bitField0_ & ~0x00000002);
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>required .com.caidt.proto.ItemType type = 3;</code>
+       */
+      public boolean hasType() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <code>required .com.caidt.proto.ItemType type = 3;</code>
+       */
+      public com.caidt.proto.ProtoCommon.ItemType getType() {
+        com.caidt.proto.ProtoCommon.ItemType result = com.caidt.proto.ProtoCommon.ItemType.valueOf(type_);
+        return result == null ? com.caidt.proto.ProtoCommon.ItemType.NORMAL : result;
+      }
+      /**
+       * <code>required .com.caidt.proto.ItemType type = 3;</code>
+       */
+      public Builder setType(com.caidt.proto.ProtoCommon.ItemType value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        bitField0_ |= 0x00000004;
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required .com.caidt.proto.ItemType type = 3;</code>
+       */
+      public Builder clearType() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long count_ ;
+      /**
+       * <code>required int64 count = 4;</code>
+       */
+      public boolean hasCount() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <code>required int64 count = 4;</code>
+       */
+      public long getCount() {
+        return count_;
+      }
+      /**
+       * <code>required int64 count = 4;</code>
+       */
+      public Builder setCount(long value) {
+        bitField0_ |= 0x00000008;
+        count_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>required int64 count = 4;</code>
+       */
+      public Builder clearCount() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        count_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.DisplayItem)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.DisplayItem)
+    private static final com.caidt.proto.ProtoCommon.DisplayItem DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoCommon.DisplayItem();
+    }
+
+    public static com.caidt.proto.ProtoCommon.DisplayItem getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<DisplayItem>
+        PARSER = new com.google.protobuf.AbstractParser<DisplayItem>() {
+      public DisplayItem parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new DisplayItem(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DisplayItem> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DisplayItem> getParserForType() {
+      return PARSER;
+    }
+
+    public com.caidt.proto.ProtoCommon.DisplayItem getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface DisplayRewardPackageOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.DisplayRewardPackage)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    java.util.List<com.caidt.proto.ProtoCommon.DisplayResource> 
+        getResourcesList();
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    com.caidt.proto.ProtoCommon.DisplayResource getResources(int index);
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    int getResourcesCount();
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder> 
+        getResourcesOrBuilderList();
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder getResourcesOrBuilder(
+        int index);
+
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> 
+        getItemsList();
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    com.caidt.proto.ProtoCommon.DisplayItem getItems(int index);
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    int getItemsCount();
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> 
+        getItemsOrBuilderList();
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    com.caidt.proto.ProtoCommon.DisplayItemOrBuilder getItemsOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * 奖励包展示
+   * </pre>
+   *
+   * Protobuf type {@code com.caidt.proto.DisplayRewardPackage}
+   */
+  public  static final class DisplayRewardPackage extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.DisplayRewardPackage)
+      DisplayRewardPackageOrBuilder {
+    // Use DisplayRewardPackage.newBuilder() to construct.
+    private DisplayRewardPackage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private DisplayRewardPackage() {
+      resources_ = java.util.Collections.emptyList();
+      items_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private DisplayRewardPackage(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(input, unknownFields,
+                                     extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                resources_ = new java.util.ArrayList<com.caidt.proto.ProtoCommon.DisplayResource>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              resources_.add(
+                  input.readMessage(com.caidt.proto.ProtoCommon.DisplayResource.PARSER, extensionRegistry));
+              break;
+            }
+            case 18: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                items_ = new java.util.ArrayList<com.caidt.proto.ProtoCommon.DisplayItem>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              items_.add(
+                  input.readMessage(com.caidt.proto.ProtoCommon.DisplayItem.PARSER, extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          resources_ = java.util.Collections.unmodifiableList(resources_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayRewardPackage_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayRewardPackage_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.caidt.proto.ProtoCommon.DisplayRewardPackage.class, com.caidt.proto.ProtoCommon.DisplayRewardPackage.Builder.class);
+    }
+
+    public static final int RESOURCES_FIELD_NUMBER = 1;
+    private java.util.List<com.caidt.proto.ProtoCommon.DisplayResource> resources_;
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    public java.util.List<com.caidt.proto.ProtoCommon.DisplayResource> getResourcesList() {
+      return resources_;
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    public java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder> 
+        getResourcesOrBuilderList() {
+      return resources_;
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    public int getResourcesCount() {
+      return resources_.size();
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    public com.caidt.proto.ProtoCommon.DisplayResource getResources(int index) {
+      return resources_.get(index);
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+     */
+    public com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder getResourcesOrBuilder(
+        int index) {
+      return resources_.get(index);
+    }
+
+    public static final int ITEMS_FIELD_NUMBER = 2;
+    private java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> items_;
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    public java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> getItemsList() {
+      return items_;
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    public java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> 
+        getItemsOrBuilderList() {
+      return items_;
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    public int getItemsCount() {
+      return items_.size();
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    public com.caidt.proto.ProtoCommon.DisplayItem getItems(int index) {
+      return items_.get(index);
+    }
+    /**
+     * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+     */
+    public com.caidt.proto.ProtoCommon.DisplayItemOrBuilder getItemsOrBuilder(
+        int index) {
+      return items_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getResourcesCount(); i++) {
+        if (!getResources(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      for (int i = 0; i < getItemsCount(); i++) {
+        if (!getItems(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < resources_.size(); i++) {
+        output.writeMessage(1, resources_.get(i));
+      }
+      for (int i = 0; i < items_.size(); i++) {
+        output.writeMessage(2, items_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < resources_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, resources_.get(i));
+      }
+      for (int i = 0; i < items_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, items_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.caidt.proto.ProtoCommon.DisplayRewardPackage)) {
+        return super.equals(obj);
+      }
+      com.caidt.proto.ProtoCommon.DisplayRewardPackage other = (com.caidt.proto.ProtoCommon.DisplayRewardPackage) obj;
+
+      boolean result = true;
+      result = result && getResourcesList()
+          .equals(other.getResourcesList());
+      result = result && getItemsList()
+          .equals(other.getItemsList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getResourcesCount() > 0) {
+        hash = (37 * hash) + RESOURCES_FIELD_NUMBER;
+        hash = (53 * hash) + getResourcesList().hashCode();
+      }
+      if (getItemsCount() > 0) {
+        hash = (37 * hash) + ITEMS_FIELD_NUMBER;
+        hash = (53 * hash) + getItemsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.caidt.proto.ProtoCommon.DisplayRewardPackage prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 奖励包展示
+     * </pre>
+     *
+     * Protobuf type {@code com.caidt.proto.DisplayRewardPackage}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.DisplayRewardPackage)
+        com.caidt.proto.ProtoCommon.DisplayRewardPackageOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayRewardPackage_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayRewardPackage_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.caidt.proto.ProtoCommon.DisplayRewardPackage.class, com.caidt.proto.ProtoCommon.DisplayRewardPackage.Builder.class);
+      }
+
+      // Construct using com.caidt.proto.ProtoCommon.DisplayRewardPackage.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getResourcesFieldBuilder();
+          getItemsFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (resourcesBuilder_ == null) {
+          resources_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          resourcesBuilder_.clear();
+        }
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.caidt.proto.ProtoCommon.internal_static_com_caidt_proto_DisplayRewardPackage_descriptor;
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayRewardPackage getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoCommon.DisplayRewardPackage.getDefaultInstance();
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayRewardPackage build() {
+        com.caidt.proto.ProtoCommon.DisplayRewardPackage result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.caidt.proto.ProtoCommon.DisplayRewardPackage buildPartial() {
+        com.caidt.proto.ProtoCommon.DisplayRewardPackage result = new com.caidt.proto.ProtoCommon.DisplayRewardPackage(this);
+        int from_bitField0_ = bitField0_;
+        if (resourcesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            resources_ = java.util.Collections.unmodifiableList(resources_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.resources_ = resources_;
+        } else {
+          result.resources_ = resourcesBuilder_.build();
+        }
+        if (itemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000002) == 0x00000002)) {
+            items_ = java.util.Collections.unmodifiableList(items_);
+            bitField0_ = (bitField0_ & ~0x00000002);
+          }
+          result.items_ = items_;
+        } else {
+          result.items_ = itemsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.caidt.proto.ProtoCommon.DisplayRewardPackage) {
+          return mergeFrom((com.caidt.proto.ProtoCommon.DisplayRewardPackage)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.caidt.proto.ProtoCommon.DisplayRewardPackage other) {
+        if (other == com.caidt.proto.ProtoCommon.DisplayRewardPackage.getDefaultInstance()) return this;
+        if (resourcesBuilder_ == null) {
+          if (!other.resources_.isEmpty()) {
+            if (resources_.isEmpty()) {
+              resources_ = other.resources_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureResourcesIsMutable();
+              resources_.addAll(other.resources_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.resources_.isEmpty()) {
+            if (resourcesBuilder_.isEmpty()) {
+              resourcesBuilder_.dispose();
+              resourcesBuilder_ = null;
+              resources_ = other.resources_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              resourcesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getResourcesFieldBuilder() : null;
+            } else {
+              resourcesBuilder_.addAllMessages(other.resources_);
+            }
+          }
+        }
+        if (itemsBuilder_ == null) {
+          if (!other.items_.isEmpty()) {
+            if (items_.isEmpty()) {
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+            } else {
+              ensureItemsIsMutable();
+              items_.addAll(other.items_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.items_.isEmpty()) {
+            if (itemsBuilder_.isEmpty()) {
+              itemsBuilder_.dispose();
+              itemsBuilder_ = null;
+              items_ = other.items_;
+              bitField0_ = (bitField0_ & ~0x00000002);
+              itemsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getItemsFieldBuilder() : null;
+            } else {
+              itemsBuilder_.addAllMessages(other.items_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        for (int i = 0; i < getResourcesCount(); i++) {
+          if (!getResources(i).isInitialized()) {
+            return false;
+          }
+        }
+        for (int i = 0; i < getItemsCount(); i++) {
+          if (!getItems(i).isInitialized()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.caidt.proto.ProtoCommon.DisplayRewardPackage parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.caidt.proto.ProtoCommon.DisplayRewardPackage) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.caidt.proto.ProtoCommon.DisplayResource> resources_ =
+        java.util.Collections.emptyList();
+      private void ensureResourcesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          resources_ = new java.util.ArrayList<com.caidt.proto.ProtoCommon.DisplayResource>(resources_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.caidt.proto.ProtoCommon.DisplayResource, com.caidt.proto.ProtoCommon.DisplayResource.Builder, com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder> resourcesBuilder_;
+
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public java.util.List<com.caidt.proto.ProtoCommon.DisplayResource> getResourcesList() {
+        if (resourcesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(resources_);
+        } else {
+          return resourcesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public int getResourcesCount() {
+        if (resourcesBuilder_ == null) {
+          return resources_.size();
+        } else {
+          return resourcesBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayResource getResources(int index) {
+        if (resourcesBuilder_ == null) {
+          return resources_.get(index);
+        } else {
+          return resourcesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder setResources(
+          int index, com.caidt.proto.ProtoCommon.DisplayResource value) {
+        if (resourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourcesIsMutable();
+          resources_.set(index, value);
+          onChanged();
+        } else {
+          resourcesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder setResources(
+          int index, com.caidt.proto.ProtoCommon.DisplayResource.Builder builderForValue) {
+        if (resourcesBuilder_ == null) {
+          ensureResourcesIsMutable();
+          resources_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourcesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder addResources(com.caidt.proto.ProtoCommon.DisplayResource value) {
+        if (resourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourcesIsMutable();
+          resources_.add(value);
+          onChanged();
+        } else {
+          resourcesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder addResources(
+          int index, com.caidt.proto.ProtoCommon.DisplayResource value) {
+        if (resourcesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureResourcesIsMutable();
+          resources_.add(index, value);
+          onChanged();
+        } else {
+          resourcesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder addResources(
+          com.caidt.proto.ProtoCommon.DisplayResource.Builder builderForValue) {
+        if (resourcesBuilder_ == null) {
+          ensureResourcesIsMutable();
+          resources_.add(builderForValue.build());
+          onChanged();
+        } else {
+          resourcesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder addResources(
+          int index, com.caidt.proto.ProtoCommon.DisplayResource.Builder builderForValue) {
+        if (resourcesBuilder_ == null) {
+          ensureResourcesIsMutable();
+          resources_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          resourcesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder addAllResources(
+          java.lang.Iterable<? extends com.caidt.proto.ProtoCommon.DisplayResource> values) {
+        if (resourcesBuilder_ == null) {
+          ensureResourcesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, resources_);
+          onChanged();
+        } else {
+          resourcesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder clearResources() {
+        if (resourcesBuilder_ == null) {
+          resources_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          resourcesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public Builder removeResources(int index) {
+        if (resourcesBuilder_ == null) {
+          ensureResourcesIsMutable();
+          resources_.remove(index);
+          onChanged();
+        } else {
+          resourcesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayResource.Builder getResourcesBuilder(
+          int index) {
+        return getResourcesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder getResourcesOrBuilder(
+          int index) {
+        if (resourcesBuilder_ == null) {
+          return resources_.get(index);  } else {
+          return resourcesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder> 
+           getResourcesOrBuilderList() {
+        if (resourcesBuilder_ != null) {
+          return resourcesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(resources_);
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayResource.Builder addResourcesBuilder() {
+        return getResourcesFieldBuilder().addBuilder(
+            com.caidt.proto.ProtoCommon.DisplayResource.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayResource.Builder addResourcesBuilder(
+          int index) {
+        return getResourcesFieldBuilder().addBuilder(
+            index, com.caidt.proto.ProtoCommon.DisplayResource.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayResource resources = 1;</code>
+       */
+      public java.util.List<com.caidt.proto.ProtoCommon.DisplayResource.Builder> 
+           getResourcesBuilderList() {
+        return getResourcesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.caidt.proto.ProtoCommon.DisplayResource, com.caidt.proto.ProtoCommon.DisplayResource.Builder, com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder> 
+          getResourcesFieldBuilder() {
+        if (resourcesBuilder_ == null) {
+          resourcesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.caidt.proto.ProtoCommon.DisplayResource, com.caidt.proto.ProtoCommon.DisplayResource.Builder, com.caidt.proto.ProtoCommon.DisplayResourceOrBuilder>(
+                  resources_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          resources_ = null;
+        }
+        return resourcesBuilder_;
+      }
+
+      private java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> items_ =
+        java.util.Collections.emptyList();
+      private void ensureItemsIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          items_ = new java.util.ArrayList<com.caidt.proto.ProtoCommon.DisplayItem>(items_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.caidt.proto.ProtoCommon.DisplayItem, com.caidt.proto.ProtoCommon.DisplayItem.Builder, com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> itemsBuilder_;
+
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> getItemsList() {
+        if (itemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(items_);
+        } else {
+          return itemsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public int getItemsCount() {
+        if (itemsBuilder_ == null) {
+          return items_.size();
+        } else {
+          return itemsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayItem getItems(int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);
+        } else {
+          return itemsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder setItems(
+          int index, com.caidt.proto.ProtoCommon.DisplayItem value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.set(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder setItems(
+          int index, com.caidt.proto.ProtoCommon.DisplayItem.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder addItems(com.caidt.proto.ProtoCommon.DisplayItem value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder addItems(
+          int index, com.caidt.proto.ProtoCommon.DisplayItem value) {
+        if (itemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureItemsIsMutable();
+          items_.add(index, value);
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder addItems(
+          com.caidt.proto.ProtoCommon.DisplayItem.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder addItems(
+          int index, com.caidt.proto.ProtoCommon.DisplayItem.Builder builderForValue) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          itemsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder addAllItems(
+          java.lang.Iterable<? extends com.caidt.proto.ProtoCommon.DisplayItem> values) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, items_);
+          onChanged();
+        } else {
+          itemsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder clearItems() {
+        if (itemsBuilder_ == null) {
+          items_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000002);
+          onChanged();
+        } else {
+          itemsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public Builder removeItems(int index) {
+        if (itemsBuilder_ == null) {
+          ensureItemsIsMutable();
+          items_.remove(index);
+          onChanged();
+        } else {
+          itemsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayItem.Builder getItemsBuilder(
+          int index) {
+        return getItemsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayItemOrBuilder getItemsOrBuilder(
+          int index) {
+        if (itemsBuilder_ == null) {
+          return items_.get(index);  } else {
+          return itemsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> 
+           getItemsOrBuilderList() {
+        if (itemsBuilder_ != null) {
+          return itemsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(items_);
+        }
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayItem.Builder addItemsBuilder() {
+        return getItemsFieldBuilder().addBuilder(
+            com.caidt.proto.ProtoCommon.DisplayItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public com.caidt.proto.ProtoCommon.DisplayItem.Builder addItemsBuilder(
+          int index) {
+        return getItemsFieldBuilder().addBuilder(
+            index, com.caidt.proto.ProtoCommon.DisplayItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .com.caidt.proto.DisplayItem items = 2;</code>
+       */
+      public java.util.List<com.caidt.proto.ProtoCommon.DisplayItem.Builder> 
+           getItemsBuilderList() {
+        return getItemsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.caidt.proto.ProtoCommon.DisplayItem, com.caidt.proto.ProtoCommon.DisplayItem.Builder, com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> 
+          getItemsFieldBuilder() {
+        if (itemsBuilder_ == null) {
+          itemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.caidt.proto.ProtoCommon.DisplayItem, com.caidt.proto.ProtoCommon.DisplayItem.Builder, com.caidt.proto.ProtoCommon.DisplayItemOrBuilder>(
+                  items_,
+                  ((bitField0_ & 0x00000002) == 0x00000002),
+                  getParentForChildren(),
+                  isClean());
+          items_ = null;
+        }
+        return itemsBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.DisplayRewardPackage)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.DisplayRewardPackage)
+    private static final com.caidt.proto.ProtoCommon.DisplayRewardPackage DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoCommon.DisplayRewardPackage();
+    }
+
+    public static com.caidt.proto.ProtoCommon.DisplayRewardPackage getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<DisplayRewardPackage>
+        PARSER = new com.google.protobuf.AbstractParser<DisplayRewardPackage>() {
+      public DisplayRewardPackage parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new DisplayRewardPackage(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<DisplayRewardPackage> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<DisplayRewardPackage> getParserForType() {
+      return PARSER;
+    }
+
+    public com.caidt.proto.ProtoCommon.DisplayRewardPackage getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_caidt_proto_DisplayResource_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_caidt_proto_DisplayResource_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_caidt_proto_DisplayItem_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_caidt_proto_DisplayItem_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_caidt_proto_DisplayRewardPackage_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_caidt_proto_DisplayRewardPackage_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -139,9 +3003,19 @@ public final class ProtoCommon {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022proto_common.proto\022\017com.caidt.proto*7\n" +
-      "\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001\022\010\n\004game" +
-      "\020\002\022\n\n\006common\020\003"
+      "\n\022proto_common.proto\022\017com.caidt.proto\"U\n" +
+      "\017DisplayResource\022\n\n\002id\030\001 \002(\005\022\'\n\004type\030\002 \002" +
+      "(\0162\031.com.caidt.proto.Resource\022\r\n\005count\030\003" +
+      " \002(\003\"^\n\013DisplayItem\022\013\n\003uid\030\001 \002(\003\022\n\n\002id\030\002" +
+      " \002(\005\022\'\n\004type\030\003 \002(\0162\031.com.caidt.proto.Ite" +
+      "mType\022\r\n\005count\030\004 \002(\003\"x\n\024DisplayRewardPac" +
+      "kage\0223\n\tresources\030\001 \003(\0132 .com.caidt.prot" +
+      "o.DisplayResource\022+\n\005items\030\002 \003(\0132\034.com.c" +
+      "aidt.proto.DisplayItem*7\n\006Reason\022\013\n\007unkn" +
+      "own\020\000\022\n\n\006server\020\001\022\010\n\004game\020\002\022\n\n\006common\020\003*",
+      "(\n\010Resource\022\010\n\004GOLD\020\001\022\010\n\004WOOD\020\002\022\010\n\004IRON\020" +
+      "\003*.\n\010ItemType\022\n\n\006NORMAL\020\000\022\n\n\006RANDOM\020\001\022\n\n" +
+      "\006UNIQUE\020\002"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -155,6 +3029,24 @@ public final class ProtoCommon {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
+    internal_static_com_caidt_proto_DisplayResource_descriptor =
+      getDescriptor().getMessageTypes().get(0);
+    internal_static_com_caidt_proto_DisplayResource_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_caidt_proto_DisplayResource_descriptor,
+        new java.lang.String[] { "Id", "Type", "Count", });
+    internal_static_com_caidt_proto_DisplayItem_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_caidt_proto_DisplayItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_caidt_proto_DisplayItem_descriptor,
+        new java.lang.String[] { "Uid", "Id", "Type", "Count", });
+    internal_static_com_caidt_proto_DisplayRewardPackage_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_caidt_proto_DisplayRewardPackage_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_caidt_proto_DisplayRewardPackage_descriptor,
+        new java.lang.String[] { "Resources", "Items", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -37,24 +37,44 @@ public final class ProtoDescriptor {
     int getIndex();
 
     /**
+     * <pre>
+     * token: playerId | serverId | signKey | timestamp
+     * </pre>
+     *
      * <code>required string token = 3;</code>
      */
     boolean hasToken();
     /**
+     * <pre>
+     * token: playerId | serverId | signKey | timestamp
+     * </pre>
+     *
      * <code>required string token = 3;</code>
      */
     java.lang.String getToken();
     /**
+     * <pre>
+     * token: playerId | serverId | signKey | timestamp
+     * </pre>
+     *
      * <code>required string token = 3;</code>
      */
     com.google.protobuf.ByteString
         getTokenBytes();
 
     /**
+     * <pre>
+     * bytes的好处，在验证失败的情况下无需解析具体信息
+     * </pre>
+     *
      * <code>required bytes req = 4;</code>
      */
     boolean hasReq();
     /**
+     * <pre>
+     * bytes的好处，在验证失败的情况下无需解析具体信息
+     * </pre>
+     *
      * <code>required bytes req = 4;</code>
      */
     com.google.protobuf.ByteString getReq();
@@ -188,12 +208,20 @@ public final class ProtoDescriptor {
     public static final int TOKEN_FIELD_NUMBER = 3;
     private volatile java.lang.Object token_;
     /**
+     * <pre>
+     * token: playerId | serverId | signKey | timestamp
+     * </pre>
+     *
      * <code>required string token = 3;</code>
      */
     public boolean hasToken() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     * <pre>
+     * token: playerId | serverId | signKey | timestamp
+     * </pre>
+     *
      * <code>required string token = 3;</code>
      */
     public java.lang.String getToken() {
@@ -211,6 +239,10 @@ public final class ProtoDescriptor {
       }
     }
     /**
+     * <pre>
+     * token: playerId | serverId | signKey | timestamp
+     * </pre>
+     *
      * <code>required string token = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -230,12 +262,20 @@ public final class ProtoDescriptor {
     public static final int REQ_FIELD_NUMBER = 4;
     private com.google.protobuf.ByteString req_;
     /**
+     * <pre>
+     * bytes的好处，在验证失败的情况下无需解析具体信息
+     * </pre>
+     *
      * <code>required bytes req = 4;</code>
      */
     public boolean hasReq() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
+     * <pre>
+     * bytes的好处，在验证失败的情况下无需解析具体信息
+     * </pre>
+     *
      * <code>required bytes req = 4;</code>
      */
     public com.google.protobuf.ByteString getReq() {
@@ -702,12 +742,20 @@ public final class ProtoDescriptor {
 
       private java.lang.Object token_ = "";
       /**
+       * <pre>
+       * token: playerId | serverId | signKey | timestamp
+       * </pre>
+       *
        * <code>required string token = 3;</code>
        */
       public boolean hasToken() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       * <pre>
+       * token: playerId | serverId | signKey | timestamp
+       * </pre>
+       *
        * <code>required string token = 3;</code>
        */
       public java.lang.String getToken() {
@@ -725,6 +773,10 @@ public final class ProtoDescriptor {
         }
       }
       /**
+       * <pre>
+       * token: playerId | serverId | signKey | timestamp
+       * </pre>
+       *
        * <code>required string token = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -741,6 +793,10 @@ public final class ProtoDescriptor {
         }
       }
       /**
+       * <pre>
+       * token: playerId | serverId | signKey | timestamp
+       * </pre>
+       *
        * <code>required string token = 3;</code>
        */
       public Builder setToken(
@@ -754,6 +810,10 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
+       * <pre>
+       * token: playerId | serverId | signKey | timestamp
+       * </pre>
+       *
        * <code>required string token = 3;</code>
        */
       public Builder clearToken() {
@@ -763,6 +823,10 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
+       * <pre>
+       * token: playerId | serverId | signKey | timestamp
+       * </pre>
+       *
        * <code>required string token = 3;</code>
        */
       public Builder setTokenBytes(
@@ -778,18 +842,30 @@ public final class ProtoDescriptor {
 
       private com.google.protobuf.ByteString req_ = com.google.protobuf.ByteString.EMPTY;
       /**
+       * <pre>
+       * bytes的好处，在验证失败的情况下无需解析具体信息
+       * </pre>
+       *
        * <code>required bytes req = 4;</code>
        */
       public boolean hasReq() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
+       * <pre>
+       * bytes的好处，在验证失败的情况下无需解析具体信息
+       * </pre>
+       *
        * <code>required bytes req = 4;</code>
        */
       public com.google.protobuf.ByteString getReq() {
         return req_;
       }
       /**
+       * <pre>
+       * bytes的好处，在验证失败的情况下无需解析具体信息
+       * </pre>
+       *
        * <code>required bytes req = 4;</code>
        */
       public Builder setReq(com.google.protobuf.ByteString value) {
@@ -802,6 +878,10 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
+       * <pre>
+       * bytes的好处，在验证失败的情况下无需解析具体信息
+       * </pre>
+       *
        * <code>required bytes req = 4;</code>
        */
       public Builder clearReq() {
@@ -873,13 +953,64 @@ public final class ProtoDescriptor {
     int getIndex();
 
     /**
-     * <code>required bytes resp = 2;</code>
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
+     * <code>optional bytes resp = 2;</code>
      */
     boolean hasResp();
     /**
-     * <code>required bytes resp = 2;</code>
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
+     * <code>optional bytes resp = 2;</code>
      */
     com.google.protobuf.ByteString getResp();
+
+    /**
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional int32 error = 3;</code>
+     */
+    boolean hasError();
+    /**
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional int32 error = 3;</code>
+     */
+    int getError();
+
+    /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
+     * <code>optional string msg = 4;</code>
+     */
+    boolean hasMsg();
+    /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
+     * <code>optional string msg = 4;</code>
+     */
+    java.lang.String getMsg();
+    /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
+     * <code>optional string msg = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getMsgBytes();
   }
   /**
    * Protobuf type {@code com.caidt.proto.Response}
@@ -895,6 +1026,8 @@ public final class ProtoDescriptor {
     private Response() {
       index_ = 0;
       resp_ = com.google.protobuf.ByteString.EMPTY;
+      error_ = 0;
+      msg_ = "";
     }
 
     @java.lang.Override
@@ -933,6 +1066,17 @@ public final class ProtoDescriptor {
             case 18: {
               bitField0_ |= 0x00000002;
               resp_ = input.readBytes();
+              break;
+            }
+            case 24: {
+              bitField0_ |= 0x00000004;
+              error_ = input.readInt32();
+              break;
+            }
+            case 34: {
+              com.google.protobuf.ByteString bs = input.readBytes();
+              bitField0_ |= 0x00000008;
+              msg_ = bs;
               break;
             }
           }
@@ -978,16 +1122,101 @@ public final class ProtoDescriptor {
     public static final int RESP_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString resp_;
     /**
-     * <code>required bytes resp = 2;</code>
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
+     * <code>optional bytes resp = 2;</code>
      */
     public boolean hasResp() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <code>required bytes resp = 2;</code>
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
+     * <code>optional bytes resp = 2;</code>
      */
     public com.google.protobuf.ByteString getResp() {
       return resp_;
+    }
+
+    public static final int ERROR_FIELD_NUMBER = 3;
+    private int error_;
+    /**
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional int32 error = 3;</code>
+     */
+    public boolean hasError() {
+      return ((bitField0_ & 0x00000004) == 0x00000004);
+    }
+    /**
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional int32 error = 3;</code>
+     */
+    public int getError() {
+      return error_;
+    }
+
+    public static final int MSG_FIELD_NUMBER = 4;
+    private volatile java.lang.Object msg_;
+    /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
+     * <code>optional string msg = 4;</code>
+     */
+    public boolean hasMsg() {
+      return ((bitField0_ & 0x00000008) == 0x00000008);
+    }
+    /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
+     * <code>optional string msg = 4;</code>
+     */
+    public java.lang.String getMsg() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        if (bs.isValidUtf8()) {
+          msg_ = s;
+        }
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
+     * <code>optional string msg = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMsgBytes() {
+      java.lang.Object ref = msg_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        msg_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
     }
 
     private byte memoizedIsInitialized = -1;
@@ -997,10 +1226,6 @@ public final class ProtoDescriptor {
       if (isInitialized == 0) return false;
 
       if (!hasIndex()) {
-        memoizedIsInitialized = 0;
-        return false;
-      }
-      if (!hasResp()) {
         memoizedIsInitialized = 0;
         return false;
       }
@@ -1015,6 +1240,12 @@ public final class ProtoDescriptor {
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         output.writeBytes(2, resp_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        output.writeInt32(3, error_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, msg_);
       }
       unknownFields.writeTo(output);
     }
@@ -1031,6 +1262,13 @@ public final class ProtoDescriptor {
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(2, resp_);
+      }
+      if (((bitField0_ & 0x00000004) == 0x00000004)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, error_);
+      }
+      if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, msg_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1059,6 +1297,16 @@ public final class ProtoDescriptor {
         result = result && getResp()
             .equals(other.getResp());
       }
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && (getError()
+            == other.getError());
+      }
+      result = result && (hasMsg() == other.hasMsg());
+      if (hasMsg()) {
+        result = result && getMsg()
+            .equals(other.getMsg());
+      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -1077,6 +1325,14 @@ public final class ProtoDescriptor {
       if (hasResp()) {
         hash = (37 * hash) + RESP_FIELD_NUMBER;
         hash = (53 * hash) + getResp().hashCode();
+      }
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError();
+      }
+      if (hasMsg()) {
+        hash = (37 * hash) + MSG_FIELD_NUMBER;
+        hash = (53 * hash) + getMsg().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1200,6 +1456,10 @@ public final class ProtoDescriptor {
         bitField0_ = (bitField0_ & ~0x00000001);
         resp_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
+        error_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000004);
+        msg_ = "";
+        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1232,6 +1492,14 @@ public final class ProtoDescriptor {
           to_bitField0_ |= 0x00000002;
         }
         result.resp_ = resp_;
+        if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+          to_bitField0_ |= 0x00000004;
+        }
+        result.error_ = error_;
+        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+          to_bitField0_ |= 0x00000008;
+        }
+        result.msg_ = msg_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1280,6 +1548,14 @@ public final class ProtoDescriptor {
         if (other.hasResp()) {
           setResp(other.getResp());
         }
+        if (other.hasError()) {
+          setError(other.getError());
+        }
+        if (other.hasMsg()) {
+          bitField0_ |= 0x00000008;
+          msg_ = other.msg_;
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -1287,9 +1563,6 @@ public final class ProtoDescriptor {
 
       public final boolean isInitialized() {
         if (!hasIndex()) {
-          return false;
-        }
-        if (!hasResp()) {
           return false;
         }
         return true;
@@ -1348,19 +1621,31 @@ public final class ProtoDescriptor {
 
       private com.google.protobuf.ByteString resp_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <code>required bytes resp = 2;</code>
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
+       * <code>optional bytes resp = 2;</code>
        */
       public boolean hasResp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <code>required bytes resp = 2;</code>
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
+       * <code>optional bytes resp = 2;</code>
        */
       public com.google.protobuf.ByteString getResp() {
         return resp_;
       }
       /**
-       * <code>required bytes resp = 2;</code>
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
+       * <code>optional bytes resp = 2;</code>
        */
       public Builder setResp(com.google.protobuf.ByteString value) {
         if (value == null) {
@@ -1372,11 +1657,163 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
-       * <code>required bytes resp = 2;</code>
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
+       * <code>optional bytes resp = 2;</code>
        */
       public Builder clearResp() {
         bitField0_ = (bitField0_ & ~0x00000002);
         resp_ = getDefaultInstance().getResp();
+        onChanged();
+        return this;
+      }
+
+      private int error_ ;
+      /**
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional int32 error = 3;</code>
+       */
+      public boolean hasError() {
+        return ((bitField0_ & 0x00000004) == 0x00000004);
+      }
+      /**
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional int32 error = 3;</code>
+       */
+      public int getError() {
+        return error_;
+      }
+      /**
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional int32 error = 3;</code>
+       */
+      public Builder setError(int value) {
+        bitField0_ |= 0x00000004;
+        error_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional int32 error = 3;</code>
+       */
+      public Builder clearError() {
+        bitField0_ = (bitField0_ & ~0x00000004);
+        error_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object msg_ = "";
+      /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
+       * <code>optional string msg = 4;</code>
+       */
+      public boolean hasMsg() {
+        return ((bitField0_ & 0x00000008) == 0x00000008);
+      }
+      /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
+       * <code>optional string msg = 4;</code>
+       */
+      public java.lang.String getMsg() {
+        java.lang.Object ref = msg_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          if (bs.isValidUtf8()) {
+            msg_ = s;
+          }
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
+       * <code>optional string msg = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMsgBytes() {
+        java.lang.Object ref = msg_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          msg_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
+       * <code>optional string msg = 4;</code>
+       */
+      public Builder setMsg(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        msg_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
+       * <code>optional string msg = 4;</code>
+       */
+      public Builder clearMsg() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        msg_ = getDefaultInstance().getMsg();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
+       * <code>optional string msg = 4;</code>
+       */
+      public Builder setMsgBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  bitField0_ |= 0x00000008;
+        msg_ = value;
         onChanged();
         return this;
       }
@@ -3926,27 +4363,115 @@ public final class ProtoDescriptor {
         getNameBytes();
 
     /**
+     * <pre>
+     * 昵称
+     * </pre>
+     *
      * <code>optional string nickname = 3;</code>
      */
     boolean hasNickname();
     /**
+     * <pre>
+     * 昵称
+     * </pre>
+     *
      * <code>optional string nickname = 3;</code>
      */
     java.lang.String getNickname();
     /**
+     * <pre>
+     * 昵称
+     * </pre>
+     *
      * <code>optional string nickname = 3;</code>
      */
     com.google.protobuf.ByteString
         getNicknameBytes();
 
     /**
-     * <code>optional int64 power = 4;</code>
+     * <pre>
+     * 等级
+     * </pre>
+     *
+     * <code>optional int32 level = 4;</code>
+     */
+    boolean hasLevel();
+    /**
+     * <pre>
+     * 等级
+     * </pre>
+     *
+     * <code>optional int32 level = 4;</code>
+     */
+    int getLevel();
+
+    /**
+     * <pre>
+     * 经验
+     * </pre>
+     *
+     * <code>optional int64 exp = 5;</code>
+     */
+    boolean hasExp();
+    /**
+     * <pre>
+     * 经验
+     * </pre>
+     *
+     * <code>optional int64 exp = 5;</code>
+     */
+    long getExp();
+
+    /**
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int64 power = 6;</code>
      */
     boolean hasPower();
     /**
-     * <code>optional int64 power = 4;</code>
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int64 power = 6;</code>
      */
     long getPower();
+
+    /**
+     * <pre>
+     * vip 等级
+     * </pre>
+     *
+     * <code>optional int32 vipLevel = 7;</code>
+     */
+    boolean hasVipLevel();
+    /**
+     * <pre>
+     * vip 等级
+     * </pre>
+     *
+     * <code>optional int32 vipLevel = 7;</code>
+     */
+    int getVipLevel();
+
+    /**
+     * <pre>
+     * vip 经验
+     * </pre>
+     *
+     * <code>optional int32 vipExp = 8;</code>
+     */
+    boolean hasVipExp();
+    /**
+     * <pre>
+     * vip 经验
+     * </pre>
+     *
+     * <code>optional int32 vipExp = 8;</code>
+     */
+    int getVipExp();
   }
   /**
    * <pre>
@@ -3967,7 +4492,11 @@ public final class ProtoDescriptor {
       uid_ = 0L;
       name_ = "";
       nickname_ = "";
+      level_ = 0;
+      exp_ = 0L;
       power_ = 0L;
+      vipLevel_ = 0;
+      vipExp_ = 0;
     }
 
     @java.lang.Override
@@ -4017,7 +4546,27 @@ public final class ProtoDescriptor {
             }
             case 32: {
               bitField0_ |= 0x00000008;
+              level_ = input.readInt32();
+              break;
+            }
+            case 40: {
+              bitField0_ |= 0x00000010;
+              exp_ = input.readInt64();
+              break;
+            }
+            case 48: {
+              bitField0_ |= 0x00000020;
               power_ = input.readInt64();
+              break;
+            }
+            case 56: {
+              bitField0_ |= 0x00000040;
+              vipLevel_ = input.readInt32();
+              break;
+            }
+            case 64: {
+              bitField0_ |= 0x00000080;
+              vipExp_ = input.readInt32();
               break;
             }
           }
@@ -4105,12 +4654,20 @@ public final class ProtoDescriptor {
     public static final int NICKNAME_FIELD_NUMBER = 3;
     private volatile java.lang.Object nickname_;
     /**
+     * <pre>
+     * 昵称
+     * </pre>
+     *
      * <code>optional string nickname = 3;</code>
      */
     public boolean hasNickname() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
+     * <pre>
+     * 昵称
+     * </pre>
+     *
      * <code>optional string nickname = 3;</code>
      */
     public java.lang.String getNickname() {
@@ -4128,6 +4685,10 @@ public final class ProtoDescriptor {
       }
     }
     /**
+     * <pre>
+     * 昵称
+     * </pre>
+     *
      * <code>optional string nickname = 3;</code>
      */
     public com.google.protobuf.ByteString
@@ -4144,19 +4705,119 @@ public final class ProtoDescriptor {
       }
     }
 
-    public static final int POWER_FIELD_NUMBER = 4;
-    private long power_;
+    public static final int LEVEL_FIELD_NUMBER = 4;
+    private int level_;
     /**
-     * <code>optional int64 power = 4;</code>
+     * <pre>
+     * 等级
+     * </pre>
+     *
+     * <code>optional int32 level = 4;</code>
      */
-    public boolean hasPower() {
+    public boolean hasLevel() {
       return ((bitField0_ & 0x00000008) == 0x00000008);
     }
     /**
-     * <code>optional int64 power = 4;</code>
+     * <pre>
+     * 等级
+     * </pre>
+     *
+     * <code>optional int32 level = 4;</code>
+     */
+    public int getLevel() {
+      return level_;
+    }
+
+    public static final int EXP_FIELD_NUMBER = 5;
+    private long exp_;
+    /**
+     * <pre>
+     * 经验
+     * </pre>
+     *
+     * <code>optional int64 exp = 5;</code>
+     */
+    public boolean hasExp() {
+      return ((bitField0_ & 0x00000010) == 0x00000010);
+    }
+    /**
+     * <pre>
+     * 经验
+     * </pre>
+     *
+     * <code>optional int64 exp = 5;</code>
+     */
+    public long getExp() {
+      return exp_;
+    }
+
+    public static final int POWER_FIELD_NUMBER = 6;
+    private long power_;
+    /**
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int64 power = 6;</code>
+     */
+    public boolean hasPower() {
+      return ((bitField0_ & 0x00000020) == 0x00000020);
+    }
+    /**
+     * <pre>
+     * 战斗力
+     * </pre>
+     *
+     * <code>optional int64 power = 6;</code>
      */
     public long getPower() {
       return power_;
+    }
+
+    public static final int VIPLEVEL_FIELD_NUMBER = 7;
+    private int vipLevel_;
+    /**
+     * <pre>
+     * vip 等级
+     * </pre>
+     *
+     * <code>optional int32 vipLevel = 7;</code>
+     */
+    public boolean hasVipLevel() {
+      return ((bitField0_ & 0x00000040) == 0x00000040);
+    }
+    /**
+     * <pre>
+     * vip 等级
+     * </pre>
+     *
+     * <code>optional int32 vipLevel = 7;</code>
+     */
+    public int getVipLevel() {
+      return vipLevel_;
+    }
+
+    public static final int VIPEXP_FIELD_NUMBER = 8;
+    private int vipExp_;
+    /**
+     * <pre>
+     * vip 经验
+     * </pre>
+     *
+     * <code>optional int32 vipExp = 8;</code>
+     */
+    public boolean hasVipExp() {
+      return ((bitField0_ & 0x00000080) == 0x00000080);
+    }
+    /**
+     * <pre>
+     * vip 经验
+     * </pre>
+     *
+     * <code>optional int32 vipExp = 8;</code>
+     */
+    public int getVipExp() {
+      return vipExp_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -4189,7 +4850,19 @@ public final class ProtoDescriptor {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, nickname_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        output.writeInt64(4, power_);
+        output.writeInt32(4, level_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        output.writeInt64(5, exp_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        output.writeInt64(6, power_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        output.writeInt32(7, vipLevel_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        output.writeInt32(8, vipExp_);
       }
       unknownFields.writeTo(output);
     }
@@ -4211,7 +4884,23 @@ public final class ProtoDescriptor {
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(4, power_);
+          .computeInt32Size(4, level_);
+      }
+      if (((bitField0_ & 0x00000010) == 0x00000010)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(5, exp_);
+      }
+      if (((bitField0_ & 0x00000020) == 0x00000020)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, power_);
+      }
+      if (((bitField0_ & 0x00000040) == 0x00000040)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(7, vipLevel_);
+      }
+      if (((bitField0_ & 0x00000080) == 0x00000080)) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(8, vipExp_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -4245,10 +4934,30 @@ public final class ProtoDescriptor {
         result = result && getNickname()
             .equals(other.getNickname());
       }
+      result = result && (hasLevel() == other.hasLevel());
+      if (hasLevel()) {
+        result = result && (getLevel()
+            == other.getLevel());
+      }
+      result = result && (hasExp() == other.hasExp());
+      if (hasExp()) {
+        result = result && (getExp()
+            == other.getExp());
+      }
       result = result && (hasPower() == other.hasPower());
       if (hasPower()) {
         result = result && (getPower()
             == other.getPower());
+      }
+      result = result && (hasVipLevel() == other.hasVipLevel());
+      if (hasVipLevel()) {
+        result = result && (getVipLevel()
+            == other.getVipLevel());
+      }
+      result = result && (hasVipExp() == other.hasVipExp());
+      if (hasVipExp()) {
+        result = result && (getVipExp()
+            == other.getVipExp());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -4274,10 +4983,27 @@ public final class ProtoDescriptor {
         hash = (37 * hash) + NICKNAME_FIELD_NUMBER;
         hash = (53 * hash) + getNickname().hashCode();
       }
+      if (hasLevel()) {
+        hash = (37 * hash) + LEVEL_FIELD_NUMBER;
+        hash = (53 * hash) + getLevel();
+      }
+      if (hasExp()) {
+        hash = (37 * hash) + EXP_FIELD_NUMBER;
+        hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+            getExp());
+      }
       if (hasPower()) {
         hash = (37 * hash) + POWER_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
             getPower());
+      }
+      if (hasVipLevel()) {
+        hash = (37 * hash) + VIPLEVEL_FIELD_NUMBER;
+        hash = (53 * hash) + getVipLevel();
+      }
+      if (hasVipExp()) {
+        hash = (37 * hash) + VIPEXP_FIELD_NUMBER;
+        hash = (53 * hash) + getVipExp();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -4407,8 +5133,16 @@ public final class ProtoDescriptor {
         bitField0_ = (bitField0_ & ~0x00000002);
         nickname_ = "";
         bitField0_ = (bitField0_ & ~0x00000004);
-        power_ = 0L;
+        level_ = 0;
         bitField0_ = (bitField0_ & ~0x00000008);
+        exp_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000010);
+        power_ = 0L;
+        bitField0_ = (bitField0_ & ~0x00000020);
+        vipLevel_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000040);
+        vipExp_ = 0;
+        bitField0_ = (bitField0_ & ~0x00000080);
         return this;
       }
 
@@ -4448,7 +5182,23 @@ public final class ProtoDescriptor {
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
+        result.level_ = level_;
+        if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+          to_bitField0_ |= 0x00000010;
+        }
+        result.exp_ = exp_;
+        if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+          to_bitField0_ |= 0x00000020;
+        }
         result.power_ = power_;
+        if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+          to_bitField0_ |= 0x00000040;
+        }
+        result.vipLevel_ = vipLevel_;
+        if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+          to_bitField0_ |= 0x00000080;
+        }
+        result.vipExp_ = vipExp_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -4504,8 +5254,20 @@ public final class ProtoDescriptor {
           nickname_ = other.nickname_;
           onChanged();
         }
+        if (other.hasLevel()) {
+          setLevel(other.getLevel());
+        }
+        if (other.hasExp()) {
+          setExp(other.getExp());
+        }
         if (other.hasPower()) {
           setPower(other.getPower());
+        }
+        if (other.hasVipLevel()) {
+          setVipLevel(other.getVipLevel());
+        }
+        if (other.hasVipExp()) {
+          setVipExp(other.getVipExp());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -4651,12 +5413,20 @@ public final class ProtoDescriptor {
 
       private java.lang.Object nickname_ = "";
       /**
+       * <pre>
+       * 昵称
+       * </pre>
+       *
        * <code>optional string nickname = 3;</code>
        */
       public boolean hasNickname() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
+       * <pre>
+       * 昵称
+       * </pre>
+       *
        * <code>optional string nickname = 3;</code>
        */
       public java.lang.String getNickname() {
@@ -4674,6 +5444,10 @@ public final class ProtoDescriptor {
         }
       }
       /**
+       * <pre>
+       * 昵称
+       * </pre>
+       *
        * <code>optional string nickname = 3;</code>
        */
       public com.google.protobuf.ByteString
@@ -4690,6 +5464,10 @@ public final class ProtoDescriptor {
         }
       }
       /**
+       * <pre>
+       * 昵称
+       * </pre>
+       *
        * <code>optional string nickname = 3;</code>
        */
       public Builder setNickname(
@@ -4703,6 +5481,10 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
+       * <pre>
+       * 昵称
+       * </pre>
+       *
        * <code>optional string nickname = 3;</code>
        */
       public Builder clearNickname() {
@@ -4712,6 +5494,10 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
+       * <pre>
+       * 昵称
+       * </pre>
+       *
        * <code>optional string nickname = 3;</code>
        */
       public Builder setNicknameBytes(
@@ -4725,34 +5511,242 @@ public final class ProtoDescriptor {
         return this;
       }
 
-      private long power_ ;
+      private int level_ ;
       /**
-       * <code>optional int64 power = 4;</code>
+       * <pre>
+       * 等级
+       * </pre>
+       *
+       * <code>optional int32 level = 4;</code>
        */
-      public boolean hasPower() {
+      public boolean hasLevel() {
         return ((bitField0_ & 0x00000008) == 0x00000008);
       }
       /**
-       * <code>optional int64 power = 4;</code>
+       * <pre>
+       * 等级
+       * </pre>
+       *
+       * <code>optional int32 level = 4;</code>
+       */
+      public int getLevel() {
+        return level_;
+      }
+      /**
+       * <pre>
+       * 等级
+       * </pre>
+       *
+       * <code>optional int32 level = 4;</code>
+       */
+      public Builder setLevel(int value) {
+        bitField0_ |= 0x00000008;
+        level_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 等级
+       * </pre>
+       *
+       * <code>optional int32 level = 4;</code>
+       */
+      public Builder clearLevel() {
+        bitField0_ = (bitField0_ & ~0x00000008);
+        level_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private long exp_ ;
+      /**
+       * <pre>
+       * 经验
+       * </pre>
+       *
+       * <code>optional int64 exp = 5;</code>
+       */
+      public boolean hasExp() {
+        return ((bitField0_ & 0x00000010) == 0x00000010);
+      }
+      /**
+       * <pre>
+       * 经验
+       * </pre>
+       *
+       * <code>optional int64 exp = 5;</code>
+       */
+      public long getExp() {
+        return exp_;
+      }
+      /**
+       * <pre>
+       * 经验
+       * </pre>
+       *
+       * <code>optional int64 exp = 5;</code>
+       */
+      public Builder setExp(long value) {
+        bitField0_ |= 0x00000010;
+        exp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 经验
+       * </pre>
+       *
+       * <code>optional int64 exp = 5;</code>
+       */
+      public Builder clearExp() {
+        bitField0_ = (bitField0_ & ~0x00000010);
+        exp_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private long power_ ;
+      /**
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int64 power = 6;</code>
+       */
+      public boolean hasPower() {
+        return ((bitField0_ & 0x00000020) == 0x00000020);
+      }
+      /**
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int64 power = 6;</code>
        */
       public long getPower() {
         return power_;
       }
       /**
-       * <code>optional int64 power = 4;</code>
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int64 power = 6;</code>
        */
       public Builder setPower(long value) {
-        bitField0_ |= 0x00000008;
+        bitField0_ |= 0x00000020;
         power_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>optional int64 power = 4;</code>
+       * <pre>
+       * 战斗力
+       * </pre>
+       *
+       * <code>optional int64 power = 6;</code>
        */
       public Builder clearPower() {
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000020);
         power_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private int vipLevel_ ;
+      /**
+       * <pre>
+       * vip 等级
+       * </pre>
+       *
+       * <code>optional int32 vipLevel = 7;</code>
+       */
+      public boolean hasVipLevel() {
+        return ((bitField0_ & 0x00000040) == 0x00000040);
+      }
+      /**
+       * <pre>
+       * vip 等级
+       * </pre>
+       *
+       * <code>optional int32 vipLevel = 7;</code>
+       */
+      public int getVipLevel() {
+        return vipLevel_;
+      }
+      /**
+       * <pre>
+       * vip 等级
+       * </pre>
+       *
+       * <code>optional int32 vipLevel = 7;</code>
+       */
+      public Builder setVipLevel(int value) {
+        bitField0_ |= 0x00000040;
+        vipLevel_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * vip 等级
+       * </pre>
+       *
+       * <code>optional int32 vipLevel = 7;</code>
+       */
+      public Builder clearVipLevel() {
+        bitField0_ = (bitField0_ & ~0x00000040);
+        vipLevel_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private int vipExp_ ;
+      /**
+       * <pre>
+       * vip 经验
+       * </pre>
+       *
+       * <code>optional int32 vipExp = 8;</code>
+       */
+      public boolean hasVipExp() {
+        return ((bitField0_ & 0x00000080) == 0x00000080);
+      }
+      /**
+       * <pre>
+       * vip 经验
+       * </pre>
+       *
+       * <code>optional int32 vipExp = 8;</code>
+       */
+      public int getVipExp() {
+        return vipExp_;
+      }
+      /**
+       * <pre>
+       * vip 经验
+       * </pre>
+       *
+       * <code>optional int32 vipExp = 8;</code>
+       */
+      public Builder setVipExp(int value) {
+        bitField0_ |= 0x00000080;
+        vipExp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * vip 经验
+       * </pre>
+       *
+       * <code>optional int32 vipExp = 8;</code>
+       */
+      public Builder clearVipExp() {
+        bitField0_ = (bitField0_ & ~0x00000080);
+        vipExp_ = 0;
         onChanged();
         return this;
       }
@@ -4851,15 +5845,18 @@ public final class ProtoDescriptor {
     java.lang.String[] descriptorData = {
       "\n\026proto_descriptor.proto\022\017com.caidt.prot" +
       "o\"A\n\007Request\022\013\n\003uid\030\001 \002(\003\022\r\n\005index\030\002 \002(\005" +
-      "\022\r\n\005token\030\003 \002(\t\022\013\n\003req\030\004 \002(\014\"\'\n\010Response" +
-      "\022\r\n\005index\030\001 \002(\005\022\014\n\004resp\030\002 \002(\014\"\034\n\004Ping\022\024\n" +
-      "\014clientMillis\030\001 \002(\003\"2\n\004Pong\022\024\n\014clientMil" +
-      "lis\030\001 \002(\003\022\024\n\014serverMillis\030\002 \002(\003\"2\n\014Login" +
-      "Request\022\020\n\010username\030\001 \002(\t\022\020\n\010password\030\002 " +
-      "\002(\t\"N\n\rLoginResponse\022\020\n\010serverId\030\001 \002(\003\022+" +
-      "\n\006player\030\002 \002(\0132\033.com.caidt.proto.PlayerI" +
-      "nfo\"H\n\nPlayerInfo\022\013\n\003uid\030\001 \002(\003\022\014\n\004name\030\002",
-      " \002(\t\022\020\n\010nickname\030\003 \001(\t\022\r\n\005power\030\004 \001(\003"
+      "\022\r\n\005token\030\003 \002(\t\022\013\n\003req\030\004 \002(\014\"C\n\010Response" +
+      "\022\r\n\005index\030\001 \002(\005\022\014\n\004resp\030\002 \001(\014\022\r\n\005error\030\003" +
+      " \001(\005\022\013\n\003msg\030\004 \001(\t\"\034\n\004Ping\022\024\n\014clientMilli" +
+      "s\030\001 \002(\003\"2\n\004Pong\022\024\n\014clientMillis\030\001 \002(\003\022\024\n" +
+      "\014serverMillis\030\002 \002(\003\"2\n\014LoginRequest\022\020\n\010u" +
+      "sername\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"N\n\rLogin" +
+      "Response\022\020\n\010serverId\030\001 \002(\003\022+\n\006player\030\002 \002" +
+      "(\0132\033.com.caidt.proto.PlayerInfo\"\206\001\n\nPlay",
+      "erInfo\022\013\n\003uid\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n\010nic" +
+      "kname\030\003 \001(\t\022\r\n\005level\030\004 \001(\005\022\013\n\003exp\030\005 \001(\003\022" +
+      "\r\n\005power\030\006 \001(\003\022\020\n\010vipLevel\030\007 \001(\005\022\016\n\006vipE" +
+      "xp\030\010 \001(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4884,7 +5881,7 @@ public final class ProtoDescriptor {
     internal_static_com_caidt_proto_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Response_descriptor,
-        new java.lang.String[] { "Index", "Resp", });
+        new java.lang.String[] { "Index", "Resp", "Error", "Msg", });
     internal_static_com_caidt_proto_Ping_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_caidt_proto_Ping_fieldAccessorTable = new
@@ -4914,7 +5911,7 @@ public final class ProtoDescriptor {
     internal_static_com_caidt_proto_PlayerInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_PlayerInfo_descriptor,
-        new java.lang.String[] { "Uid", "Name", "Nickname", "Power", });
+        new java.lang.String[] { "Uid", "Name", "Nickname", "Level", "Exp", "Power", "VipLevel", "VipExp", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

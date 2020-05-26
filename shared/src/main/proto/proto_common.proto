@@ -11,3 +11,39 @@ enum Reason {
 
 }
 
+// 资源类型
+enum Resource {
+    GOLD = 1; // 金币
+
+    WOOD = 2; // 木材
+    IRON = 3; // 铁
+
+}
+
+// 资源
+message DisplayResource {
+    required int32 id = 1;
+    required Resource type = 2;
+    required int64 count = 3;
+}
+
+// 道具类型
+enum ItemType {
+    NORMAL = 0; // 普通道具
+    RANDOM = 1; // 随机道具
+    UNIQUE = 2; // 唯一道具
+}
+
+// 道具
+message DisplayItem {
+    required int64 uid = 1;
+    required int32 id = 2;
+    required ItemType type = 3;
+    required int64 count = 4;
+}
+
+// 奖励包展示
+message DisplayRewardPackage {
+    repeated DisplayResource resources = 1;
+    repeated DisplayItem items = 2;
+}

@@ -5,10 +5,12 @@ import "proto_player.proto";
 import "proto_activity.proto";
 
 message CsMessage {
+    reserved 102;
 
     oneof cmd {
         LoginRequest loginRequest = 101;
-        GetPlayerInfoRequest getPlayerInfoRequest = 102;
+
+//        GetPlayerInfoRequest getPlayerInfoRequest = 102;
         GetAllActivityRequest getAllActivityRequest = 103;
         GetActivityRequest getActivityRequest = 104;
     }

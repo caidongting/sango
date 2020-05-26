@@ -17,7 +17,10 @@ data class PlayerAccountEntity(
   override val playerId: Long,
 
   @Column(name = "name")
-  var name: String
+  var name: String,
+
+  @Column(name = "world_id")
+  var worldId: Long
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return this.playerId

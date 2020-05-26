@@ -8,8 +8,6 @@ import java.util.jar.JarFile
  * 扫描[pkgName]下面的类, 可过滤
  */
 fun scanPackage(pkgName: String, filter: (Class<*>) -> Boolean = { true }): List<Class<*>> {
-//  val pkg = Package.getPackage(pkgName)
-//  pkg.javaClass.classLoader.getResources()
   val result: MutableList<Class<*>> = arrayListOf()
   val urls = Thread.currentThread().contextClassLoader.getResources(pkgName.replace('.', '/'))
   while (urls.hasMoreElements()) {

@@ -1,5 +1,6 @@
 package com.caidt.share
 
+object UP
 /** 用于服务器内部定时 */
 object Tick
 /** 服务器之间异步简单应答 */

@@ -1,18 +1,18 @@
 package com.caidt
 
-/** client property */
-annotation class Client
+class Item(
+  val id: Long,
+  val owner: Long
+) {
 
-/** server property */
-annotation class Server
 
-data class Item(
-  /** item uid */
+
+}
+
+class UniqueItem(
   val uid: Long,
-  /** item owner */
-  val owner: Long,
-  val name: String,
-  val catalog: Int,
-  val type: Int,
-  var num: Long
-)
+  val id: Long,
+  val owner: Long
+) {
+
+}

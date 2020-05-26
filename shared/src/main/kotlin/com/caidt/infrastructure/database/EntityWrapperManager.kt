@@ -8,11 +8,13 @@ object EntityWrapperManager {
 
   private val trackerList: MutableList<Tracker> = LinkedList()
 
-  private val pendingQueue: Queue<IEntity> = LinkedList()
+  private val pendingQueue: Queue<Operation> = LinkedList()
 
   private const val BATCH_SIZE = 1000
+  /** 定时刷新间隔(s) */
+  private const val DURATION_FLUSH = 600L
 
-  private val ticker = Ticker(600L) // flush every 10 minutes (default)
+  private val ticker = Ticker(DURATION_FLUSH) // flush every 10 minutes (default)
 
   fun update(wrapper: EntityWrapper<*>) {
     createTracker(OP.UPDATE, wrapper)
@@ -36,9 +38,7 @@ object EntityWrapperManager {
     tickChange(now)
 
     // 2. 定时刷新pendingQueue
-    ticker.tick {
-      flush()
-    }
+    ticker.tick { flush() }
   }
 
   private fun tickChange(now: Instant) {
@@ -56,8 +56,11 @@ object EntityWrapperManager {
   }
 
   private fun pending(op: OP, entity: IEntity, now: Instant) {
-//    pendingQueue.add(entity)
-//    pendingQueue.r
+    val pre = pendingQueue.poll()
+    if (pre != null && pre.entity.primaryKey() == entity.primaryKey()) {
+
+    }
+    pendingQueue.add(Operation(op, entity))
     // todo: 合并操作 对于同一数据的操作(通过primaryKy判断)
     //  1. 两个update操作可以合并（去掉第一个update操作，因为此处使用全量更新），
     //  2. 先insert后update可以直接insert后一个数据
@@ -86,7 +89,7 @@ enum class OP {
 }
 
 
-data class Operation(val op: OP, val wrapper: EntityWrapper<*>)
+data class Operation(val op: OP, val entity: IEntity)
 
 data class Tracker(val op: OP, val wrapper: EntityWrapper<*>, private var lastCheck: Instant) {
 

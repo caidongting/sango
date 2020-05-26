@@ -1,0 +1,53 @@
+syntax = "proto2";
+package com.caidt.proto;
+
+
+enum Color {
+    red = 1;
+    pure = 2;
+    blue = 3;
+    yellow = 4;
+    gold = 5;
+}
+
+message DisplayHero {
+    required int64 uid = 1; // heroId 唯一
+    required int32 type = 2; // 类型
+    required int32 level = 3; // 等级
+    required int64 exp = 4; // 经验
+    required Color color = 5; // 品质
+    required int32 star = 6; // 星级
+    repeated HeroAttrData attrs = 7; // 属性
+}
+
+enum HeroAttr {
+    attack = 1;
+    defence = 2;
+    hp = 3;
+}
+
+message HeroAttrData {
+    required int32 type = 1;
+    required int32 value = 2;
+}
+
+// 获取所有hero --> GetAllHeroResponse
+message GetAllHeroRequest {
+
+}
+message GetAllHeroResponse {
+    repeated DisplayHero heroes = 1;
+}
+
+// 获取单个hero --> GetHeroResponse
+message GetHeroRequest {
+    required int64 heroId = 1;
+}
+message GetHeroResponse {
+    required DisplayHero hero = 1;
+}
+
+// 推送hero变化
+message SCHero {
+    repeated DisplayHero heroes = 1;
+}
