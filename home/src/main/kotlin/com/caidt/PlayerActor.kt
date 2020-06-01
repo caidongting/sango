@@ -1,28 +1,33 @@
 package com.caidt
 
-import akka.actor.ActorRef
-import akka.actor.Cancellable
-import akka.actor.UntypedAbstractActor
+import akka.actor.*
 import com.caidt.dataContainer.PlayerDC
+import com.caidt.infrastructure.GameException
 import com.caidt.memory.DataContainer
 import com.caidt.memory.DataContainerManager
+import com.caidt.message.clientMessageHandlers
+import com.caidt.message.innerMessageHandlers
+import com.caidt.proto.ProtoCommon
 import com.caidt.proto.ProtoCsMessage
-import com.caidt.share.Disconnect
-import com.caidt.share.PlayerEnvelope
-import com.caidt.share.Tick
+import com.caidt.share.*
 import com.caidt.share.entity.PlayerAccountEntity
-import com.caidt.share.schedule
 import com.google.protobuf.MessageLite
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import java.time.Duration
 import java.time.Instant
+import java.util.concurrent.CompletableFuture
+import java.util.concurrent.CompletionStage
 import kotlin.reflect.KClass
 
 
 open class PlayerActor : UntypedAbstractActor() {
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
+
+  override fun supervisorStrategy(): SupervisorStrategy {
+    return super.supervisorStrategy()
+  }
 
   enum class State {
     INIT,
@@ -93,17 +98,45 @@ open class PlayerActor : UntypedAbstractActor() {
   private fun handleOnUp(message: Any?) {
     when (message) {
       Tick -> tick(Instant.now())
-      // msg from client
-      is ProtoCsMessage.CsMessage -> handleCsMessage(msg = message)
-      is MessageLite -> { // 来自其他地方的proto message直接转发到client
-        client?.tell(message, self)
-      }
+      is PlayerEnvelope -> handleEnvelope(message.payload) // envelop 即通用的来源可以来自任何地方
+      /**
+       * 内部直接应答消息 即通过[ActorRef]发送
+       * todo: 异步请求如何传递消息过去？？？
+       *  resolve：通过[akka.pattern.Patterns.ask]来实现，underlying 是启动一个临时actor实现发送和处理返回消息
+       * @see [java.util.concurrent.CompletionStage] [java.util.concurrent.CompletableFuture]等，需要深入再了解
+       */
+//      is PlayerMessage -> Unit
+      else -> Unit
     }
   }
 
+  private fun handleEnvelope(payload: Any) {
+    when (payload) {
+      // from client
+      is ProtoCsMessage.CsMessage -> handleCsMessage(payload)
+      // from server (self or other)
+      is PlayerMessage -> innerMessageHandlers(this, payload)
+      // 来自其他地方的proto message直接转发到client
+      is MessageLite -> sendToClient(payload)
+    }
+  }
+
+
+  private fun handleInnerMessage() {
+
+  }
+
   private fun handleCsMessage(msg: ProtoCsMessage.CsMessage) {
-    val handler = csMessageHandlers[msg.cmdCase]
-    handler?.invoke(this, msg) ?: throw UnsupportedOperationException("not supported")
+    try {
+      val handler = clientMessageHandlers[msg.cmdCase]
+      handler?.invoke(this, msg) ?: throw UnsupportedOperationException("not supported")
+    } catch (e: GameException) {
+      sendToClientError(e.reason, e.message)
+      logger.error("", e)
+    } catch (e: RuntimeException) {
+      sendToClientError(Reason.UNKNOWN, e.message)
+      logger.error("handle client message error", e)
+    }
   }
 
   /** 处理player常规定时任务 */
@@ -126,10 +159,20 @@ open class PlayerActor : UntypedAbstractActor() {
 
   /** 回答客户端消息 */
   fun sendToClient(msg: MessageLite) {
+    // todo: ??? 是否需要组装成 ScMessage 以及如何组装？？？
     client?.tell(msg, self)
   }
 
-  /** 回答消息 */
+  /** 返还客户端的错误信息 */
+  private fun sendToClientError(reason: Reason, message: String? = null) {
+    ProtoCommon.Error.newBuilder().let {
+      it.reason = reason.ordinal
+      it.msg = message
+      sendToClient(it.build())
+    }
+  }
+
+  /** 回答消息 (一般为内部应答，应答客户端消息用[sendToClient]) */
   fun answer(msg: Any) {
     sender.tell(msg, this.self)
   }
@@ -140,11 +183,11 @@ open class PlayerActor : UntypedAbstractActor() {
     return DataContainerManager.getOrLoad(playerId, clazz)
   }
 
-  fun require(dc: DataContainer<*, *>) {
-
+  /** 用于加载需要的[DataContainer] */
+  fun require(c1: Class<DataContainer<*, *>>) {
+//    require(PlayerDC::class)
   }
 
-  fun require(dc1: DataContainer<*, *>, dc2: DataContainer<*, *>) {
+  fun <T> patternCS(): CompletionStage<T> = CompletableFuture()
 
-  }
 }

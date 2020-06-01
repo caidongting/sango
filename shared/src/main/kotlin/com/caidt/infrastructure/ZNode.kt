@@ -1,7 +1,7 @@
 package com.caidt.infrastructure
 
 import akka.actor.Address
-import com.fasterxml.jackson.databind.ObjectMapper
+import com.alibaba.fastjson.JSON
 import org.apache.curator.framework.CuratorFramework
 import org.apache.curator.framework.CuratorFrameworkFactory
 import org.apache.curator.framework.api.CuratorWatcher
@@ -38,8 +38,9 @@ class ZNode {
 //      .and().commit()
   }
 
+  /** 服务器上线注册临时节点 */
   fun register(server: GameServer) {
-    val path = "/$CLUSTER_NAME/${server.role.name}"
+    val path = "/$CLUSTER_NAME/${server.role}"
     val data = "$localhost:${server.port}"
     curatorFramework.create()
       .creatingParentsIfNeeded()
@@ -48,10 +49,9 @@ class ZNode {
   }
 
   fun getSeedNodes(): List<Address> {
-    val user = System.getProperty("user")
+    val user = System.getProperty("user") ?: DEFAULT_USER
     val bytes = curatorFramework.data.forPath("/$user/seedNodes")
-    val list = ObjectMapper().readValue(bytes, ArrayList::class.java)
-    return listOf()
+    return JSON.parseArray(bytes.toString(), Address::class.java)
   }
 
   fun close() {

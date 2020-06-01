@@ -7,9 +7,14 @@ enum Reason {
     server = 1;
     game = 2;
     common = 3;
-
-
 }
+
+// 通用错误信息
+message Error {
+    optional int32 reason = 1;
+    optional string msg = 2;
+}
+
 
 // 资源类型
 enum Resource {

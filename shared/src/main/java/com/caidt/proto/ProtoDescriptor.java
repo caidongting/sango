@@ -953,18 +953,10 @@ public final class ProtoDescriptor {
     int getIndex();
 
     /**
-     * <pre>
-     * 正常返回
-     * </pre>
-     *
      * <code>optional bytes resp = 2;</code>
      */
     boolean hasResp();
     /**
-     * <pre>
-     * 正常返回
-     * </pre>
-     *
      * <code>optional bytes resp = 2;</code>
      */
     com.google.protobuf.ByteString getResp();
@@ -974,17 +966,17 @@ public final class ProtoDescriptor {
      * 错误码
      * </pre>
      *
-     * <code>optional int32 error = 3;</code>
+     * <code>optional int32 reason = 3;</code>
      */
-    boolean hasError();
+    boolean hasReason();
     /**
      * <pre>
      * 错误码
      * </pre>
      *
-     * <code>optional int32 error = 3;</code>
+     * <code>optional int32 reason = 3;</code>
      */
-    int getError();
+    int getReason();
 
     /**
      * <pre>
@@ -1026,7 +1018,7 @@ public final class ProtoDescriptor {
     private Response() {
       index_ = 0;
       resp_ = com.google.protobuf.ByteString.EMPTY;
-      error_ = 0;
+      reason_ = 0;
       msg_ = "";
     }
 
@@ -1070,7 +1062,7 @@ public final class ProtoDescriptor {
             }
             case 24: {
               bitField0_ |= 0x00000004;
-              error_ = input.readInt32();
+              reason_ = input.readInt32();
               break;
             }
             case 34: {
@@ -1122,36 +1114,28 @@ public final class ProtoDescriptor {
     public static final int RESP_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString resp_;
     /**
-     * <pre>
-     * 正常返回
-     * </pre>
-     *
      * <code>optional bytes resp = 2;</code>
      */
     public boolean hasResp() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
-     * <pre>
-     * 正常返回
-     * </pre>
-     *
      * <code>optional bytes resp = 2;</code>
      */
     public com.google.protobuf.ByteString getResp() {
       return resp_;
     }
 
-    public static final int ERROR_FIELD_NUMBER = 3;
-    private int error_;
+    public static final int REASON_FIELD_NUMBER = 3;
+    private int reason_;
     /**
      * <pre>
      * 错误码
      * </pre>
      *
-     * <code>optional int32 error = 3;</code>
+     * <code>optional int32 reason = 3;</code>
      */
-    public boolean hasError() {
+    public boolean hasReason() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
@@ -1159,10 +1143,10 @@ public final class ProtoDescriptor {
      * 错误码
      * </pre>
      *
-     * <code>optional int32 error = 3;</code>
+     * <code>optional int32 reason = 3;</code>
      */
-    public int getError() {
-      return error_;
+    public int getReason() {
+      return reason_;
     }
 
     public static final int MSG_FIELD_NUMBER = 4;
@@ -1242,7 +1226,7 @@ public final class ProtoDescriptor {
         output.writeBytes(2, resp_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, error_);
+        output.writeInt32(3, reason_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, msg_);
@@ -1265,7 +1249,7 @@ public final class ProtoDescriptor {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, error_);
+          .computeInt32Size(3, reason_);
       }
       if (((bitField0_ & 0x00000008) == 0x00000008)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, msg_);
@@ -1297,10 +1281,10 @@ public final class ProtoDescriptor {
         result = result && getResp()
             .equals(other.getResp());
       }
-      result = result && (hasError() == other.hasError());
-      if (hasError()) {
-        result = result && (getError()
-            == other.getError());
+      result = result && (hasReason() == other.hasReason());
+      if (hasReason()) {
+        result = result && (getReason()
+            == other.getReason());
       }
       result = result && (hasMsg() == other.hasMsg());
       if (hasMsg()) {
@@ -1326,9 +1310,9 @@ public final class ProtoDescriptor {
         hash = (37 * hash) + RESP_FIELD_NUMBER;
         hash = (53 * hash) + getResp().hashCode();
       }
-      if (hasError()) {
-        hash = (37 * hash) + ERROR_FIELD_NUMBER;
-        hash = (53 * hash) + getError();
+      if (hasReason()) {
+        hash = (37 * hash) + REASON_FIELD_NUMBER;
+        hash = (53 * hash) + getReason();
       }
       if (hasMsg()) {
         hash = (37 * hash) + MSG_FIELD_NUMBER;
@@ -1456,7 +1440,7 @@ public final class ProtoDescriptor {
         bitField0_ = (bitField0_ & ~0x00000001);
         resp_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        error_ = 0;
+        reason_ = 0;
         bitField0_ = (bitField0_ & ~0x00000004);
         msg_ = "";
         bitField0_ = (bitField0_ & ~0x00000008);
@@ -1495,7 +1479,7 @@ public final class ProtoDescriptor {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.error_ = error_;
+        result.reason_ = reason_;
         if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
           to_bitField0_ |= 0x00000008;
         }
@@ -1548,8 +1532,8 @@ public final class ProtoDescriptor {
         if (other.hasResp()) {
           setResp(other.getResp());
         }
-        if (other.hasError()) {
-          setError(other.getError());
+        if (other.hasReason()) {
+          setReason(other.getReason());
         }
         if (other.hasMsg()) {
           bitField0_ |= 0x00000008;
@@ -1621,30 +1605,18 @@ public final class ProtoDescriptor {
 
       private com.google.protobuf.ByteString resp_ = com.google.protobuf.ByteString.EMPTY;
       /**
-       * <pre>
-       * 正常返回
-       * </pre>
-       *
        * <code>optional bytes resp = 2;</code>
        */
       public boolean hasResp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
-       * <pre>
-       * 正常返回
-       * </pre>
-       *
        * <code>optional bytes resp = 2;</code>
        */
       public com.google.protobuf.ByteString getResp() {
         return resp_;
       }
       /**
-       * <pre>
-       * 正常返回
-       * </pre>
-       *
        * <code>optional bytes resp = 2;</code>
        */
       public Builder setResp(com.google.protobuf.ByteString value) {
@@ -1657,10 +1629,6 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
-       * <pre>
-       * 正常返回
-       * </pre>
-       *
        * <code>optional bytes resp = 2;</code>
        */
       public Builder clearResp() {
@@ -1670,15 +1638,15 @@ public final class ProtoDescriptor {
         return this;
       }
 
-      private int error_ ;
+      private int reason_ ;
       /**
        * <pre>
        * 错误码
        * </pre>
        *
-       * <code>optional int32 error = 3;</code>
+       * <code>optional int32 reason = 3;</code>
        */
-      public boolean hasError() {
+      public boolean hasReason() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
@@ -1686,21 +1654,21 @@ public final class ProtoDescriptor {
        * 错误码
        * </pre>
        *
-       * <code>optional int32 error = 3;</code>
+       * <code>optional int32 reason = 3;</code>
        */
-      public int getError() {
-        return error_;
+      public int getReason() {
+        return reason_;
       }
       /**
        * <pre>
        * 错误码
        * </pre>
        *
-       * <code>optional int32 error = 3;</code>
+       * <code>optional int32 reason = 3;</code>
        */
-      public Builder setError(int value) {
+      public Builder setReason(int value) {
         bitField0_ |= 0x00000004;
-        error_ = value;
+        reason_ = value;
         onChanged();
         return this;
       }
@@ -1709,11 +1677,11 @@ public final class ProtoDescriptor {
        * 错误码
        * </pre>
        *
-       * <code>optional int32 error = 3;</code>
+       * <code>optional int32 reason = 3;</code>
        */
-      public Builder clearError() {
+      public Builder clearReason() {
         bitField0_ = (bitField0_ & ~0x00000004);
-        error_ = 0;
+        reason_ = 0;
         onChanged();
         return this;
       }
@@ -5845,18 +5813,18 @@ public final class ProtoDescriptor {
     java.lang.String[] descriptorData = {
       "\n\026proto_descriptor.proto\022\017com.caidt.prot" +
       "o\"A\n\007Request\022\013\n\003uid\030\001 \002(\003\022\r\n\005index\030\002 \002(\005" +
-      "\022\r\n\005token\030\003 \002(\t\022\013\n\003req\030\004 \002(\014\"C\n\010Response" +
-      "\022\r\n\005index\030\001 \002(\005\022\014\n\004resp\030\002 \001(\014\022\r\n\005error\030\003" +
-      " \001(\005\022\013\n\003msg\030\004 \001(\t\"\034\n\004Ping\022\024\n\014clientMilli" +
-      "s\030\001 \002(\003\"2\n\004Pong\022\024\n\014clientMillis\030\001 \002(\003\022\024\n" +
-      "\014serverMillis\030\002 \002(\003\"2\n\014LoginRequest\022\020\n\010u" +
-      "sername\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"N\n\rLogin" +
-      "Response\022\020\n\010serverId\030\001 \002(\003\022+\n\006player\030\002 \002" +
-      "(\0132\033.com.caidt.proto.PlayerInfo\"\206\001\n\nPlay",
-      "erInfo\022\013\n\003uid\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n\010nic" +
-      "kname\030\003 \001(\t\022\r\n\005level\030\004 \001(\005\022\013\n\003exp\030\005 \001(\003\022" +
-      "\r\n\005power\030\006 \001(\003\022\020\n\010vipLevel\030\007 \001(\005\022\016\n\006vipE" +
-      "xp\030\010 \001(\005"
+      "\022\r\n\005token\030\003 \002(\t\022\013\n\003req\030\004 \002(\014\"D\n\010Response" +
+      "\022\r\n\005index\030\001 \002(\005\022\014\n\004resp\030\002 \001(\014\022\016\n\006reason\030" +
+      "\003 \001(\005\022\013\n\003msg\030\004 \001(\t\"\034\n\004Ping\022\024\n\014clientMill" +
+      "is\030\001 \002(\003\"2\n\004Pong\022\024\n\014clientMillis\030\001 \002(\003\022\024" +
+      "\n\014serverMillis\030\002 \002(\003\"2\n\014LoginRequest\022\020\n\010" +
+      "username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"N\n\rLogi" +
+      "nResponse\022\020\n\010serverId\030\001 \002(\003\022+\n\006player\030\002 " +
+      "\002(\0132\033.com.caidt.proto.PlayerInfo\"\206\001\n\nPla",
+      "yerInfo\022\013\n\003uid\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n\010ni" +
+      "ckname\030\003 \001(\t\022\r\n\005level\030\004 \001(\005\022\013\n\003exp\030\005 \001(\003" +
+      "\022\r\n\005power\030\006 \001(\003\022\020\n\010vipLevel\030\007 \001(\005\022\016\n\006vip" +
+      "Exp\030\010 \001(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5881,7 +5849,7 @@ public final class ProtoDescriptor {
     internal_static_com_caidt_proto_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Response_descriptor,
-        new java.lang.String[] { "Index", "Resp", "Error", "Msg", });
+        new java.lang.String[] { "Index", "Resp", "Reason", "Msg", });
     internal_static_com_caidt_proto_Ping_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_caidt_proto_Ping_fieldAccessorTable = new

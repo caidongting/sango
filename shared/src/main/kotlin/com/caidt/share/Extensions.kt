@@ -8,6 +8,7 @@ import scala.concurrent.duration.FiniteDuration
 import java.time.Duration
 import java.util.concurrent.TimeUnit
 
+/** 周期性定时 */
 fun Actor.schedule(
   initialDelay: Duration,
   interval: Duration,
@@ -17,12 +18,42 @@ fun Actor.schedule(
   return context().system().scheduler().schedule(initialDelay, interval, self(), msg, context().dispatcher(), sender)
 }
 
+/** 周期性定时 */
 fun Actor.schedule(
-  initialDelay: Long, unit: TimeUnit, interval: Long, intervalUnit: TimeUnit,
-  msg: Any, sender: ActorRef = ActorRef.noSender()
+  initialDelay: Long,
+  unit: TimeUnit,
+  interval: Long,
+  intervalUnit: TimeUnit,
+  msg: Any,
+  sender: ActorRef = ActorRef.noSender()
 ): Cancellable {
   return context().system().scheduler().schedule(
     FiniteDuration(initialDelay, unit),
+    FiniteDuration(interval, intervalUnit),
+    self(),
+    msg,
+    context().dispatcher(),
+    sender
+  )
+}
+
+/** 定时一次 */
+fun Actor.scheduleOnce(
+  delay: Duration,
+  msg: Any,
+  sender: ActorRef = ActorRef.noSender()
+): Cancellable {
+  return context().system().scheduler().scheduleOnce(delay, self(), msg, context().dispatcher(), sender)
+}
+
+/** 定时一次 */
+fun Actor.scheduleOnce(
+  interval: Long,
+  intervalUnit: TimeUnit,
+  msg: Any,
+  sender: ActorRef = ActorRef.noSender()
+): Cancellable {
+  return context().system().scheduler().scheduleOnce(
     FiniteDuration(interval, intervalUnit),
     self(),
     msg,
@@ -35,13 +66,8 @@ fun ActorRef.tellNoSender(message: Any) {
   this.tell(message, ActorRef.noSender())
 }
 
-fun wrapPlayerEnvelope(playerId: Long, msg: Any): PlayerEnvelope {
-  return PlayerEnvelope(playerId, msg)
-}
-
-fun wrapWorldEnvelope(worldId: Long, msg: Any): WorldEnvelope {
-  return WorldEnvelope(worldId, msg)
-}
+fun PlayerMessage.wrap(): PlayerEnvelope = PlayerEnvelope(playerId, this)
+fun WorldMessage.wrap(): WorldEnvelope = WorldEnvelope(worldId, this)
 
 
 class NamedRunnable(val name: String, val exec: Runnable)

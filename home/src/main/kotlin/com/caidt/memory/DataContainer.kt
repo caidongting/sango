@@ -5,6 +5,8 @@ import com.caidt.infrastructure.database.EntityWrapperManager
 import com.caidt.infrastructure.database.IEntity
 import java.io.Serializable
 
+interface Container
+
 // 数据库表 容器
 abstract class DataContainer<T : IEntity, E : EntityWrapper<T>> {
 

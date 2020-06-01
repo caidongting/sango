@@ -1,6 +1,8 @@
 package com.caidt
 
-class PlayerManager {
+import akka.actor.ActorSystem
+
+class PlayerManager(val actorSystem: ActorSystem) {
 
   /** 玩家id<playerId, PlayerActor>*/
   val playerIdMap: Map<Long, PlayerActor> = hashMapOf()
@@ -8,7 +10,6 @@ class PlayerManager {
   val playerNameMap: Map<String, PlayerActor> = hashMapOf()
 
   fun getOrCreate(playerId: Long) {
-//    Home.shardRegion.
   }
 
 }

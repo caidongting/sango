@@ -78,8 +78,7 @@ abstract class GameServer(val port: Int) {
     znode.register(this)
 
     actorSystem.whenTerminated.handle { _, _ -> close() }
-//    val seedNodes = znode.getSeedNodes()
-    val seedNodes = getSeedNodes()
+    val seedNodes = znode.getSeedNodes()
     cluster.joinSeedNodes(seedNodes)
     cluster.registerOnMemberUp {
       logger.info("cluster is Up!")
@@ -92,14 +91,6 @@ abstract class GameServer(val port: Int) {
     znode.close()
   }
 
-  private fun getSeedNodes(): List<Address> {
-    val list = getRemoteSeedNodes().toMutableList()
-//    if (list.first() != cluster.selfAddress()) {
-//      list.remove(cluster.selfAddress())
-//    }
-    return list
-  }
-
   fun startShardRegion(entity: Class<*>) {
     val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
     shardRegion = ClusterSharding.get(actorSystem)
@@ -109,7 +100,7 @@ abstract class GameServer(val port: Int) {
 
   private fun closeShardRegion() {
 //    if (this::shardRegion.isInitialized) {
-      shardRegion.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
+    shardRegion.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
 //    }
   }
 

@@ -56,7 +56,7 @@ subprojects {
         implementation "com.typesafe.akka:akka-cluster-sharding-typed_2.12:$akkaVersion"
         implementation "com.typesafe.akka:akka-slf4j_2.12:$akkaVersion"
 //        implementation "com.lightbend.akka.management:akka-management_2.12:1.0.5"
-        implementation "org.codehaus.janino:janino:3.0.8"
+        implementation "org.codehaus.janino:janino:3.1.2"
 
         implementation "org.apache.poi:poi-ooxml:3.17"
         implementation "ch.qos.logback:logback-classic:1.2.3"
@@ -67,7 +67,7 @@ subprojects {
         implementation "io.altoo:akka-kryo-serialization_2.12:1.0.0"
         implementation "org.apache.curator:curator-framework:2.12.0"
         implementation "org.apache.kafka:kafka_2.12:2.4.0"
-//        implementation 'com.alibaba:fastjson:1.2.61'
+        implementation 'com.alibaba:fastjson:1.2.61'
 
         implementation "mysql:mysql-connector-java:8.0.17"
 

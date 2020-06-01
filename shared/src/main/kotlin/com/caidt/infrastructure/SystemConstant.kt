@@ -24,6 +24,8 @@ const val SMALL_MAILBOX = "akka.actor.small-unbounded-mailbox"
 
 /** 集群名称，各节点相同 */
 const val CLUSTER_NAME = "cluster"
+/** 默认用户 */
+const val DEFAULT_USER = "root"
 
 /** 本机ip 需确定在unix环境下是否适用 */
 val localhost: String = InetAddress.getLocalHost().hostAddress
@@ -32,3 +34,6 @@ val isDev: Boolean get() = System.getenv("MODE") == "dev"
 
 /** excel config 目录 */
 const val EXCEL_CONFIG_DIR = "com.caidt.share.config"
+
+/** 远程请求超时时间 10s */
+const val ASK_TIMEOUT = 10_000L

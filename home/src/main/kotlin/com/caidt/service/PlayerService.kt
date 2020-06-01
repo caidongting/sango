@@ -1,5 +1,6 @@
-package com.caidt
+package com.caidt.service
 
+import com.caidt.PlayerActor
 import com.caidt.proto.ProtoDescriptor
 import java.time.Instant
 
