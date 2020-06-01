@@ -48,6 +48,6 @@ message GetHeroResponse {
 }
 
 // 推送hero变化
-message SCHero {
+message SCDisplayHero {
     repeated DisplayHero heroes = 1;
 }

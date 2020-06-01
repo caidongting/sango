@@ -4643,8 +4643,8 @@ public final class ProtoHero {
 
   }
 
-  public interface SCHeroOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.caidt.proto.SCHero)
+  public interface SCDisplayHeroOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.SCDisplayHero)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -4676,17 +4676,17 @@ public final class ProtoHero {
    * 推送hero变化
    * </pre>
    *
-   * Protobuf type {@code com.caidt.proto.SCHero}
+   * Protobuf type {@code com.caidt.proto.SCDisplayHero}
    */
-  public  static final class SCHero extends
+  public  static final class SCDisplayHero extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.caidt.proto.SCHero)
-      SCHeroOrBuilder {
-    // Use SCHero.newBuilder() to construct.
-    private SCHero(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.SCDisplayHero)
+      SCDisplayHeroOrBuilder {
+    // Use SCDisplayHero.newBuilder() to construct.
+    private SCDisplayHero(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private SCHero() {
+    private SCDisplayHero() {
       heroes_ = java.util.Collections.emptyList();
     }
 
@@ -4695,7 +4695,7 @@ public final class ProtoHero {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private SCHero(
+    private SCDisplayHero(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4744,14 +4744,14 @@ public final class ProtoHero {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_descriptor;
+      return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCDisplayHero_descriptor;
     }
 
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_fieldAccessorTable
+      return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCDisplayHero_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.caidt.proto.ProtoHero.SCHero.class, com.caidt.proto.ProtoHero.SCHero.Builder.class);
+              com.caidt.proto.ProtoHero.SCDisplayHero.class, com.caidt.proto.ProtoHero.SCDisplayHero.Builder.class);
     }
 
     public static final int HEROES_FIELD_NUMBER = 1;
@@ -4833,10 +4833,10 @@ public final class ProtoHero {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.caidt.proto.ProtoHero.SCHero)) {
+      if (!(obj instanceof com.caidt.proto.ProtoHero.SCDisplayHero)) {
         return super.equals(obj);
       }
-      com.caidt.proto.ProtoHero.SCHero other = (com.caidt.proto.ProtoHero.SCHero) obj;
+      com.caidt.proto.ProtoHero.SCDisplayHero other = (com.caidt.proto.ProtoHero.SCDisplayHero) obj;
 
       boolean result = true;
       result = result && getHeroesList()
@@ -4861,58 +4861,58 @@ public final class ProtoHero {
       return hash;
     }
 
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(byte[] data)
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseDelimitedFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseDelimitedFrom(
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+    public static com.caidt.proto.ProtoHero.SCDisplayHero parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -4924,7 +4924,7 @@ public final class ProtoHero {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.caidt.proto.ProtoHero.SCHero prototype) {
+    public static Builder newBuilder(com.caidt.proto.ProtoHero.SCDisplayHero prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     public Builder toBuilder() {
@@ -4943,25 +4943,25 @@ public final class ProtoHero {
      * 推送hero变化
      * </pre>
      *
-     * Protobuf type {@code com.caidt.proto.SCHero}
+     * Protobuf type {@code com.caidt.proto.SCDisplayHero}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.caidt.proto.SCHero)
-        com.caidt.proto.ProtoHero.SCHeroOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.SCDisplayHero)
+        com.caidt.proto.ProtoHero.SCDisplayHeroOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_descriptor;
+        return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCDisplayHero_descriptor;
       }
 
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_fieldAccessorTable
+        return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCDisplayHero_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.caidt.proto.ProtoHero.SCHero.class, com.caidt.proto.ProtoHero.SCHero.Builder.class);
+                com.caidt.proto.ProtoHero.SCDisplayHero.class, com.caidt.proto.ProtoHero.SCDisplayHero.Builder.class);
       }
 
-      // Construct using com.caidt.proto.ProtoHero.SCHero.newBuilder()
+      // Construct using com.caidt.proto.ProtoHero.SCDisplayHero.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -4990,23 +4990,23 @@ public final class ProtoHero {
 
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_descriptor;
+        return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCDisplayHero_descriptor;
       }
 
-      public com.caidt.proto.ProtoHero.SCHero getDefaultInstanceForType() {
-        return com.caidt.proto.ProtoHero.SCHero.getDefaultInstance();
+      public com.caidt.proto.ProtoHero.SCDisplayHero getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoHero.SCDisplayHero.getDefaultInstance();
       }
 
-      public com.caidt.proto.ProtoHero.SCHero build() {
-        com.caidt.proto.ProtoHero.SCHero result = buildPartial();
+      public com.caidt.proto.ProtoHero.SCDisplayHero build() {
+        com.caidt.proto.ProtoHero.SCDisplayHero result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      public com.caidt.proto.ProtoHero.SCHero buildPartial() {
-        com.caidt.proto.ProtoHero.SCHero result = new com.caidt.proto.ProtoHero.SCHero(this);
+      public com.caidt.proto.ProtoHero.SCDisplayHero buildPartial() {
+        com.caidt.proto.ProtoHero.SCDisplayHero result = new com.caidt.proto.ProtoHero.SCDisplayHero(this);
         int from_bitField0_ = bitField0_;
         if (heroesBuilder_ == null) {
           if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -5048,16 +5048,16 @@ public final class ProtoHero {
         return (Builder) super.addRepeatedField(field, value);
       }
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.caidt.proto.ProtoHero.SCHero) {
-          return mergeFrom((com.caidt.proto.ProtoHero.SCHero)other);
+        if (other instanceof com.caidt.proto.ProtoHero.SCDisplayHero) {
+          return mergeFrom((com.caidt.proto.ProtoHero.SCDisplayHero)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.caidt.proto.ProtoHero.SCHero other) {
-        if (other == com.caidt.proto.ProtoHero.SCHero.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.caidt.proto.ProtoHero.SCDisplayHero other) {
+        if (other == com.caidt.proto.ProtoHero.SCDisplayHero.getDefaultInstance()) return this;
         if (heroesBuilder_ == null) {
           if (!other.heroes_.isEmpty()) {
             if (heroes_.isEmpty()) {
@@ -5102,11 +5102,11 @@ public final class ProtoHero {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.caidt.proto.ProtoHero.SCHero parsedMessage = null;
+        com.caidt.proto.ProtoHero.SCDisplayHero parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.caidt.proto.ProtoHero.SCHero) e.getUnfinishedMessage();
+          parsedMessage = (com.caidt.proto.ProtoHero.SCDisplayHero) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -5367,39 +5367,39 @@ public final class ProtoHero {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.caidt.proto.SCHero)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.SCDisplayHero)
     }
 
-    // @@protoc_insertion_point(class_scope:com.caidt.proto.SCHero)
-    private static final com.caidt.proto.ProtoHero.SCHero DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.SCDisplayHero)
+    private static final com.caidt.proto.ProtoHero.SCDisplayHero DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.caidt.proto.ProtoHero.SCHero();
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoHero.SCDisplayHero();
     }
 
-    public static com.caidt.proto.ProtoHero.SCHero getDefaultInstance() {
+    public static com.caidt.proto.ProtoHero.SCDisplayHero getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<SCHero>
-        PARSER = new com.google.protobuf.AbstractParser<SCHero>() {
-      public SCHero parsePartialFrom(
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<SCDisplayHero>
+        PARSER = new com.google.protobuf.AbstractParser<SCDisplayHero>() {
+      public SCDisplayHero parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SCHero(input, extensionRegistry);
+          return new SCDisplayHero(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<SCHero> parser() {
+    public static com.google.protobuf.Parser<SCDisplayHero> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<SCHero> getParserForType() {
+    public com.google.protobuf.Parser<SCDisplayHero> getParserForType() {
       return PARSER;
     }
 
-    public com.caidt.proto.ProtoHero.SCHero getDefaultInstanceForType() {
+    public com.caidt.proto.ProtoHero.SCDisplayHero getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -5436,10 +5436,10 @@ public final class ProtoHero {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_GetHeroResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_caidt_proto_SCHero_descriptor;
+    internal_static_com_caidt_proto_SCDisplayHero_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_caidt_proto_SCHero_fieldAccessorTable;
+      internal_static_com_caidt_proto_SCDisplayHero_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -5459,11 +5459,12 @@ public final class ProtoHero {
       "lHeroResponse\022,\n\006heroes\030\001 \003(\0132\034.com.caid" +
       "t.proto.DisplayHero\" \n\016GetHeroRequest\022\016\n" +
       "\006heroId\030\001 \002(\003\"=\n\017GetHeroResponse\022*\n\004hero",
-      "\030\001 \002(\0132\034.com.caidt.proto.DisplayHero\"6\n\006" +
-      "SCHero\022,\n\006heroes\030\001 \003(\0132\034.com.caidt.proto" +
-      ".DisplayHero*:\n\005Color\022\007\n\003red\020\001\022\010\n\004pure\020\002" +
-      "\022\010\n\004blue\020\003\022\n\n\006yellow\020\004\022\010\n\004gold\020\005*+\n\010Hero" +
-      "Attr\022\n\n\006attack\020\001\022\013\n\007defence\020\002\022\006\n\002hp\020\003"
+      "\030\001 \002(\0132\034.com.caidt.proto.DisplayHero\"=\n\r" +
+      "SCDisplayHero\022,\n\006heroes\030\001 \003(\0132\034.com.caid" +
+      "t.proto.DisplayHero*:\n\005Color\022\007\n\003red\020\001\022\010\n" +
+      "\004pure\020\002\022\010\n\004blue\020\003\022\n\n\006yellow\020\004\022\010\n\004gold\020\005*" +
+      "+\n\010HeroAttr\022\n\n\006attack\020\001\022\013\n\007defence\020\002\022\006\n\002" +
+      "hp\020\003"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5513,11 +5514,11 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_GetHeroResponse_descriptor,
         new java.lang.String[] { "Hero", });
-    internal_static_com_caidt_proto_SCHero_descriptor =
+    internal_static_com_caidt_proto_SCDisplayHero_descriptor =
       getDescriptor().getMessageTypes().get(6);
-    internal_static_com_caidt_proto_SCHero_fieldAccessorTable = new
+    internal_static_com_caidt_proto_SCDisplayHero_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_caidt_proto_SCHero_descriptor,
+        internal_static_com_caidt_proto_SCDisplayHero_descriptor,
         new java.lang.String[] { "Heroes", });
   }
 

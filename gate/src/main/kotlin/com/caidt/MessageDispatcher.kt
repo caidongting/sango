@@ -7,8 +7,8 @@ import com.caidt.proto.ProtoCsMessage.CsMessage.CmdCase.*
 internal val csMessageToHome: Set<CmdCase> = setOf(
   LOGINREQUEST,
   GETACTIVITYREQUEST,
-  GETALLACTIVITYREQUEST,
-  GETPLAYERINFOREQUEST
+  GETALLACTIVITYREQUEST
+  // GETPLAYERINFOREQUEST
 )
 
 /** 分发到world的消息 */
