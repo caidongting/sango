@@ -1,7 +1,7 @@
 package com.caidt.infrastructure
 
 import akka.actor.Address
-import com.alibaba.fastjson.JSON
+import com.caidt.util.JSON
 import org.apache.curator.framework.CuratorFramework
 import org.apache.curator.framework.CuratorFrameworkFactory
 import org.apache.curator.framework.api.CuratorWatcher

@@ -30,12 +30,14 @@ class NettyTcpServer(private val port: Int) {
             .addLast(ChannelTrafficShapingHandler(5L))
             // decoder
             .addLast(LengthFieldBasedFrameDecoder(2048, 0, 4))
+              // AES decrypt
             .addLast(ProtobufDecoder(ProtoDescriptor.Request.getDefaultInstance()))
             .addLast(ByteArrayDecoder()) // 原则上禁止，这里仅做对比
             .addLast(ProtoMessageHandler())
 
             // encoder
             .addLast(LengthFieldPrepender(4))
+              // AES encrypt
             .addLast(ProtobufEncoder())
             .addLast(ByteArrayEncoder()) // 直接返回字节数组，如大数据 战报，文件等
         }

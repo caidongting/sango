@@ -1,14 +1,9 @@
 package com.caidt
 
 import akka.actor.UntypedAbstractActor
-import com.caidt.proto.ProtoCommon
-import com.caidt.proto.ProtoCsMessage
+import com.caidt.proto.*
 import com.caidt.proto.ProtoCsMessage.CsMessage.CmdCase.LOGINREQUEST
-import com.caidt.proto.ProtoDescriptor
-import com.caidt.proto.ProtoScMessage
-import com.caidt.share.Disconnect
-import com.caidt.share.PlayerEnvelope
-import com.caidt.share.WorldEnvelope
+import com.caidt.share.*
 import com.google.protobuf.MessageLite
 import io.netty.channel.ChannelHandlerContext
 
@@ -28,17 +23,26 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
 
   /** handle msg from client */
   private fun request(msg: ProtoDescriptor.Request) {
-    val csMessage = ProtoCsMessage.CsMessage.parseFrom(msg.req)
-    if (csMessage.cmdCase == LOGINREQUEST) { // 登录特殊处理
-      login(csMessage.loginRequest)
-    } else if (validate(msg)) { // 校验
-      when (csMessage.cmdCase) {
-        LOGINREQUEST -> login(csMessage.loginRequest)
-        in csMessageToWorld -> forwardToWorld(msg.uid, csMessage)
-        in csMessageToHome -> forwardToHome(msg.uid, csMessage)
-        else -> unhandled(msg)
+    runCatching {
+      ProtoCsMessage.CsMessage.parseFrom(msg.req)
+    }.onSuccess { csMessage ->
+      if (csMessage.cmdCase == LOGINREQUEST) { // 登录特殊处理
+        login(csMessage.loginRequest)
+      } else if (validate(msg)) { // 校验
+        when (csMessage.cmdCase) {
+          LOGINREQUEST -> login(csMessage.loginRequest)
+          in csMessageToHome -> forwardToHome(msg.uid, csMessage)
+//        in csMessageToWorld -> forwardToWorld(msg.uid, csMessage)
+          else -> forwardToWorld(msg.uid, csMessage)
+        }
       }
-    }
+    }.onFailure(this::error)
+
+  }
+
+  /** 错误处理 */
+  private fun error(throwable: Throwable) {
+
   }
 
   /** 验证消息合法性 */
@@ -93,8 +97,7 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
       is ProtoCommon.Error -> {
         ProtoDescriptor.Response.newBuilder().apply {
           index = 0
-          reason = message.reason
-          msg = message.msg
+          error = message
           response(build())
         }
       }

@@ -4,17 +4,17 @@ package com.caidt.proto;
 
 enum Reason {
     unknown = 0; // default value
-    server = 1;
-    game = 2;
-    common = 3;
+    server = 1; // 服务器内部错误（除游戏逻辑外的，一般是连接之类的服务器状态问题）
+    client = 2; // 客户端错误：一般是消息解析错误
+    game = 3; // 游戏逻辑错误
+    common = 4; // 通用错误，处理消息内容出现的错误
 }
 
 // 通用错误信息
 message Error {
-    optional int32 reason = 1;
-    optional string msg = 2;
+    optional Reason reason = 1; // 错误码
+    optional string msg = 2; // 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
 }
-
 
 // 资源类型
 enum Resource {
@@ -37,6 +37,8 @@ enum ItemType {
     NORMAL = 0; // 普通道具
     RANDOM = 1; // 随机道具
     UNIQUE = 2; // 唯一道具
+    PACKAGE = 3; // 道具包
+    EQUIP = 4; // 装备
 }
 
 // 道具

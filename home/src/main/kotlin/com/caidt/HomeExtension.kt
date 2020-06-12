@@ -2,14 +2,13 @@ package com.caidt
 
 import akka.actor.ActorSelection
 import akka.pattern.Patterns
-import com.caidt.infrastructure.ASK_TIMEOUT
 import com.caidt.share.*
 import com.google.protobuf.MessageLite
 import java.io.IOException
 import java.time.Duration
 import java.util.concurrent.CompletableFuture
 import java.util.concurrent.CompletionStage
-import kotlin.reflect.KClass
+import java.util.function.BiFunction
 
 
 /** 通用应答（服务器内部消息） */
@@ -54,21 +53,22 @@ internal fun selection(request: Any): ActorSelection {
   }
 }
 
+val duration: Duration = Duration.ofSeconds(10L)
 
 /************************  remote ask   *******************************/
 /** 用于远程请求 */
-fun <U, T : Any> CompletionStage<U>.ask(request: Any, clazz: KClass<T>): CompletableFuture<T> {
-  return Patterns.ask(selection(request), request, ASK_TIMEOUT) as CompletableFuture<T>
+fun <U, T> CompletionStage<U>.ask(request: Any): CompletionStage<T> {
+  return Patterns.ask(selection(request), request, duration) as CompletionStage<T>
 }
 
 /** 表示并发请求 and 表示并发 */
-fun <U, T : Any> CompletableFuture<U>.andAsk(request: Any, clazz: KClass<T>): CompletableFuture<T> {
-  thenApplyAsync { }
-  TODO()
+fun <U, X, T> CompletableFuture<U>.andAsk(request: Any, fn: BiFunction<U, X, T>): CompletionStage<T> {
+  val future = Patterns.ask(selection(request), request, duration) as CompletionStage<X>
+  return this.thenCombine(future, fn)
 }
 
 /** 表示同步请求，为顺序请求 then表示同步操作，需等待 */
-fun <U, T : Any> CompletableFuture<U>.thenAsk(): CompletableFuture<T> {
+fun <U, T> CompletableFuture<U>.thenAsk(): CompletableFuture<T> {
   thenApply { }
   TODO()
 }

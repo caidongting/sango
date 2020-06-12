@@ -17,6 +17,7 @@ class ProtoMessageHandler : ChannelInboundHandlerAdapter() {
 
   private val ID: AttributeKey<Long> = AttributeKey.valueOf("ID")
   private val SESSION: AttributeKey<Session> = AttributeKey.valueOf("session")
+
   @Suppress("UnstableApiUsage")
   private val rateLimiter: RateLimiter = RateLimiter.create(100.0)
 

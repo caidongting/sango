@@ -1,5 +1,6 @@
 syntax = "proto2";
 package com.caidt.proto;
+import "proto_common.proto";
 
 // --> Response
 message Request {
@@ -10,9 +11,8 @@ message Request {
 }
 message Response {
     required int32 index = 1;
-    optional bytes resp = 2;
-    optional int32 reason = 3; // 错误码
-    optional string msg = 4; // 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+    optional bytes resp = 2; // 正常返回
+    optional Error error = 3; // 错误返回
 }
 
 // 心跳检测 --> Pong

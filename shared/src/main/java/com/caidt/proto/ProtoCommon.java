@@ -28,17 +28,37 @@ public final class ProtoCommon {
      */
     unknown(0),
     /**
+     * <pre>
+     * 服务器内部错误（除游戏逻辑外的，一般是连接之类的服务器状态问题）
+     * </pre>
+     *
      * <code>server = 1;</code>
      */
     server(1),
     /**
-     * <code>game = 2;</code>
+     * <pre>
+     * 客户端错误：一般是消息解析错误
+     * </pre>
+     *
+     * <code>client = 2;</code>
      */
-    game(2),
+    client(2),
     /**
-     * <code>common = 3;</code>
+     * <pre>
+     * 游戏逻辑错误
+     * </pre>
+     *
+     * <code>game = 3;</code>
      */
-    common(3),
+    game(3),
+    /**
+     * <pre>
+     * 通用错误，处理消息内容出现的错误
+     * </pre>
+     *
+     * <code>common = 4;</code>
+     */
+    common(4),
     ;
 
     /**
@@ -50,17 +70,37 @@ public final class ProtoCommon {
      */
     public static final int unknown_VALUE = 0;
     /**
+     * <pre>
+     * 服务器内部错误（除游戏逻辑外的，一般是连接之类的服务器状态问题）
+     * </pre>
+     *
      * <code>server = 1;</code>
      */
     public static final int server_VALUE = 1;
     /**
-     * <code>game = 2;</code>
+     * <pre>
+     * 客户端错误：一般是消息解析错误
+     * </pre>
+     *
+     * <code>client = 2;</code>
      */
-    public static final int game_VALUE = 2;
+    public static final int client_VALUE = 2;
     /**
-     * <code>common = 3;</code>
+     * <pre>
+     * 游戏逻辑错误
+     * </pre>
+     *
+     * <code>game = 3;</code>
      */
-    public static final int common_VALUE = 3;
+    public static final int game_VALUE = 3;
+    /**
+     * <pre>
+     * 通用错误，处理消息内容出现的错误
+     * </pre>
+     *
+     * <code>common = 4;</code>
+     */
+    public static final int common_VALUE = 4;
 
 
     public final int getNumber() {
@@ -79,8 +119,9 @@ public final class ProtoCommon {
       switch (value) {
         case 0: return unknown;
         case 1: return server;
-        case 2: return game;
-        case 3: return common;
+        case 2: return client;
+        case 3: return game;
+        case 4: return common;
         default: return null;
       }
     }
@@ -290,6 +331,22 @@ public final class ProtoCommon {
      * <code>UNIQUE = 2;</code>
      */
     UNIQUE(2),
+    /**
+     * <pre>
+     * 道具包
+     * </pre>
+     *
+     * <code>PACKAGE = 3;</code>
+     */
+    PACKAGE(3),
+    /**
+     * <pre>
+     * 装备
+     * </pre>
+     *
+     * <code>EQUIP = 4;</code>
+     */
+    EQUIP(4),
     ;
 
     /**
@@ -316,6 +373,22 @@ public final class ProtoCommon {
      * <code>UNIQUE = 2;</code>
      */
     public static final int UNIQUE_VALUE = 2;
+    /**
+     * <pre>
+     * 道具包
+     * </pre>
+     *
+     * <code>PACKAGE = 3;</code>
+     */
+    public static final int PACKAGE_VALUE = 3;
+    /**
+     * <pre>
+     * 装备
+     * </pre>
+     *
+     * <code>EQUIP = 4;</code>
+     */
+    public static final int EQUIP_VALUE = 4;
 
 
     public final int getNumber() {
@@ -335,6 +408,8 @@ public final class ProtoCommon {
         case 0: return NORMAL;
         case 1: return RANDOM;
         case 2: return UNIQUE;
+        case 3: return PACKAGE;
+        case 4: return EQUIP;
         default: return null;
       }
     }
@@ -389,23 +464,43 @@ public final class ProtoCommon {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>optional int32 reason = 1;</code>
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .com.caidt.proto.Reason reason = 1;</code>
      */
     boolean hasReason();
     /**
-     * <code>optional int32 reason = 1;</code>
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .com.caidt.proto.Reason reason = 1;</code>
      */
-    int getReason();
+    com.caidt.proto.ProtoCommon.Reason getReason();
 
     /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
      * <code>optional string msg = 2;</code>
      */
     boolean hasMsg();
     /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
      * <code>optional string msg = 2;</code>
      */
     java.lang.String getMsg();
     /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
      * <code>optional string msg = 2;</code>
      */
     com.google.protobuf.ByteString
@@ -460,8 +555,14 @@ public final class ProtoCommon {
               break;
             }
             case 8: {
-              bitField0_ |= 0x00000001;
-              reason_ = input.readInt32();
+              int rawValue = input.readEnum();
+              com.caidt.proto.ProtoCommon.Reason value = com.caidt.proto.ProtoCommon.Reason.valueOf(rawValue);
+              if (value == null) {
+                unknownFields.mergeVarintField(1, rawValue);
+              } else {
+                bitField0_ |= 0x00000001;
+                reason_ = rawValue;
+              }
               break;
             }
             case 18: {
@@ -498,27 +599,44 @@ public final class ProtoCommon {
     public static final int REASON_FIELD_NUMBER = 1;
     private int reason_;
     /**
-     * <code>optional int32 reason = 1;</code>
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .com.caidt.proto.Reason reason = 1;</code>
      */
     public boolean hasReason() {
       return ((bitField0_ & 0x00000001) == 0x00000001);
     }
     /**
-     * <code>optional int32 reason = 1;</code>
+     * <pre>
+     * 错误码
+     * </pre>
+     *
+     * <code>optional .com.caidt.proto.Reason reason = 1;</code>
      */
-    public int getReason() {
-      return reason_;
+    public com.caidt.proto.ProtoCommon.Reason getReason() {
+      com.caidt.proto.ProtoCommon.Reason result = com.caidt.proto.ProtoCommon.Reason.valueOf(reason_);
+      return result == null ? com.caidt.proto.ProtoCommon.Reason.unknown : result;
     }
 
     public static final int MSG_FIELD_NUMBER = 2;
     private volatile java.lang.Object msg_;
     /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
      * <code>optional string msg = 2;</code>
      */
     public boolean hasMsg() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
      * <code>optional string msg = 2;</code>
      */
     public java.lang.String getMsg() {
@@ -536,6 +654,10 @@ public final class ProtoCommon {
       }
     }
     /**
+     * <pre>
+     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * </pre>
+     *
      * <code>optional string msg = 2;</code>
      */
     public com.google.protobuf.ByteString
@@ -565,7 +687,7 @@ public final class ProtoCommon {
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
-        output.writeInt32(1, reason_);
+        output.writeEnum(1, reason_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, msg_);
@@ -580,7 +702,7 @@ public final class ProtoCommon {
       size = 0;
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(1, reason_);
+          .computeEnumSize(1, reason_);
       }
       if (((bitField0_ & 0x00000002) == 0x00000002)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, msg_);
@@ -604,8 +726,7 @@ public final class ProtoCommon {
       boolean result = true;
       result = result && (hasReason() == other.hasReason());
       if (hasReason()) {
-        result = result && (getReason()
-            == other.getReason());
+        result = result && reason_ == other.reason_;
       }
       result = result && (hasMsg() == other.hasMsg());
       if (hasMsg()) {
@@ -625,7 +746,7 @@ public final class ProtoCommon {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       if (hasReason()) {
         hash = (37 * hash) + REASON_FIELD_NUMBER;
-        hash = (53 * hash) + getReason();
+        hash = (53 * hash) + reason_;
       }
       if (hasMsg()) {
         hash = (37 * hash) + MSG_FIELD_NUMBER;
@@ -867,30 +988,50 @@ public final class ProtoCommon {
       }
       private int bitField0_;
 
-      private int reason_ ;
+      private int reason_ = 0;
       /**
-       * <code>optional int32 reason = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Reason reason = 1;</code>
        */
       public boolean hasReason() {
         return ((bitField0_ & 0x00000001) == 0x00000001);
       }
       /**
-       * <code>optional int32 reason = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Reason reason = 1;</code>
        */
-      public int getReason() {
-        return reason_;
+      public com.caidt.proto.ProtoCommon.Reason getReason() {
+        com.caidt.proto.ProtoCommon.Reason result = com.caidt.proto.ProtoCommon.Reason.valueOf(reason_);
+        return result == null ? com.caidt.proto.ProtoCommon.Reason.unknown : result;
       }
       /**
-       * <code>optional int32 reason = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Reason reason = 1;</code>
        */
-      public Builder setReason(int value) {
+      public Builder setReason(com.caidt.proto.ProtoCommon.Reason value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
         bitField0_ |= 0x00000001;
-        reason_ = value;
+        reason_ = value.getNumber();
         onChanged();
         return this;
       }
       /**
-       * <code>optional int32 reason = 1;</code>
+       * <pre>
+       * 错误码
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Reason reason = 1;</code>
        */
       public Builder clearReason() {
         bitField0_ = (bitField0_ & ~0x00000001);
@@ -901,12 +1042,20 @@ public final class ProtoCommon {
 
       private java.lang.Object msg_ = "";
       /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
        * <code>optional string msg = 2;</code>
        */
       public boolean hasMsg() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
        * <code>optional string msg = 2;</code>
        */
       public java.lang.String getMsg() {
@@ -924,6 +1073,10 @@ public final class ProtoCommon {
         }
       }
       /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
        * <code>optional string msg = 2;</code>
        */
       public com.google.protobuf.ByteString
@@ -940,6 +1093,10 @@ public final class ProtoCommon {
         }
       }
       /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
        * <code>optional string msg = 2;</code>
        */
       public Builder setMsg(
@@ -953,6 +1110,10 @@ public final class ProtoCommon {
         return this;
       }
       /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
        * <code>optional string msg = 2;</code>
        */
       public Builder clearMsg() {
@@ -962,6 +1123,10 @@ public final class ProtoCommon {
         return this;
       }
       /**
+       * <pre>
+       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * </pre>
+       *
        * <code>optional string msg = 2;</code>
        */
       public Builder setMsgBytes(
@@ -3647,20 +3812,21 @@ public final class ProtoCommon {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\022proto_common.proto\022\017com.caidt.proto\"$\n" +
-      "\005Error\022\016\n\006reason\030\001 \001(\005\022\013\n\003msg\030\002 \001(\t\"U\n\017D" +
-      "isplayResource\022\n\n\002id\030\001 \002(\005\022\'\n\004type\030\002 \002(\016" +
-      "2\031.com.caidt.proto.Resource\022\r\n\005count\030\003 \002" +
-      "(\003\"^\n\013DisplayItem\022\013\n\003uid\030\001 \002(\003\022\n\n\002id\030\002 \002" +
-      "(\005\022\'\n\004type\030\003 \002(\0162\031.com.caidt.proto.ItemT" +
-      "ype\022\r\n\005count\030\004 \002(\003\"x\n\024DisplayRewardPacka" +
-      "ge\0223\n\tresources\030\001 \003(\0132 .com.caidt.proto." +
-      "DisplayResource\022+\n\005items\030\002 \003(\0132\034.com.cai" +
-      "dt.proto.DisplayItem*7\n\006Reason\022\013\n\007unknow",
-      "n\020\000\022\n\n\006server\020\001\022\010\n\004game\020\002\022\n\n\006common\020\003*(\n" +
-      "\010Resource\022\010\n\004GOLD\020\001\022\010\n\004WOOD\020\002\022\010\n\004IRON\020\003*" +
-      ".\n\010ItemType\022\n\n\006NORMAL\020\000\022\n\n\006RANDOM\020\001\022\n\n\006U" +
-      "NIQUE\020\002"
+      "\n\022proto_common.proto\022\017com.caidt.proto\"=\n" +
+      "\005Error\022\'\n\006reason\030\001 \001(\0162\027.com.caidt.proto" +
+      ".Reason\022\013\n\003msg\030\002 \001(\t\"U\n\017DisplayResource\022" +
+      "\n\n\002id\030\001 \002(\005\022\'\n\004type\030\002 \002(\0162\031.com.caidt.pr" +
+      "oto.Resource\022\r\n\005count\030\003 \002(\003\"^\n\013DisplayIt" +
+      "em\022\013\n\003uid\030\001 \002(\003\022\n\n\002id\030\002 \002(\005\022\'\n\004type\030\003 \002(" +
+      "\0162\031.com.caidt.proto.ItemType\022\r\n\005count\030\004 " +
+      "\002(\003\"x\n\024DisplayRewardPackage\0223\n\tresources" +
+      "\030\001 \003(\0132 .com.caidt.proto.DisplayResource" +
+      "\022+\n\005items\030\002 \003(\0132\034.com.caidt.proto.Displa",
+      "yItem*C\n\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001" +
+      "\022\n\n\006client\020\002\022\010\n\004game\020\003\022\n\n\006common\020\004*(\n\010Re" +
+      "source\022\010\n\004GOLD\020\001\022\010\n\004WOOD\020\002\022\010\n\004IRON\020\003*F\n\010" +
+      "ItemType\022\n\n\006NORMAL\020\000\022\n\n\006RANDOM\020\001\022\n\n\006UNIQ" +
+      "UE\020\002\022\013\n\007PACKAGE\020\003\022\t\n\005EQUIP\020\004"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

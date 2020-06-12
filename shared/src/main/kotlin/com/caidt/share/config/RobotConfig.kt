@@ -2,14 +2,15 @@ package com.caidt.share.config
 
 
 import com.caidt.infrastructure.config.ExcelConfig
+import com.caidt.util.Asserts.notNull
 import com.caidt.util.excel.ExcelFile
-import com.caidt.util.notNull
 
 
 class RobotConfig : ExcelConfig() {
 
   /** 机体配置 <uid, RobotCfg> */
   private val robotMap: HashMap<Long, RobotCfg> = hashMapOf()
+
   /** 机体配置 <name, RobotCfg> */
   private val robotNameMap: HashMap<String, RobotCfg> = hashMapOf()
 

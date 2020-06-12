@@ -953,56 +953,46 @@ public final class ProtoDescriptor {
     int getIndex();
 
     /**
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
      * <code>optional bytes resp = 2;</code>
      */
     boolean hasResp();
     /**
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
      * <code>optional bytes resp = 2;</code>
      */
     com.google.protobuf.ByteString getResp();
 
     /**
      * <pre>
-     * 错误码
+     * 错误返回
      * </pre>
      *
-     * <code>optional int32 reason = 3;</code>
+     * <code>optional .com.caidt.proto.Error error = 3;</code>
      */
-    boolean hasReason();
+    boolean hasError();
     /**
      * <pre>
-     * 错误码
+     * 错误返回
      * </pre>
      *
-     * <code>optional int32 reason = 3;</code>
+     * <code>optional .com.caidt.proto.Error error = 3;</code>
      */
-    int getReason();
-
+    com.caidt.proto.ProtoCommon.Error getError();
     /**
      * <pre>
-     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * 错误返回
      * </pre>
      *
-     * <code>optional string msg = 4;</code>
+     * <code>optional .com.caidt.proto.Error error = 3;</code>
      */
-    boolean hasMsg();
-    /**
-     * <pre>
-     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-     * </pre>
-     *
-     * <code>optional string msg = 4;</code>
-     */
-    java.lang.String getMsg();
-    /**
-     * <pre>
-     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-     * </pre>
-     *
-     * <code>optional string msg = 4;</code>
-     */
-    com.google.protobuf.ByteString
-        getMsgBytes();
+    com.caidt.proto.ProtoCommon.ErrorOrBuilder getErrorOrBuilder();
   }
   /**
    * Protobuf type {@code com.caidt.proto.Response}
@@ -1018,8 +1008,6 @@ public final class ProtoDescriptor {
     private Response() {
       index_ = 0;
       resp_ = com.google.protobuf.ByteString.EMPTY;
-      reason_ = 0;
-      msg_ = "";
     }
 
     @java.lang.Override
@@ -1060,15 +1048,17 @@ public final class ProtoDescriptor {
               resp_ = input.readBytes();
               break;
             }
-            case 24: {
+            case 26: {
+              com.caidt.proto.ProtoCommon.Error.Builder subBuilder = null;
+              if (((bitField0_ & 0x00000004) == 0x00000004)) {
+                subBuilder = error_.toBuilder();
+              }
+              error_ = input.readMessage(com.caidt.proto.ProtoCommon.Error.PARSER, extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(error_);
+                error_ = subBuilder.buildPartial();
+              }
               bitField0_ |= 0x00000004;
-              reason_ = input.readInt32();
-              break;
-            }
-            case 34: {
-              com.google.protobuf.ByteString bs = input.readBytes();
-              bitField0_ |= 0x00000008;
-              msg_ = bs;
               break;
             }
           }
@@ -1114,93 +1104,57 @@ public final class ProtoDescriptor {
     public static final int RESP_FIELD_NUMBER = 2;
     private com.google.protobuf.ByteString resp_;
     /**
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
      * <code>optional bytes resp = 2;</code>
      */
     public boolean hasResp() {
       return ((bitField0_ & 0x00000002) == 0x00000002);
     }
     /**
+     * <pre>
+     * 正常返回
+     * </pre>
+     *
      * <code>optional bytes resp = 2;</code>
      */
     public com.google.protobuf.ByteString getResp() {
       return resp_;
     }
 
-    public static final int REASON_FIELD_NUMBER = 3;
-    private int reason_;
+    public static final int ERROR_FIELD_NUMBER = 3;
+    private com.caidt.proto.ProtoCommon.Error error_;
     /**
      * <pre>
-     * 错误码
+     * 错误返回
      * </pre>
      *
-     * <code>optional int32 reason = 3;</code>
+     * <code>optional .com.caidt.proto.Error error = 3;</code>
      */
-    public boolean hasReason() {
+    public boolean hasError() {
       return ((bitField0_ & 0x00000004) == 0x00000004);
     }
     /**
      * <pre>
-     * 错误码
+     * 错误返回
      * </pre>
      *
-     * <code>optional int32 reason = 3;</code>
+     * <code>optional .com.caidt.proto.Error error = 3;</code>
      */
-    public int getReason() {
-      return reason_;
-    }
-
-    public static final int MSG_FIELD_NUMBER = 4;
-    private volatile java.lang.Object msg_;
-    /**
-     * <pre>
-     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-     * </pre>
-     *
-     * <code>optional string msg = 4;</code>
-     */
-    public boolean hasMsg() {
-      return ((bitField0_ & 0x00000008) == 0x00000008);
+    public com.caidt.proto.ProtoCommon.Error getError() {
+      return error_ == null ? com.caidt.proto.ProtoCommon.Error.getDefaultInstance() : error_;
     }
     /**
      * <pre>
-     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+     * 错误返回
      * </pre>
      *
-     * <code>optional string msg = 4;</code>
+     * <code>optional .com.caidt.proto.Error error = 3;</code>
      */
-    public java.lang.String getMsg() {
-      java.lang.Object ref = msg_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        if (bs.isValidUtf8()) {
-          msg_ = s;
-        }
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-     * </pre>
-     *
-     * <code>optional string msg = 4;</code>
-     */
-    public com.google.protobuf.ByteString
-        getMsgBytes() {
-      java.lang.Object ref = msg_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        msg_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public com.caidt.proto.ProtoCommon.ErrorOrBuilder getErrorOrBuilder() {
+      return error_ == null ? com.caidt.proto.ProtoCommon.Error.getDefaultInstance() : error_;
     }
 
     private byte memoizedIsInitialized = -1;
@@ -1226,10 +1180,7 @@ public final class ProtoDescriptor {
         output.writeBytes(2, resp_);
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
-        output.writeInt32(3, reason_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, msg_);
+        output.writeMessage(3, getError());
       }
       unknownFields.writeTo(output);
     }
@@ -1249,10 +1200,7 @@ public final class ProtoDescriptor {
       }
       if (((bitField0_ & 0x00000004) == 0x00000004)) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(3, reason_);
-      }
-      if (((bitField0_ & 0x00000008) == 0x00000008)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, msg_);
+          .computeMessageSize(3, getError());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1281,15 +1229,10 @@ public final class ProtoDescriptor {
         result = result && getResp()
             .equals(other.getResp());
       }
-      result = result && (hasReason() == other.hasReason());
-      if (hasReason()) {
-        result = result && (getReason()
-            == other.getReason());
-      }
-      result = result && (hasMsg() == other.hasMsg());
-      if (hasMsg()) {
-        result = result && getMsg()
-            .equals(other.getMsg());
+      result = result && (hasError() == other.hasError());
+      if (hasError()) {
+        result = result && getError()
+            .equals(other.getError());
       }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
@@ -1310,13 +1253,9 @@ public final class ProtoDescriptor {
         hash = (37 * hash) + RESP_FIELD_NUMBER;
         hash = (53 * hash) + getResp().hashCode();
       }
-      if (hasReason()) {
-        hash = (37 * hash) + REASON_FIELD_NUMBER;
-        hash = (53 * hash) + getReason();
-      }
-      if (hasMsg()) {
-        hash = (37 * hash) + MSG_FIELD_NUMBER;
-        hash = (53 * hash) + getMsg().hashCode();
+      if (hasError()) {
+        hash = (37 * hash) + ERROR_FIELD_NUMBER;
+        hash = (53 * hash) + getError().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1432,6 +1371,7 @@ public final class ProtoDescriptor {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getErrorFieldBuilder();
         }
       }
       public Builder clear() {
@@ -1440,10 +1380,12 @@ public final class ProtoDescriptor {
         bitField0_ = (bitField0_ & ~0x00000001);
         resp_ = com.google.protobuf.ByteString.EMPTY;
         bitField0_ = (bitField0_ & ~0x00000002);
-        reason_ = 0;
+        if (errorBuilder_ == null) {
+          error_ = null;
+        } else {
+          errorBuilder_.clear();
+        }
         bitField0_ = (bitField0_ & ~0x00000004);
-        msg_ = "";
-        bitField0_ = (bitField0_ & ~0x00000008);
         return this;
       }
 
@@ -1479,11 +1421,11 @@ public final class ProtoDescriptor {
         if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
           to_bitField0_ |= 0x00000004;
         }
-        result.reason_ = reason_;
-        if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
-          to_bitField0_ |= 0x00000008;
+        if (errorBuilder_ == null) {
+          result.error_ = error_;
+        } else {
+          result.error_ = errorBuilder_.build();
         }
-        result.msg_ = msg_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
@@ -1532,13 +1474,8 @@ public final class ProtoDescriptor {
         if (other.hasResp()) {
           setResp(other.getResp());
         }
-        if (other.hasReason()) {
-          setReason(other.getReason());
-        }
-        if (other.hasMsg()) {
-          bitField0_ |= 0x00000008;
-          msg_ = other.msg_;
-          onChanged();
+        if (other.hasError()) {
+          mergeError(other.getError());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1605,18 +1542,30 @@ public final class ProtoDescriptor {
 
       private com.google.protobuf.ByteString resp_ = com.google.protobuf.ByteString.EMPTY;
       /**
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
        * <code>optional bytes resp = 2;</code>
        */
       public boolean hasResp() {
         return ((bitField0_ & 0x00000002) == 0x00000002);
       }
       /**
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
        * <code>optional bytes resp = 2;</code>
        */
       public com.google.protobuf.ByteString getResp() {
         return resp_;
       }
       /**
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
        * <code>optional bytes resp = 2;</code>
        */
       public Builder setResp(com.google.protobuf.ByteString value) {
@@ -1629,6 +1578,10 @@ public final class ProtoDescriptor {
         return this;
       }
       /**
+       * <pre>
+       * 正常返回
+       * </pre>
+       *
        * <code>optional bytes resp = 2;</code>
        */
       public Builder clearResp() {
@@ -1638,152 +1591,158 @@ public final class ProtoDescriptor {
         return this;
       }
 
-      private int reason_ ;
+      private com.caidt.proto.ProtoCommon.Error error_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoCommon.Error, com.caidt.proto.ProtoCommon.Error.Builder, com.caidt.proto.ProtoCommon.ErrorOrBuilder> errorBuilder_;
       /**
        * <pre>
-       * 错误码
+       * 错误返回
        * </pre>
        *
-       * <code>optional int32 reason = 3;</code>
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
        */
-      public boolean hasReason() {
+      public boolean hasError() {
         return ((bitField0_ & 0x00000004) == 0x00000004);
       }
       /**
        * <pre>
-       * 错误码
+       * 错误返回
        * </pre>
        *
-       * <code>optional int32 reason = 3;</code>
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
        */
-      public int getReason() {
-        return reason_;
+      public com.caidt.proto.ProtoCommon.Error getError() {
+        if (errorBuilder_ == null) {
+          return error_ == null ? com.caidt.proto.ProtoCommon.Error.getDefaultInstance() : error_;
+        } else {
+          return errorBuilder_.getMessage();
+        }
       }
       /**
        * <pre>
-       * 错误码
+       * 错误返回
        * </pre>
        *
-       * <code>optional int32 reason = 3;</code>
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
        */
-      public Builder setReason(int value) {
-        bitField0_ |= 0x00000004;
-        reason_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 错误码
-       * </pre>
-       *
-       * <code>optional int32 reason = 3;</code>
-       */
-      public Builder clearReason() {
-        bitField0_ = (bitField0_ & ~0x00000004);
-        reason_ = 0;
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object msg_ = "";
-      /**
-       * <pre>
-       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-       * </pre>
-       *
-       * <code>optional string msg = 4;</code>
-       */
-      public boolean hasMsg() {
-        return ((bitField0_ & 0x00000008) == 0x00000008);
-      }
-      /**
-       * <pre>
-       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-       * </pre>
-       *
-       * <code>optional string msg = 4;</code>
-       */
-      public java.lang.String getMsg() {
-        java.lang.Object ref = msg_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          if (bs.isValidUtf8()) {
-            msg_ = s;
+      public Builder setError(com.caidt.proto.ProtoCommon.Error value) {
+        if (errorBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
           }
-          return s;
+          error_ = value;
+          onChanged();
         } else {
-          return (java.lang.String) ref;
+          errorBuilder_.setMessage(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误返回
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
+       */
+      public Builder setError(
+          com.caidt.proto.ProtoCommon.Error.Builder builderForValue) {
+        if (errorBuilder_ == null) {
+          error_ = builderForValue.build();
+          onChanged();
+        } else {
+          errorBuilder_.setMessage(builderForValue.build());
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误返回
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
+       */
+      public Builder mergeError(com.caidt.proto.ProtoCommon.Error value) {
+        if (errorBuilder_ == null) {
+          if (((bitField0_ & 0x00000004) == 0x00000004) &&
+              error_ != null &&
+              error_ != com.caidt.proto.ProtoCommon.Error.getDefaultInstance()) {
+            error_ =
+              com.caidt.proto.ProtoCommon.Error.newBuilder(error_).mergeFrom(value).buildPartial();
+          } else {
+            error_ = value;
+          }
+          onChanged();
+        } else {
+          errorBuilder_.mergeFrom(value);
+        }
+        bitField0_ |= 0x00000004;
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误返回
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
+       */
+      public Builder clearError() {
+        if (errorBuilder_ == null) {
+          error_ = null;
+          onChanged();
+        } else {
+          errorBuilder_.clear();
+        }
+        bitField0_ = (bitField0_ & ~0x00000004);
+        return this;
+      }
+      /**
+       * <pre>
+       * 错误返回
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
+       */
+      public com.caidt.proto.ProtoCommon.Error.Builder getErrorBuilder() {
+        bitField0_ |= 0x00000004;
+        onChanged();
+        return getErrorFieldBuilder().getBuilder();
+      }
+      /**
+       * <pre>
+       * 错误返回
+       * </pre>
+       *
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
+       */
+      public com.caidt.proto.ProtoCommon.ErrorOrBuilder getErrorOrBuilder() {
+        if (errorBuilder_ != null) {
+          return errorBuilder_.getMessageOrBuilder();
+        } else {
+          return error_ == null ?
+              com.caidt.proto.ProtoCommon.Error.getDefaultInstance() : error_;
         }
       }
       /**
        * <pre>
-       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
+       * 错误返回
        * </pre>
        *
-       * <code>optional string msg = 4;</code>
+       * <code>optional .com.caidt.proto.Error error = 3;</code>
        */
-      public com.google.protobuf.ByteString
-          getMsgBytes() {
-        java.lang.Object ref = msg_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          msg_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.caidt.proto.ProtoCommon.Error, com.caidt.proto.ProtoCommon.Error.Builder, com.caidt.proto.ProtoCommon.ErrorOrBuilder> 
+          getErrorFieldBuilder() {
+        if (errorBuilder_ == null) {
+          errorBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.caidt.proto.ProtoCommon.Error, com.caidt.proto.ProtoCommon.Error.Builder, com.caidt.proto.ProtoCommon.ErrorOrBuilder>(
+                  getError(),
+                  getParentForChildren(),
+                  isClean());
+          error_ = null;
         }
-      }
-      /**
-       * <pre>
-       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-       * </pre>
-       *
-       * <code>optional string msg = 4;</code>
-       */
-      public Builder setMsg(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        msg_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-       * </pre>
-       *
-       * <code>optional string msg = 4;</code>
-       */
-      public Builder clearMsg() {
-        bitField0_ = (bitField0_ & ~0x00000008);
-        msg_ = getDefaultInstance().getMsg();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 错误消息提示 ps: 若前端不能能从前端读到配置错误信息，则使用这个
-       * </pre>
-       *
-       * <code>optional string msg = 4;</code>
-       */
-      public Builder setMsgBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  bitField0_ |= 0x00000008;
-        msg_ = value;
-        onChanged();
-        return this;
+        return errorBuilder_;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -5812,19 +5771,19 @@ public final class ProtoDescriptor {
   static {
     java.lang.String[] descriptorData = {
       "\n\026proto_descriptor.proto\022\017com.caidt.prot" +
-      "o\"A\n\007Request\022\013\n\003uid\030\001 \002(\003\022\r\n\005index\030\002 \002(\005" +
-      "\022\r\n\005token\030\003 \002(\t\022\013\n\003req\030\004 \002(\014\"D\n\010Response" +
-      "\022\r\n\005index\030\001 \002(\005\022\014\n\004resp\030\002 \001(\014\022\016\n\006reason\030" +
-      "\003 \001(\005\022\013\n\003msg\030\004 \001(\t\"\034\n\004Ping\022\024\n\014clientMill" +
-      "is\030\001 \002(\003\"2\n\004Pong\022\024\n\014clientMillis\030\001 \002(\003\022\024" +
-      "\n\014serverMillis\030\002 \002(\003\"2\n\014LoginRequest\022\020\n\010" +
-      "username\030\001 \002(\t\022\020\n\010password\030\002 \002(\t\"N\n\rLogi" +
-      "nResponse\022\020\n\010serverId\030\001 \002(\003\022+\n\006player\030\002 " +
-      "\002(\0132\033.com.caidt.proto.PlayerInfo\"\206\001\n\nPla",
-      "yerInfo\022\013\n\003uid\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n\010ni" +
-      "ckname\030\003 \001(\t\022\r\n\005level\030\004 \001(\005\022\013\n\003exp\030\005 \001(\003" +
-      "\022\r\n\005power\030\006 \001(\003\022\020\n\010vipLevel\030\007 \001(\005\022\016\n\006vip" +
-      "Exp\030\010 \001(\005"
+      "o\032\022proto_common.proto\"A\n\007Request\022\013\n\003uid\030" +
+      "\001 \002(\003\022\r\n\005index\030\002 \002(\005\022\r\n\005token\030\003 \002(\t\022\013\n\003r" +
+      "eq\030\004 \002(\014\"N\n\010Response\022\r\n\005index\030\001 \002(\005\022\014\n\004r" +
+      "esp\030\002 \001(\014\022%\n\005error\030\003 \001(\0132\026.com.caidt.pro" +
+      "to.Error\"\034\n\004Ping\022\024\n\014clientMillis\030\001 \002(\003\"2" +
+      "\n\004Pong\022\024\n\014clientMillis\030\001 \002(\003\022\024\n\014serverMi" +
+      "llis\030\002 \002(\003\"2\n\014LoginRequest\022\020\n\010username\030\001" +
+      " \002(\t\022\020\n\010password\030\002 \002(\t\"N\n\rLoginResponse\022" +
+      "\020\n\010serverId\030\001 \002(\003\022+\n\006player\030\002 \002(\0132\033.com.",
+      "caidt.proto.PlayerInfo\"\206\001\n\nPlayerInfo\022\013\n" +
+      "\003uid\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n\010nickname\030\003 \001" +
+      "(\t\022\r\n\005level\030\004 \001(\005\022\013\n\003exp\030\005 \001(\003\022\r\n\005power\030" +
+      "\006 \001(\003\022\020\n\010vipLevel\030\007 \001(\005\022\016\n\006vipExp\030\010 \001(\005"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5837,6 +5796,7 @@ public final class ProtoDescriptor {
     com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
+          com.caidt.proto.ProtoCommon.getDescriptor(),
         }, assigner);
     internal_static_com_caidt_proto_Request_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -5849,7 +5809,7 @@ public final class ProtoDescriptor {
     internal_static_com_caidt_proto_Response_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Response_descriptor,
-        new java.lang.String[] { "Index", "Resp", "Reason", "Msg", });
+        new java.lang.String[] { "Index", "Resp", "Error", });
     internal_static_com_caidt_proto_Ping_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_com_caidt_proto_Ping_fieldAccessorTable = new
@@ -5880,6 +5840,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_PlayerInfo_descriptor,
         new java.lang.String[] { "Uid", "Name", "Nickname", "Level", "Exp", "Power", "VipLevel", "VipExp", });
+    com.caidt.proto.ProtoCommon.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

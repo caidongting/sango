@@ -25,10 +25,6 @@ open class PlayerActor : UntypedAbstractActor() {
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
 
-  override fun supervisorStrategy(): SupervisorStrategy {
-    return super.supervisorStrategy()
-  }
-
   enum class State {
     INIT,
     UP,
@@ -131,10 +127,10 @@ open class PlayerActor : UntypedAbstractActor() {
       val handler = clientMessageHandlers[msg.cmdCase]
       handler?.invoke(this, msg) ?: throw UnsupportedOperationException("not supported")
     } catch (e: GameException) {
-      sendToClientError(e.reason, e.message)
+      sendToClientError(ProtoCommon.Reason.game, e.message)
       logger.error("", e)
     } catch (e: RuntimeException) {
-      sendToClientError(Reason.UNKNOWN, e.message)
+      sendToClientError(ProtoCommon.Reason.common, e.message)
       logger.error("handle client message error", e)
     }
   }
@@ -164,9 +160,9 @@ open class PlayerActor : UntypedAbstractActor() {
   }
 
   /** 返还客户端的错误信息 */
-  private fun sendToClientError(reason: Reason, message: String? = null) {
+  private fun sendToClientError(reason: ProtoCommon.Reason, message: String? = null) {
     ProtoCommon.Error.newBuilder().let {
-      it.reason = reason.ordinal
+      it.reason = reason
       it.msg = message
       sendToClient(it.build())
     }
