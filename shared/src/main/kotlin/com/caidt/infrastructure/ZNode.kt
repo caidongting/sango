@@ -27,9 +27,9 @@ class ZNode {
     curatorFramework.start()
     logger.debug("Znode stated!")
 
-    curatorFramework.children.usingWatcher(CuratorWatcher { event: WatchedEvent ->
-      val state = event.state
-    }).forPath("")
+//    curatorFramework.children.usingWatcher(CuratorWatcher { event: WatchedEvent ->
+//      val state = event.state
+//    }).forPath("")
 //
 //    curatorFramework.inTransaction()
 //      .create().forPath("")

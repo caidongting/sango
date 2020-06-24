@@ -1,8 +1,6 @@
 import org.codehaus.commons.compiler.ICompilerFactory
 import org.codehaus.commons.compiler.util.ResourceFinderClassLoader
-import org.codehaus.commons.compiler.util.resource.MapResourceCreator
-import org.codehaus.commons.compiler.util.resource.MapResourceFinder
-import org.codehaus.commons.compiler.util.resource.StringResource
+import org.codehaus.commons.compiler.util.resource.*
 import org.codehaus.janino.CompilerFactory
 import java.io.File
 import java.util.*
@@ -23,12 +21,25 @@ fun main() {
   val classes: Map<String, ByteArray> = HashMap()
   compiler.setClassFileCreator(MapResourceCreator(classes))
 
+  val finder = object : ResourceFinder() {
+    override fun findResource(resourceName: String?): Resource {
+      TODO("Not yet implemented")
+    }
+  }
+
 // Now compile two units from strings:
   compiler.compile(
     arrayOf(
       StringResource(
         "pkg1/A.java",
-        "package pkg1; public class A { public static int meth() { return pkg2.B.meth(); } }"
+        """
+          package pkg1; 
+          public class A { 
+            public static int meth() { 
+              return pkg2.B.meth(); 
+            }
+          }
+        """.trimIndent()
       ),
       StringResource(
         "pkg2/B.java",
@@ -37,7 +48,7 @@ fun main() {
     )
   )
 
-// Set up a class loader that uses the generated classes.
+  // Set up a class loader that uses the generated classes.
   val cl: ClassLoader = ResourceFinderClassLoader(
     MapResourceFinder(classes),  // resourceFinder
     ClassLoader.getSystemClassLoader() // parent
@@ -46,8 +57,8 @@ fun main() {
   println(cl.loadClass("pkg1.A").getDeclaredMethod("meth").invoke(null))
 //  compiler.compile(source)
 
-//  val classLoader = compilerFactory.newJavaSourceClassLoader()
-//  classLoader.set
+  val classLoader = compilerFactory.newJavaSourceClassLoader()
+  classLoader.setSourceFinder(finder)
 //  classLoader.setSourcePath(splitPath())
 //  val clazz = classLoader.loadClass(filename)
 //  val instance = clazz.newInstance()

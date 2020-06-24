@@ -10,7 +10,7 @@ import javax.crypto.spec.SecretKeySpec
 object AES {
 
   private const val KEY_ALGORITHM = "AES"
-  private const val CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding" //默认的加密算法
+  private const val CIPHER_ALGORITHM = "AES/ECB/PKCS5Padding" //默认的加密算法 CBC need IV
 
   // 加密
   fun encrypt(bytes: ByteArray, secretKeySpec: SecretKeySpec): ByteArray {

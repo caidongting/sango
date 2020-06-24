@@ -1211,14 +1211,13 @@ public final class ProtoCsMessage {
   static {
     java.lang.String[] descriptorData = {
       "\n\026proto_cs_message.proto\022\017com.caidt.prot" +
-      "o\032\026proto_descriptor.proto\032\022proto_player." +
-      "proto\032\024proto_activity.proto\"\333\001\n\tCsMessag" +
-      "e\0225\n\014loginRequest\030e \001(\0132\035.com.caidt.prot" +
-      "o.LoginRequestH\000\022G\n\025getAllActivityReques" +
-      "t\030g \001(\0132&.com.caidt.proto.GetAllActivity" +
-      "RequestH\000\022A\n\022getActivityRequest\030h \001(\0132#." +
-      "com.caidt.proto.GetActivityRequestH\000B\005\n\003" +
-      "cmdJ\004\010f\020g"
+      "o\032\026proto_descriptor.proto\032\024proto_activit" +
+      "y.proto\"\333\001\n\tCsMessage\0225\n\014loginRequest\030e " +
+      "\001(\0132\035.com.caidt.proto.LoginRequestH\000\022G\n\025" +
+      "getAllActivityRequest\030g \001(\0132&.com.caidt." +
+      "proto.GetAllActivityRequestH\000\022A\n\022getActi" +
+      "vityRequest\030h \001(\0132#.com.caidt.proto.GetA" +
+      "ctivityRequestH\000B\005\n\003cmdJ\004\010f\020g"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -1232,7 +1231,6 @@ public final class ProtoCsMessage {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.caidt.proto.ProtoDescriptor.getDescriptor(),
-          com.caidt.proto.ProtoPlayer.getDescriptor(),
           com.caidt.proto.ProtoActivity.getDescriptor(),
         }, assigner);
     internal_static_com_caidt_proto_CsMessage_descriptor =
@@ -1242,7 +1240,6 @@ public final class ProtoCsMessage {
         internal_static_com_caidt_proto_CsMessage_descriptor,
         new java.lang.String[] { "LoginRequest", "GetAllActivityRequest", "GetActivityRequest", "Cmd", });
     com.caidt.proto.ProtoDescriptor.getDescriptor();
-    com.caidt.proto.ProtoPlayer.getDescriptor();
     com.caidt.proto.ProtoActivity.getDescriptor();
   }
 

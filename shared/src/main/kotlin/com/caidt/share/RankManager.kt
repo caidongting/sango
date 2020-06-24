@@ -1,6 +1,5 @@
 package com.caidt.share
 
-import java.time.Instant
 import kotlin.reflect.KProperty1
 
 
@@ -9,21 +8,14 @@ class RankManager(val maxRank: Int) {
 
 }
 
-data class RankHolder(
-  val rank: Int,
-  val type: Int,
-  var data: RankData,
-  var lastUpdateTime: Instant
-) {
-  val playerRank: PlayerRank get() = data as PlayerRank
-  val countryRank: CountryRank get() = data as CountryRank
-
-  val isPlayerRank: Boolean get() = data is PlayerRank
-  val isCountryRank: Boolean get() = data is CountryRank
-}
-
 interface RankData {
   val id: Long
+
+  val playerRank: PlayerRank get() = this as PlayerRank
+  val countryRank: CountryRank get() = this as CountryRank
+
+  val isPlayerRank: Boolean get() = this is PlayerRank
+  val isCountryRank: Boolean get() = this is CountryRank
 }
 
 /** 玩家排行数据 */
@@ -51,5 +43,5 @@ data class CountryRank(
 }
 
 val PLAYER_COMPARATOR: Map<KProperty1<PlayerRank, Long>, Comparator<PlayerRank>> = mapOf(
-  PlayerRank::kill to compareBy { it.kill }
+  PlayerRank::kill to (compareBy { it.kill })
 )
