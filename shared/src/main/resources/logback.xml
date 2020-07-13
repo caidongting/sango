@@ -14,18 +14,16 @@
 	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
 		<append>true</append> <!--default true-->
 		<file>${LOG_HOME}/info.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-			<FileNamePattern>${LOG_HOME}/info.%d{yyyy-MM-dd}.log</FileNamePattern>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<FileNamePattern>${LOG_HOME}/info.%d{yyyy-MM-dd}_%i.log</FileNamePattern>
 			<MaxHistory>30</MaxHistory>
+			<MaxFileSize>100MB</MaxFileSize>
+<!--			<TotalSizeCap>20GB</TotalSizeCap>-->
 		</rollingPolicy>
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>%d{HH:mm:ss.SSS}|%-5level|%thread{18}|%logger{36} - %msg%n</Pattern>
 			<charset>UTF-8</charset>
 		</encoder>
-
-		<triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
-			<MaxFileSize>10MB</MaxFileSize>
-		</triggeringPolicy>
 	</appender>
 
 

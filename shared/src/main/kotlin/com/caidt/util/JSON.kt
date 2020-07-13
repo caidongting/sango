@@ -12,7 +12,23 @@ object JSON {
   private val LIST_LONG_TYPE = json.typeFactory.constructCollectionType(List::class.java, Long::class.java)
 
   init {
-    json.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, true)
+    // SerializationFeature for changing how JSON is written
+
+    // to enable standard indentation ("pretty-printing"):
+    json.enable(SerializationFeature.INDENT_OUTPUT);
+    // to allow serialization of "empty" POJOs (no properties to serialize)
+    // (without this setting, an exception is thrown in those cases)
+    json.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+    // to write java.util.Date, Calendar as number (timestamp):
+    json.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+
+    // DeserializationFeature for changing how JSON is read as POJOs:
+
+    // json.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, true)
+    // to prevent exception when encountering unknown property:
+    json.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+    // to allow coercion of JSON empty String ("") to null Object value:
+    json.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
   }
 
   fun toJSONString(obj: Any): String {

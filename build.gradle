@@ -56,25 +56,30 @@ subprojects {
         implementation "com.typesafe.akka:akka-cluster-sharding-typed_2.12:$akkaVersion"
         implementation "com.typesafe.akka:akka-slf4j_2.12:$akkaVersion"
 //        implementation "com.lightbend.akka.management:akka-management_2.12:1.0.5"
-        implementation "org.codehaus.janino:janino:3.1.2"
 
         implementation "org.apache.poi:poi-ooxml:3.17"
         implementation "ch.qos.logback:logback-classic:1.2.3"
         implementation "org.hibernate:hibernate-core:3.6.10.Final"
+//        implementation "org.hibernate:hibernate-orm:5.4.18"
 //        implementation "com.google.guava:guava:28.0-jre"
 //        implementation "io.netty:netty-all:4.1.30.Final"
 //        implementation "com.alibaba:easyexcel:2.0.4"
         implementation "io.altoo:akka-kryo-serialization_2.12:1.0.0"
         implementation "org.apache.curator:curator-framework:2.12.0"
         implementation "org.apache.kafka:kafka_2.12:2.4.0"
-//        implementation 'com.alibaba:fastjson:1.2.61'
-        implementation "redis.clients:jedis:3.3.0"
-
-        implementation 'com.github.ben-manes.caffeine:caffeine:2.8.4'
-
         implementation "mysql:mysql-connector-java:8.0.17"
+//        implementation 'com.alibaba:fastjson:1.2.61' // 有很多问题，经常爆出bug，使用jackson代替
 
-//        testCompile "junit:junit:4.12"
+//        compile 'org.hibernate:hibernate-hikaricp:3.6.10.Final'
+
+        implementation "redis.clients:jedis:3.3.0" // redisson, lettuce
+        implementation 'com.github.ben-manes.caffeine:caffeine:2.8.4' // replace guava Loading Cache
+        implementation "org.codehaus.janino:janino:3.1.2" // tiny java compiler
+//        implementation "org.apache.dubbo:dubbo:2.7.7"
+        implementation "com.zaxxer:HikariCP:3.4.5"
+
+
+        testCompile "junit:junit:4.12"
         testImplementation("org.jetbrains.kotlin:kotlin-test")
         testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
     }

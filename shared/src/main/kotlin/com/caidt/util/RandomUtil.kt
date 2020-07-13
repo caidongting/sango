@@ -32,7 +32,7 @@ object RandomUtil {
     require(origin.isNotEmpty()) { "origin collection is empty" }
 
     val totalWeight = origin.sumBy(weight)
-    val random = ThreadLocalRandom.current().nextInt(0, totalWeight)
+    val random = ThreadLocalRandom.current().nextInt(totalWeight)
     var sum = 0
     for (e in origin) {
       sum += weight.get(e)
