@@ -4,6 +4,7 @@ import akka.actor.UntypedAbstractActor
 import com.caidt.proto.*
 import com.caidt.proto.ProtoCsMessage.CsMessage.CmdCase.LOGINREQUEST
 import com.caidt.share.*
+import com.google.protobuf.InvalidProtocolBufferException
 import com.google.protobuf.MessageLite
 import io.netty.channel.ChannelHandlerContext
 
@@ -23,20 +24,19 @@ class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
 
   /** handle msg from client */
   private fun request(msg: ProtoDescriptor.Request) {
-    runCatching {
-      ProtoCsMessage.CsMessage.parseFrom(msg.req)
-    }.onSuccess { csMessage ->
+    try {
+      val csMessage = ProtoCsMessage.CsMessage.parseFrom(msg.req)
       if (csMessage.cmdCase == LOGINREQUEST) { // 登录特殊处理
         login(csMessage.loginRequest)
       } else if (validate(msg)) { // 校验
         when (csMessage.cmdCase) {
-          LOGINREQUEST -> login(csMessage.loginRequest)
-          in csMessageToHome -> forwardToHome(msg.uid, csMessage)
-//        in csMessageToWorld -> forwardToWorld(msg.uid, csMessage)
-          else -> forwardToWorld(msg.uid, csMessage)
+          in csMessageToWorld -> forwardToWorld(msg.uid, csMessage)
+          else -> forwardToHome(msg.uid, csMessage)
         }
       }
-    }.onFailure(this::error)
+    } catch (e: InvalidProtocolBufferException) {
+      error(e)
+    }
 
   }
 

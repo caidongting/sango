@@ -1,50 +1,55 @@
 package com.caidt
 
 import akka.actor.ActorRef
+import akka.actor.Props
 import com.caidt.proto.ProtoCsMessage
 import com.caidt.proto.ProtoDescriptor
-import com.google.common.util.concurrent.RateLimiter
 import io.netty.channel.ChannelHandlerContext
-import io.netty.channel.ChannelInboundHandlerAdapter
+import io.netty.channel.SimpleChannelInboundHandler
 import io.netty.util.AttributeKey
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import javax.naming.AuthenticationException
 
-class ProtoMessageHandler : ChannelInboundHandlerAdapter() {
+class ProtoMessageHandler : SimpleChannelInboundHandler<ProtoDescriptor.Request>() {
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
 
-  private val ID: AttributeKey<Long> = AttributeKey.valueOf("ID")
-  private val SESSION: AttributeKey<Session> = AttributeKey.valueOf("session")
-
-  @Suppress("UnstableApiUsage")
-  private val rateLimiter: RateLimiter = RateLimiter.create(100.0)
-
-  override fun channelRead(ctx: ChannelHandlerContext, msg: Any?) {
-    if (!rateLimiter.tryAcquire()) // 频率检验
-      return
-
-    when (msg) {
-      is ProtoDescriptor.Ping -> pong(ctx, msg)
-      is ProtoDescriptor.Request -> request(ctx, msg)
-      is ProtoDescriptor.LoginRequest -> Unit
-      else -> unhandled(message = msg)
-    }
+  companion object {
+    private val ID: AttributeKey<Long> = AttributeKey.valueOf("ID")
+    private val SESSION: AttributeKey<ActorRef> = AttributeKey.valueOf("session")
   }
 
-  private fun unhandled(message: Any?) {
-    message?.let {
-      logger.error("unhandled message: $it")
-    }
+//  override fun channelRead(ctx: ChannelHandlerContext, msg: Any?) {
+//    when (msg) {
+//      is ProtoDescriptor.Ping -> pong(ctx, msg)
+//      is ProtoDescriptor.Request -> request(ctx, msg)
+//      is ProtoDescriptor.LoginRequest -> Unit
+//      else -> unhandled(message = msg)
+//    }
+//  }
+
+  override fun channelRead0(ctx: ChannelHandlerContext, msg: ProtoDescriptor.Request) {
+    request(ctx, msg)
   }
 
-  private fun pong(ctx: ChannelHandlerContext, msg: ProtoDescriptor.Ping) {
-    ProtoDescriptor.Pong.newBuilder().apply {
-      clientMillis = msg.clientMillis
-      serverMillis = System.currentTimeMillis()
-      ctx.writeAndFlush(build())
+  private fun request(ctx: ChannelHandlerContext, request: ProtoDescriptor.Request) {
+    if (!validate(request)) throw AuthenticationException("认证失败")
+
+    val session = if (ctx.channel().hasAttr(SESSION)) {
+      ctx.channel().attr(SESSION).get()
+    } else {
+      val actorRef = Gate.actorSystem.actorOf(Props.create(Session::class.java, ctx))
+      ctx.channel().attr(SESSION).set(actorRef)
+      actorRef
     }
+    try {
+      val csMessage = ProtoCsMessage.CsMessage.parseFrom(request.req)
+      session.tell(csMessage, ActorRef.noSender())
+    } catch (e: Exception) {
+      e.printStackTrace()
+    }
+
   }
 
   /** 验证消息合法性 */
@@ -57,14 +62,20 @@ class ProtoMessageHandler : ChannelInboundHandlerAdapter() {
     return true
   }
 
-  private fun request(ctx: ChannelHandlerContext, request: ProtoDescriptor.Request) {
-    if (!validate(request)) throw AuthenticationException("认证失败")
-
-    val csMessage = ProtoCsMessage.CsMessage.parseFrom(request.req)
-
-    val session = ctx.channel().attr(SESSION).get() // getOrCreate Session, dispatcher msg to session
-    session.self.tell(csMessage, ActorRef.noSender())
+  private fun unhandled(message: Any?) {
+    message?.let {
+      logger.error("unhandled message: $it")
+    }
   }
+
+//  private fun pong(ctx: ChannelHandlerContext, msg: ProtoDescriptor.Ping) {
+//    ProtoDescriptor.Pong.newBuilder().apply {
+//      clientMillis = msg.clientMillis
+//      serverMillis = System.currentTimeMillis()
+//      ctx.writeAndFlush(build())
+//    }
+//  }
+
 
 }
 

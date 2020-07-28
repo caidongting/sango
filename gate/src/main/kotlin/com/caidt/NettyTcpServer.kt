@@ -11,8 +11,7 @@ import io.netty.handler.codec.LengthFieldBasedFrameDecoder
 import io.netty.handler.codec.LengthFieldPrepender
 import io.netty.handler.codec.bytes.ByteArrayDecoder
 import io.netty.handler.codec.bytes.ByteArrayEncoder
-import io.netty.handler.codec.protobuf.ProtobufDecoder
-import io.netty.handler.codec.protobuf.ProtobufEncoder
+import io.netty.handler.codec.protobuf.*
 import io.netty.handler.traffic.ChannelTrafficShapingHandler
 
 
@@ -30,14 +29,16 @@ class NettyTcpServer(private val port: Int) {
             .addLast(ChannelTrafficShapingHandler(5L))
             // decoder
             .addLast(LengthFieldBasedFrameDecoder(2048, 0, 4))
-              // AES decrypt
+            .addLast(ProtobufVarint32FrameDecoder())
+            // AES decrypt todo
             .addLast(ProtobufDecoder(ProtoDescriptor.Request.getDefaultInstance()))
             .addLast(ByteArrayDecoder()) // 原则上禁止，这里仅做对比
+            .addLast(ProtoHandler())
             .addLast(ProtoMessageHandler())
 
             // encoder
             .addLast(LengthFieldPrepender(4))
-              // AES encrypt
+            // AES encrypt todo
             .addLast(ProtobufEncoder())
             .addLast(ByteArrayEncoder()) // 直接返回字节数组，如大数据 战报，文件等
         }

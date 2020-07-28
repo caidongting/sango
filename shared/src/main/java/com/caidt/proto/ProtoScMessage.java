@@ -19,14 +19,26 @@ public final class ProtoScMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *        Pong pong = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
      */
     boolean hasLoginResponse();
     /**
+     * <pre>
+     *        Pong pong = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
      */
     com.caidt.proto.ProtoDescriptor.LoginResponse getLoginResponse();
     /**
+     * <pre>
+     *        Pong pong = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
      */
     com.caidt.proto.ProtoDescriptor.LoginResponseOrBuilder getLoginResponseOrBuilder();
@@ -251,12 +263,20 @@ public final class ProtoScMessage {
 
     public static final int LOGINRESPONSE_FIELD_NUMBER = 101;
     /**
+     * <pre>
+     *        Pong pong = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
      */
     public boolean hasLoginResponse() {
       return cmdCase_ == 101;
     }
     /**
+     * <pre>
+     *        Pong pong = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
      */
     public com.caidt.proto.ProtoDescriptor.LoginResponse getLoginResponse() {
@@ -266,6 +286,10 @@ public final class ProtoScMessage {
       return com.caidt.proto.ProtoDescriptor.LoginResponse.getDefaultInstance();
     }
     /**
+     * <pre>
+     *        Pong pong = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
      */
     public com.caidt.proto.ProtoDescriptor.LoginResponseOrBuilder getLoginResponseOrBuilder() {
@@ -810,12 +834,20 @@ public final class ProtoScMessage {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.caidt.proto.ProtoDescriptor.LoginResponse, com.caidt.proto.ProtoDescriptor.LoginResponse.Builder, com.caidt.proto.ProtoDescriptor.LoginResponseOrBuilder> loginResponseBuilder_;
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public boolean hasLoginResponse() {
         return cmdCase_ == 101;
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public com.caidt.proto.ProtoDescriptor.LoginResponse getLoginResponse() {
@@ -832,6 +864,10 @@ public final class ProtoScMessage {
         }
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public Builder setLoginResponse(com.caidt.proto.ProtoDescriptor.LoginResponse value) {
@@ -848,6 +884,10 @@ public final class ProtoScMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public Builder setLoginResponse(
@@ -862,6 +902,10 @@ public final class ProtoScMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public Builder mergeLoginResponse(com.caidt.proto.ProtoDescriptor.LoginResponse value) {
@@ -884,6 +928,10 @@ public final class ProtoScMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public Builder clearLoginResponse() {
@@ -903,12 +951,20 @@ public final class ProtoScMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public com.caidt.proto.ProtoDescriptor.LoginResponse.Builder getLoginResponseBuilder() {
         return getLoginResponseFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       public com.caidt.proto.ProtoDescriptor.LoginResponseOrBuilder getLoginResponseOrBuilder() {
@@ -922,6 +978,10 @@ public final class ProtoScMessage {
         }
       }
       /**
+       * <pre>
+       *        Pong pong = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginResponse loginResponse = 101;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<

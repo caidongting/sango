@@ -40,7 +40,7 @@ public final class Singleton {
     private enum SingletonHolder {
         INSTANCE;
 
-        private Singleton instance;
+        private final Singleton instance;
 
         SingletonHolder() {
             instance = new Singleton();

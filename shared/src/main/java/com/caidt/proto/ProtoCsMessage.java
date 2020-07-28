@@ -19,14 +19,26 @@ public final class ProtoCsMessage {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     *        Ping ping = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
      */
     boolean hasLoginRequest();
     /**
+     * <pre>
+     *        Ping ping = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
      */
     com.caidt.proto.ProtoDescriptor.LoginRequest getLoginRequest();
     /**
+     * <pre>
+     *        Ping ping = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
      */
     com.caidt.proto.ProtoDescriptor.LoginRequestOrBuilder getLoginRequestOrBuilder();
@@ -222,12 +234,20 @@ public final class ProtoCsMessage {
 
     public static final int LOGINREQUEST_FIELD_NUMBER = 101;
     /**
+     * <pre>
+     *        Ping ping = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
      */
     public boolean hasLoginRequest() {
       return cmdCase_ == 101;
     }
     /**
+     * <pre>
+     *        Ping ping = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
      */
     public com.caidt.proto.ProtoDescriptor.LoginRequest getLoginRequest() {
@@ -237,6 +257,10 @@ public final class ProtoCsMessage {
       return com.caidt.proto.ProtoDescriptor.LoginRequest.getDefaultInstance();
     }
     /**
+     * <pre>
+     *        Ping ping = 1;
+     * </pre>
+     *
      * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
      */
     public com.caidt.proto.ProtoDescriptor.LoginRequestOrBuilder getLoginRequestOrBuilder() {
@@ -707,12 +731,20 @@ public final class ProtoCsMessage {
       private com.google.protobuf.SingleFieldBuilderV3<
           com.caidt.proto.ProtoDescriptor.LoginRequest, com.caidt.proto.ProtoDescriptor.LoginRequest.Builder, com.caidt.proto.ProtoDescriptor.LoginRequestOrBuilder> loginRequestBuilder_;
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public boolean hasLoginRequest() {
         return cmdCase_ == 101;
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public com.caidt.proto.ProtoDescriptor.LoginRequest getLoginRequest() {
@@ -729,6 +761,10 @@ public final class ProtoCsMessage {
         }
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public Builder setLoginRequest(com.caidt.proto.ProtoDescriptor.LoginRequest value) {
@@ -745,6 +781,10 @@ public final class ProtoCsMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public Builder setLoginRequest(
@@ -759,6 +799,10 @@ public final class ProtoCsMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public Builder mergeLoginRequest(com.caidt.proto.ProtoDescriptor.LoginRequest value) {
@@ -781,6 +825,10 @@ public final class ProtoCsMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public Builder clearLoginRequest() {
@@ -800,12 +848,20 @@ public final class ProtoCsMessage {
         return this;
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public com.caidt.proto.ProtoDescriptor.LoginRequest.Builder getLoginRequestBuilder() {
         return getLoginRequestFieldBuilder().getBuilder();
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       public com.caidt.proto.ProtoDescriptor.LoginRequestOrBuilder getLoginRequestOrBuilder() {
@@ -819,6 +875,10 @@ public final class ProtoCsMessage {
         }
       }
       /**
+       * <pre>
+       *        Ping ping = 1;
+       * </pre>
+       *
        * <code>optional .com.caidt.proto.LoginRequest loginRequest = 101;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<

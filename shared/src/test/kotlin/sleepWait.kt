@@ -11,7 +11,7 @@ fun main() {
   }
 
   synchronized(o) {
-    o.notify()
+    o.notifyAll()
     Thread.sleep(3000L)
     println("thread ${Thread.currentThread().name} fire notify")
   }

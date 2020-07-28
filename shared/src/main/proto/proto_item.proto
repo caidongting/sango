@@ -1,0 +1,27 @@
+syntax = "proto2";
+package com.caidt.proto;
+
+import "proto_common.proto";
+
+// 获取所有道具 --> GetItemsResponse
+message GetItemsRequest {
+
+}
+message GetItemsResponse {
+    repeated DisplayItem items = 1;
+}
+
+// 使用道具 --> UseItemResponse
+message UseItemRequest {
+    required int64 uid = 1; // 唯一id
+    required int32 count = 2; // 数量
+}
+message UseItemResponse {
+    required DisplayItem item = 1;
+    optional DisplayRewardPackage reward = 2;
+}
+
+// 推送道具变化
+message SCDisplayItem {
+    repeated DisplayItem items = 1;
+}

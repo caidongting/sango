@@ -8,6 +8,7 @@ message CsMessage {
     reserved 102;
 
     oneof cmd {
+//        Ping ping = 1;
         LoginRequest loginRequest = 101;
 
 //        GetPlayerInfoRequest getPlayerInfoRequest = 102;
