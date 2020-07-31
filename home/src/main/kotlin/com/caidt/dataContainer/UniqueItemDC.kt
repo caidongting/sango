@@ -3,6 +3,7 @@ package com.caidt.dataContainer
 import com.caidt.infrastructure.database.EntityWrapper
 import com.caidt.memory.DataContainer
 import com.caidt.share.entity.ItemEntity
+import com.caidt.share.entity.ItemPk
 import java.io.Serializable
 import java.time.Duration
 
@@ -20,7 +21,7 @@ class UniqueItem(
   var count: Long
 ) : EntityWrapper<ItemEntity> {
   override fun primaryKey(): Serializable {
-    TODO("Not yet implemented")
+    return ItemPk(uid, owner)
   }
 
   override fun duration(): Duration {

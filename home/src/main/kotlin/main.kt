@@ -72,3 +72,15 @@ fun splitPath(string: String): Array<File>? {
   }
   return l.toTypedArray()
 }
+
+//fun <E> getList(request: WebRequest, field: String, clazz: Class<E>): List<E>? {
+//  val parameter: String = request.getParameter(field) ?: return emptyList()
+//  val result: MutableList<E> = ArrayList()
+//  val strings = parameter.split("|").toTypedArray()
+//  for (string in strings) {
+//    val constructor = clazz.getConstructor(String::class.java)
+//    val e = constructor.newInstance(string)
+//    result.add(e)
+//  }
+//  return result
+//}

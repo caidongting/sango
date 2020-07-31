@@ -2596,28 +2596,73 @@ public final class ProtoItem {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> 
         getItemsList();
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     com.caidt.proto.ProtoCommon.DisplayItem getItems(int index);
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     int getItemsCount();
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> 
         getItemsOrBuilderList();
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     com.caidt.proto.ProtoCommon.DisplayItemOrBuilder getItemsOrBuilder(
         int index);
+
+    /**
+     * <pre>
+     * 删除的道具uid
+     * </pre>
+     *
+     * <code>repeated int64 deletes = 2;</code>
+     */
+    java.util.List<java.lang.Long> getDeletesList();
+    /**
+     * <pre>
+     * 删除的道具uid
+     * </pre>
+     *
+     * <code>repeated int64 deletes = 2;</code>
+     */
+    int getDeletesCount();
+    /**
+     * <pre>
+     * 删除的道具uid
+     * </pre>
+     *
+     * <code>repeated int64 deletes = 2;</code>
+     */
+    long getDeletes(int index);
   }
   /**
    * <pre>
@@ -2636,6 +2681,7 @@ public final class ProtoItem {
     }
     private SCDisplayItem() {
       items_ = java.util.Collections.emptyList();
+      deletes_ = java.util.Collections.emptyList();
     }
 
     @java.lang.Override
@@ -2675,6 +2721,27 @@ public final class ProtoItem {
                   input.readMessage(com.caidt.proto.ProtoCommon.DisplayItem.PARSER, extensionRegistry));
               break;
             }
+            case 16: {
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+                deletes_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              deletes_.add(input.readInt64());
+              break;
+            }
+            case 18: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000002) == 0x00000002) && input.getBytesUntilLimit() > 0) {
+                deletes_ = new java.util.ArrayList<java.lang.Long>();
+                mutable_bitField0_ |= 0x00000002;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                deletes_.add(input.readInt64());
+              }
+              input.popLimit(limit);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2685,6 +2752,9 @@ public final class ProtoItem {
       } finally {
         if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
           items_ = java.util.Collections.unmodifiableList(items_);
+        }
+        if (((mutable_bitField0_ & 0x00000002) == 0x00000002)) {
+          deletes_ = java.util.Collections.unmodifiableList(deletes_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -2705,12 +2775,20 @@ public final class ProtoItem {
     public static final int ITEMS_FIELD_NUMBER = 1;
     private java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> items_;
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     public java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> getItemsList() {
       return items_;
     }
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     public java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> 
@@ -2718,23 +2796,69 @@ public final class ProtoItem {
       return items_;
     }
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     public int getItemsCount() {
       return items_.size();
     }
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     public com.caidt.proto.ProtoCommon.DisplayItem getItems(int index) {
       return items_.get(index);
     }
     /**
+     * <pre>
+     * 发生变化的道具
+     * </pre>
+     *
      * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
      */
     public com.caidt.proto.ProtoCommon.DisplayItemOrBuilder getItemsOrBuilder(
         int index) {
       return items_.get(index);
+    }
+
+    public static final int DELETES_FIELD_NUMBER = 2;
+    private java.util.List<java.lang.Long> deletes_;
+    /**
+     * <pre>
+     * 删除的道具uid
+     * </pre>
+     *
+     * <code>repeated int64 deletes = 2;</code>
+     */
+    public java.util.List<java.lang.Long>
+        getDeletesList() {
+      return deletes_;
+    }
+    /**
+     * <pre>
+     * 删除的道具uid
+     * </pre>
+     *
+     * <code>repeated int64 deletes = 2;</code>
+     */
+    public int getDeletesCount() {
+      return deletes_.size();
+    }
+    /**
+     * <pre>
+     * 删除的道具uid
+     * </pre>
+     *
+     * <code>repeated int64 deletes = 2;</code>
+     */
+    public long getDeletes(int index) {
+      return deletes_.get(index);
     }
 
     private byte memoizedIsInitialized = -1;
@@ -2758,6 +2882,9 @@ public final class ProtoItem {
       for (int i = 0; i < items_.size(); i++) {
         output.writeMessage(1, items_.get(i));
       }
+      for (int i = 0; i < deletes_.size(); i++) {
+        output.writeInt64(2, deletes_.get(i));
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2769,6 +2896,15 @@ public final class ProtoItem {
       for (int i = 0; i < items_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, items_.get(i));
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < deletes_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(deletes_.get(i));
+        }
+        size += dataSize;
+        size += 1 * getDeletesList().size();
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -2789,6 +2925,8 @@ public final class ProtoItem {
       boolean result = true;
       result = result && getItemsList()
           .equals(other.getItemsList());
+      result = result && getDeletesList()
+          .equals(other.getDeletesList());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -2803,6 +2941,10 @@ public final class ProtoItem {
       if (getItemsCount() > 0) {
         hash = (37 * hash) + ITEMS_FIELD_NUMBER;
         hash = (53 * hash) + getItemsList().hashCode();
+      }
+      if (getDeletesCount() > 0) {
+        hash = (37 * hash) + DELETES_FIELD_NUMBER;
+        hash = (53 * hash) + getDeletesList().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -2933,6 +3075,8 @@ public final class ProtoItem {
         } else {
           itemsBuilder_.clear();
         }
+        deletes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
         return this;
       }
 
@@ -2965,6 +3109,11 @@ public final class ProtoItem {
         } else {
           result.items_ = itemsBuilder_.build();
         }
+        if (((bitField0_ & 0x00000002) == 0x00000002)) {
+          deletes_ = java.util.Collections.unmodifiableList(deletes_);
+          bitField0_ = (bitField0_ & ~0x00000002);
+        }
+        result.deletes_ = deletes_;
         onBuilt();
         return result;
       }
@@ -3032,6 +3181,16 @@ public final class ProtoItem {
             }
           }
         }
+        if (!other.deletes_.isEmpty()) {
+          if (deletes_.isEmpty()) {
+            deletes_ = other.deletes_;
+            bitField0_ = (bitField0_ & ~0x00000002);
+          } else {
+            ensureDeletesIsMutable();
+            deletes_.addAll(other.deletes_);
+          }
+          onChanged();
+        }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
         return this;
@@ -3078,6 +3237,10 @@ public final class ProtoItem {
           com.caidt.proto.ProtoCommon.DisplayItem, com.caidt.proto.ProtoCommon.DisplayItem.Builder, com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> itemsBuilder_;
 
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public java.util.List<com.caidt.proto.ProtoCommon.DisplayItem> getItemsList() {
@@ -3088,6 +3251,10 @@ public final class ProtoItem {
         }
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public int getItemsCount() {
@@ -3098,6 +3265,10 @@ public final class ProtoItem {
         }
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public com.caidt.proto.ProtoCommon.DisplayItem getItems(int index) {
@@ -3108,6 +3279,10 @@ public final class ProtoItem {
         }
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder setItems(
@@ -3125,6 +3300,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder setItems(
@@ -3139,6 +3318,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder addItems(com.caidt.proto.ProtoCommon.DisplayItem value) {
@@ -3155,6 +3338,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder addItems(
@@ -3172,6 +3359,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder addItems(
@@ -3186,6 +3377,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder addItems(
@@ -3200,6 +3395,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder addAllItems(
@@ -3215,6 +3414,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder clearItems() {
@@ -3228,6 +3431,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public Builder removeItems(int index) {
@@ -3241,6 +3448,10 @@ public final class ProtoItem {
         return this;
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public com.caidt.proto.ProtoCommon.DisplayItem.Builder getItemsBuilder(
@@ -3248,6 +3459,10 @@ public final class ProtoItem {
         return getItemsFieldBuilder().getBuilder(index);
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public com.caidt.proto.ProtoCommon.DisplayItemOrBuilder getItemsOrBuilder(
@@ -3258,6 +3473,10 @@ public final class ProtoItem {
         }
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public java.util.List<? extends com.caidt.proto.ProtoCommon.DisplayItemOrBuilder> 
@@ -3269,6 +3488,10 @@ public final class ProtoItem {
         }
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public com.caidt.proto.ProtoCommon.DisplayItem.Builder addItemsBuilder() {
@@ -3276,6 +3499,10 @@ public final class ProtoItem {
             com.caidt.proto.ProtoCommon.DisplayItem.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public com.caidt.proto.ProtoCommon.DisplayItem.Builder addItemsBuilder(
@@ -3284,6 +3511,10 @@ public final class ProtoItem {
             index, com.caidt.proto.ProtoCommon.DisplayItem.getDefaultInstance());
       }
       /**
+       * <pre>
+       * 发生变化的道具
+       * </pre>
+       *
        * <code>repeated .com.caidt.proto.DisplayItem items = 1;</code>
        */
       public java.util.List<com.caidt.proto.ProtoCommon.DisplayItem.Builder> 
@@ -3303,6 +3534,100 @@ public final class ProtoItem {
           items_ = null;
         }
         return itemsBuilder_;
+      }
+
+      private java.util.List<java.lang.Long> deletes_ = java.util.Collections.emptyList();
+      private void ensureDeletesIsMutable() {
+        if (!((bitField0_ & 0x00000002) == 0x00000002)) {
+          deletes_ = new java.util.ArrayList<java.lang.Long>(deletes_);
+          bitField0_ |= 0x00000002;
+         }
+      }
+      /**
+       * <pre>
+       * 删除的道具uid
+       * </pre>
+       *
+       * <code>repeated int64 deletes = 2;</code>
+       */
+      public java.util.List<java.lang.Long>
+          getDeletesList() {
+        return java.util.Collections.unmodifiableList(deletes_);
+      }
+      /**
+       * <pre>
+       * 删除的道具uid
+       * </pre>
+       *
+       * <code>repeated int64 deletes = 2;</code>
+       */
+      public int getDeletesCount() {
+        return deletes_.size();
+      }
+      /**
+       * <pre>
+       * 删除的道具uid
+       * </pre>
+       *
+       * <code>repeated int64 deletes = 2;</code>
+       */
+      public long getDeletes(int index) {
+        return deletes_.get(index);
+      }
+      /**
+       * <pre>
+       * 删除的道具uid
+       * </pre>
+       *
+       * <code>repeated int64 deletes = 2;</code>
+       */
+      public Builder setDeletes(
+          int index, long value) {
+        ensureDeletesIsMutable();
+        deletes_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 删除的道具uid
+       * </pre>
+       *
+       * <code>repeated int64 deletes = 2;</code>
+       */
+      public Builder addDeletes(long value) {
+        ensureDeletesIsMutable();
+        deletes_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 删除的道具uid
+       * </pre>
+       *
+       * <code>repeated int64 deletes = 2;</code>
+       */
+      public Builder addAllDeletes(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureDeletesIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, deletes_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 删除的道具uid
+       * </pre>
+       *
+       * <code>repeated int64 deletes = 2;</code>
+       */
+      public Builder clearDeletes() {
+        deletes_ = java.util.Collections.emptyList();
+        bitField0_ = (bitField0_ & ~0x00000002);
+        onChanged();
+        return this;
       }
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -3394,9 +3719,9 @@ public final class ProtoItem {
       "\003uid\030\001 \002(\003\022\r\n\005count\030\002 \002(\005\"t\n\017UseItemResp" +
       "onse\022*\n\004item\030\001 \002(\0132\034.com.caidt.proto.Dis" +
       "playItem\0225\n\006reward\030\002 \001(\0132%.com.caidt.pro" +
-      "to.DisplayRewardPackage\"<\n\rSCDisplayItem" +
+      "to.DisplayRewardPackage\"M\n\rSCDisplayItem" +
       "\022+\n\005items\030\001 \003(\0132\034.com.caidt.proto.Displa" +
-      "yItem"
+      "yItem\022\017\n\007deletes\030\002 \003(\003"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -3440,7 +3765,7 @@ public final class ProtoItem {
     internal_static_com_caidt_proto_SCDisplayItem_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_SCDisplayItem_descriptor,
-        new java.lang.String[] { "Items", });
+        new java.lang.String[] { "Items", "Deletes", });
     com.caidt.proto.ProtoCommon.getDescriptor();
   }
 

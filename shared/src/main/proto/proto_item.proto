@@ -23,5 +23,6 @@ message UseItemResponse {
 
 // 推送道具变化
 message SCDisplayItem {
-    repeated DisplayItem items = 1;
+    repeated DisplayItem items = 1; // 发生变化的道具
+    repeated int64 deletes = 2; // 删除的道具uid
 }

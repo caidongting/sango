@@ -190,20 +190,36 @@ public final class ProtoCommon {
     GOLD(1),
     /**
      * <pre>
+     * 银币
+     * </pre>
+     *
+     * <code>SILVER = 2;</code>
+     */
+    SILVER(2),
+    /**
+     * <pre>
+     * 食物
+     * </pre>
+     *
+     * <code>FOOD = 3;</code>
+     */
+    FOOD(3),
+    /**
+     * <pre>
      * 木材
      * </pre>
      *
-     * <code>WOOD = 2;</code>
+     * <code>WOOD = 4;</code>
      */
-    WOOD(2),
+    WOOD(4),
     /**
      * <pre>
      * 铁
      * </pre>
      *
-     * <code>IRON = 3;</code>
+     * <code>IRON = 5;</code>
      */
-    IRON(3),
+    IRON(5),
     ;
 
     /**
@@ -216,20 +232,36 @@ public final class ProtoCommon {
     public static final int GOLD_VALUE = 1;
     /**
      * <pre>
+     * 银币
+     * </pre>
+     *
+     * <code>SILVER = 2;</code>
+     */
+    public static final int SILVER_VALUE = 2;
+    /**
+     * <pre>
+     * 食物
+     * </pre>
+     *
+     * <code>FOOD = 3;</code>
+     */
+    public static final int FOOD_VALUE = 3;
+    /**
+     * <pre>
      * 木材
      * </pre>
      *
-     * <code>WOOD = 2;</code>
+     * <code>WOOD = 4;</code>
      */
-    public static final int WOOD_VALUE = 2;
+    public static final int WOOD_VALUE = 4;
     /**
      * <pre>
      * 铁
      * </pre>
      *
-     * <code>IRON = 3;</code>
+     * <code>IRON = 5;</code>
      */
-    public static final int IRON_VALUE = 3;
+    public static final int IRON_VALUE = 5;
 
 
     public final int getNumber() {
@@ -247,8 +279,10 @@ public final class ProtoCommon {
     public static Resource forNumber(int value) {
       switch (value) {
         case 1: return GOLD;
-        case 2: return WOOD;
-        case 3: return IRON;
+        case 2: return SILVER;
+        case 3: return FOOD;
+        case 4: return WOOD;
+        case 5: return IRON;
         default: return null;
       }
     }
@@ -3823,10 +3857,11 @@ public final class ProtoCommon {
       "\030\001 \003(\0132 .com.caidt.proto.DisplayResource" +
       "\022+\n\005items\030\002 \003(\0132\034.com.caidt.proto.Displa",
       "yItem*C\n\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001" +
-      "\022\n\n\006client\020\002\022\010\n\004game\020\003\022\n\n\006common\020\004*(\n\010Re" +
-      "source\022\010\n\004GOLD\020\001\022\010\n\004WOOD\020\002\022\010\n\004IRON\020\003*F\n\010" +
-      "ItemType\022\n\n\006NORMAL\020\000\022\n\n\006RANDOM\020\001\022\n\n\006UNIQ" +
-      "UE\020\002\022\013\n\007PACKAGE\020\003\022\t\n\005EQUIP\020\004"
+      "\022\n\n\006client\020\002\022\010\n\004game\020\003\022\n\n\006common\020\004*>\n\010Re" +
+      "source\022\010\n\004GOLD\020\001\022\n\n\006SILVER\020\002\022\010\n\004FOOD\020\003\022\010" +
+      "\n\004WOOD\020\004\022\010\n\004IRON\020\005*F\n\010ItemType\022\n\n\006NORMAL" +
+      "\020\000\022\n\n\006RANDOM\020\001\022\n\n\006UNIQUE\020\002\022\013\n\007PACKAGE\020\003\022" +
+      "\t\n\005EQUIP\020\004"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
