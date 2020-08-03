@@ -5,11 +5,14 @@ import akka.actor.ActorSystem
 import akka.actor.Address
 import akka.actor.Props
 import akka.cluster.Cluster
+import akka.cluster.client.ClusterClient
+import akka.cluster.client.ClusterClientSettings
 import akka.cluster.sharding.ClusterSharding
 import akka.cluster.sharding.ClusterShardingSettings
 import akka.cluster.sharding.ShardRegion
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
+import com.caidt.share.GenerateUid
 import com.caidt.share.PlayerEnvelope
 import com.caidt.share.WorldEnvelope
 import com.typesafe.config.Config
@@ -47,7 +50,8 @@ abstract class GameServer(val port: Int) {
   /** actor system */
   val actorSystem: ActorSystem by lazy { buildActorSystem() }
 
-  private val cluster: Cluster = Cluster.get(actorSystem)
+  lateinit var cluster: Cluster
+    private set
 
   /** znode */
   private val znode = ZNode()
@@ -61,12 +65,16 @@ abstract class GameServer(val port: Int) {
   lateinit var worldProxy: ActorRef
     private set
 
+  lateinit var clusterClient: ActorRef
+    private set
+
   abstract fun start()
 
   abstract fun close()
 
   private fun buildActorSystem(): ActorSystem {
     val additionConfig: String = """
+      akka.remote.netty.tcp.hostname=$localhost
       akka.remote.netty.tcp.port=$port
     """.trimIndent()
     val config: Config = ConfigFactory.parseString(additionConfig).withFallback(ConfigFactory.load())
@@ -79,6 +87,7 @@ abstract class GameServer(val port: Int) {
 
     actorSystem.whenTerminated.handle { _, _ -> close() }
     val seedNodes = znode.getSeedNodes()
+    cluster = Cluster.get(actorSystem)
     cluster.joinSeedNodes(seedNodes)
     cluster.registerOnMemberUp {
       logger.info("cluster is Up!")
@@ -91,11 +100,11 @@ abstract class GameServer(val port: Int) {
     znode.close()
   }
 
-  fun startShardRegion(entity: Class<*>) {
+  fun startShardRegion(props: Props) {
     val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
     shardRegion = ClusterSharding.get(actorSystem)
-      .start(javaClass.simpleName, Props.create(entity), settings, messageExtractor)
-    logger.info("cluster shardRegion is started!")
+      .start(javaClass.simpleName, props, settings, messageExtractor)
+    // logger.info("cluster shardRegion is started!")
   }
 
   private fun closeShardRegion() {
@@ -120,6 +129,16 @@ abstract class GameServer(val port: Int) {
 
   fun closeWorldProxy() {
     worldProxy.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
+  }
+
+  fun startClusterClient() {
+    val clientSettings = ClusterClientSettings.create(actorSystem)
+    clusterClient = actorSystem.actorOf(ClusterClient.props(clientSettings), "gate")
+  }
+
+  fun getUid(actorRef: ActorRef): Long {
+    clusterClient.tell(ClusterClient.Send("/user/gate/uidGenerator", GenerateUid), actorRef)
+    return 0L
   }
 
 }

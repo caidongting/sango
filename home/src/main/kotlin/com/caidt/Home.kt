@@ -1,20 +1,14 @@
 package com.caidt
 
-import akka.actor.ActorSelection
+import akka.actor.Props
 import com.caidt.infrastructure.GameServer
 import com.caidt.infrastructure.Role
 import com.caidt.infrastructure.config.ExcelConfigs
-import com.caidt.share.PlayerMessage
-import com.caidt.share.WorldMessage
 
 
 object Home : GameServer(port = 2552) {
 
   override val role: Role = Role.home
-
-  val homeSelection: ActorSelection = actorSystem.actorSelection("/user/home")
-
-  val WorldSelection: ActorSelection = actorSystem.actorSelection("/user/world")
 
   override fun start() {
     startSystem()
@@ -31,7 +25,7 @@ object Home : GameServer(port = 2552) {
   }
 
   private fun startShardRegion() {
-    startShardRegion(PlayerActor::class.java)
+    startShardRegion(Props.create(PlayerActor::class.java))
   }
 }
 

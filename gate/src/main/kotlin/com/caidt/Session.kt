@@ -9,7 +9,7 @@ import com.google.protobuf.MessageLite
 import io.netty.channel.ChannelHandlerContext
 
 // 负责与player通信
-class Session(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
+class Session(val playerId: Long, private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
 
   override fun onReceive(message: Any?) {
     when (message) {

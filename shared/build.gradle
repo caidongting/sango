@@ -49,3 +49,9 @@ protobuf {
     }
 }
 
+task initZookeeper(dependsOn: compileKotlin, type: JavaExec) {
+    description = 'init zookeeper config...'
+    classpath = sourceSets.main.runtimeClasspath
+    systemProperties System.getProperties()
+    main = "com.caidt.infrastructure.ZookeeperInitKt"
+}

@@ -25,12 +25,15 @@ const val SMALL_MAILBOX = "akka.actor.small-unbounded-mailbox"
 /** 集群名称，各节点相同 */
 const val CLUSTER_NAME = "cluster"
 /** 默认用户 */
-const val DEFAULT_USER = "root"
+const val DEFAULT_ROOT = "root"
 
 /** 本机ip 需确定在unix环境下是否适用 */
-val localhost: String = InetAddress.getLocalHost().hostAddress
+const val localhost: String = "192.168.1.3"
+// val localhost: String = InetAddress.getLocalHost().hostAddress ?: "192.168.1.3"
 /** 是否开发模式 */
 val isDev: Boolean get() = System.getenv("MODE") == "dev"
+/** zk namespace */
+val zkroot: String get() = System.getProperty("zkroot", DEFAULT_ROOT)
 
 /** excel config 目录 */
 const val EXCEL_CONFIG_DIR = "com.caidt.share.config"

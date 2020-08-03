@@ -1,6 +1,6 @@
 package com.caidt
 
-import akka.actor.ActorSelection
+import akka.actor.ActorRef
 import akka.pattern.Patterns
 import com.caidt.share.*
 import com.google.protobuf.MessageLite
@@ -45,10 +45,10 @@ internal fun PlayerActor.sendMessageToWorld(msg: WorldEnvelope) {
   Home.worldProxy.tell(msg, self)
 }
 
-internal fun selection(request: Any): ActorSelection {
+internal fun selection(request: Any): ActorRef {
   return when (request) {
-    is PlayerMessage -> Home.homeSelection
-    is WorldMessage -> Home.WorldSelection
+    is PlayerMessage -> Home.homeProxy
+    is WorldMessage -> Home.worldProxy
     else -> throw RuntimeException()
   }
 }

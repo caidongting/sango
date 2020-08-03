@@ -1,11 +1,12 @@
 package com.caidt.share.config
 
 
+import com.caidt.infrastructure.config.DoNotLoad
 import com.caidt.infrastructure.config.ExcelConfig
 import com.caidt.util.Asserts.notNull
 import com.caidt.util.excel.ExcelFile
 
-
+@DoNotLoad
 class RobotConfig : ExcelConfig() {
 
   /** 机体配置 <uid, RobotCfg> */

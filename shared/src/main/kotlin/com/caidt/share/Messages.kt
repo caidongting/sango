@@ -14,6 +14,8 @@ object Ok
 /** 断开与客户端的连接 */
 object Disconnect
 
+object GenerateUid
+
 /** 玩家消息 */
 data class PlayerEnvelope(val playerId: Long, val payload: Any)
 

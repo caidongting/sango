@@ -77,6 +77,7 @@ subprojects {
         implementation "org.codehaus.janino:janino:3.1.2" // tiny java compiler
 //        implementation "org.apache.dubbo:dubbo:2.7.7"
         implementation "com.zaxxer:HikariCP:3.4.5"
+//        implementation "org.apache.zookeeper:zookeeper:3.6.1"
 
 
         testCompile "junit:junit:4.12"

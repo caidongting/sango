@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
 
-	<property name="LOG_HOME" value="log"/>
+	<property name="LOG_HOME" value="/log"/>
 
 	<!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
@@ -39,9 +39,9 @@
 	<logger name="org.hibernate.engine.QueryParameters" level="debug"/>
 	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="debug"/>
 
-	<logger name="akka.cluster.sharding.ShardRegion" level="debug"/>
+	<logger name="akka.cluster.sharding.ShardRegion" level="info"/>
 	<logger name="akka.cluster.sharding.ClusterSharding" level="debug"/>
 
-	<logger name="org.apache.zookeeper.ClientCnxn" level="debug"/>
+	<logger name="org.apache.zookeeper.ClientCnxn" level="info"/>
 
 </configuration>
