@@ -4,7 +4,6 @@ import akka.actor.Address
 import com.caidt.util.JSON
 import org.apache.curator.framework.CuratorFramework
 import org.apache.curator.framework.CuratorFrameworkFactory
-import org.apache.curator.framework.api.CuratorWatcher
 import org.apache.curator.retry.ExponentialBackoffRetry
 import org.apache.zookeeper.CreateMode
 import org.slf4j.Logger
@@ -25,16 +24,6 @@ class ZNode {
       .build()
     curatorFramework.start()
     logger.debug("Znode stated!")
-
-//    curatorFramework.children.usingWatcher(CuratorWatcher { event: WatchedEvent ->
-//      val state = event.state
-//    }).forPath("")
-//
-//    curatorFramework.inTransaction()
-//      .create().forPath("")
-//      .and().create().forPath("")
-//      .and().delete().forPath("")
-//      .and().commit()
   }
 
   /** 服务器上线注册临时节点 */

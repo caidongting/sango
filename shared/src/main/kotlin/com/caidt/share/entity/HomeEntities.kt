@@ -16,8 +16,10 @@ data class PlayerAccountEntity(
   @Id
   @Column(name = "player_id")
   override val playerId: Long,
+
   @Column(name = "name")
   var name: String,
+
   @Column(name = "world_id")
   var worldId: Long
 ) : PlayerEntity {
@@ -47,9 +49,14 @@ data class ItemEntity(
   @Id
   @Column(name = "uid")
   val uid: Long,
+
   @Id
   @Column(name = "player_id")
   override val playerId: Long,
+
+  @Column(name = "item_id")
+  val itemId: Int,
+
   @Column(name = "count")
   var count: Long
 ) : PlayerEntity {
@@ -63,6 +70,7 @@ data class ResourcePk(
   @Id
   @Column(name = "player_id")
   override val playerId: Long,
+
   @Id
   @Column(name = "type")
   @Enumerated(EnumType.STRING)
@@ -80,10 +88,14 @@ data class ResourceEntity(
   @Id
   @Column(name = "player_id")
   override val playerId: Long,
+
   @Id
   @Column(name = "type")
   @Enumerated(EnumType.STRING)
-  val type: ProtoCommon.Resource
+  val type: ProtoCommon.Resource,
+
+  @Column(name = "count")
+  var count: Long
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return ResourcePk(playerId, type)

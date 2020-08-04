@@ -2,18 +2,29 @@ import kotlin.concurrent.thread
 
 fun main() {
   val o = Object()
-  val thread = thread {
+  thread {
     println("enter thread ${Thread.currentThread().name}")
     synchronized(o) {
-      o.wait(1000L) // release the monitor
+      o.wait() // release the monitor
+//      o.notify()
+      Thread.sleep(500L)
+      println("thread ${Thread.currentThread().name} notified")
     }
-    println("thread ${Thread.currentThread().name} notified")
   }
 
+  thread {
+    println("enter thread ${Thread.currentThread().name}")
+    synchronized(o) {
+      o.wait() // release the monitor
+//      o.notify()
+      Thread.sleep(500L)
+      println("thread ${Thread.currentThread().name} notified")
+    }
+  }
+
+  Thread.sleep(1000L)
   synchronized(o) {
     o.notifyAll()
-    Thread.sleep(3000L)
     println("thread ${Thread.currentThread().name} fire notify")
   }
-  thread.join()
 }
