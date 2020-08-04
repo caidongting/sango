@@ -22,9 +22,7 @@ object AES {
   // 加密
   fun encrypt(bytes: ByteArray, key: String): ByteArray {
     val secretKeySpec = generateKey(key)
-    val cipher = Cipher.getInstance(CIPHER_ALGORITHM)
-    cipher.init(Cipher.ENCRYPT_MODE, secretKeySpec)
-    return cipher.doFinal(bytes)
+    return encrypt(bytes, secretKeySpec)
   }
 
   // 解密
@@ -37,9 +35,7 @@ object AES {
   // 解密
   fun decrypt(bytes: ByteArray, key: String): ByteArray {
     val secretKeySpec = generateKey(key)
-    val cipher = Cipher.getInstance(CIPHER_ALGORITHM)
-    cipher.init(Cipher.DECRYPT_MODE, secretKeySpec)
-    return cipher.doFinal(bytes)
+    return decrypt(bytes, secretKeySpec)
   }
 
   // 生成随机密钥

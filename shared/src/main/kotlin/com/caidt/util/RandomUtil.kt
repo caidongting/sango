@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package com.caidt.util
 
 import java.util.*
@@ -49,6 +51,11 @@ object RandomUtil {
   fun between(start: Int, end: Int): Int {
     require(start < end) { "start=$start must < end=$end" }
     return ThreadLocalRandom.current().nextInt(start, end)
+  }
+
+  fun isHit(percent: Int, base: Int): Boolean {
+    val nextInt = ThreadLocalRandom.current().nextInt(base)
+    return percent >= nextInt + 1
   }
 
 }

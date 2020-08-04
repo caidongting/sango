@@ -12,13 +12,14 @@ fun xx() {
 
 val lambda = map {  }
 ```
-- 函数返回类型除 `Unit` 外必须明显式指定
+- 函数返回类型除 `Unit` 外必须显式指定
 - top-level function or property 必须明确各种类型且确认是否必要，大部分可以用 `internel`限制作用域
 
 ### 默认约定
 #### 1. protobuf
 - 采用默认生成的规则，文件以`proto_xxx.proto`的形式，`package`指定生成的java文件位置。
 - 来自客户端的消息以后缀`request`，返回给客户端的消息以后缀`response`
+- 推送消息以前缀`SC`开始
 
 #### 2. 数据库 hibernate
 所有的table都与一个entity对应，entity统一继承`IEntity`接口，用于后面的使用
@@ -26,7 +27,12 @@ val lambda = map {  }
 #### 3. entityWrapper
 用于包装`Entity`，同时处理数据格式，便于游戏内部使用。使用`toEntity()`转化为实体存储，`toDisplay()` 转化为前端信息展示
 
-#### 4. 使用property而不是函数：
+#### 4. ExcelConfig
+每个模块对应一个ExcelConfig，需继承`ExcelConfig`，以`Config`作后缀，单张表使用`cfg`作后缀，
+在加载完毕后对数据完整性，格式正确进行检验，需要引用其他Excel进行校验的，在`afterLoadAll`中
+使用`getExcel(excelName)`获取
+
+#### 5. 使用property而不是函数：
 - O(1)复杂度
 - 底层逻辑简单
 - 缓存的数据
