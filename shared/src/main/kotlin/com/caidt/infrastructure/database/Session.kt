@@ -36,10 +36,10 @@ class Session(private val sessionFactory: SessionFactory) {
   }
 
   fun <T : PlayerEntity> findByPlayerId(clazz: Class<T>, playerId: Long): List<T> {
+    val declaredField = clazz.getDeclaredField(PlayerEntity::playerId.name)
+    val name = declaredField.getAnnotation(Column::class.java).name
     @Suppress("UNCHECKED_CAST")
     return exec { session ->
-      val declaredField = clazz.getDeclaredField(PlayerEntity::playerId.name)
-      val name = declaredField.getAnnotation(Column::class.java).name
       session.createCriteria(clazz).add(Restrictions.eq(name, playerId)).list().distinct()
     } as List<T>
   }

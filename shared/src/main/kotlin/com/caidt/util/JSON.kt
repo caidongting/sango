@@ -2,7 +2,10 @@
 
 package com.caidt.util
 
-import com.fasterxml.jackson.databind.*
+import com.fasterxml.jackson.databind.DeserializationFeature
+import com.fasterxml.jackson.databind.JavaType
+import com.fasterxml.jackson.databind.ObjectMapper
+import com.fasterxml.jackson.databind.SerializationFeature
 
 object JSON {
 
@@ -15,20 +18,20 @@ object JSON {
     // SerializationFeature for changing how JSON is written
 
     // to enable standard indentation ("pretty-printing"):
-    json.enable(SerializationFeature.INDENT_OUTPUT);
+    json.enable(SerializationFeature.INDENT_OUTPUT)
     // to allow serialization of "empty" POJOs (no properties to serialize)
     // (without this setting, an exception is thrown in those cases)
-    json.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS);
+    json.disable(SerializationFeature.FAIL_ON_EMPTY_BEANS)
     // to write java.util.Date, Calendar as number (timestamp):
-    json.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS);
+    json.disable(SerializationFeature.WRITE_DATES_AS_TIMESTAMPS)
 
     // DeserializationFeature for changing how JSON is read as POJOs:
 
     // json.configure(DeserializationFeature.FAIL_ON_IGNORED_PROPERTIES, true)
     // to prevent exception when encountering unknown property:
-    json.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+    json.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES)
     // to allow coercion of JSON empty String ("") to null Object value:
-    json.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT);
+    json.enable(DeserializationFeature.ACCEPT_EMPTY_STRING_AS_NULL_OBJECT)
   }
 
   fun toJSONString(obj: Any): String {

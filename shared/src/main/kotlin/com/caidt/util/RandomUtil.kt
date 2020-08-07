@@ -28,6 +28,19 @@ object RandomUtil {
   }
 
   /**
+   * 从[list]中随机取出[n]个元素
+   */
+  fun <E> select(list: MutableList<E>, n: Int): List<E> {
+    require(n >= 0) { "n=$n must above zero" }
+    if (list.isEmpty()) return emptyList()
+
+    if (list.size <= n) return list;
+
+    list.shuffle()
+    return list.subList(0, n)
+  }
+
+  /**
    * 从[origin]中根据权重随机一个元素
    */
   fun <E> select(origin: Collection<E>, weight: KProperty1<E, Int>): E {

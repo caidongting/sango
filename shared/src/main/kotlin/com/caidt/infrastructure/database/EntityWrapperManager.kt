@@ -29,8 +29,7 @@ object EntityWrapperManager {
   }
 
   private fun createTracker(op: OP, wrapper: EntityWrapper<*>) {
-    val tracker = Tracker(op, wrapper, Instant.now())
-    trackerList.add(tracker)
+    trackerList.add(Tracker(op, wrapper))
   }
 
   fun tick(now: Instant) {
@@ -45,7 +44,7 @@ object EntityWrapperManager {
     for (tracker in trackerList) {
       // 检测时间
       if (tracker.checkTime.isBefore(now)) {
-        tracker.updateTime(now)
+        tracker.checkTime = Instant.now()
         val entity = tracker.wrapper.toEntity()
         // todo: ensure entity content has been changed
         // compare hashcode / custom hashcode / content hashcode
@@ -91,13 +90,9 @@ enum class OP {
 
 data class Operation(val op: OP, val entity: IEntity)
 
-data class Tracker(val op: OP, val wrapper: EntityWrapper<*>, private var lastCheck: Instant) {
+data class Tracker(val op: OP, val wrapper: EntityWrapper<*>) {
 
-  val checkTime: Instant get() = lastCheck.plus(wrapper.duration())
-
-  fun updateTime(now: Instant) {
-    lastCheck = now
-  }
-
+  var checkTime: Instant = Instant.now()
+    get() = field.plus(wrapper.duration())
 
 }
