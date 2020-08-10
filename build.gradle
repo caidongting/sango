@@ -14,6 +14,7 @@ buildscript {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
         classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
+        classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
     }
 }
 
@@ -77,7 +78,6 @@ subprojects {
         implementation "org.codehaus.janino:janino:3.1.2" // tiny java compiler
 //        implementation "org.apache.dubbo:dubbo:2.7.7"
         implementation "com.zaxxer:HikariCP:3.4.5"
-        implementation "org.hibernate:hibernate-hikaricp:3.6.10.Final"
 //        implementation "org.apache.zookeeper:zookeeper:3.6.1"
         implementation "org.postgresql:postgresql:42.2.14"
 

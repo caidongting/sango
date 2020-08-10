@@ -1,9 +1,6 @@
 package com.caidt.infrastructure
 
-import akka.actor.ActorRef
-import akka.actor.ActorSystem
-import akka.actor.Address
-import akka.actor.Props
+import akka.actor.*
 import akka.cluster.Cluster
 import akka.cluster.client.ClusterClient
 import akka.cluster.client.ClusterClientSettings
@@ -95,7 +92,6 @@ abstract class GameServer(val port: Int) {
   }
 
   fun closeSystem() {
-//    cluster.leave(cluster.selfAddress())
     closeShardRegion()
     znode.close()
   }
@@ -132,12 +128,13 @@ abstract class GameServer(val port: Int) {
   }
 
   fun startClusterClient() {
-    val clientSettings = ClusterClientSettings.create(actorSystem)
+    val actorPath = ActorPaths.fromString("akka.tcp://$CLUSTER_NAME@127.0.0.1/system/receptionist")
+    val clientSettings = ClusterClientSettings.create(actorSystem).withInitialContacts(setOf(actorPath))
     clusterClient = actorSystem.actorOf(ClusterClient.props(clientSettings), "gate")
   }
 
   fun getUid(actorRef: ActorRef): Long {
-    clusterClient.tell(ClusterClient.Send("/user/gate/uidGenerator", GenerateUid), actorRef)
+    clusterClient.tell(ClusterClient.Send("/user/uidGenerator", GenerateUid), actorRef)
     return 0L
   }
 

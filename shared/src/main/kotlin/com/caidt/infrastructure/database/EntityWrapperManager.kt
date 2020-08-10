@@ -1,6 +1,6 @@
 package com.caidt.infrastructure.database
 
-import com.caidt.share.Ticker
+import com.caidt.share.Timer
 import java.time.Instant
 import java.util.*
 
@@ -14,7 +14,7 @@ object EntityWrapperManager {
   /** 定时刷新间隔(s) */
   private const val DURATION_FLUSH = 600L
 
-  private val ticker = Ticker(DURATION_FLUSH) // flush every 10 minutes (default)
+  private val ticker = Timer(DURATION_FLUSH) // flush every 10 minutes (default)
 
   fun update(wrapper: EntityWrapper<*>) {
     createTracker(OP.UPDATE, wrapper)

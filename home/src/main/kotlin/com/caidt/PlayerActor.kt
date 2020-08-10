@@ -1,6 +1,8 @@
 package com.caidt
 
-import akka.actor.*
+import akka.actor.ActorRef
+import akka.actor.Cancellable
+import akka.actor.UntypedAbstractActor
 import com.caidt.dataContainer.PlayerDC
 import com.caidt.infrastructure.GameException
 import com.caidt.memory.DataContainer
@@ -40,9 +42,9 @@ open class PlayerActor : UntypedAbstractActor() {
 
   private val playerAccount: PlayerAccountEntity get() = playerDC.entity
 
-  val eventBus: EventBus by lazy { EventBus(context.system) }
+  val eventBus: EventBus by lazy { EventBus(context) }
 
-  val commonTick: CommonTick by lazy { CommonTick(context.system) }
+  val commonTick: CommonTick by lazy { CommonTick(context) }
 
 
   override fun onReceive(message: Any?) {

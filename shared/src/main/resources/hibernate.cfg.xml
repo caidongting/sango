@@ -18,10 +18,10 @@
 		<property name="connection.password">25770</property>
 
 		<!-- 配置连接池 postgresql -->
-<!--		<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>-->
-<!--		<property name="connection.url">jdbc:postgresql://localhost:5432/majsoul</property>-->
-<!--		<property name="connection.username">postgres</property>-->
-<!--		<property name="connection.password">257701</property>-->
+		<!--<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>-->
+		<!--<property name="connection.url">jdbc:postgresql://localhost:5432/majsoul</property>-->
+		<!--<property name="connection.username">postgres</property>-->
+		<!--<property name="connection.password">257701</property>-->
 
 		<!-- mapping class -->
 		<mapping class="com.caidt.share.entity.PlayerAccountEntity"/>

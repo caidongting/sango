@@ -3,10 +3,8 @@ package com.caidt
 import akka.actor.ActorRef
 import akka.actor.ActorSystem
 import akka.cluster.client.ClusterClientReceptionist
-import akka.event.japi.LookupEventBus
 import com.caidt.infrastructure.CLUSTER_NAME
 import com.caidt.infrastructure.Role
-import com.caidt.share.WorldEnvelope
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 
@@ -41,9 +39,10 @@ object Gate {
 
     val actorRef = actorSystem.actorOf(UidGenerator.props(), "uidGenerator")
     ClusterClientReceptionist.get(actorSystem).registerService(actorRef);
+
     val channel = 128L
-    Bus.subscribe(actorRef, channel)
-    Bus.unsubscribe(actorRef, channel)
+    ChannelBus.subscribe(actorRef, channel)
+    ChannelBus.unsubscribe(actorRef, channel)
   }
 
 }
@@ -51,22 +50,4 @@ object Gate {
 
 fun main() {
   Gate.start()
-}
-
-object Bus : LookupEventBus<WorldEnvelope, ActorRef, Long>() {
-  override fun mapSize(): Int {
-    return 128 // topic size
-  }
-
-  override fun compareSubscribers(a: ActorRef, b: ActorRef): Int {
-    return a.compareTo(b)
-  }
-
-  override fun classify(event: WorldEnvelope): Long {
-    return event.worldId
-  }
-
-  override fun publish(event: WorldEnvelope, subscriber: ActorRef) {
-    subscriber.tell(event.payload, ActorRef.noSender())
-  }
 }

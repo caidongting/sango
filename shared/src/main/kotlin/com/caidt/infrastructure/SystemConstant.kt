@@ -1,7 +1,5 @@
 package com.caidt.infrastructure
 
-import java.net.InetAddress
-
 /**
  * this file contain lots of system important const properties which influence many module of this application,
  * be careful when modifies (add, remove or update etc.) this file.

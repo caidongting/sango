@@ -30,6 +30,6 @@ object Home : GameServer(port = 2552) {
 }
 
 
-fun main() {
+fun main(args: Array<String>) {
   Home.start()
 }

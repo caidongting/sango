@@ -80,6 +80,7 @@ class Worker : UntypedAbstractActor() {
     fun props(): Props {
       return Props.create(Worker::class.java)
         .withMailbox(LARGE_MAILBOX)
+        .withDispatcher("worker-dispatcher")
     }
   }
 
@@ -100,14 +101,14 @@ class Worker : UntypedAbstractActor() {
 class TickDuration(
   private val group: String,
   private val executor: ActorRef,
-  private val duration: Long = 1
+  private val duration: Long = 1L
 ) {
 
   private var tick = 0
-  private val jobs: MutableMap<String, Ticker> = mutableMapOf()
+  private val jobs: MutableMap<String, Timer> = mutableMapOf()
 
   fun tick(name: String, duration: Long, exec: () -> Unit) {
-    val ticker = jobs.computeIfAbsent(name) { Ticker(duration) }
+    val ticker = jobs.computeIfAbsent(name) { Timer(duration) }
     tick++
     if (tick >= this.duration) {
       ticker.tick {
@@ -119,20 +120,21 @@ class TickDuration(
 
 }
 
+/** [Tick] 计数器 */
 class TickTimer(private val executor: ActorRef, duration: Long) {
 
-  private var ticker: Ticker = Ticker(duration)
+  private val timer: Timer = Timer(duration)
 
   fun tick(exec: () -> Unit) {
-    ticker.tick {
+    timer.tick {
       executor.tellNoSender(Runnable(exec))
     }
   }
 
 }
 
-// 通过[Tick]触发
-class Ticker(private val duration: Long) {
+/** 计数器 */
+class Timer(private val duration: Long) {
 
   private var tick = 0
 

@@ -23,10 +23,8 @@ fun initZookeeper(zkroot: String) {
   curatorFramework.start()
 
 
-  // 1. 删除已经存在的节点
+  // 1. 更新seedNodes
   curatorFramework.delete().deletingChildrenIfNeeded().forPath("/seedNodes")
-
-  // 2. 创建新节点
   val data = listOf(
     "home:akka.tcp:$CLUSTER_NAME:$localhost:2552",
     "world:akka.tcp:$CLUSTER_NAME:$localhost:2553"
@@ -37,13 +35,10 @@ fun initZookeeper(zkroot: String) {
     .withMode(CreateMode.PERSISTENT)
     .forPath("/seedNodes", JSON.toByteArray(data))
 
-  // builder.forPath("home")
-  // builder.forPath("world")
-  // builder.forPath("data")
-  // builder.forPath("battle")
+  // 2. 配置表
 
-  // 2. 填充seedNodes
+  // 3.
 
 
-  // curatorFramework.close()
+  curatorFramework.close()
 }
