@@ -1,30 +1,43 @@
 package com.caidt.share.common
 
+import com.caidt.infrastructure.config.ExcelConfigs
 import com.caidt.proto.ProtoCommon
+import com.caidt.share.config.ItemCfg
 
-class DisplayItem(
+// 道具 作为配置数据，不可变
+class ItemData(
   val id: Int,
   val count: Long
 ) {
 
-  operator fun plus(item: DisplayItem): DisplayItem {
-    return DisplayItem(id, count + item.count)
+  val cfg: ItemCfg get() = ExcelConfigs.itemConfig[id]
+  val name: String get() = cfg.name
+
+  operator fun plus(itemData: ItemData): ItemData {
+    return ItemData(id, count + itemData.count)
   }
 }
 
-class DisplayResource(
+// 资源 作为配置数据，不可变
+class ResourceData(
   val type: ProtoCommon.Resource,
-  var count: Long
-)
-
-
-/** 通用礼包 */
-class RewardPackage private constructor(
-  val items: List<DisplayItem>,
-  val resources: List<DisplayResource>
+  val count: Long
 ) {
 
-  fun builder(): Builder = Builder(this)
+  operator fun plus(resourceData: ResourceData): ResourceData {
+    return ResourceData(type, count + resourceData.count)
+  }
+
+}
+
+
+/** 通用礼包 不可变 */
+class RewardPackage private constructor(
+  val items: List<ItemData>,
+  val resources: List<ResourceData>
+) {
+
+  fun builder(): Builder = Builder() + this
 
   fun getCount(resource: ProtoCommon.Resource): Long {
     return resources.filter { it.type == resource }.map { it.count }.sum()
@@ -38,33 +51,23 @@ class RewardPackage private constructor(
     fun newBuilder(): Builder = Builder()
   }
 
-  class Builder() {
-    private val items: MutableList<DisplayItem> = mutableListOf()
-    private val resources: MutableList<DisplayResource> = mutableListOf()
+  class Builder {
+    private val items: MutableList<ItemData> = mutableListOf()
+    private val resources: MutableList<ResourceData> = mutableListOf()
 
-    constructor(rewardPackage: RewardPackage) : this() {
-      items.addAll(rewardPackage.items)
-      resources.addAll(rewardPackage.resources)
-    }
-
-    operator fun plus(item: DisplayItem): Builder {
-      items.add(item)
+    operator fun plus(itemData: ItemData): Builder {
+      this.items.add(itemData)
       return this
     }
 
-    operator fun plus(items: List<DisplayItem>): Builder {
-      this.items.addAll(items)
-      return this
-    }
-
-    operator fun plus(resource: DisplayResource): Builder {
-      resources.add(resource)
+    operator fun plus(resource: ResourceData): Builder {
+      this.resources.add(resource)
       return this
     }
 
     operator fun plus(rewardPackage: RewardPackage): Builder {
-      items.addAll(rewardPackage.items)
-      resources.addAll(rewardPackage.resources)
+      addItems(rewardPackage.items)
+      addResources(rewardPackage.resources)
       return this
     }
 
@@ -75,6 +78,16 @@ class RewardPackage private constructor(
 
     fun build(): RewardPackage {
       return RewardPackage(items, resources)
+    }
+
+    fun addItems(itemData: Collection<ItemData>): Builder {
+      this.items.addAll(itemData)
+      return this
+    }
+
+    fun addResources(resourceData: Collection<ResourceData>): Builder {
+      this.resources.addAll(resourceData)
+      return this
     }
   }
 

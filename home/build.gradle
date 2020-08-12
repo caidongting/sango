@@ -6,12 +6,12 @@ dependencies {
 }
 
 apply plugin: 'application'
-apply plugin: 'com.github.johnrengelman.shadow'
+//apply plugin: 'com.github.johnrengelman.shadow'
 
 archivesBaseName = 'home'
 mainClassName = 'com.caidt.HomeKt'
 
-shadowJar {
-    classifier = ''
-    exclude "*/*.proto" // 不打包proto文件
-}
+//shadowJar {
+//    classifier = ''
+//    exclude "*/*.proto" // 不打包proto文件
+//}

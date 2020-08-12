@@ -334,6 +334,167 @@ public final class ProtoCommon {
 
   /**
    * <pre>
+   * 品质
+   * </pre>
+   *
+   * Protobuf enum {@code com.caidt.proto.Color}
+   */
+  public enum Color
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <pre>
+     * 白色
+     * </pre>
+     *
+     * <code>WHITE = 1;</code>
+     */
+    WHITE(1),
+    /**
+     * <pre>
+     * 蓝色
+     * </pre>
+     *
+     * <code>BLUE = 2;</code>
+     */
+    BLUE(2),
+    /**
+     * <pre>
+     * 紫色
+     * </pre>
+     *
+     * <code>PURE = 3;</code>
+     */
+    PURE(3),
+    /**
+     * <pre>
+     * 金色
+     * </pre>
+     *
+     * <code>YELLOW = 4;</code>
+     */
+    YELLOW(4),
+    /**
+     * <pre>
+     * 红色
+     * </pre>
+     *
+     * <code>RED = 5;</code>
+     */
+    RED(5),
+    ;
+
+    /**
+     * <pre>
+     * 白色
+     * </pre>
+     *
+     * <code>WHITE = 1;</code>
+     */
+    public static final int WHITE_VALUE = 1;
+    /**
+     * <pre>
+     * 蓝色
+     * </pre>
+     *
+     * <code>BLUE = 2;</code>
+     */
+    public static final int BLUE_VALUE = 2;
+    /**
+     * <pre>
+     * 紫色
+     * </pre>
+     *
+     * <code>PURE = 3;</code>
+     */
+    public static final int PURE_VALUE = 3;
+    /**
+     * <pre>
+     * 金色
+     * </pre>
+     *
+     * <code>YELLOW = 4;</code>
+     */
+    public static final int YELLOW_VALUE = 4;
+    /**
+     * <pre>
+     * 红色
+     * </pre>
+     *
+     * <code>RED = 5;</code>
+     */
+    public static final int RED_VALUE = 5;
+
+
+    public final int getNumber() {
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static Color valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static Color forNumber(int value) {
+      switch (value) {
+        case 1: return WHITE;
+        case 2: return BLUE;
+        case 3: return PURE;
+        case 4: return YELLOW;
+        case 5: return RED;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<Color>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        Color> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<Color>() {
+            public Color findValueByNumber(int number) {
+              return Color.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(2);
+    }
+
+    private static final Color[] VALUES = values();
+
+    public static Color valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private Color(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:com.caidt.proto.Color)
+  }
+
+  /**
+   * <pre>
    * 道具类型
    * </pre>
    *
@@ -470,7 +631,7 @@ public final class ProtoCommon {
     }
     public static final com.google.protobuf.Descriptors.EnumDescriptor
         getDescriptor() {
-      return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(2);
+      return com.caidt.proto.ProtoCommon.getDescriptor().getEnumTypes().get(3);
     }
 
     private static final ItemType[] VALUES = values();
@@ -3859,9 +4020,10 @@ public final class ProtoCommon {
       "yItem*C\n\006Reason\022\013\n\007unknown\020\000\022\n\n\006server\020\001" +
       "\022\n\n\006client\020\002\022\010\n\004game\020\003\022\n\n\006common\020\004*>\n\010Re" +
       "source\022\010\n\004GOLD\020\001\022\n\n\006SILVER\020\002\022\010\n\004FOOD\020\003\022\010" +
-      "\n\004WOOD\020\004\022\010\n\004IRON\020\005*F\n\010ItemType\022\n\n\006NORMAL" +
-      "\020\000\022\n\n\006RANDOM\020\001\022\n\n\006UNIQUE\020\002\022\013\n\007PACKAGE\020\003\022" +
-      "\t\n\005EQUIP\020\004"
+      "\n\004WOOD\020\004\022\010\n\004IRON\020\005*;\n\005Color\022\t\n\005WHITE\020\001\022\010" +
+      "\n\004BLUE\020\002\022\010\n\004PURE\020\003\022\n\n\006YELLOW\020\004\022\007\n\003RED\020\005*" +
+      "F\n\010ItemType\022\n\n\006NORMAL\020\000\022\n\n\006RANDOM\020\001\022\n\n\006U" +
+      "NIQUE\020\002\022\013\n\007PACKAGE\020\003\022\t\n\005EQUIP\020\004"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

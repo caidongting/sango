@@ -1,6 +1,7 @@
 package com.caidt.infrastructure.config
 
 import com.caidt.infrastructure.EXCEL_CONFIG_DIR
+import com.caidt.share.config.ItemConfig
 import com.caidt.share.config.RobotConfig
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -32,5 +33,7 @@ object ExcelConfigs {
 
 
   val robotConfig: RobotConfig get() = getConfig(RobotConfig::class.java)
+
+  val itemConfig: ItemConfig get() = getConfig(ItemConfig::class.java)
 
 }

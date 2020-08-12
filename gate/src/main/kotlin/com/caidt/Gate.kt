@@ -41,8 +41,8 @@ object Gate {
     ClusterClientReceptionist.get(actorSystem).registerService(actorRef);
 
     val channel = 128L
-    ChannelBus.subscribe(actorRef, channel)
-    ChannelBus.unsubscribe(actorRef, channel)
+    Bus.subscribe(actorRef, channel)
+    Bus.unsubscribe(actorRef, channel)
   }
 
 }

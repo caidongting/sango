@@ -1,13 +1,16 @@
 syntax = "proto2";
 package com.caidt.proto;
+import "proto_common.proto";
 
+enum HeroAttr {
+    attack = 1;
+    defence = 2;
+    hp = 3;
+}
 
-enum Color {
-    red = 1;
-    pure = 2;
-    blue = 3;
-    yellow = 4;
-    gold = 5;
+message HeroAttrData {
+    required HeroAttr type = 1;
+    required int32 value = 2;
 }
 
 message DisplayHero {
@@ -18,17 +21,6 @@ message DisplayHero {
     required Color color = 5; // 品质
     required int32 star = 6; // 星级
     repeated HeroAttrData attrs = 7; // 属性
-}
-
-enum HeroAttr {
-    attack = 1;
-    defence = 2;
-    hp = 3;
-}
-
-message HeroAttrData {
-    required int32 type = 1;
-    required int32 value = 2;
 }
 
 // 获取所有hero --> GetAllHeroResponse
@@ -48,6 +40,6 @@ message GetHeroResponse {
 }
 
 // 推送hero变化
-message SCDisplayHero {
+message SCHero {
     repeated DisplayHero heroes = 1;
 }

@@ -26,6 +26,15 @@ enum Resource {
     IRON = 5; // 铁
 }
 
+// 品质
+enum Color {
+    WHITE = 1; // 白色
+    BLUE = 2; // 蓝色
+    PURE = 3; // 紫色
+    YELLOW = 4; // 金色
+    RED = 5; // 红色
+}
+
 // 资源
 message DisplayResource {
     required int32 id = 1;

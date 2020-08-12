@@ -6,13 +6,9 @@ import com.caidt.util.excel.PoiUtils.getFloatValue
 import com.caidt.util.excel.PoiUtils.getIntValue
 import com.caidt.util.excel.PoiUtils.getStringValue
 import com.caidt.util.excel.PoiUtils.isEmpty
-import org.apache.poi.xssf.usermodel.XSSFCell
-import org.apache.poi.xssf.usermodel.XSSFRow
-import org.apache.poi.xssf.usermodel.XSSFSheet
-import org.apache.poi.xssf.usermodel.XSSFWorkbook
-import java.io.Closeable
-import java.io.FileInputStream
-import java.io.InputStream
+import org.apache.poi.openxml4j.opc.OPCPackage
+import org.apache.poi.xssf.usermodel.*
+import java.io.*
 import java.util.*
 import kotlin.collections.HashMap
 
@@ -58,8 +54,9 @@ class ExcelFile private constructor(
 
   private fun openAbsolute() {
     try {
-      input = FileInputStream(filePath)
-      workbook = XSSFWorkbook(input)
+      val opcPackage = OPCPackage.open(filePath)
+//      input = FileInputStream(filePath)
+      workbook = XSSFWorkbook(opcPackage)
     } catch (e: Exception) {
       close()
       throw RuntimeException("Excel open fail: $filePath", e)
@@ -175,14 +172,14 @@ class Row(
   private val columnBiMap: Map<String, Int>
 ) {
 
-  private var curCellIndex = 0
+//  private var curCellIndex = 0
 
   fun hasColumn(column: String?): Boolean {
     return columnBiMap.containsKey(column)
   }
 
   private fun getCellByColumnName(column: String): XSSFCell? {
-    curCellIndex = columnBiMap[column] ?: throw RuntimeException("找不到列: $column")
+    val curCellIndex = columnBiMap[column] ?: throw RuntimeException("找不到列: $column")
     return xssfRow.getCell(curCellIndex)
   }
 

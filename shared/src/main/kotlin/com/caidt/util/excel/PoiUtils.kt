@@ -4,9 +4,7 @@ import org.apache.poi.ss.usermodel.CellType
 import org.apache.poi.xssf.usermodel.XSSFCell
 import org.apache.poi.xssf.usermodel.XSSFRow
 import java.security.InvalidParameterException
-import java.text.DecimalFormat
-import java.text.NumberFormat
-import java.text.ParseException
+import java.text.*
 import java.util.*
 
 /**
@@ -86,7 +84,10 @@ object PoiUtils {
     val cellStr = cell.toString()
     if (cellStr.isEmpty()) return 0.0f
     if (cellStr == "0%") return 0f
-    return if (cellStr.indexOf('%') > 0) getPercentum(cell) else cellStr.toFloat()
+    return if (cellStr.indexOf('%') > 0)
+      getPercentum(cell)
+    else
+      cellStr.toFloat()
   }
 
   fun isEmpty(row: XSSFRow?): Boolean {

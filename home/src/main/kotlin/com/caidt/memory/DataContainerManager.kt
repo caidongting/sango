@@ -59,5 +59,3 @@ object DataContainerManager {
 
   data class Result<A, B, C>(val a: A, val b: B, val c: C)
 }
-
-infix fun Int.fn(b: Int): Int = this + b
