@@ -3,6 +3,7 @@ package com.caidt
 import akka.actor.ActorRef
 import akka.actor.Cancellable
 import akka.actor.UntypedAbstractActor
+import akka.japi.Procedure
 import com.caidt.dataContainer.PlayerDC
 import com.caidt.infrastructure.GameException
 import com.caidt.memory.DataContainer
@@ -46,6 +47,11 @@ open class PlayerActor : UntypedAbstractActor() {
 
   val commonTick: CommonTick by lazy { CommonTick(context) }
 
+  val s = Procedure<Any> { message ->
+    when (message) {
+      is PlayerEnvelope -> handleOnUp(message)
+    }
+  }
 
   override fun onReceive(message: Any?) {
     when (state) {
@@ -104,6 +110,7 @@ open class PlayerActor : UntypedAbstractActor() {
        * @see [java.util.concurrent.CompletionStage] [java.util.concurrent.CompletableFuture]等，需要深入再了解
        */
 //      is PlayerMessage -> Unit
+      Disconnect -> state = State.DOWN
       else -> Unit
     }
   }

@@ -1,6 +1,7 @@
 package com.caidt.share
 
 import com.caidt.proto.ProtoCommon.*
+import java.io.Serializable
 
 /** 用于启动actor */
 object UP
@@ -23,7 +24,7 @@ data class PlayerEnvelope(val playerId: Long, val payload: Any)
 data class WorldEnvelope(val worldId: Long, val payload: Any)
 
 
-interface InnerMessage
+interface InnerMessage : Serializable
 
 interface PlayerMessage : InnerMessage {
   val playerId: Long
