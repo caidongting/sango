@@ -1,5 +1,7 @@
 package com.caidt.infrastructure.config
 
+import com.caidt.share.config.ItemConfig
+import com.caidt.share.config.RobotConfig
 import com.caidt.util.scanPackage
 import com.google.common.base.Stopwatch
 import org.slf4j.Logger
@@ -39,6 +41,18 @@ class ExcelManager {
     return map[clazz] as T? ?: throw IllegalStateException("ExcelConfig not found: ${clazz.simpleName}")
   }
 
+  companion object {
+    /** 优先加载的excel */
+    private val BEFORE_LOAD_EXCEL: List<Class<out ExcelConfig>> = listOf(
+      ItemConfig::class.java
+    )
+
+    /** 加载依赖，在加载前先加载依赖 */
+    private val DEPEND_EXCEL: List<Pair<Class<out ExcelConfig>, Class<out ExcelConfig>>> = listOf(
+      RobotConfig::class.java to ItemConfig::class.java
+    )
+  }
+
   fun loadAll(packageName: String) {
     val stopwatch = Stopwatch.createStarted()
     val classes = scanAllExcelConfig(packageName)
@@ -46,21 +60,30 @@ class ExcelManager {
     logger.info("scan all excel cost: ${stopwatch.elapsed(TimeUnit.MILLISECONDS)} ms")
 
     stopwatch.reset()
-    // todo: 个别[ExcelConfig]之间有依赖关系，需要设置加载顺序
-    @Suppress("UNCHECKED_CAST")
-    classes.forEach { clazz -> reload(clazz as Class<out ExcelConfig>) }
+    // 有些基础的excel需要优先加载
+    BEFORE_LOAD_EXCEL.forEach { reload(it) }
+
+    for (clazz in classes) {
+      if (clazz in map) continue // already load
+
+      // 个别[ExcelConfig]之间有依赖关系，需要先加载依赖的excel
+      DEPEND_EXCEL.filter { it.first === clazz && it.second !in map }
+        .forEach { reload(it.second) }
+      @Suppress("UNCHECKED_CAST")
+      reload(clazz as Class<out ExcelConfig>)
+    }
     logger.info("load all excel cost: ${stopwatch.elapsed(TimeUnit.MILLISECONDS)} ms")
   }
 
   private fun reload(clazz: Class<out ExcelConfig>) {
     try {
-      val config = clazz.newInstance().also {
+      clazz.newInstance().also {
         it.setManager(this)
         it.load()
         it.afterLoad()
         logger.debug("loaded excelConfig: ${clazz.simpleName}")
+        map[clazz] = it
       }
-      map[clazz] = config
     } catch (e: Exception) {
       throw RuntimeException("load config: ${clazz.simpleName} failed", e)
     }
