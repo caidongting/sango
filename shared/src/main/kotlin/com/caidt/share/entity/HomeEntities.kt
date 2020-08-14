@@ -4,6 +4,7 @@ import com.caidt.infrastructure.NoArg
 import com.caidt.infrastructure.database.IEntity
 import com.caidt.proto.ProtoCommon
 import java.io.Serializable
+import java.util.*
 import javax.persistence.*
 
 interface PlayerEntity : IEntity {
@@ -21,7 +22,10 @@ data class PlayerAccountEntity(
   var name: String,
 
   @Column(name = "world_id")
-  var worldId: Long
+  var worldId: Long,
+
+  @Column(name = "create_time")
+  var createTime: Date
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return this.playerId
@@ -58,7 +62,10 @@ data class ItemEntity(
   val itemId: Int,
 
   @Column(name = "count")
-  var count: Long
+  var count: Long,
+
+  @Column(name = "last_update_time")
+  var lastUpdateTime: Date
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return ItemPk(uid, playerId)
@@ -95,7 +102,10 @@ data class ResourceEntity(
   val type: ProtoCommon.Resource,
 
   @Column(name = "count")
-  var count: Long
+  var count: Long,
+
+  @Column(name = "last_update_time")
+  var lastUpdateTime: Date
 ) : PlayerEntity {
   override fun primaryKey(): Serializable {
     return ResourcePk(playerId, type)
