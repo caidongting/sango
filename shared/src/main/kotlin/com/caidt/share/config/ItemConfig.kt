@@ -10,8 +10,9 @@ import com.caidt.util.excel.Row
  */
 class ItemConfig : ExcelConfig() {
 
-  /** 道具 */
+  /** 道具 <itemId, cfg> */
   private val itemMap: HashMap<Int, ItemCfg> = HashMap()
+  /** 道具 <ItemName, cfg> */
   private val itemNameMap: HashMap<String, ItemCfg> = HashMap()
 
   override fun load() {
@@ -49,19 +50,22 @@ data class ItemCfg(
   val subType: Int,
   /** 道具品质 */
   val color: ProtoCommon.Color,
-  /** 是否唯一道具 */
-  val unique: Boolean
+  /** 堆叠上限 */
+  val limit: Int
 ) {
+
+  /** 是否唯一道具 */
+  val unique: Boolean get() = limit == 1
 
   companion object {
     fun readRow(row: Row): ItemCfg {
       val itemId = row.readInt("道具id")
       val name = row.readString("道具名称")
-      val itemType = ProtoCommon.ItemType.valueOf(row.readString("道具类型"))
+      val itemType = row.readItemType("道具类型")
       val subType = row.readInt("子类型")
-      val color = ProtoCommon.Color.valueOf(row.readString("道具品质"))
-      val unique = row.readBoolean("唯一道具")
-      return ItemCfg(itemId, name, itemType, subType, color, unique)
+      val color = row.readColor("道具品质")
+      val limit = row.readInt("堆叠上限")
+      return ItemCfg(itemId, name, itemType, subType, color, limit)
     }
   }
 

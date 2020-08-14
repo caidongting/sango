@@ -7,6 +7,7 @@
 	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
 		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
 			<Pattern>%d{HH:mm:ss.SSS}|%-5level|%thread{18}|%logger{36} - %msg%n</Pattern>
+			<charset>UTF-8</charset>
 		</encoder>
 	</appender>
 

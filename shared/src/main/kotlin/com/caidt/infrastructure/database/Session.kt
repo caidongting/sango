@@ -10,7 +10,7 @@ import javax.persistence.Column
 
 class Session(private val sessionFactory: SessionFactory) {
 
-  fun exec(task: (session: Session) -> Any?): Any? {
+  fun <T> exec(task: (session: Session) -> T?): T? {
     val session = sessionFactory.openSession()
     val transaction = session.beginTransaction()
     try {
@@ -32,7 +32,11 @@ class Session(private val sessionFactory: SessionFactory) {
 
   fun <T : IEntity> findAll(clazz: Class<T>): List<T> {
     @Suppress("UNCHECKED_CAST")
-    return exec { it.createCriteria(clazz).list().distinct() } as List<T>
+    return exec { session ->
+      session.createCriteria(clazz).list().distinct()
+//      val createQuery = session.criteriaBuilder.createQuery(clazz).also { it.from(clazz) }
+//      session.createQuery(createQuery).resultList.distinct()
+    } as List<T>
   }
 
   fun <T : PlayerEntity> findByPlayerId(clazz: Class<T>, playerId: Long): List<T> {
@@ -41,6 +45,12 @@ class Session(private val sessionFactory: SessionFactory) {
     @Suppress("UNCHECKED_CAST")
     return exec { session ->
       session.createCriteria(clazz).add(Restrictions.eq(name, playerId)).list().distinct()
+//      val builder = session.criteriaBuilder
+//      val criteriaQuery = builder.createQuery(clazz).apply {
+//        val root = from(clazz)
+//        where(builder.equal(root.get<String>(name), playerId))
+//      }
+//      session.createQuery(criteriaQuery).resultList.distinct()
     } as List<T>
   }
 
