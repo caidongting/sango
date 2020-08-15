@@ -35,7 +35,7 @@ internal fun scanFile(pkgName: String, file: File, result: MutableList<Class<*>>
   } else if (file.name.endsWith(".class")) {
     val classname = file.name.replace(".class", "")
     val clazz = Class.forName("$pkgName.$classname")
-    if (!clazz.isSynthetic && filter.invoke(clazz)) {
+    if (check(clazz) && filter(clazz)) {
       result.add(clazz)
     }
   }
@@ -48,9 +48,20 @@ internal fun scanJar(jarFile: JarFile, result: MutableList<Class<*>>, filter: (C
     if (jarEntry.name.endsWith(".class")) {
       val classname = jarEntry.name.substring(0, jarEntry.name.lastIndexOf('.'))
       val clazz = Class.forName(classname)
-      if (!clazz.isSynthetic && filter.invoke(clazz)) {
+      if (check(clazz) && filter(clazz)) {
         result.add(clazz)
       }
     }
+  }
+}
+
+internal fun check(clazz: Class<*>): Boolean {
+  return when {
+    clazz.isSynthetic -> false // 合成类
+    clazz.isAnnotation -> false // 注解类
+//    clazz.isInterface -> false // 接口
+    clazz.isAnonymousClass -> false // 匿名类
+    clazz.isLocalClass -> false // 本地类
+    else -> true
   }
 }
