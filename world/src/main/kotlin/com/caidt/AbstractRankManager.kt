@@ -1,4 +1,4 @@
-package com.caidt.share
+package com.caidt
 
 import java.time.Instant
 import java.util.*

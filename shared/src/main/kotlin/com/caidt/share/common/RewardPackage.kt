@@ -5,7 +5,7 @@ import com.caidt.proto.ProtoCommon
 import com.caidt.share.config.ItemCfg
 
 // 道具 作为配置数据，不可变
-class ItemData(
+data class ItemData(
   val id: Int,
   val count: Long
 ) {
@@ -14,12 +14,12 @@ class ItemData(
   val name: String get() = cfg.name
 
   operator fun plus(itemData: ItemData): ItemData {
-    return ItemData(id, count + itemData.count)
+    return this.copy(count = count + itemData.count)
   }
 }
 
 // 资源 作为配置数据，不可变
-class ResourceData(
+data class ResourceData(
   val type: ProtoCommon.Resource,
   val count: Long
 ) {
@@ -37,7 +37,7 @@ class RewardPackage private constructor(
   val resources: List<ResourceData>
 ) {
 
-  fun builder(): Builder = Builder() + this
+  fun builder(): Builder = newBuilder() + this
 
   fun getCount(resource: ProtoCommon.Resource): Long {
     return resources.filter { it.type == resource }.map { it.count }.sum()
@@ -48,12 +48,16 @@ class RewardPackage private constructor(
   }
 
   companion object {
-    fun newBuilder(): Builder = Builder()
+    fun newBuilder(): Builder = Builder.create()
   }
 
-  class Builder {
+  class Builder private constructor() {
     private val items: MutableList<ItemData> = mutableListOf()
     private val resources: MutableList<ResourceData> = mutableListOf()
+
+    companion object {
+      fun create(): Builder = Builder()
+    }
 
     operator fun plus(itemData: ItemData): Builder {
       this.items.add(itemData)
@@ -91,4 +95,9 @@ class RewardPackage private constructor(
     }
   }
 
+}
+
+fun main() {
+  val newBuilder: RewardPackage.Builder = RewardPackage.newBuilder()
+  newBuilder.build()
 }

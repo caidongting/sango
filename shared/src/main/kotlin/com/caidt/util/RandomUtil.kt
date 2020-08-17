@@ -34,7 +34,7 @@ object RandomUtil {
     require(n >= 0) { "n=$n must above zero" }
     if (list.isEmpty()) return emptyList()
 
-    if (list.size <= n) return list;
+    if (list.size <= n) return list
 
     list.shuffle()
     return list.subList(0, n)
@@ -67,8 +67,8 @@ object RandomUtil {
   }
 
   fun isHit(percent: Int, base: Int): Boolean {
-    val nextInt = ThreadLocalRandom.current().nextInt(base)
-    return percent >= nextInt + 1
+    if (percent >= base) return true
+    return percent >= ThreadLocalRandom.current().nextInt(base) + 1
   }
 
 }

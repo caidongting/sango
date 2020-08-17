@@ -1,12 +1,9 @@
-package com.caidt.share
+package com.caidt
 
 import kotlin.reflect.KProperty1
 
 
-class RankManager(val maxRank: Int) {
-
-
-}
+class RankManager(val maxRank: Int)
 
 interface RankData {
   val id: Long

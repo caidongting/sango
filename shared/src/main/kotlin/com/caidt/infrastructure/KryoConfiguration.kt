@@ -1,10 +1,16 @@
 package com.caidt.infrastructure
 
 import com.caidt.util.scanPackage
+import com.esotericsoftware.kryo.serializers.VersionFieldSerializer
 import io.altoo.akka.serialization.kryo.DefaultKryoInitializer
 import io.altoo.akka.serialization.kryo.serializer.scala.ScalaKryo
 
 class KryoConfiguration : DefaultKryoInitializer() {
+
+  // todo: versionFieldSerializer @Since ...
+  override fun preInit(kryo: ScalaKryo) {
+    kryo.setDefaultSerializer(VersionFieldSerializer::class.java)
+  }
 
   override fun postInit(kryo: ScalaKryo) {
 //    kryo.references = false
