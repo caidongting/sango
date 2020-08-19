@@ -1,8 +1,9 @@
 package com.caidt
 
-import akka.actor.ActorRef
-import akka.actor.ActorSystem
+import akka.actor.*
 import akka.cluster.client.ClusterClientReceptionist
+import akka.cluster.singleton.ClusterSingletonManager
+import akka.cluster.singleton.ClusterSingletonManagerSettings
 import com.caidt.infrastructure.CLUSTER_NAME
 import com.caidt.infrastructure.Role
 import com.typesafe.config.Config
@@ -37,8 +38,12 @@ object Gate {
   fun start() {
     clientNetty.start()
 
-    val actorRef = actorSystem.actorOf(UidGenerator.props(), "uidGenerator")
-    ClusterClientReceptionist.get(actorSystem).registerService(actorRef);
+    val settings = ClusterSingletonManagerSettings.create(actorSystem).withRole(role.name)
+    val actorRef = actorSystem.actorOf(
+      ClusterSingletonManager.props(UidGenerator.props(), PoisonPill::class.java, settings),
+      "uidGenerator"
+    )
+    ClusterClientReceptionist.get(actorSystem).registerService(actorRef)
 
     val channel = 128L
     Bus.subscribe(actorRef, channel)

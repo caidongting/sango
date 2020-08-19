@@ -16,7 +16,7 @@ object Bus {
     lookupBus.unsubscribe(actorRef, channel)
   }
 
-  fun unsubscribe(actorRef: ActorRef) {
+  fun unsubscribeAll(actorRef: ActorRef) {
     lookupBus.unsubscribe(actorRef)
   }
 

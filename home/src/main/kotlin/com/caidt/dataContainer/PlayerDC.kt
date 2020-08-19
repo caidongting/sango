@@ -29,7 +29,8 @@ class PlayerAccount(
     return PlayerAccountEntity(
       playerId = entity.playerId,
       name = entity.name,
-      worldId = entity.worldId
+      worldId = entity.worldId,
+      createTime = entity.createTime
     )
   }
 

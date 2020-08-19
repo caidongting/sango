@@ -23,6 +23,8 @@ abstract class AbstractRankManager(private val maxRank: Int) {
 
   private val rankMap: MutableMap<Int, LinkedList<RankHolder>> = hashMapOf()
 
+  abstract fun load()
+
   abstract fun newRankData(type: Int, uid: Long): RankData
 
   abstract fun <T> comparator(type: Int, property: KProperty1<RankData, T>): Comparator<RankData>

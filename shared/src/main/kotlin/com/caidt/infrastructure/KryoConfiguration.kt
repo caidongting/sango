@@ -7,7 +7,6 @@ import io.altoo.akka.serialization.kryo.serializer.scala.ScalaKryo
 
 class KryoConfiguration : DefaultKryoInitializer() {
 
-  // todo: versionFieldSerializer @Since ...
   override fun preInit(kryo: ScalaKryo) {
     kryo.setDefaultSerializer(VersionFieldSerializer::class.java)
   }

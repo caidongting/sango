@@ -9,7 +9,7 @@ import com.google.protobuf.MessageLite
 import io.netty.channel.ChannelHandlerContext
 
 // 负责与player通信
-class Session(val playerId: Long, private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
+class ChannelSession(private val ctx: ChannelHandlerContext) : UntypedAbstractActor() {
 
   override fun onReceive(message: Any?) {
     when (message) {
@@ -75,7 +75,7 @@ class Session(val playerId: Long, private val ctx: ChannelHandlerContext) : Unty
   private fun handleScMessage(scMessage: ProtoScMessage.ScMessage) {
     ProtoDescriptor.Response.newBuilder().apply {
       resp = scMessage.toByteString()
-      response(build())
+      sendToClient(build())
     }
   }
 
@@ -89,6 +89,7 @@ class Session(val playerId: Long, private val ctx: ChannelHandlerContext) : Unty
   }
 
   private fun disconnect() {
+    Bus.unsubscribeAll(self)
     ctx.disconnect()
   }
 
@@ -98,14 +99,14 @@ class Session(val playerId: Long, private val ctx: ChannelHandlerContext) : Unty
         ProtoDescriptor.Response.newBuilder().apply {
           index = 0
           error = message
-          response(build())
+          sendToClient(build())
         }
       }
 
     }
   }
 
-  private fun response(response: ProtoDescriptor.Response) {
+  private fun sendToClient(response: ProtoDescriptor.Response) {
     ctx.writeAndFlush(response)
   }
 

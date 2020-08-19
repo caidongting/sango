@@ -2,6 +2,6 @@
 <configuration>
 
 	<logger name="com.caidt.ProtoMessageHandler" level="debug"/>
-	<logger name="com.caidt.Session" level="debug"/>
+	<logger name="com.caidt.ChannelSession" level="debug"/>
 
 </configuration>

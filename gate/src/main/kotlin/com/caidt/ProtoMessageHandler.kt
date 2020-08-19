@@ -39,7 +39,7 @@ class ProtoMessageHandler : SimpleChannelInboundHandler<ProtoDescriptor.Request>
     val session = if (ctx.channel().hasAttr(SESSION)) {
       ctx.channel().attr(SESSION).get()
     } else {
-      val actorRef = Gate.actorSystem.actorOf(Props.create(Session::class.java, ctx))
+      val actorRef = Gate.actorSystem.actorOf(Props.create(ChannelSession::class.java, ctx))
       ctx.channel().attr(SESSION).set(actorRef)
       actorRef
     }

@@ -21,7 +21,7 @@ val lambda = map {  }
 - 来自客户端的消息以后缀`request`，返回给客户端的消息以后缀`response`
 - 推送消息以前缀`SC`开始
 
-#### 2. 数据库 hibernate
+#### 2. 数据库orm hibernate
 所有的table都与一个entity对应，entity统一继承`IEntity`接口，用于后面的使用
 
 #### 3. entityWrapper
@@ -29,15 +29,11 @@ val lambda = map {  }
 
 #### 4. ExcelConfig
 每个模块对应一个ExcelConfig，需继承`ExcelConfig`，以`Config`作后缀，单张表使用`cfg`作后缀，
-在加载完毕后对数据完整性，格式正确进行检验，需要引用其他Excel进行校验的，在`afterLoadAll`中
-使用`getExcel(excelName)`获取
+在加载完毕后对数据完整性，格式正确性进行检验，需要引用其他Excel进行校验的，在`afterLoadAll`中
+使用`getExcel(clazz)`获取
 
 #### 5. 使用property而不是函数：
 - O(1)复杂度
-- 底层逻辑简单
-- 缓存的数据
-
-其余情况一律使用函数。
 - 底层逻辑简单
 - 缓存的数据
 
