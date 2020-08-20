@@ -26,12 +26,7 @@ class PlayerAccount(
   override fun duration(): Duration = Duration.ofMinutes(5L)
 
   override fun toEntity(): PlayerAccountEntity {
-    return PlayerAccountEntity(
-      playerId = entity.playerId,
-      name = entity.name,
-      worldId = entity.worldId,
-      createTime = entity.createTime
-    )
+    return entity.copy()
   }
 
 }

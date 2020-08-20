@@ -3,25 +3,23 @@ package com.caidt
 import akka.actor.Props
 import com.caidt.infrastructure.GameServer
 import com.caidt.infrastructure.Role
-import com.caidt.infrastructure.config.ExcelConfigs
 
 
 object Home : GameServer(port = 2552) {
 
   override val role: Role = Role.home
 
-  override fun start() {
-    startSystem()
+  override fun preStart() {
+    loadExcelConfig()
     startShardRegion()
     startHomeProxy()
     startWorldProxy()
-    ExcelConfigs.init()
   }
 
-  override fun close() {
+  override fun postStop() {
     closeWorldProxy()
     closeHomeProxy()
-    closeSystem()
+    closeShardRegion()
   }
 
   private fun startShardRegion() {

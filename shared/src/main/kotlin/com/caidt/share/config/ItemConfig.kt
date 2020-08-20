@@ -1,5 +1,6 @@
 package com.caidt.share.config
 
+import com.caidt.infrastructure.config.DoNotLoad
 import com.caidt.infrastructure.config.ExcelConfig
 import com.caidt.proto.ProtoCommon
 import com.caidt.util.excel.ExcelFile
@@ -8,6 +9,7 @@ import com.caidt.util.excel.Row
 /**
  * 道具配置
  */
+@DoNotLoad
 class ItemConfig : ExcelConfig() {
 
   /** 道具 <itemId, cfg> */

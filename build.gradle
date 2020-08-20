@@ -33,8 +33,8 @@ subprojects {
     apply plugin: 'kotlin-allopen'
 
     /* 指定jdk版本 */
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
     /* java编译的时候缺省状态下会因为中文字符而失败 */
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 

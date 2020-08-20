@@ -44,7 +44,7 @@ class ExcelManager {
   companion object {
     /** 优先加载的excel */
     private val BEFORE_LOAD_EXCEL: List<Class<out ExcelConfig>> = listOf(
-      ItemConfig::class.java
+      // ItemConfig::class.java
     )
 
     /** 加载依赖，在加载前先加载依赖 */

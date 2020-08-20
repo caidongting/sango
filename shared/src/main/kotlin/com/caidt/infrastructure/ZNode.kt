@@ -23,7 +23,7 @@ class ZNode {
       .retryPolicy(ExponentialBackoffRetry(1000, 3))
       .build()
     curatorFramework.start()
-    logger.debug("Znode stated!")
+    logger.info("Znode stated!")
   }
 
   /** 服务器上线注册临时节点 */
@@ -53,6 +53,6 @@ class ZNode {
 
   fun close() {
     curatorFramework.close()
-    logger.debug("Znode closed!")
+    logger.info("Znode closed!")
   }
 }

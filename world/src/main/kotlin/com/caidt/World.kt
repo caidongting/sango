@@ -9,8 +9,8 @@ object World : GameServer(port = 2553) {
 
   override val role: Role = Role.world
 
-  override fun start() {
-    startSystem()
+  override fun preStart() {
+    loadExcelConfig()
     startShardRegion()
     startWorldProxy()
     startHomeProxy()
@@ -20,10 +20,10 @@ object World : GameServer(port = 2553) {
     startShardRegion(Props.create(WorldActor::class.java))
   }
 
-  override fun close() {
+  override fun postStop() {
     closeHomeProxy()
     closeWorldProxy()
-    closeSystem()
+    closeShardRegion()
   }
 }
 

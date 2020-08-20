@@ -7,6 +7,7 @@ import akka.cluster.client.ClusterClientSettings
 import akka.cluster.sharding.ClusterSharding
 import akka.cluster.sharding.ClusterShardingSettings
 import akka.cluster.sharding.ShardRegion
+import com.caidt.infrastructure.config.ExcelConfigs
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
 import com.caidt.share.GenerateUid
@@ -65,9 +66,19 @@ abstract class GameServer(val port: Int) {
   lateinit var clusterClient: ActorRef
     private set
 
-  abstract fun start()
+  fun start() {
+    startSystem()
+    preStart()
+  }
 
-  abstract fun close()
+  fun close() {
+    closeSystem()
+    postStop()
+  }
+
+  abstract fun preStart()
+
+  abstract fun postStop()
 
   private fun buildActorSystem(): ActorSystem {
     val additionConfig: String = """
@@ -78,7 +89,7 @@ abstract class GameServer(val port: Int) {
     return ActorSystem.create(CLUSTER_NAME, config)
   }
 
-  fun startSystem() {
+  private fun startSystem() {
     znode.start()
     znode.register(this)
 
@@ -91,9 +102,12 @@ abstract class GameServer(val port: Int) {
     }
   }
 
-  fun closeSystem() {
-    closeShardRegion()
+  private fun closeSystem() {
     znode.close()
+  }
+
+  fun loadExcelConfig() {
+    ExcelConfigs.init()
   }
 
   fun startShardRegion(props: Props) {
@@ -103,7 +117,7 @@ abstract class GameServer(val port: Int) {
     // logger.info("cluster shardRegion is started!")
   }
 
-  private fun closeShardRegion() {
+  fun closeShardRegion() {
 //    if (this::shardRegion.isInitialized) {
     shardRegion.tell(ShardRegion.gracefulShutdownInstance(), ActorRef.noSender())
 //    }
