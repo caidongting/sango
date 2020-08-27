@@ -37,10 +37,13 @@ object Gate {
 
   fun start() {
     clientNetty.start()
-
+    startUidGenerator()
+  }
+  
+  private fun startUidGenerator() {
     val settings = ClusterSingletonManagerSettings.create(actorSystem).withRole(role.name)
     val actorRef = actorSystem.actorOf(
-      ClusterSingletonManager.props(UidGenerator.props(), PoisonPill::class.java, settings),
+      ClusterSingletonManager.props(UidGenerator.props(), PoisonPill.getInstance(), settings),
       "uidGenerator"
     )
     ClusterClientReceptionist.get(actorSystem).registerService(actorRef)
@@ -48,6 +51,7 @@ object Gate {
     val channel = 128L
     Bus.subscribe(actorRef, channel)
     Bus.unsubscribe(actorRef, channel)
+    Bus.unsubscribeAll(actorRef)
   }
 
 }

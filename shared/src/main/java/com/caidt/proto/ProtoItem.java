@@ -29,6 +29,7 @@ public final class ProtoItem {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.GetItemsRequest)
       GetItemsRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetItemsRequest.newBuilder() to construct.
     private GetItemsRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -46,6 +47,9 @@ public final class ProtoItem {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -57,8 +61,8 @@ public final class ProtoItem {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -80,6 +84,7 @@ public final class ProtoItem {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsRequest_fieldAccessorTable
@@ -88,6 +93,7 @@ public final class ProtoItem {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -97,11 +103,13 @@ public final class ProtoItem {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -112,7 +120,6 @@ public final class ProtoItem {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -134,12 +141,23 @@ public final class ProtoItem {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static com.caidt.proto.ProtoItem.GetItemsRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoItem.GetItemsRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoItem.GetItemsRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -199,6 +217,7 @@ public final class ProtoItem {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -206,6 +225,7 @@ public final class ProtoItem {
     public static Builder newBuilder(com.caidt.proto.ProtoItem.GetItemsRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -233,6 +253,7 @@ public final class ProtoItem {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsRequest_fieldAccessorTable
@@ -255,20 +276,24 @@ public final class ProtoItem {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsRequest_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.GetItemsRequest getDefaultInstanceForType() {
         return com.caidt.proto.ProtoItem.GetItemsRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.GetItemsRequest build() {
         com.caidt.proto.ProtoItem.GetItemsRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -277,38 +302,46 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.GetItemsRequest buildPartial() {
         com.caidt.proto.ProtoItem.GetItemsRequest result = new com.caidt.proto.ProtoItem.GetItemsRequest(this);
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoItem.GetItemsRequest) {
           return mergeFrom((com.caidt.proto.ProtoItem.GetItemsRequest)other);
@@ -325,10 +358,12 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -346,11 +381,13 @@ public final class ProtoItem {
         }
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -372,11 +409,12 @@ public final class ProtoItem {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<GetItemsRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetItemsRequest>() {
+      @java.lang.Override
       public GetItemsRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetItemsRequest(input, extensionRegistry);
+        return new GetItemsRequest(input, extensionRegistry);
       }
     };
 
@@ -389,6 +427,7 @@ public final class ProtoItem {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoItem.GetItemsRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -430,6 +469,7 @@ public final class ProtoItem {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.GetItemsResponse)
       GetItemsResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetItemsResponse.newBuilder() to construct.
     private GetItemsResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -448,6 +488,9 @@ public final class ProtoItem {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -459,13 +502,6 @@ public final class ProtoItem {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 items_ = new java.util.ArrayList<com.caidt.proto.ProtoCommon.DisplayItem>();
@@ -473,6 +509,13 @@ public final class ProtoItem {
               }
               items_.add(
                   input.readMessage(com.caidt.proto.ProtoCommon.DisplayItem.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -495,6 +538,7 @@ public final class ProtoItem {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsResponse_fieldAccessorTable
@@ -538,6 +582,7 @@ public final class ProtoItem {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -553,6 +598,7 @@ public final class ProtoItem {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < items_.size(); i++) {
@@ -561,6 +607,7 @@ public final class ProtoItem {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -575,7 +622,6 @@ public final class ProtoItem {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -599,7 +645,7 @@ public final class ProtoItem {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getItemsCount() > 0) {
         hash = (37 * hash) + ITEMS_FIELD_NUMBER;
         hash = (53 * hash) + getItemsList().hashCode();
@@ -609,6 +655,17 @@ public final class ProtoItem {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoItem.GetItemsResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoItem.GetItemsResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoItem.GetItemsResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -668,6 +725,7 @@ public final class ProtoItem {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -675,6 +733,7 @@ public final class ProtoItem {
     public static Builder newBuilder(com.caidt.proto.ProtoItem.GetItemsResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -698,6 +757,7 @@ public final class ProtoItem {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsResponse_fieldAccessorTable
@@ -721,6 +781,7 @@ public final class ProtoItem {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (itemsBuilder_ == null) {
@@ -732,15 +793,18 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_GetItemsResponse_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.GetItemsResponse getDefaultInstanceForType() {
         return com.caidt.proto.ProtoItem.GetItemsResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.GetItemsResponse build() {
         com.caidt.proto.ProtoItem.GetItemsResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -749,6 +813,7 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.GetItemsResponse buildPartial() {
         com.caidt.proto.ProtoItem.GetItemsResponse result = new com.caidt.proto.ProtoItem.GetItemsResponse(this);
         int from_bitField0_ = bitField0_;
@@ -765,32 +830,39 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoItem.GetItemsResponse) {
           return mergeFrom((com.caidt.proto.ProtoItem.GetItemsResponse)other);
@@ -833,6 +905,7 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         for (int i = 0; i < getItemsCount(); i++) {
           if (!getItems(i).isInitialized()) {
@@ -842,6 +915,7 @@ public final class ProtoItem {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1100,11 +1174,13 @@ public final class ProtoItem {
         }
         return itemsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1126,11 +1202,12 @@ public final class ProtoItem {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<GetItemsResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetItemsResponse>() {
+      @java.lang.Override
       public GetItemsResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetItemsResponse(input, extensionRegistry);
+        return new GetItemsResponse(input, extensionRegistry);
       }
     };
 
@@ -1143,6 +1220,7 @@ public final class ProtoItem {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoItem.GetItemsResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1198,6 +1276,7 @@ public final class ProtoItem {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.UseItemRequest)
       UseItemRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use UseItemRequest.newBuilder() to construct.
     private UseItemRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1217,6 +1296,9 @@ public final class ProtoItem {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1228,13 +1310,6 @@ public final class ProtoItem {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               uid_ = input.readInt64();
@@ -1243,6 +1318,13 @@ public final class ProtoItem {
             case 16: {
               bitField0_ |= 0x00000002;
               count_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -1262,6 +1344,7 @@ public final class ProtoItem {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemRequest_fieldAccessorTable
@@ -1317,6 +1400,7 @@ public final class ProtoItem {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1334,6 +1418,7 @@ public final class ProtoItem {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1345,6 +1430,7 @@ public final class ProtoItem {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1363,7 +1449,6 @@ public final class ProtoItem {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1395,7 +1480,7 @@ public final class ProtoItem {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUid()) {
         hash = (37 * hash) + UID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -1410,6 +1495,17 @@ public final class ProtoItem {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoItem.UseItemRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoItem.UseItemRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoItem.UseItemRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1469,6 +1565,7 @@ public final class ProtoItem {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1476,6 +1573,7 @@ public final class ProtoItem {
     public static Builder newBuilder(com.caidt.proto.ProtoItem.UseItemRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1503,6 +1601,7 @@ public final class ProtoItem {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemRequest_fieldAccessorTable
@@ -1525,6 +1624,7 @@ public final class ProtoItem {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         uid_ = 0L;
@@ -1534,15 +1634,18 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemRequest_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.UseItemRequest getDefaultInstanceForType() {
         return com.caidt.proto.ProtoItem.UseItemRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.UseItemRequest build() {
         com.caidt.proto.ProtoItem.UseItemRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -1551,6 +1654,7 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.UseItemRequest buildPartial() {
         com.caidt.proto.ProtoItem.UseItemRequest result = new com.caidt.proto.ProtoItem.UseItemRequest(this);
         int from_bitField0_ = bitField0_;
@@ -1568,32 +1672,39 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoItem.UseItemRequest) {
           return mergeFrom((com.caidt.proto.ProtoItem.UseItemRequest)other);
@@ -1616,6 +1727,7 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasUid()) {
           return false;
@@ -1626,6 +1738,7 @@ public final class ProtoItem {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1740,11 +1853,13 @@ public final class ProtoItem {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1766,11 +1881,12 @@ public final class ProtoItem {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<UseItemRequest>
         PARSER = new com.google.protobuf.AbstractParser<UseItemRequest>() {
+      @java.lang.Override
       public UseItemRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UseItemRequest(input, extensionRegistry);
+        return new UseItemRequest(input, extensionRegistry);
       }
     };
 
@@ -1783,6 +1899,7 @@ public final class ProtoItem {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoItem.UseItemRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1826,6 +1943,7 @@ public final class ProtoItem {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.UseItemResponse)
       UseItemResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use UseItemResponse.newBuilder() to construct.
     private UseItemResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1843,6 +1961,9 @@ public final class ProtoItem {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1854,13 +1975,6 @@ public final class ProtoItem {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.caidt.proto.ProtoCommon.DisplayItem.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1887,6 +2001,13 @@ public final class ProtoItem {
               bitField0_ |= 0x00000002;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1904,6 +2025,7 @@ public final class ProtoItem {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemResponse_fieldAccessorTable
@@ -1955,6 +2077,7 @@ public final class ProtoItem {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1978,6 +2101,7 @@ public final class ProtoItem {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1989,6 +2113,7 @@ public final class ProtoItem {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2007,7 +2132,6 @@ public final class ProtoItem {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2039,7 +2163,7 @@ public final class ProtoItem {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasItem()) {
         hash = (37 * hash) + ITEM_FIELD_NUMBER;
         hash = (53 * hash) + getItem().hashCode();
@@ -2053,6 +2177,17 @@ public final class ProtoItem {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoItem.UseItemResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoItem.UseItemResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoItem.UseItemResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2112,6 +2247,7 @@ public final class ProtoItem {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2119,6 +2255,7 @@ public final class ProtoItem {
     public static Builder newBuilder(com.caidt.proto.ProtoItem.UseItemResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2142,6 +2279,7 @@ public final class ProtoItem {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemResponse_fieldAccessorTable
@@ -2166,6 +2304,7 @@ public final class ProtoItem {
           getRewardFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (itemBuilder_ == null) {
@@ -2183,15 +2322,18 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_UseItemResponse_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.UseItemResponse getDefaultInstanceForType() {
         return com.caidt.proto.ProtoItem.UseItemResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.UseItemResponse build() {
         com.caidt.proto.ProtoItem.UseItemResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -2200,6 +2342,7 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.UseItemResponse buildPartial() {
         com.caidt.proto.ProtoItem.UseItemResponse result = new com.caidt.proto.ProtoItem.UseItemResponse(this);
         int from_bitField0_ = bitField0_;
@@ -2225,32 +2368,39 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoItem.UseItemResponse) {
           return mergeFrom((com.caidt.proto.ProtoItem.UseItemResponse)other);
@@ -2273,6 +2423,7 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasItem()) {
           return false;
@@ -2288,6 +2439,7 @@ public final class ProtoItem {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2542,11 +2694,13 @@ public final class ProtoItem {
         }
         return rewardBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2568,11 +2722,12 @@ public final class ProtoItem {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<UseItemResponse>
         PARSER = new com.google.protobuf.AbstractParser<UseItemResponse>() {
+      @java.lang.Override
       public UseItemResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new UseItemResponse(input, extensionRegistry);
+        return new UseItemResponse(input, extensionRegistry);
       }
     };
 
@@ -2585,6 +2740,7 @@ public final class ProtoItem {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoItem.UseItemResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2675,6 +2831,7 @@ public final class ProtoItem {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.SCDisplayItem)
       SCDisplayItemOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use SCDisplayItem.newBuilder() to construct.
     private SCDisplayItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2694,6 +2851,9 @@ public final class ProtoItem {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2705,13 +2865,6 @@ public final class ProtoItem {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 items_ = new java.util.ArrayList<com.caidt.proto.ProtoCommon.DisplayItem>();
@@ -2742,6 +2895,13 @@ public final class ProtoItem {
               input.popLimit(limit);
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -2765,6 +2925,7 @@ public final class ProtoItem {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_SCDisplayItem_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_SCDisplayItem_fieldAccessorTable
@@ -2862,6 +3023,7 @@ public final class ProtoItem {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2877,6 +3039,7 @@ public final class ProtoItem {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < items_.size(); i++) {
@@ -2888,6 +3051,7 @@ public final class ProtoItem {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2911,7 +3075,6 @@ public final class ProtoItem {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2937,7 +3100,7 @@ public final class ProtoItem {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getItemsCount() > 0) {
         hash = (37 * hash) + ITEMS_FIELD_NUMBER;
         hash = (53 * hash) + getItemsList().hashCode();
@@ -2951,6 +3114,17 @@ public final class ProtoItem {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoItem.SCDisplayItem parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoItem.SCDisplayItem parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoItem.SCDisplayItem parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3010,6 +3184,7 @@ public final class ProtoItem {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3017,6 +3192,7 @@ public final class ProtoItem {
     public static Builder newBuilder(com.caidt.proto.ProtoItem.SCDisplayItem prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3044,6 +3220,7 @@ public final class ProtoItem {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_SCDisplayItem_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_SCDisplayItem_fieldAccessorTable
@@ -3067,6 +3244,7 @@ public final class ProtoItem {
           getItemsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (itemsBuilder_ == null) {
@@ -3080,15 +3258,18 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoItem.internal_static_com_caidt_proto_SCDisplayItem_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.SCDisplayItem getDefaultInstanceForType() {
         return com.caidt.proto.ProtoItem.SCDisplayItem.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.SCDisplayItem build() {
         com.caidt.proto.ProtoItem.SCDisplayItem result = buildPartial();
         if (!result.isInitialized()) {
@@ -3097,6 +3278,7 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoItem.SCDisplayItem buildPartial() {
         com.caidt.proto.ProtoItem.SCDisplayItem result = new com.caidt.proto.ProtoItem.SCDisplayItem(this);
         int from_bitField0_ = bitField0_;
@@ -3118,32 +3300,39 @@ public final class ProtoItem {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoItem.SCDisplayItem) {
           return mergeFrom((com.caidt.proto.ProtoItem.SCDisplayItem)other);
@@ -3196,6 +3385,7 @@ public final class ProtoItem {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         for (int i = 0; i < getItemsCount(); i++) {
           if (!getItems(i).isInitialized()) {
@@ -3205,6 +3395,7 @@ public final class ProtoItem {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3629,11 +3820,13 @@ public final class ProtoItem {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3655,11 +3848,12 @@ public final class ProtoItem {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SCDisplayItem>
         PARSER = new com.google.protobuf.AbstractParser<SCDisplayItem>() {
+      @java.lang.Override
       public SCDisplayItem parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SCDisplayItem(input, extensionRegistry);
+        return new SCDisplayItem(input, extensionRegistry);
       }
     };
 
@@ -3672,6 +3866,7 @@ public final class ProtoItem {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoItem.SCDisplayItem getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

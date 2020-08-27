@@ -4,13 +4,13 @@ import akka.actor.ActorRef
 import akka.actor.Props
 import com.caidt.proto.ProtoCsMessage
 import com.caidt.proto.ProtoDescriptor
-import io.netty.channel.ChannelHandlerContext
-import io.netty.channel.SimpleChannelInboundHandler
+import io.netty.channel.*
 import io.netty.util.AttributeKey
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import javax.naming.AuthenticationException
 
+@ChannelHandler.Sharable
 class ProtoMessageHandler : SimpleChannelInboundHandler<ProtoDescriptor.Request>() {
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
@@ -30,25 +30,23 @@ class ProtoMessageHandler : SimpleChannelInboundHandler<ProtoDescriptor.Request>
 //  }
 
   override fun channelRead0(ctx: ChannelHandlerContext, msg: ProtoDescriptor.Request) {
-    request(ctx, msg)
-  }
+    if (!validate(msg)) throw AuthenticationException("认证失败")
 
-  private fun request(ctx: ChannelHandlerContext, request: ProtoDescriptor.Request) {
-    if (!validate(request)) throw AuthenticationException("认证失败")
-
-    val session = if (ctx.channel().hasAttr(SESSION)) {
-      ctx.channel().attr(SESSION).get()
-    } else {
+    ctx.channel().attr(ID).setIfAbsent(msg.uid)
+    if (!ctx.channel().hasAttr(SESSION)) {
       val actorRef = Gate.actorSystem.actorOf(Props.create(ChannelSession::class.java, ctx))
       ctx.channel().attr(SESSION).set(actorRef)
-      actorRef
     }
     try {
-      val csMessage = ProtoCsMessage.CsMessage.parseFrom(request.req)
+      val session = ctx.channel().attr(SESSION).get()
+      val csMessage = ProtoCsMessage.CsMessage.parseFrom(msg.req)
       session.tell(csMessage, ActorRef.noSender())
     } catch (e: Exception) {
       e.printStackTrace()
     }
+  }
+
+  private fun handleMessage() {
 
   }
 

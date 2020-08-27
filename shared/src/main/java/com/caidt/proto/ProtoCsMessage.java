@@ -90,6 +90,7 @@ public final class ProtoCsMessage {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.CsMessage)
       CsMessageOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use CsMessage.newBuilder() to construct.
     private CsMessage(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -107,6 +108,9 @@ public final class ProtoCsMessage {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -118,13 +122,6 @@ public final class ProtoCsMessage {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 810: {
               com.caidt.proto.ProtoDescriptor.LoginRequest.Builder subBuilder = null;
               if (cmdCase_ == 101) {
@@ -167,6 +164,13 @@ public final class ProtoCsMessage {
               cmdCase_ = 104;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -184,6 +188,7 @@ public final class ProtoCsMessage {
       return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_fieldAccessorTable
@@ -335,6 +340,7 @@ public final class ProtoCsMessage {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -356,6 +362,7 @@ public final class ProtoCsMessage {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (cmdCase_ == 101) {
@@ -370,6 +377,7 @@ public final class ProtoCsMessage {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -392,7 +400,6 @@ public final class ProtoCsMessage {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -433,7 +440,7 @@ public final class ProtoCsMessage {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       switch (cmdCase_) {
         case 101:
           hash = (37 * hash) + LOGINREQUEST_FIELD_NUMBER;
@@ -455,6 +462,17 @@ public final class ProtoCsMessage {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoCsMessage.CsMessage parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -514,6 +532,7 @@ public final class ProtoCsMessage {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -521,6 +540,7 @@ public final class ProtoCsMessage {
     public static Builder newBuilder(com.caidt.proto.ProtoCsMessage.CsMessage prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -544,6 +564,7 @@ public final class ProtoCsMessage {
         return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_fieldAccessorTable
@@ -566,6 +587,7 @@ public final class ProtoCsMessage {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         cmdCase_ = 0;
@@ -573,15 +595,18 @@ public final class ProtoCsMessage {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoCsMessage.internal_static_com_caidt_proto_CsMessage_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoCsMessage.CsMessage getDefaultInstanceForType() {
         return com.caidt.proto.ProtoCsMessage.CsMessage.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoCsMessage.CsMessage build() {
         com.caidt.proto.ProtoCsMessage.CsMessage result = buildPartial();
         if (!result.isInitialized()) {
@@ -590,6 +615,7 @@ public final class ProtoCsMessage {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoCsMessage.CsMessage buildPartial() {
         com.caidt.proto.ProtoCsMessage.CsMessage result = new com.caidt.proto.ProtoCsMessage.CsMessage(this);
         int from_bitField0_ = bitField0_;
@@ -621,32 +647,39 @@ public final class ProtoCsMessage {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoCsMessage.CsMessage) {
           return mergeFrom((com.caidt.proto.ProtoCsMessage.CsMessage)other);
@@ -680,6 +713,7 @@ public final class ProtoCsMessage {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (hasLoginRequest()) {
           if (!getLoginRequest().isInitialized()) {
@@ -694,6 +728,7 @@ public final class ProtoCsMessage {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1207,11 +1242,13 @@ public final class ProtoCsMessage {
         onChanged();;
         return getActivityRequestBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1233,11 +1270,12 @@ public final class ProtoCsMessage {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<CsMessage>
         PARSER = new com.google.protobuf.AbstractParser<CsMessage>() {
+      @java.lang.Override
       public CsMessage parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new CsMessage(input, extensionRegistry);
+        return new CsMessage(input, extensionRegistry);
       }
     };
 
@@ -1250,6 +1288,7 @@ public final class ProtoCsMessage {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoCsMessage.CsMessage getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }

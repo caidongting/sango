@@ -142,6 +142,7 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.HeroAttrData)
       HeroAttrDataOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use HeroAttrData.newBuilder() to construct.
     private HeroAttrData(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -161,6 +162,9 @@ public final class ProtoHero {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -172,15 +176,9 @@ public final class ProtoHero {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
               com.caidt.proto.ProtoHero.HeroAttr value = com.caidt.proto.ProtoHero.HeroAttr.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(1, rawValue);
@@ -193,6 +191,13 @@ public final class ProtoHero {
             case 16: {
               bitField0_ |= 0x00000002;
               value_ = input.readInt32();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -212,6 +217,7 @@ public final class ProtoHero {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_HeroAttrData_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_HeroAttrData_fieldAccessorTable
@@ -232,6 +238,7 @@ public final class ProtoHero {
      * <code>required .com.caidt.proto.HeroAttr type = 1;</code>
      */
     public com.caidt.proto.ProtoHero.HeroAttr getType() {
+      @SuppressWarnings("deprecation")
       com.caidt.proto.ProtoHero.HeroAttr result = com.caidt.proto.ProtoHero.HeroAttr.valueOf(type_);
       return result == null ? com.caidt.proto.ProtoHero.HeroAttr.attack : result;
     }
@@ -252,6 +259,7 @@ public final class ProtoHero {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -269,6 +277,7 @@ public final class ProtoHero {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -280,6 +289,7 @@ public final class ProtoHero {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -298,7 +308,6 @@ public final class ProtoHero {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -329,7 +338,7 @@ public final class ProtoHero {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasType()) {
         hash = (37 * hash) + TYPE_FIELD_NUMBER;
         hash = (53 * hash) + type_;
@@ -343,6 +352,17 @@ public final class ProtoHero {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoHero.HeroAttrData parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoHero.HeroAttrData parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoHero.HeroAttrData parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -402,6 +422,7 @@ public final class ProtoHero {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -409,6 +430,7 @@ public final class ProtoHero {
     public static Builder newBuilder(com.caidt.proto.ProtoHero.HeroAttrData prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -432,6 +454,7 @@ public final class ProtoHero {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_HeroAttrData_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_HeroAttrData_fieldAccessorTable
@@ -454,6 +477,7 @@ public final class ProtoHero {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         type_ = 1;
@@ -463,15 +487,18 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_HeroAttrData_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.HeroAttrData getDefaultInstanceForType() {
         return com.caidt.proto.ProtoHero.HeroAttrData.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.HeroAttrData build() {
         com.caidt.proto.ProtoHero.HeroAttrData result = buildPartial();
         if (!result.isInitialized()) {
@@ -480,6 +507,7 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.HeroAttrData buildPartial() {
         com.caidt.proto.ProtoHero.HeroAttrData result = new com.caidt.proto.ProtoHero.HeroAttrData(this);
         int from_bitField0_ = bitField0_;
@@ -497,32 +525,39 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoHero.HeroAttrData) {
           return mergeFrom((com.caidt.proto.ProtoHero.HeroAttrData)other);
@@ -545,6 +580,7 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasType()) {
           return false;
@@ -555,6 +591,7 @@ public final class ProtoHero {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -585,6 +622,7 @@ public final class ProtoHero {
        * <code>required .com.caidt.proto.HeroAttr type = 1;</code>
        */
       public com.caidt.proto.ProtoHero.HeroAttr getType() {
+        @SuppressWarnings("deprecation")
         com.caidt.proto.ProtoHero.HeroAttr result = com.caidt.proto.ProtoHero.HeroAttr.valueOf(type_);
         return result == null ? com.caidt.proto.ProtoHero.HeroAttr.attack : result;
       }
@@ -641,11 +679,13 @@ public final class ProtoHero {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -667,11 +707,12 @@ public final class ProtoHero {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<HeroAttrData>
         PARSER = new com.google.protobuf.AbstractParser<HeroAttrData>() {
+      @java.lang.Override
       public HeroAttrData parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new HeroAttrData(input, extensionRegistry);
+        return new HeroAttrData(input, extensionRegistry);
       }
     };
 
@@ -684,6 +725,7 @@ public final class ProtoHero {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoHero.HeroAttrData getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -847,6 +889,7 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.DisplayHero)
       DisplayHeroOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use DisplayHero.newBuilder() to construct.
     private DisplayHero(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -871,6 +914,9 @@ public final class ProtoHero {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -882,13 +928,6 @@ public final class ProtoHero {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               uid_ = input.readInt64();
@@ -911,6 +950,7 @@ public final class ProtoHero {
             }
             case 40: {
               int rawValue = input.readEnum();
+                @SuppressWarnings("deprecation")
               com.caidt.proto.ProtoCommon.Color value = com.caidt.proto.ProtoCommon.Color.valueOf(rawValue);
               if (value == null) {
                 unknownFields.mergeVarintField(5, rawValue);
@@ -934,6 +974,13 @@ public final class ProtoHero {
                   input.readMessage(com.caidt.proto.ProtoHero.HeroAttrData.PARSER, extensionRegistry));
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -954,6 +1001,7 @@ public final class ProtoHero {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_DisplayHero_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_DisplayHero_fieldAccessorTable
@@ -1074,6 +1122,7 @@ public final class ProtoHero {
      * <code>required .com.caidt.proto.Color color = 5;</code>
      */
     public com.caidt.proto.ProtoCommon.Color getColor() {
+      @SuppressWarnings("deprecation")
       com.caidt.proto.ProtoCommon.Color result = com.caidt.proto.ProtoCommon.Color.valueOf(color_);
       return result == null ? com.caidt.proto.ProtoCommon.Color.WHITE : result;
     }
@@ -1157,6 +1206,7 @@ public final class ProtoHero {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1196,6 +1246,7 @@ public final class ProtoHero {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1222,6 +1273,7 @@ public final class ProtoHero {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1260,7 +1312,6 @@ public final class ProtoHero {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1313,7 +1364,7 @@ public final class ProtoHero {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUid()) {
         hash = (37 * hash) + UID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -1349,6 +1400,17 @@ public final class ProtoHero {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoHero.DisplayHero parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoHero.DisplayHero parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoHero.DisplayHero parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1408,6 +1470,7 @@ public final class ProtoHero {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1415,6 +1478,7 @@ public final class ProtoHero {
     public static Builder newBuilder(com.caidt.proto.ProtoHero.DisplayHero prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1438,6 +1502,7 @@ public final class ProtoHero {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_DisplayHero_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_DisplayHero_fieldAccessorTable
@@ -1461,6 +1526,7 @@ public final class ProtoHero {
           getAttrsFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         uid_ = 0L;
@@ -1484,15 +1550,18 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_DisplayHero_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.DisplayHero getDefaultInstanceForType() {
         return com.caidt.proto.ProtoHero.DisplayHero.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.DisplayHero build() {
         com.caidt.proto.ProtoHero.DisplayHero result = buildPartial();
         if (!result.isInitialized()) {
@@ -1501,6 +1570,7 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.DisplayHero buildPartial() {
         com.caidt.proto.ProtoHero.DisplayHero result = new com.caidt.proto.ProtoHero.DisplayHero(this);
         int from_bitField0_ = bitField0_;
@@ -1543,32 +1613,39 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoHero.DisplayHero) {
           return mergeFrom((com.caidt.proto.ProtoHero.DisplayHero)other);
@@ -1629,6 +1706,7 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasUid()) {
           return false;
@@ -1656,6 +1734,7 @@ public final class ProtoHero {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1886,6 +1965,7 @@ public final class ProtoHero {
        * <code>required .com.caidt.proto.Color color = 5;</code>
        */
       public com.caidt.proto.ProtoCommon.Color getColor() {
+        @SuppressWarnings("deprecation")
         com.caidt.proto.ProtoCommon.Color result = com.caidt.proto.ProtoCommon.Color.valueOf(color_);
         return result == null ? com.caidt.proto.ProtoCommon.Color.WHITE : result;
       }
@@ -2278,11 +2358,13 @@ public final class ProtoHero {
         }
         return attrsBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2304,11 +2386,12 @@ public final class ProtoHero {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<DisplayHero>
         PARSER = new com.google.protobuf.AbstractParser<DisplayHero>() {
+      @java.lang.Override
       public DisplayHero parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new DisplayHero(input, extensionRegistry);
+        return new DisplayHero(input, extensionRegistry);
       }
     };
 
@@ -2321,6 +2404,7 @@ public final class ProtoHero {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoHero.DisplayHero getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2342,6 +2426,7 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.GetAllHeroRequest)
       GetAllHeroRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetAllHeroRequest.newBuilder() to construct.
     private GetAllHeroRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2359,6 +2444,9 @@ public final class ProtoHero {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -2370,8 +2458,8 @@ public final class ProtoHero {
               done = true;
               break;
             default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
                 done = true;
               }
               break;
@@ -2393,6 +2481,7 @@ public final class ProtoHero {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroRequest_fieldAccessorTable
@@ -2401,6 +2490,7 @@ public final class ProtoHero {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2410,11 +2500,13 @@ public final class ProtoHero {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2425,7 +2517,6 @@ public final class ProtoHero {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2447,12 +2538,23 @@ public final class ProtoHero {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
     }
 
+    public static com.caidt.proto.ProtoHero.GetAllHeroRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoHero.GetAllHeroRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoHero.GetAllHeroRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2512,6 +2614,7 @@ public final class ProtoHero {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2519,6 +2622,7 @@ public final class ProtoHero {
     public static Builder newBuilder(com.caidt.proto.ProtoHero.GetAllHeroRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2546,6 +2650,7 @@ public final class ProtoHero {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroRequest_fieldAccessorTable
@@ -2568,20 +2673,24 @@ public final class ProtoHero {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroRequest_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetAllHeroRequest getDefaultInstanceForType() {
         return com.caidt.proto.ProtoHero.GetAllHeroRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetAllHeroRequest build() {
         com.caidt.proto.ProtoHero.GetAllHeroRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -2590,38 +2699,46 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetAllHeroRequest buildPartial() {
         com.caidt.proto.ProtoHero.GetAllHeroRequest result = new com.caidt.proto.ProtoHero.GetAllHeroRequest(this);
         onBuilt();
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoHero.GetAllHeroRequest) {
           return mergeFrom((com.caidt.proto.ProtoHero.GetAllHeroRequest)other);
@@ -2638,10 +2755,12 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2659,11 +2778,13 @@ public final class ProtoHero {
         }
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2685,11 +2806,12 @@ public final class ProtoHero {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<GetAllHeroRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetAllHeroRequest>() {
+      @java.lang.Override
       public GetAllHeroRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetAllHeroRequest(input, extensionRegistry);
+        return new GetAllHeroRequest(input, extensionRegistry);
       }
     };
 
@@ -2702,6 +2824,7 @@ public final class ProtoHero {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoHero.GetAllHeroRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2743,6 +2866,7 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.GetAllHeroResponse)
       GetAllHeroResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetAllHeroResponse.newBuilder() to construct.
     private GetAllHeroResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2761,6 +2885,9 @@ public final class ProtoHero {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2772,13 +2899,6 @@ public final class ProtoHero {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 heroes_ = new java.util.ArrayList<com.caidt.proto.ProtoHero.DisplayHero>();
@@ -2786,6 +2906,13 @@ public final class ProtoHero {
               }
               heroes_.add(
                   input.readMessage(com.caidt.proto.ProtoHero.DisplayHero.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2808,6 +2935,7 @@ public final class ProtoHero {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroResponse_fieldAccessorTable
@@ -2851,6 +2979,7 @@ public final class ProtoHero {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2866,6 +2995,7 @@ public final class ProtoHero {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < heroes_.size(); i++) {
@@ -2874,6 +3004,7 @@ public final class ProtoHero {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2888,7 +3019,6 @@ public final class ProtoHero {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2912,7 +3042,7 @@ public final class ProtoHero {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getHeroesCount() > 0) {
         hash = (37 * hash) + HEROES_FIELD_NUMBER;
         hash = (53 * hash) + getHeroesList().hashCode();
@@ -2922,6 +3052,17 @@ public final class ProtoHero {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoHero.GetAllHeroResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoHero.GetAllHeroResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoHero.GetAllHeroResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2981,6 +3122,7 @@ public final class ProtoHero {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2988,6 +3130,7 @@ public final class ProtoHero {
     public static Builder newBuilder(com.caidt.proto.ProtoHero.GetAllHeroResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3011,6 +3154,7 @@ public final class ProtoHero {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroResponse_fieldAccessorTable
@@ -3034,6 +3178,7 @@ public final class ProtoHero {
           getHeroesFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (heroesBuilder_ == null) {
@@ -3045,15 +3190,18 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetAllHeroResponse_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetAllHeroResponse getDefaultInstanceForType() {
         return com.caidt.proto.ProtoHero.GetAllHeroResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetAllHeroResponse build() {
         com.caidt.proto.ProtoHero.GetAllHeroResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -3062,6 +3210,7 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetAllHeroResponse buildPartial() {
         com.caidt.proto.ProtoHero.GetAllHeroResponse result = new com.caidt.proto.ProtoHero.GetAllHeroResponse(this);
         int from_bitField0_ = bitField0_;
@@ -3078,32 +3227,39 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoHero.GetAllHeroResponse) {
           return mergeFrom((com.caidt.proto.ProtoHero.GetAllHeroResponse)other);
@@ -3146,6 +3302,7 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         for (int i = 0; i < getHeroesCount(); i++) {
           if (!getHeroes(i).isInitialized()) {
@@ -3155,6 +3312,7 @@ public final class ProtoHero {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3413,11 +3571,13 @@ public final class ProtoHero {
         }
         return heroesBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3439,11 +3599,12 @@ public final class ProtoHero {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<GetAllHeroResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetAllHeroResponse>() {
+      @java.lang.Override
       public GetAllHeroResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetAllHeroResponse(input, extensionRegistry);
+        return new GetAllHeroResponse(input, extensionRegistry);
       }
     };
 
@@ -3456,6 +3617,7 @@ public final class ProtoHero {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoHero.GetAllHeroResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3486,6 +3648,7 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.GetHeroRequest)
       GetHeroRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetHeroRequest.newBuilder() to construct.
     private GetHeroRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3504,6 +3667,9 @@ public final class ProtoHero {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3515,16 +3681,16 @@ public final class ProtoHero {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               heroId_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3544,6 +3710,7 @@ public final class ProtoHero {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroRequest_fieldAccessorTable
@@ -3568,6 +3735,7 @@ public final class ProtoHero {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3581,6 +3749,7 @@ public final class ProtoHero {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3589,6 +3758,7 @@ public final class ProtoHero {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3603,7 +3773,6 @@ public final class ProtoHero {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3630,7 +3799,7 @@ public final class ProtoHero {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasHeroId()) {
         hash = (37 * hash) + HEROID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -3641,6 +3810,17 @@ public final class ProtoHero {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoHero.GetHeroRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoHero.GetHeroRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoHero.GetHeroRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3700,6 +3880,7 @@ public final class ProtoHero {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3707,6 +3888,7 @@ public final class ProtoHero {
     public static Builder newBuilder(com.caidt.proto.ProtoHero.GetHeroRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3734,6 +3916,7 @@ public final class ProtoHero {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroRequest_fieldAccessorTable
@@ -3756,6 +3939,7 @@ public final class ProtoHero {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         heroId_ = 0L;
@@ -3763,15 +3947,18 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroRequest_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetHeroRequest getDefaultInstanceForType() {
         return com.caidt.proto.ProtoHero.GetHeroRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetHeroRequest build() {
         com.caidt.proto.ProtoHero.GetHeroRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -3780,6 +3967,7 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetHeroRequest buildPartial() {
         com.caidt.proto.ProtoHero.GetHeroRequest result = new com.caidt.proto.ProtoHero.GetHeroRequest(this);
         int from_bitField0_ = bitField0_;
@@ -3793,32 +3981,39 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoHero.GetHeroRequest) {
           return mergeFrom((com.caidt.proto.ProtoHero.GetHeroRequest)other);
@@ -3838,6 +4033,7 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasHeroId()) {
           return false;
@@ -3845,6 +4041,7 @@ public final class ProtoHero {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3895,11 +4092,13 @@ public final class ProtoHero {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3921,11 +4120,12 @@ public final class ProtoHero {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<GetHeroRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetHeroRequest>() {
+      @java.lang.Override
       public GetHeroRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetHeroRequest(input, extensionRegistry);
+        return new GetHeroRequest(input, extensionRegistry);
       }
     };
 
@@ -3938,6 +4138,7 @@ public final class ProtoHero {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoHero.GetHeroRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3968,6 +4169,7 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.GetHeroResponse)
       GetHeroResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use GetHeroResponse.newBuilder() to construct.
     private GetHeroResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3985,6 +4187,9 @@ public final class ProtoHero {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3996,13 +4201,6 @@ public final class ProtoHero {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.caidt.proto.ProtoHero.DisplayHero.Builder subBuilder = null;
               if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4014,6 +4212,13 @@ public final class ProtoHero {
                 hero_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000001;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -4033,6 +4238,7 @@ public final class ProtoHero {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroResponse_fieldAccessorTable
@@ -4063,6 +4269,7 @@ public final class ProtoHero {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4080,6 +4287,7 @@ public final class ProtoHero {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4088,6 +4296,7 @@ public final class ProtoHero {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4102,7 +4311,6 @@ public final class ProtoHero {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -4129,7 +4337,7 @@ public final class ProtoHero {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasHero()) {
         hash = (37 * hash) + HERO_FIELD_NUMBER;
         hash = (53 * hash) + getHero().hashCode();
@@ -4139,6 +4347,17 @@ public final class ProtoHero {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoHero.GetHeroResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoHero.GetHeroResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoHero.GetHeroResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4198,6 +4417,7 @@ public final class ProtoHero {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4205,6 +4425,7 @@ public final class ProtoHero {
     public static Builder newBuilder(com.caidt.proto.ProtoHero.GetHeroResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4228,6 +4449,7 @@ public final class ProtoHero {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroResponse_fieldAccessorTable
@@ -4251,6 +4473,7 @@ public final class ProtoHero {
           getHeroFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (heroBuilder_ == null) {
@@ -4262,15 +4485,18 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_GetHeroResponse_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetHeroResponse getDefaultInstanceForType() {
         return com.caidt.proto.ProtoHero.GetHeroResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetHeroResponse build() {
         com.caidt.proto.ProtoHero.GetHeroResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -4279,6 +4505,7 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.GetHeroResponse buildPartial() {
         com.caidt.proto.ProtoHero.GetHeroResponse result = new com.caidt.proto.ProtoHero.GetHeroResponse(this);
         int from_bitField0_ = bitField0_;
@@ -4296,32 +4523,39 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoHero.GetHeroResponse) {
           return mergeFrom((com.caidt.proto.ProtoHero.GetHeroResponse)other);
@@ -4341,6 +4575,7 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasHero()) {
           return false;
@@ -4351,6 +4586,7 @@ public final class ProtoHero {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4487,11 +4723,13 @@ public final class ProtoHero {
         }
         return heroBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4513,11 +4751,12 @@ public final class ProtoHero {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<GetHeroResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetHeroResponse>() {
+      @java.lang.Override
       public GetHeroResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new GetHeroResponse(input, extensionRegistry);
+        return new GetHeroResponse(input, extensionRegistry);
       }
     };
 
@@ -4530,6 +4769,7 @@ public final class ProtoHero {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoHero.GetHeroResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4575,6 +4815,7 @@ public final class ProtoHero {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.SCHero)
       SCHeroOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use SCHero.newBuilder() to construct.
     private SCHero(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -4593,6 +4834,9 @@ public final class ProtoHero {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4604,13 +4848,6 @@ public final class ProtoHero {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
                 heroes_ = new java.util.ArrayList<com.caidt.proto.ProtoHero.DisplayHero>();
@@ -4618,6 +4855,13 @@ public final class ProtoHero {
               }
               heroes_.add(
                   input.readMessage(com.caidt.proto.ProtoHero.DisplayHero.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -4640,6 +4884,7 @@ public final class ProtoHero {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_fieldAccessorTable
@@ -4683,6 +4928,7 @@ public final class ProtoHero {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4698,6 +4944,7 @@ public final class ProtoHero {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < heroes_.size(); i++) {
@@ -4706,6 +4953,7 @@ public final class ProtoHero {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4720,7 +4968,6 @@ public final class ProtoHero {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -4744,7 +4991,7 @@ public final class ProtoHero {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (getHeroesCount() > 0) {
         hash = (37 * hash) + HEROES_FIELD_NUMBER;
         hash = (53 * hash) + getHeroesList().hashCode();
@@ -4754,6 +5001,17 @@ public final class ProtoHero {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoHero.SCHero parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoHero.SCHero parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4813,6 +5071,7 @@ public final class ProtoHero {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -4820,6 +5079,7 @@ public final class ProtoHero {
     public static Builder newBuilder(com.caidt.proto.ProtoHero.SCHero prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -4847,6 +5107,7 @@ public final class ProtoHero {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_fieldAccessorTable
@@ -4870,6 +5131,7 @@ public final class ProtoHero {
           getHeroesFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (heroesBuilder_ == null) {
@@ -4881,15 +5143,18 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoHero.internal_static_com_caidt_proto_SCHero_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.SCHero getDefaultInstanceForType() {
         return com.caidt.proto.ProtoHero.SCHero.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.SCHero build() {
         com.caidt.proto.ProtoHero.SCHero result = buildPartial();
         if (!result.isInitialized()) {
@@ -4898,6 +5163,7 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoHero.SCHero buildPartial() {
         com.caidt.proto.ProtoHero.SCHero result = new com.caidt.proto.ProtoHero.SCHero(this);
         int from_bitField0_ = bitField0_;
@@ -4914,32 +5180,39 @@ public final class ProtoHero {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoHero.SCHero) {
           return mergeFrom((com.caidt.proto.ProtoHero.SCHero)other);
@@ -4982,6 +5255,7 @@ public final class ProtoHero {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         for (int i = 0; i < getHeroesCount(); i++) {
           if (!getHeroes(i).isInitialized()) {
@@ -4991,6 +5265,7 @@ public final class ProtoHero {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5249,11 +5524,13 @@ public final class ProtoHero {
         }
         return heroesBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5275,11 +5552,12 @@ public final class ProtoHero {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<SCHero>
         PARSER = new com.google.protobuf.AbstractParser<SCHero>() {
+      @java.lang.Override
       public SCHero parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SCHero(input, extensionRegistry);
+        return new SCHero(input, extensionRegistry);
       }
     };
 
@@ -5292,6 +5570,7 @@ public final class ProtoHero {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoHero.SCHero getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5351,7 +5630,7 @@ public final class ProtoHero {
       "\004star\030\006 \002(\005\022,\n\005attrs\030\007 \003(\0132\035.com.caidt.p" +
       "roto.HeroAttrData\"\023\n\021GetAllHeroRequest\"B" +
       "\n\022GetAllHeroResponse\022,\n\006heroes\030\001 \003(\0132\034.c" +
-      "om.caidt.proto.DisplayHero\" \n\016GetHeroReq",
+      "om.caidt.proto.DisplayHero\" \n\016GetHeroReq" +
       "uest\022\016\n\006heroId\030\001 \002(\003\"=\n\017GetHeroResponse\022" +
       "*\n\004hero\030\001 \002(\0132\034.com.caidt.proto.DisplayH" +
       "ero\"6\n\006SCHero\022,\n\006heroes\030\001 \003(\0132\034.com.caid" +

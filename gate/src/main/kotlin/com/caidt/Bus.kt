@@ -2,7 +2,6 @@ package com.caidt
 
 import akka.actor.ActorRef
 import akka.event.japi.LookupEventBus
-import akka.protobuf.MessageLite
 
 object Bus {
 
@@ -20,13 +19,13 @@ object Bus {
     lookupBus.unsubscribe(actorRef)
   }
 
-  fun publish(channel: Long, msg: MessageLite) {
+  fun publish(channel: Long, msg: Any) {
     lookupBus.publish(Event(channel, msg))
   }
 }
 
 
-internal data class Event(val channel: Long, val msg: MessageLite)
+internal data class Event(val channel: Long, val msg: Any)
 
 internal class LookupBus(private val size: Int) : LookupEventBus<Event, ActorRef, Long>() {
   override fun mapSize(): Int {

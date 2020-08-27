@@ -101,21 +101,21 @@ class Worker : UntypedAbstractActor() {
 class TickDuration(
   private val group: String,
   private val executor: ActorRef,
-  private val duration: Long = 1L
+  duration: Long = 1L
 ) {
 
-  private var tick = 0
+  private val timer: Timer = Timer(duration)
   private val jobs: MutableMap<String, Timer> = mutableMapOf()
 
   fun tick(name: String, duration: Long, exec: () -> Unit) {
-    val ticker = jobs.computeIfAbsent(name) { Timer(duration) }
-    tick++
-    if (tick >= this.duration) {
-      ticker.tick {
-        executor.tellNoSender(NamedRunnable("${group}_$name", Runnable(exec)))
-      }
-      tick = 0
+    timer.tick {
+      jobs.computeIfAbsent(name) { Timer(duration) }
+        .tick { submit("${group}_$name", Runnable(exec)) }
     }
+  }
+
+  private fun submit(name: String, runnable: Runnable) {
+    executor.tellNoSender(NamedRunnable(name, runnable))
   }
 
 }

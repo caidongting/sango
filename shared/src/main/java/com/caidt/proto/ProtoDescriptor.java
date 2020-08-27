@@ -90,6 +90,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.Request)
       RequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Request.newBuilder() to construct.
     private Request(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -111,6 +112,9 @@ public final class ProtoDescriptor {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -122,13 +126,6 @@ public final class ProtoDescriptor {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               uid_ = input.readInt64();
@@ -150,6 +147,13 @@ public final class ProtoDescriptor {
               req_ = input.readBytes();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -167,6 +171,7 @@ public final class ProtoDescriptor {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Request_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Request_fieldAccessorTable
@@ -283,6 +288,7 @@ public final class ProtoDescriptor {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -308,6 +314,7 @@ public final class ProtoDescriptor {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -325,6 +332,7 @@ public final class ProtoDescriptor {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -350,7 +358,6 @@ public final class ProtoDescriptor {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -392,7 +399,7 @@ public final class ProtoDescriptor {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUid()) {
         hash = (37 * hash) + UID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -415,6 +422,17 @@ public final class ProtoDescriptor {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoDescriptor.Request parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoDescriptor.Request parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoDescriptor.Request parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -474,6 +492,7 @@ public final class ProtoDescriptor {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -481,6 +500,7 @@ public final class ProtoDescriptor {
     public static Builder newBuilder(com.caidt.proto.ProtoDescriptor.Request prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -508,6 +528,7 @@ public final class ProtoDescriptor {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Request_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Request_fieldAccessorTable
@@ -530,6 +551,7 @@ public final class ProtoDescriptor {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         uid_ = 0L;
@@ -543,15 +565,18 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Request_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Request getDefaultInstanceForType() {
         return com.caidt.proto.ProtoDescriptor.Request.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Request build() {
         com.caidt.proto.ProtoDescriptor.Request result = buildPartial();
         if (!result.isInitialized()) {
@@ -560,6 +585,7 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Request buildPartial() {
         com.caidt.proto.ProtoDescriptor.Request result = new com.caidt.proto.ProtoDescriptor.Request(this);
         int from_bitField0_ = bitField0_;
@@ -585,32 +611,39 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoDescriptor.Request) {
           return mergeFrom((com.caidt.proto.ProtoDescriptor.Request)other);
@@ -641,6 +674,7 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasUid()) {
           return false;
@@ -657,6 +691,7 @@ public final class ProtoDescriptor {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -890,11 +925,13 @@ public final class ProtoDescriptor {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -916,11 +953,12 @@ public final class ProtoDescriptor {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Request>
         PARSER = new com.google.protobuf.AbstractParser<Request>() {
+      @java.lang.Override
       public Request parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Request(input, extensionRegistry);
+        return new Request(input, extensionRegistry);
       }
     };
 
@@ -933,6 +971,7 @@ public final class ProtoDescriptor {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoDescriptor.Request getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1001,6 +1040,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.Response)
       ResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Response.newBuilder() to construct.
     private Response(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1020,6 +1060,9 @@ public final class ProtoDescriptor {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1031,13 +1074,6 @@ public final class ProtoDescriptor {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               index_ = input.readInt32();
@@ -1061,6 +1097,13 @@ public final class ProtoDescriptor {
               bitField0_ |= 0x00000004;
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1078,6 +1121,7 @@ public final class ProtoDescriptor {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Response_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Response_fieldAccessorTable
@@ -1158,6 +1202,7 @@ public final class ProtoDescriptor {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1171,6 +1216,7 @@ public final class ProtoDescriptor {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1185,6 +1231,7 @@ public final class ProtoDescriptor {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1207,7 +1254,6 @@ public final class ProtoDescriptor {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1244,7 +1290,7 @@ public final class ProtoDescriptor {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasIndex()) {
         hash = (37 * hash) + INDEX_FIELD_NUMBER;
         hash = (53 * hash) + getIndex();
@@ -1262,6 +1308,17 @@ public final class ProtoDescriptor {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoDescriptor.Response parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoDescriptor.Response parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoDescriptor.Response parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -1321,6 +1378,7 @@ public final class ProtoDescriptor {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -1328,6 +1386,7 @@ public final class ProtoDescriptor {
     public static Builder newBuilder(com.caidt.proto.ProtoDescriptor.Response prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -1351,6 +1410,7 @@ public final class ProtoDescriptor {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Response_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Response_fieldAccessorTable
@@ -1374,6 +1434,7 @@ public final class ProtoDescriptor {
           getErrorFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         index_ = 0;
@@ -1389,15 +1450,18 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Response_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Response getDefaultInstanceForType() {
         return com.caidt.proto.ProtoDescriptor.Response.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Response build() {
         com.caidt.proto.ProtoDescriptor.Response result = buildPartial();
         if (!result.isInitialized()) {
@@ -1406,6 +1470,7 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Response buildPartial() {
         com.caidt.proto.ProtoDescriptor.Response result = new com.caidt.proto.ProtoDescriptor.Response(this);
         int from_bitField0_ = bitField0_;
@@ -1431,32 +1496,39 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoDescriptor.Response) {
           return mergeFrom((com.caidt.proto.ProtoDescriptor.Response)other);
@@ -1482,6 +1554,7 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasIndex()) {
           return false;
@@ -1489,6 +1562,7 @@ public final class ProtoDescriptor {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1744,11 +1818,13 @@ public final class ProtoDescriptor {
         }
         return errorBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1770,11 +1846,12 @@ public final class ProtoDescriptor {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Response>
         PARSER = new com.google.protobuf.AbstractParser<Response>() {
+      @java.lang.Override
       public Response parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Response(input, extensionRegistry);
+        return new Response(input, extensionRegistry);
       }
     };
 
@@ -1787,6 +1864,7 @@ public final class ProtoDescriptor {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoDescriptor.Response getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -1817,6 +1895,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.Ping)
       PingOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Ping.newBuilder() to construct.
     private Ping(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -1835,6 +1914,9 @@ public final class ProtoDescriptor {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1846,16 +1928,16 @@ public final class ProtoDescriptor {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               clientMillis_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -1875,6 +1957,7 @@ public final class ProtoDescriptor {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Ping_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Ping_fieldAccessorTable
@@ -1899,6 +1982,7 @@ public final class ProtoDescriptor {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1912,6 +1996,7 @@ public final class ProtoDescriptor {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -1920,6 +2005,7 @@ public final class ProtoDescriptor {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1934,7 +2020,6 @@ public final class ProtoDescriptor {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -1961,7 +2046,7 @@ public final class ProtoDescriptor {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasClientMillis()) {
         hash = (37 * hash) + CLIENTMILLIS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -1972,6 +2057,17 @@ public final class ProtoDescriptor {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoDescriptor.Ping parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoDescriptor.Ping parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoDescriptor.Ping parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2031,6 +2127,7 @@ public final class ProtoDescriptor {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2038,6 +2135,7 @@ public final class ProtoDescriptor {
     public static Builder newBuilder(com.caidt.proto.ProtoDescriptor.Ping prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2065,6 +2163,7 @@ public final class ProtoDescriptor {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Ping_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Ping_fieldAccessorTable
@@ -2087,6 +2186,7 @@ public final class ProtoDescriptor {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         clientMillis_ = 0L;
@@ -2094,15 +2194,18 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Ping_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Ping getDefaultInstanceForType() {
         return com.caidt.proto.ProtoDescriptor.Ping.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Ping build() {
         com.caidt.proto.ProtoDescriptor.Ping result = buildPartial();
         if (!result.isInitialized()) {
@@ -2111,6 +2214,7 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Ping buildPartial() {
         com.caidt.proto.ProtoDescriptor.Ping result = new com.caidt.proto.ProtoDescriptor.Ping(this);
         int from_bitField0_ = bitField0_;
@@ -2124,32 +2228,39 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoDescriptor.Ping) {
           return mergeFrom((com.caidt.proto.ProtoDescriptor.Ping)other);
@@ -2169,6 +2280,7 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasClientMillis()) {
           return false;
@@ -2176,6 +2288,7 @@ public final class ProtoDescriptor {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2226,11 +2339,13 @@ public final class ProtoDescriptor {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2252,11 +2367,12 @@ public final class ProtoDescriptor {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Ping>
         PARSER = new com.google.protobuf.AbstractParser<Ping>() {
+      @java.lang.Override
       public Ping parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Ping(input, extensionRegistry);
+        return new Ping(input, extensionRegistry);
       }
     };
 
@@ -2269,6 +2385,7 @@ public final class ProtoDescriptor {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoDescriptor.Ping getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2304,6 +2421,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.Pong)
       PongOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use Pong.newBuilder() to construct.
     private Pong(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2323,6 +2441,9 @@ public final class ProtoDescriptor {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2334,13 +2455,6 @@ public final class ProtoDescriptor {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               clientMillis_ = input.readInt64();
@@ -2349,6 +2463,13 @@ public final class ProtoDescriptor {
             case 16: {
               bitField0_ |= 0x00000002;
               serverMillis_ = input.readInt64();
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2368,6 +2489,7 @@ public final class ProtoDescriptor {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Pong_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Pong_fieldAccessorTable
@@ -2407,6 +2529,7 @@ public final class ProtoDescriptor {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2424,6 +2547,7 @@ public final class ProtoDescriptor {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2435,6 +2559,7 @@ public final class ProtoDescriptor {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2453,7 +2578,6 @@ public final class ProtoDescriptor {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -2485,7 +2609,7 @@ public final class ProtoDescriptor {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasClientMillis()) {
         hash = (37 * hash) + CLIENTMILLIS_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -2501,6 +2625,17 @@ public final class ProtoDescriptor {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoDescriptor.Pong parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoDescriptor.Pong parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoDescriptor.Pong parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2560,6 +2695,7 @@ public final class ProtoDescriptor {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -2567,6 +2703,7 @@ public final class ProtoDescriptor {
     public static Builder newBuilder(com.caidt.proto.ProtoDescriptor.Pong prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -2590,6 +2727,7 @@ public final class ProtoDescriptor {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Pong_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Pong_fieldAccessorTable
@@ -2612,6 +2750,7 @@ public final class ProtoDescriptor {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         clientMillis_ = 0L;
@@ -2621,15 +2760,18 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_Pong_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Pong getDefaultInstanceForType() {
         return com.caidt.proto.ProtoDescriptor.Pong.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Pong build() {
         com.caidt.proto.ProtoDescriptor.Pong result = buildPartial();
         if (!result.isInitialized()) {
@@ -2638,6 +2780,7 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.Pong buildPartial() {
         com.caidt.proto.ProtoDescriptor.Pong result = new com.caidt.proto.ProtoDescriptor.Pong(this);
         int from_bitField0_ = bitField0_;
@@ -2655,32 +2798,39 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoDescriptor.Pong) {
           return mergeFrom((com.caidt.proto.ProtoDescriptor.Pong)other);
@@ -2703,6 +2853,7 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasClientMillis()) {
           return false;
@@ -2713,6 +2864,7 @@ public final class ProtoDescriptor {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2795,11 +2947,13 @@ public final class ProtoDescriptor {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2821,11 +2975,12 @@ public final class ProtoDescriptor {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<Pong>
         PARSER = new com.google.protobuf.AbstractParser<Pong>() {
+      @java.lang.Override
       public Pong parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Pong(input, extensionRegistry);
+        return new Pong(input, extensionRegistry);
       }
     };
 
@@ -2838,6 +2993,7 @@ public final class ProtoDescriptor {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoDescriptor.Pong getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -2887,6 +3043,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.LoginRequest)
       LoginRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use LoginRequest.newBuilder() to construct.
     private LoginRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -2906,6 +3063,9 @@ public final class ProtoDescriptor {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2917,13 +3077,6 @@ public final class ProtoDescriptor {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 10: {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000001;
@@ -2934,6 +3087,13 @@ public final class ProtoDescriptor {
               com.google.protobuf.ByteString bs = input.readBytes();
               bitField0_ |= 0x00000002;
               password_ = bs;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -2953,6 +3113,7 @@ public final class ProtoDescriptor {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginRequest_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginRequest_fieldAccessorTable
@@ -3046,6 +3207,7 @@ public final class ProtoDescriptor {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3063,6 +3225,7 @@ public final class ProtoDescriptor {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3074,6 +3237,7 @@ public final class ProtoDescriptor {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3090,7 +3254,6 @@ public final class ProtoDescriptor {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3122,7 +3285,7 @@ public final class ProtoDescriptor {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUsername()) {
         hash = (37 * hash) + USERNAME_FIELD_NUMBER;
         hash = (53 * hash) + getUsername().hashCode();
@@ -3136,6 +3299,17 @@ public final class ProtoDescriptor {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoDescriptor.LoginRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoDescriptor.LoginRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoDescriptor.LoginRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3195,6 +3369,7 @@ public final class ProtoDescriptor {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3202,6 +3377,7 @@ public final class ProtoDescriptor {
     public static Builder newBuilder(com.caidt.proto.ProtoDescriptor.LoginRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3229,6 +3405,7 @@ public final class ProtoDescriptor {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginRequest_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginRequest_fieldAccessorTable
@@ -3251,6 +3428,7 @@ public final class ProtoDescriptor {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         username_ = "";
@@ -3260,15 +3438,18 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginRequest_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.LoginRequest getDefaultInstanceForType() {
         return com.caidt.proto.ProtoDescriptor.LoginRequest.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.LoginRequest build() {
         com.caidt.proto.ProtoDescriptor.LoginRequest result = buildPartial();
         if (!result.isInitialized()) {
@@ -3277,6 +3458,7 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.LoginRequest buildPartial() {
         com.caidt.proto.ProtoDescriptor.LoginRequest result = new com.caidt.proto.ProtoDescriptor.LoginRequest(this);
         int from_bitField0_ = bitField0_;
@@ -3294,32 +3476,39 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoDescriptor.LoginRequest) {
           return mergeFrom((com.caidt.proto.ProtoDescriptor.LoginRequest)other);
@@ -3346,6 +3535,7 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasUsername()) {
           return false;
@@ -3356,6 +3546,7 @@ public final class ProtoDescriptor {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3526,11 +3717,13 @@ public final class ProtoDescriptor {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3552,11 +3745,12 @@ public final class ProtoDescriptor {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<LoginRequest>
         PARSER = new com.google.protobuf.AbstractParser<LoginRequest>() {
+      @java.lang.Override
       public LoginRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new LoginRequest(input, extensionRegistry);
+        return new LoginRequest(input, extensionRegistry);
       }
     };
 
@@ -3569,6 +3763,7 @@ public final class ProtoDescriptor {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoDescriptor.LoginRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -3608,6 +3803,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.LoginResponse)
       LoginResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use LoginResponse.newBuilder() to construct.
     private LoginResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -3626,6 +3822,9 @@ public final class ProtoDescriptor {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3637,13 +3836,6 @@ public final class ProtoDescriptor {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               serverId_ = input.readInt64();
@@ -3660,6 +3852,13 @@ public final class ProtoDescriptor {
                 player_ = subBuilder.buildPartial();
               }
               bitField0_ |= 0x00000002;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
               break;
             }
           }
@@ -3679,6 +3878,7 @@ public final class ProtoDescriptor {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginResponse_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginResponse_fieldAccessorTable
@@ -3724,6 +3924,7 @@ public final class ProtoDescriptor {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3745,6 +3946,7 @@ public final class ProtoDescriptor {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3756,6 +3958,7 @@ public final class ProtoDescriptor {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3774,7 +3977,6 @@ public final class ProtoDescriptor {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -3806,7 +4008,7 @@ public final class ProtoDescriptor {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasServerId()) {
         hash = (37 * hash) + SERVERID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -3821,6 +4023,17 @@ public final class ProtoDescriptor {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoDescriptor.LoginResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoDescriptor.LoginResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoDescriptor.LoginResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3880,6 +4093,7 @@ public final class ProtoDescriptor {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -3887,6 +4101,7 @@ public final class ProtoDescriptor {
     public static Builder newBuilder(com.caidt.proto.ProtoDescriptor.LoginResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -3910,6 +4125,7 @@ public final class ProtoDescriptor {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginResponse_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginResponse_fieldAccessorTable
@@ -3933,6 +4149,7 @@ public final class ProtoDescriptor {
           getPlayerFieldBuilder();
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         serverId_ = 0L;
@@ -3946,15 +4163,18 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_LoginResponse_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.LoginResponse getDefaultInstanceForType() {
         return com.caidt.proto.ProtoDescriptor.LoginResponse.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.LoginResponse build() {
         com.caidt.proto.ProtoDescriptor.LoginResponse result = buildPartial();
         if (!result.isInitialized()) {
@@ -3963,6 +4183,7 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.LoginResponse buildPartial() {
         com.caidt.proto.ProtoDescriptor.LoginResponse result = new com.caidt.proto.ProtoDescriptor.LoginResponse(this);
         int from_bitField0_ = bitField0_;
@@ -3984,32 +4205,39 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoDescriptor.LoginResponse) {
           return mergeFrom((com.caidt.proto.ProtoDescriptor.LoginResponse)other);
@@ -4032,6 +4260,7 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasServerId()) {
           return false;
@@ -4045,6 +4274,7 @@ public final class ProtoDescriptor {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4213,11 +4443,13 @@ public final class ProtoDescriptor {
         }
         return playerBuilder_;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4239,11 +4471,12 @@ public final class ProtoDescriptor {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<LoginResponse>
         PARSER = new com.google.protobuf.AbstractParser<LoginResponse>() {
+      @java.lang.Override
       public LoginResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new LoginResponse(input, extensionRegistry);
+        return new LoginResponse(input, extensionRegistry);
       }
     };
 
@@ -4256,6 +4489,7 @@ public final class ProtoDescriptor {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoDescriptor.LoginResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -4411,6 +4645,7 @@ public final class ProtoDescriptor {
       com.google.protobuf.GeneratedMessageV3 implements
       // @@protoc_insertion_point(message_implements:com.caidt.proto.PlayerInfo)
       PlayerInfoOrBuilder {
+  private static final long serialVersionUID = 0L;
     // Use PlayerInfo.newBuilder() to construct.
     private PlayerInfo(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
@@ -4436,6 +4671,9 @@ public final class ProtoDescriptor {
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -4447,13 +4685,6 @@ public final class ProtoDescriptor {
             case 0:
               done = true;
               break;
-            default: {
-              if (!parseUnknownField(input, unknownFields,
-                                     extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
             case 8: {
               bitField0_ |= 0x00000001;
               uid_ = input.readInt64();
@@ -4496,6 +4727,13 @@ public final class ProtoDescriptor {
               vipExp_ = input.readInt32();
               break;
             }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -4513,6 +4751,7 @@ public final class ProtoDescriptor {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_PlayerInfo_descriptor;
     }
 
+    @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
       return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_PlayerInfo_fieldAccessorTable
@@ -4748,6 +4987,7 @@ public final class ProtoDescriptor {
     }
 
     private byte memoizedIsInitialized = -1;
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -4765,6 +5005,7 @@ public final class ProtoDescriptor {
       return true;
     }
 
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (((bitField0_ & 0x00000001) == 0x00000001)) {
@@ -4794,6 +5035,7 @@ public final class ProtoDescriptor {
       unknownFields.writeTo(output);
     }
 
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -4834,7 +5076,6 @@ public final class ProtoDescriptor {
       return size;
     }
 
-    private static final long serialVersionUID = 0L;
     @java.lang.Override
     public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
@@ -4896,7 +5137,7 @@ public final class ProtoDescriptor {
         return memoizedHashCode;
       }
       int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (19 * hash) + getDescriptor().hashCode();
       if (hasUid()) {
         hash = (37 * hash) + UID_FIELD_NUMBER;
         hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -4937,6 +5178,17 @@ public final class ProtoDescriptor {
       return hash;
     }
 
+    public static com.caidt.proto.ProtoDescriptor.PlayerInfo parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoDescriptor.PlayerInfo parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
     public static com.caidt.proto.ProtoDescriptor.PlayerInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -4996,6 +5248,7 @@ public final class ProtoDescriptor {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
@@ -5003,6 +5256,7 @@ public final class ProtoDescriptor {
     public static Builder newBuilder(com.caidt.proto.ProtoDescriptor.PlayerInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
@@ -5030,6 +5284,7 @@ public final class ProtoDescriptor {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_PlayerInfo_descriptor;
       }
 
+      @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_PlayerInfo_fieldAccessorTable
@@ -5052,6 +5307,7 @@ public final class ProtoDescriptor {
                 .alwaysUseFieldBuilders) {
         }
       }
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         uid_ = 0L;
@@ -5073,15 +5329,18 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
         return com.caidt.proto.ProtoDescriptor.internal_static_com_caidt_proto_PlayerInfo_descriptor;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.PlayerInfo getDefaultInstanceForType() {
         return com.caidt.proto.ProtoDescriptor.PlayerInfo.getDefaultInstance();
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.PlayerInfo build() {
         com.caidt.proto.ProtoDescriptor.PlayerInfo result = buildPartial();
         if (!result.isInitialized()) {
@@ -5090,6 +5349,7 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public com.caidt.proto.ProtoDescriptor.PlayerInfo buildPartial() {
         com.caidt.proto.ProtoDescriptor.PlayerInfo result = new com.caidt.proto.ProtoDescriptor.PlayerInfo(this);
         int from_bitField0_ = bitField0_;
@@ -5131,32 +5391,39 @@ public final class ProtoDescriptor {
         return result;
       }
 
+      @java.lang.Override
       public Builder clone() {
         return (Builder) super.clone();
       }
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.setField(field, value);
       }
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return (Builder) super.clearField(field);
       }
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return (Builder) super.clearOneof(oneof);
       }
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return (Builder) super.setRepeatedField(field, index, value);
       }
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return (Builder) super.addRepeatedField(field, value);
       }
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
         if (other instanceof com.caidt.proto.ProtoDescriptor.PlayerInfo) {
           return mergeFrom((com.caidt.proto.ProtoDescriptor.PlayerInfo)other);
@@ -5201,6 +5468,7 @@ public final class ProtoDescriptor {
         return this;
       }
 
+      @java.lang.Override
       public final boolean isInitialized() {
         if (!hasUid()) {
           return false;
@@ -5211,6 +5479,7 @@ public final class ProtoDescriptor {
         return true;
       }
 
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -5677,11 +5946,13 @@ public final class ProtoDescriptor {
         onChanged();
         return this;
       }
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -5703,11 +5974,12 @@ public final class ProtoDescriptor {
 
     @java.lang.Deprecated public static final com.google.protobuf.Parser<PlayerInfo>
         PARSER = new com.google.protobuf.AbstractParser<PlayerInfo>() {
+      @java.lang.Override
       public PlayerInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-          return new PlayerInfo(input, extensionRegistry);
+        return new PlayerInfo(input, extensionRegistry);
       }
     };
 
@@ -5720,6 +5992,7 @@ public final class ProtoDescriptor {
       return PARSER;
     }
 
+    @java.lang.Override
     public com.caidt.proto.ProtoDescriptor.PlayerInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
@@ -5779,7 +6052,7 @@ public final class ProtoDescriptor {
       "\n\004Pong\022\024\n\014clientMillis\030\001 \002(\003\022\024\n\014serverMi" +
       "llis\030\002 \002(\003\"2\n\014LoginRequest\022\020\n\010username\030\001" +
       " \002(\t\022\020\n\010password\030\002 \002(\t\"N\n\rLoginResponse\022" +
-      "\020\n\010serverId\030\001 \002(\003\022+\n\006player\030\002 \002(\0132\033.com.",
+      "\020\n\010serverId\030\001 \002(\003\022+\n\006player\030\002 \002(\0132\033.com." +
       "caidt.proto.PlayerInfo\"\206\001\n\nPlayerInfo\022\013\n" +
       "\003uid\030\001 \002(\003\022\014\n\004name\030\002 \002(\t\022\020\n\010nickname\030\003 \001" +
       "(\t\022\r\n\005level\030\004 \001(\005\022\013\n\003exp\030\005 \001(\003\022\r\n\005power\030" +
