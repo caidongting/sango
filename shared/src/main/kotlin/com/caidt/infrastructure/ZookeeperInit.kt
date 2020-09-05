@@ -8,7 +8,7 @@ import org.apache.zookeeper.CreateMode
 const val zooKeeperPath = "192.168.125.199:2181,192.168.125.199:2182,192.168.125.199:2183"
 
 fun main(args: Array<String>) {
-  initZookeeper(zkroot)
+  initZookeeper(ZK_ROOT)
 }
 
 fun initZookeeper(zkroot: String) {
@@ -17,7 +17,7 @@ fun initZookeeper(zkroot: String) {
     .connectionTimeoutMs(20000)
     .sessionTimeoutMs(15000)
     .retryPolicy(ExponentialBackoffRetry(1000, 3))
-    .namespace("$CLUSTER_NAME/$zkroot")
+    .namespace(zkroot)
     .build()
 
   curatorFramework.start()
@@ -26,8 +26,8 @@ fun initZookeeper(zkroot: String) {
   // 1. 更新seedNodes
   curatorFramework.delete().deletingChildrenIfNeeded().forPath("/seedNodes")
   val data = listOf(
-    "home:akka.tcp:$CLUSTER_NAME:$localhost:2552",
-    "world:akka.tcp:$CLUSTER_NAME:$localhost:2553"
+    "home:akka.tcp:$localhost:2552",
+    "world:akka.tcp:$localhost:2553"
   )
 
   curatorFramework.create()

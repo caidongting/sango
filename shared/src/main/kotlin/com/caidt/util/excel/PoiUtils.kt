@@ -40,13 +40,13 @@ object PoiUtils {
   fun getShortValue(cell: XSSFCell?): Short {
     return if (cell == null || cell.toString().isEmpty()) {
       0
-    } else cell.toString().toDouble().toShort()
+    } else cell.toString().toDouble().toInt().toShort()
   }
 
   fun getByteValue(cell: XSSFCell?): Byte {
     return if (cell == null || cell.toString().isEmpty()) {
       0
-    } else cell.toString().toDouble().toByte()
+    } else cell.toString().toDouble().toInt().toByte()
   }
 
   fun getDoubleValue(cell: XSSFCell?): Double {

@@ -29,9 +29,14 @@ const val DEFAULT_ROOT = "root"
 const val localhost: String = "192.168.1.3"
 // val localhost: String = InetAddress.getLocalHost().hostAddress ?: "192.168.1.3"
 /** 是否开发模式 */
-val isDev: Boolean get() = System.getenv("MODE") == "dev"
+val isDev: Boolean = System.getenv("MODE") == "dev"
+
 /** zk namespace */
-val zkroot: String get() = System.getProperty("zkroot", DEFAULT_ROOT)
+val ZK_ROOT: String = System.getProperty("zkroot", DEFAULT_ROOT)
+/** zk online node directory */
+val ZK_ONLINE_NODE_DIR: String = "$ZK_ROOT/server"
+/** zk seed nodes directory */
+val ZK_SEED_NODE_DIR: String = "$ZK_ROOT/seedNodes"
 
 /** excel config 目录 */
 const val EXCEL_CONFIG_DIR = "com.caidt.share.config"

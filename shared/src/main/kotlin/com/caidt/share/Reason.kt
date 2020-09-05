@@ -11,5 +11,9 @@ enum class Reason {
   GM,
   /** null pointer */
   NPE,
+  /** illegal argument */
+  ILLEGAL_ARGUMENT,
+  /** illegal state */
+  ILLEGAL_STATE,
   ;
 }

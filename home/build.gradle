@@ -15,3 +15,15 @@ mainClassName = 'com.caidt.HomeKt'
 //    classifier = ''
 //    exclude "*/*.proto" // 不打包proto文件
 //}
+
+task copyJar(type: Copy) {
+    from {
+//        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    into("build/libs/lib")
+}
+
+task release(dependsOn: [build, copyJar]) {
+    println "release completed!"
+}

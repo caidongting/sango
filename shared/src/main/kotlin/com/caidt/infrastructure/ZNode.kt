@@ -28,12 +28,11 @@ class ZNode {
 
   /** 服务器上线注册临时节点 */
   fun register(server: GameServer) {
-    val prefix = "/$CLUSTER_NAME/$zkroot/server"
     val data = "$localhost:${server.port}"
     curatorFramework.create()
       .creatingParentsIfNeeded()
       .withMode(CreateMode.EPHEMERAL_SEQUENTIAL)
-      .forPath("$prefix/${server.role}", data.toByteArray())
+      .forPath("$ZK_ONLINE_NODE_DIR/${server.role}", data.toByteArray())
 
     // curatorFramework.children.usingWatcher(CuratorWatcher {
     //   println(it.path)
@@ -42,12 +41,11 @@ class ZNode {
   }
 
   fun getSeedNodes(): List<Address> {
-    val prefix = "/$CLUSTER_NAME/$zkroot/seedNodes"
-    val bytes = curatorFramework.data.forPath(prefix)
+    val bytes = curatorFramework.data.forPath(ZK_SEED_NODE_DIR)
     val list = JSON.parseArray(bytes, String::class.java)
     return list.map {
-      val (_, protocol, sys, host, port) = it.split(":")
-      Address(protocol, sys, host, port.toInt())
+      val (_, protocol, host, port) = it.split(":")
+      Address(protocol, CLUSTER_NAME, host, port.toInt())
     }
   }
 

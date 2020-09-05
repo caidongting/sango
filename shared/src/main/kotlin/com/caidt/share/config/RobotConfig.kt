@@ -3,7 +3,6 @@ package com.caidt.share.config
 
 import com.caidt.infrastructure.config.DoNotLoad
 import com.caidt.infrastructure.config.ExcelConfig
-import com.caidt.util.Asserts.notNull
 import com.caidt.util.excel.ExcelFile
 
 @DoNotLoad
@@ -28,12 +27,12 @@ class RobotConfig : ExcelConfig() {
   override fun afterLoadAll() {
   }
 
-  fun getRobot(uid: Long): RobotCfg {
-    return notNull(robotMap[uid]) { "cfg not found uid=$uid" }
+  operator fun get(uid: Long): RobotCfg {
+    return requireNotNull(robotMap[uid]) { "cfg not found uid=$uid" }
   }
 
-  fun getRobot(name: String): RobotCfg {
-    return notNull(robotNameMap[name]) { "cfg not found name=$name" }
+  operator fun get(name: String): RobotCfg {
+    return requireNotNull(robotNameMap[name]) { "cfg not found name=$name" }
   }
 
 }

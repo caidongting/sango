@@ -91,6 +91,7 @@ class Worker : UntypedAbstractActor() {
         logger.info("run task:${message.name}")
       }
       is Runnable -> message.run()
+      else -> unhandled(message)
     }
   }
 }
@@ -107,10 +108,10 @@ class TickDuration(
   private val timer: Timer = Timer(duration)
   private val jobs: MutableMap<String, Timer> = mutableMapOf()
 
-  fun tick(name: String, duration: Long, exec: () -> Unit) {
+  fun tick(name: String, duration: Long, runnable: Runnable) {
     timer.tick {
       jobs.computeIfAbsent(name) { Timer(duration) }
-        .tick { submit("${group}_$name", Runnable(exec)) }
+        .tick { submit("${group}_$name", runnable) }
     }
   }
 
@@ -125,9 +126,9 @@ class TickTimer(private val executor: ActorRef, duration: Long) {
 
   private val timer: Timer = Timer(duration)
 
-  fun tick(exec: () -> Unit) {
+  fun tick(runnable: Runnable) {
     timer.tick {
-      executor.tellNoSender(Runnable(exec))
+      executor.tellNoSender(runnable)
     }
   }
 

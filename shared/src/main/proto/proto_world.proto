@@ -1,0 +1,23 @@
+syntax = "proto2";
+package com.caidt.proto;
+
+// 地图单元
+message Cell {
+    required int32 uid = 1;
+    optional int32 type = 2;
+}
+
+// 获取地图信息
+message WorldRequest {
+
+}
+
+// 获取一小块地图简要信息
+message MapRequest {
+    required int32 id = 1;
+}
+
+// 获取一个单元格的数据信息
+message CellRequest {
+
+}
