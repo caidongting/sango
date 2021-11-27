@@ -3,7 +3,6 @@ package com.caidt
 import akka.actor.ActorRef
 import akka.actor.Cancellable
 import akka.actor.UntypedAbstractActor
-import akka.japi.Procedure
 import com.caidt.dataContainer.PlayerDC
 import com.caidt.infrastructure.GameException
 import com.caidt.memory.DataContainer
@@ -20,7 +19,6 @@ import org.slf4j.LoggerFactory
 import java.time.Duration
 import java.time.Instant
 import java.util.concurrent.CompletableFuture
-import java.util.concurrent.CompletionStage
 import kotlin.reflect.KClass
 
 
@@ -35,7 +33,9 @@ open class PlayerActor : UntypedAbstractActor() {
     DOWN,
   }
 
-  val playerId: Long get() = playerAccount.playerId
+  private var _playerId: Long = 0L
+
+  val playerId: Long get() = _playerId
 
   val worldId: Long get() = playerAccount.worldId
 
@@ -43,15 +43,8 @@ open class PlayerActor : UntypedAbstractActor() {
 
   private val playerAccount: PlayerAccountEntity get() = playerDC.entity
 
-  val eventBus: EventBus by lazy { EventBus(context) }
 
-  val commonTick: CommonTick by lazy { CommonTick(context) }
 
-  val s = Procedure<Any> { message ->
-    when (message) {
-      is PlayerEnvelope -> handleOnUp(message)
-    }
-  }
 
   override fun onReceive(message: Any?) {
     when (state) {
@@ -75,6 +68,8 @@ open class PlayerActor : UntypedAbstractActor() {
   private fun loading(playerId: Long) {
     state = State.LOADING
     // todo: 加载少量必要数据，避免浪费
+    _playerId = playerId
+    client = sender
     // 定时
     scheduleTick()
     state = State.UP
@@ -148,7 +143,7 @@ open class PlayerActor : UntypedAbstractActor() {
   private fun tick(now: Instant) {
     // database DataContainer check
     //
-    commonTick.tick(this, now)
+    Home.commonTick.tick(this, now)
   }
 
   private var client: ActorRef? = null
@@ -193,6 +188,6 @@ open class PlayerActor : UntypedAbstractActor() {
 //    require(PlayerDC::class)
   }
 
-  fun <T> patternCS(): CompletionStage<T> = CompletableFuture()
+  fun <T> patternCS(): CompletableFuture<T> = CompletableFuture()
 
 }

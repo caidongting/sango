@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration debug="false">
 
-	<property name="LOG_HOME" value="log"/>
+    <property name="LOG_HOME" value="log"/>
 
-	<!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
-	<appender name="console" class="ch.qos.logback.core.ConsoleAppender">
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<Pattern>%d{HH:mm:ss.SSS}|%-5level|%thread{18}|%logger{36} - %msg%n</Pattern>
-			<charset>UTF-8</charset>
-		</encoder>
-	</appender>
+    <!-- ch.qos.logback.core.ConsoleAppender 控制台输出 -->
+    <appender name="console" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{HH:mm:ss.SSS}|%-5level|%thread{18}|%logger{36} - %msg%n</Pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
 
-	<!-- ch.qos.logback.core.RollingFileAppender 文件输出 -->
-	<appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-		<append>true</append> <!--default true-->
-		<file>${LOG_HOME}/info.log</file>
-		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-			<FileNamePattern>${LOG_HOME}/info.%d{yyyy-MM-dd}_%i.log</FileNamePattern>
-			<MaxHistory>30</MaxHistory>
-			<MaxFileSize>100MB</MaxFileSize>
-<!--			<TotalSizeCap>20GB</TotalSizeCap>-->
-		</rollingPolicy>
-		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
-			<Pattern>%d{HH:mm:ss.SSS}|%-5level|%thread{18}|%logger{36} - %msg%n</Pattern>
-			<charset>UTF-8</charset>
-		</encoder>
-	</appender>
+    <!-- ch.qos.logback.core.RollingFileAppender 文件输出 -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <append>true</append> <!--default true-->
+        <file>${LOG_HOME}/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <FileNamePattern>${LOG_HOME}/info.%d{yyyy-MM-dd}_%i.log</FileNamePattern>
+            <MaxHistory>30</MaxHistory>
+            <MaxFileSize>100MB</MaxFileSize>
+            <!--			<TotalSizeCap>20GB</TotalSizeCap>-->
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <Pattern>%d{HH:mm:ss.SSS}|%-5level|%thread{18}|%logger{36} - %msg%n</Pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
 
 
-	<!-- 日志级别 -->
-	<root level="debug">
-		<appender-ref ref="console"/>
-		<appender-ref ref="FILE"/>
-	</root>
+    <!-- 日志级别 -->
+    <root level="debug">
+        <appender-ref ref="console"/>
+        <appender-ref ref="FILE"/>
+    </root>
 
-	<logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"/>
-	<logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="debug"/>
-	<logger name="org.hibernate.SQL" level="debug"/>
-	<logger name="org.hibernate.engine.QueryParameters" level="debug"/>
-	<logger name="org.hibernate.engine.query.HQLQueryPlan" level="debug"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicBinder" level="trace"/>
+    <logger name="org.hibernate.type.descriptor.sql.BasicExtractor" level="debug"/>
+    <logger name="org.hibernate.SQL" level="debug"/>
+    <logger name="org.hibernate.engine.QueryParameters" level="debug"/>
+    <logger name="org.hibernate.engine.query.HQLQueryPlan" level="debug"/>
 
-	<logger name="akka.cluster.sharding.ShardRegion" level="info"/>
-	<logger name="akka.cluster.sharding.ClusterSharding" level="debug"/>
-	<logger name="akka.cluster.ddata" level="info"/>
+    <logger name="akka.cluster.sharding.ShardRegion" level="info"/>
+    <logger name="akka.cluster.sharding.ClusterSharding" level="debug"/>
+    <logger name="akka.cluster.ddata" level="info"/>
 
-	<logger name="org.apache.zookeeper.ClientCnxn" level="info"/>
-	<logger name="org.apache.curator" level="info"/>
-	<logger name="io.altoo.akka.serialization.kryo.KryoSerializer" level="debug"/>
+    <logger name="org.apache.zookeeper.ClientCnxn" level="info"/>
+    <logger name="org.apache.curator" level="info"/>
+    <logger name="io.altoo.akka.serialization.kryo.KryoSerializer" level="debug"/>
 
 </configuration>

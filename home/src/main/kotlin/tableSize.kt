@@ -1,6 +1,5 @@
 import java.time.Instant
 import java.time.ZoneId
-import java.time.ZonedDateTime
 import java.time.temporal.ChronoField
 import java.time.temporal.TemporalField
 
@@ -9,13 +8,13 @@ fun main() {
 //  println(tableSizeFor(n))
 //  val a = 1
 //  val b = 2
-  val dateTime = Instant.now().atZone(ZoneId.systemDefault())
-  val year = dateTime[ChronoField.YEAR]
-  val month = getLocalField(dateTime, ChronoField.MONTH_OF_YEAR)
-  val day = getLocalField(dateTime, ChronoField.DAY_OF_MONTH)
-  val hour = getLocalField(dateTime, ChronoField.HOUR_OF_DAY)
-  val minute = getLocalField(dateTime, ChronoField.MINUTE_OF_HOUR)
-  val second = getLocalField(dateTime, ChronoField.SECOND_OF_MINUTE)
+  val zonedDateTime = Instant.now().atZone(ZoneId.systemDefault())
+  val year = zonedDateTime[ChronoField.YEAR]
+  val month = zonedDateTime[ChronoField.MONTH_OF_YEAR]
+  val day = zonedDateTime[ChronoField.DAY_OF_MONTH]
+  val hour = zonedDateTime[ChronoField.HOUR_OF_DAY]
+  val minute = zonedDateTime[ChronoField.MINUTE_OF_HOUR]
+  val second = zonedDateTime[ChronoField.SECOND_OF_MINUTE]
   println("${year}年${month}月${day}日${hour}时${minute}分${second}秒")
 }
 
@@ -61,9 +60,5 @@ fun getHour(second: Int): Int {
  * @return value of field
  */
 fun getLocalField(instant: Instant, field: TemporalField): Int {
-  return getLocalField(instant.atZone(ZoneId.systemDefault()), field)
-}
-
-fun getLocalField(dateTime: ZonedDateTime, field: TemporalField): Int {
-  return dateTime[field]
+  return instant.atZone(ZoneId.systemDefault())[field]
 }

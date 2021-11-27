@@ -27,7 +27,7 @@ object World : GameServer(port = 2553) {
   }
 }
 
-fun main() {
+fun main(args: Array<String>) {
   World.start()
   // Thread.sleep(10000L)
   // World.homeProxy.tellNoSender(PlayerEnvelope(1L, Ok))

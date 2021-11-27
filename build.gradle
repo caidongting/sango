@@ -1,26 +1,19 @@
-buildscript {
-    ext {
-        kotlinVersion = '1.4.0'
-        akkaVersion = '2.5.31'
-        ktor_version = '1.3.2'
-    }
-    repositories {
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        /* 添加插件依赖路径（通过jar方式） */
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-allopen:$kotlinVersion"
-        classpath "org.jetbrains.kotlin:kotlin-noarg:$kotlinVersion"
-        classpath 'com.github.jengelman.gradle.plugins:shadow:5.2.0'
-    }
+plugins {
+    id "org.jetbrains.kotlin.jvm" version "1.6.0" apply false
+    id "org.jetbrains.kotlin.plugin.allopen" version "1.6.0"
+    id "org.jetbrains.kotlin.plugin.jpa" version "1.6.0"
+    id "com.github.johnrengelman.shadow" version "5.2.0"
+//    id "jacoco"
 }
 
 allprojects {
     group = 'com.uuzu'
     version = '1.0-SNAPSHOT' /* 项目版本 */
+}
+
+ext {
+    akkaVersion = "2.5.31"
+    jmhVersion = "1.32"
 }
 
 /* 所有子项目的通用配置 */
@@ -31,65 +24,74 @@ subprojects {
     apply plugin: 'kotlin'
     apply plugin: 'kotlin-jpa'
     apply plugin: 'kotlin-allopen'
+    apply plugin: 'com.github.johnrengelman.shadow'
 
     /* 指定jdk版本 */
-    sourceCompatibility = JavaVersion.VERSION_1_8
-    targetCompatibility = JavaVersion.VERSION_1_8
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
     /* java编译的时候缺省状态下会因为中文字符而失败 */
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 
     repositories {
-        maven { url "http://maven.aliyun.com/nexus/content/groups/public/" }
-        maven { url "http://localhost:8081/repository/maven-public/" }
+        maven { url "https://maven.aliyun.com/nexus/content/groups/public/" }
+//        maven { url "http://localhost:8081/repository/maven-public/" }
         jcenter()
         mavenCentral()
     }
 
     /* 添加通用依赖 */
     dependencies {
-        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+//        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
         implementation "org.jetbrains.kotlin:kotlin-reflect"
-        implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.6"
+        implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2'
 //        implementation "io.ktor:ktor-server-netty:$ktor_version"
 //        implementation "com.typesafe.akka:akka-cluster-typed_2.12:$akkaVersion"
         implementation "com.typesafe.akka:akka-cluster-sharding-typed_2.12:$akkaVersion"
         implementation "com.typesafe.akka:akka-slf4j_2.12:$akkaVersion"
 //        implementation "com.lightbend.akka.management:akka-management_2.12:1.0.5"
 
-        implementation "org.apache.poi:poi-ooxml:3.17"
-        implementation "ch.qos.logback:logback-classic:1.2.3"
+        implementation 'org.apache.poi:poi-ooxml:5.0.0'
+        implementation 'ch.qos.logback:logback-classic:1.2.7'
         implementation "org.hibernate:hibernate-core:3.6.10.Final"
 //        implementation "org.hibernate:hibernate-orm:5.4.18"
 //        implementation "com.google.guava:guava:28.0-jre"
 //        implementation "io.netty:netty-all:4.1.30.Final"
 //        implementation "com.alibaba:easyexcel:2.0.4"
-        implementation "io.altoo:akka-kryo-serialization_2.12:1.0.0"
-        implementation "org.apache.curator:curator-framework:2.12.0"
-        implementation "org.apache.kafka:kafka_2.12:2.4.0"
-        implementation "mysql:mysql-connector-java:8.0.17"
+        implementation 'io.altoo:akka-kryo-serialization_2.12:2.3.0'
+        implementation 'org.apache.curator:curator-framework:5.1.0'
+        implementation 'org.apache.kafka:kafka_2.12:2.8.0'
+        implementation 'mysql:mysql-connector-java:8.0.25'
 //        implementation 'com.alibaba:fastjson:1.2.61' // 有很多问题，经常爆出bug，使用jackson代替
 
 //        implementation 'org.hibernate:hibernate-hikaricp:5.2.10.Final'
 
-        implementation "redis.clients:jedis:3.3.0" // redisson, lettuce
-        implementation 'com.github.ben-manes.caffeine:caffeine:2.8.4' // replace guava Loading Cache
-        implementation "org.codehaus.janino:janino:3.1.2" // tiny java compiler
+//        implementation "redis.clients:jedis:3.3.0" // redisson, lettuce
+        implementation 'com.github.ben-manes.caffeine:caffeine:3.0.4' // replace guava Loading Cache
+        implementation 'org.codehaus.janino:janino:3.1.6' // tiny java compiler
 //        implementation "org.apache.dubbo:dubbo:2.7.7"
 //        implementation "com.zaxxer:HikariCP:3.4.5"
 //        implementation "org.apache.zookeeper:zookeeper:3.6.1"
-        implementation "org.postgresql:postgresql:42.2.14"
+//        implementation "org.postgresql:postgresql:42.2.14"
 
+        // https://mvnrepository.com/artifact/org.apache.shardingsphere/sharding-jdbc-core
+//        implementation "org.apache.shardingsphere:shardingsphere-jdbc-core:5.0.0"
 
-        testCompile "junit:junit:4.12"
-        testImplementation("org.jetbrains.kotlin:kotlin-test")
-        testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
+        // hutool utils
+        implementation 'cn.hutool:hutool-all:5.7.16'
+        implementation 'com.google.zxing:core:3.4.1' //二维码
+
+        testImplementation "org.jetbrains.kotlin:kotlin-test"
+        testImplementation "org.jetbrains.kotlin:kotlin-test-junit"
+
+        testImplementation "org.openjdk.jmh:jmh-core:$jmhVersion"
+        testAnnotationProcessor "org.openjdk.jmh:jmh-generator-annprocess:$jmhVersion"
     }
 
     compileKotlin {
-        kotlinOptions.jvmTarget = 1.8
+        kotlinOptions.jvmTarget = 11
     }
     compileTestKotlin {
-        kotlinOptions.jvmTarget = 1.8
+        kotlinOptions.jvmTarget = 11
     }
 
     allOpen {
@@ -97,6 +99,14 @@ subprojects {
     }
     noArg {
         annotation("com.caidt.infrastructure.NoArg")
+    }
+
+    shadowJar {
+        archiveBaseName.set(project.name)
+        archiveClassifier.set("")
+        archiveAppendix.set("")
+
+        exclude "*/*.proto"
     }
 
 }

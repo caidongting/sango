@@ -18,11 +18,12 @@ class ItemConfig : ExcelConfig() {
   private val itemNameMap: HashMap<String, ItemCfg> = HashMap()
 
   override fun load() {
-    ExcelFile.parse("excel/item.xlsx") { sheet ->
-      sheet.foreachRow("道具") { row ->
-        val itemCfg = ItemCfg.readRow(row)
-        itemMap[itemCfg.id] = itemCfg
-        itemNameMap[itemCfg.name] = itemCfg
+    ExcelFile.parse("excel/item.xlsx") { excel ->
+      excel.foreachRow("道具") { row ->
+        ItemCfg.readRow(row).also {
+          itemMap[it.id] = it
+          itemNameMap[it.name] = it
+        }
       }
     }
   }
@@ -32,11 +33,11 @@ class ItemConfig : ExcelConfig() {
 
 
   operator fun get(id: Int): ItemCfg {
-    return checkNotNull(itemMap[id]) { "itemCfg not found, id=$id" }
+    return requireNotNull(itemMap[id]) { "itemCfg not found, id=$id" }
   }
 
   operator fun get(name: String): ItemCfg {
-    return checkNotNull(itemNameMap[name]) { "itemCfg not found, name=$name" }
+    return requireNotNull(itemNameMap[name]) { "itemCfg not found, name=$name" }
   }
 
 }
@@ -53,7 +54,7 @@ data class ItemCfg(
   /** 道具品质 */
   val color: ProtoCommon.Color,
   /** 堆叠上限 */
-  val limit: Int
+  val limit: Int,
 ) {
 
   /** 是否唯一道具 */

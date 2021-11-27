@@ -14,1331 +14,6 @@ public final class ProtoActivity {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface GetAllActivityRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.caidt.proto.GetAllActivityRequest)
-      com.google.protobuf.MessageOrBuilder {
-  }
-  /**
-   * <pre>
-   * 获取所有在线活动 --&gt; GetAllActivityResponse
-   * </pre>
-   *
-   * Protobuf type {@code com.caidt.proto.GetAllActivityRequest}
-   */
-  public  static final class GetAllActivityRequest extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.caidt.proto.GetAllActivityRequest)
-      GetAllActivityRequestOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use GetAllActivityRequest.newBuilder() to construct.
-    private GetAllActivityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private GetAllActivityRequest() {
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GetAllActivityRequest(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityRequest_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityRequest_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.caidt.proto.ProtoActivity.GetAllActivityRequest.class, com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder.class);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.caidt.proto.ProtoActivity.GetAllActivityRequest)) {
-        return super.equals(obj);
-      }
-      com.caidt.proto.ProtoActivity.GetAllActivityRequest other = (com.caidt.proto.ProtoActivity.GetAllActivityRequest) obj;
-
-      boolean result = true;
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.caidt.proto.ProtoActivity.GetAllActivityRequest prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * <pre>
-     * 获取所有在线活动 --&gt; GetAllActivityResponse
-     * </pre>
-     *
-     * Protobuf type {@code com.caidt.proto.GetAllActivityRequest}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.caidt.proto.GetAllActivityRequest)
-        com.caidt.proto.ProtoActivity.GetAllActivityRequestOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityRequest_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityRequest_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.caidt.proto.ProtoActivity.GetAllActivityRequest.class, com.caidt.proto.ProtoActivity.GetAllActivityRequest.Builder.class);
-      }
-
-      // Construct using com.caidt.proto.ProtoActivity.GetAllActivityRequest.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityRequest_descriptor;
-      }
-
-      @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetAllActivityRequest getDefaultInstanceForType() {
-        return com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetAllActivityRequest build() {
-        com.caidt.proto.ProtoActivity.GetAllActivityRequest result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetAllActivityRequest buildPartial() {
-        com.caidt.proto.ProtoActivity.GetAllActivityRequest result = new com.caidt.proto.ProtoActivity.GetAllActivityRequest(this);
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.caidt.proto.ProtoActivity.GetAllActivityRequest) {
-          return mergeFrom((com.caidt.proto.ProtoActivity.GetAllActivityRequest)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.caidt.proto.ProtoActivity.GetAllActivityRequest other) {
-        if (other == com.caidt.proto.ProtoActivity.GetAllActivityRequest.getDefaultInstance()) return this;
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.caidt.proto.ProtoActivity.GetAllActivityRequest parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.caidt.proto.ProtoActivity.GetAllActivityRequest) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.caidt.proto.GetAllActivityRequest)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.caidt.proto.GetAllActivityRequest)
-    private static final com.caidt.proto.ProtoActivity.GetAllActivityRequest DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.GetAllActivityRequest();
-    }
-
-    public static com.caidt.proto.ProtoActivity.GetAllActivityRequest getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GetAllActivityRequest>
-        PARSER = new com.google.protobuf.AbstractParser<GetAllActivityRequest>() {
-      @java.lang.Override
-      public GetAllActivityRequest parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetAllActivityRequest(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<GetAllActivityRequest> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GetAllActivityRequest> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.caidt.proto.ProtoActivity.GetAllActivityRequest getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface GetAllActivityResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.caidt.proto.GetAllActivityResponse)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    java.util.List<com.caidt.proto.ProtoActivity.Activity> 
-        getActivitiesList();
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    com.caidt.proto.ProtoActivity.Activity getActivities(int index);
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    int getActivitiesCount();
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    java.util.List<? extends com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
-        getActivitiesOrBuilderList();
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    com.caidt.proto.ProtoActivity.ActivityOrBuilder getActivitiesOrBuilder(
-        int index);
-  }
-  /**
-   * Protobuf type {@code com.caidt.proto.GetAllActivityResponse}
-   */
-  public  static final class GetAllActivityResponse extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.caidt.proto.GetAllActivityResponse)
-      GetAllActivityResponseOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use GetAllActivityResponse.newBuilder() to construct.
-    private GetAllActivityResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private GetAllActivityResponse() {
-      activities_ = java.util.Collections.emptyList();
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private GetAllActivityResponse(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
-      }
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-                activities_ = new java.util.ArrayList<com.caidt.proto.ProtoActivity.Activity>();
-                mutable_bitField0_ |= 0x00000001;
-              }
-              activities_.add(
-                  input.readMessage(com.caidt.proto.ProtoActivity.Activity.PARSER, extensionRegistry));
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
-          activities_ = java.util.Collections.unmodifiableList(activities_);
-        }
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityResponse_descriptor;
-    }
-
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityResponse_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.caidt.proto.ProtoActivity.GetAllActivityResponse.class, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder.class);
-    }
-
-    public static final int ACTIVITIES_FIELD_NUMBER = 1;
-    private java.util.List<com.caidt.proto.ProtoActivity.Activity> activities_;
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    public java.util.List<com.caidt.proto.ProtoActivity.Activity> getActivitiesList() {
-      return activities_;
-    }
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    public java.util.List<? extends com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
-        getActivitiesOrBuilderList() {
-      return activities_;
-    }
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    public int getActivitiesCount() {
-      return activities_.size();
-    }
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    public com.caidt.proto.ProtoActivity.Activity getActivities(int index) {
-      return activities_.get(index);
-    }
-    /**
-     * <pre>
-     * 所有在线活动
-     * </pre>
-     *
-     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-     */
-    public com.caidt.proto.ProtoActivity.ActivityOrBuilder getActivitiesOrBuilder(
-        int index) {
-      return activities_.get(index);
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @java.lang.Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      for (int i = 0; i < getActivitiesCount(); i++) {
-        if (!getActivities(i).isInitialized()) {
-          memoizedIsInitialized = 0;
-          return false;
-        }
-      }
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @java.lang.Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      for (int i = 0; i < activities_.size(); i++) {
-        output.writeMessage(1, activities_.get(i));
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @java.lang.Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      for (int i = 0; i < activities_.size(); i++) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, activities_.get(i));
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.caidt.proto.ProtoActivity.GetAllActivityResponse)) {
-        return super.equals(obj);
-      }
-      com.caidt.proto.ProtoActivity.GetAllActivityResponse other = (com.caidt.proto.ProtoActivity.GetAllActivityResponse) obj;
-
-      boolean result = true;
-      result = result && getActivitiesList()
-          .equals(other.getActivitiesList());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      if (getActivitiesCount() > 0) {
-        hash = (37 * hash) + ACTIVITIES_FIELD_NUMBER;
-        hash = (53 * hash) + getActivitiesList().hashCode();
-      }
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @java.lang.Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.caidt.proto.ProtoActivity.GetAllActivityResponse prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @java.lang.Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code com.caidt.proto.GetAllActivityResponse}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.caidt.proto.GetAllActivityResponse)
-        com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityResponse_descriptor;
-      }
-
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityResponse_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.caidt.proto.ProtoActivity.GetAllActivityResponse.class, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder.class);
-      }
-
-      // Construct using com.caidt.proto.ProtoActivity.GetAllActivityResponse.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-          getActivitiesFieldBuilder();
-        }
-      }
-      @java.lang.Override
-      public Builder clear() {
-        super.clear();
-        if (activitiesBuilder_ == null) {
-          activities_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-        } else {
-          activitiesBuilder_.clear();
-        }
-        return this;
-      }
-
-      @java.lang.Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetAllActivityResponse_descriptor;
-      }
-
-      @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetAllActivityResponse getDefaultInstanceForType() {
-        return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
-      }
-
-      @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetAllActivityResponse build() {
-        com.caidt.proto.ProtoActivity.GetAllActivityResponse result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetAllActivityResponse buildPartial() {
-        com.caidt.proto.ProtoActivity.GetAllActivityResponse result = new com.caidt.proto.ProtoActivity.GetAllActivityResponse(this);
-        int from_bitField0_ = bitField0_;
-        if (activitiesBuilder_ == null) {
-          if (((bitField0_ & 0x00000001) == 0x00000001)) {
-            activities_ = java.util.Collections.unmodifiableList(activities_);
-            bitField0_ = (bitField0_ & ~0x00000001);
-          }
-          result.activities_ = activities_;
-        } else {
-          result.activities_ = activitiesBuilder_.build();
-        }
-        onBuilt();
-        return result;
-      }
-
-      @java.lang.Override
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      @java.lang.Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      @java.lang.Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      @java.lang.Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      @java.lang.Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      @java.lang.Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      @java.lang.Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.caidt.proto.ProtoActivity.GetAllActivityResponse) {
-          return mergeFrom((com.caidt.proto.ProtoActivity.GetAllActivityResponse)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.caidt.proto.ProtoActivity.GetAllActivityResponse other) {
-        if (other == com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance()) return this;
-        if (activitiesBuilder_ == null) {
-          if (!other.activities_.isEmpty()) {
-            if (activities_.isEmpty()) {
-              activities_ = other.activities_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-            } else {
-              ensureActivitiesIsMutable();
-              activities_.addAll(other.activities_);
-            }
-            onChanged();
-          }
-        } else {
-          if (!other.activities_.isEmpty()) {
-            if (activitiesBuilder_.isEmpty()) {
-              activitiesBuilder_.dispose();
-              activitiesBuilder_ = null;
-              activities_ = other.activities_;
-              bitField0_ = (bitField0_ & ~0x00000001);
-              activitiesBuilder_ = 
-                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
-                   getActivitiesFieldBuilder() : null;
-            } else {
-              activitiesBuilder_.addAllMessages(other.activities_);
-            }
-          }
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @java.lang.Override
-      public final boolean isInitialized() {
-        for (int i = 0; i < getActivitiesCount(); i++) {
-          if (!getActivities(i).isInitialized()) {
-            return false;
-          }
-        }
-        return true;
-      }
-
-      @java.lang.Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.caidt.proto.ProtoActivity.GetAllActivityResponse parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.caidt.proto.ProtoActivity.GetAllActivityResponse) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-      private int bitField0_;
-
-      private java.util.List<com.caidt.proto.ProtoActivity.Activity> activities_ =
-        java.util.Collections.emptyList();
-      private void ensureActivitiesIsMutable() {
-        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
-          activities_ = new java.util.ArrayList<com.caidt.proto.ProtoActivity.Activity>(activities_);
-          bitField0_ |= 0x00000001;
-         }
-      }
-
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.caidt.proto.ProtoActivity.Activity, com.caidt.proto.ProtoActivity.Activity.Builder, com.caidt.proto.ProtoActivity.ActivityOrBuilder> activitiesBuilder_;
-
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public java.util.List<com.caidt.proto.ProtoActivity.Activity> getActivitiesList() {
-        if (activitiesBuilder_ == null) {
-          return java.util.Collections.unmodifiableList(activities_);
-        } else {
-          return activitiesBuilder_.getMessageList();
-        }
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public int getActivitiesCount() {
-        if (activitiesBuilder_ == null) {
-          return activities_.size();
-        } else {
-          return activitiesBuilder_.getCount();
-        }
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public com.caidt.proto.ProtoActivity.Activity getActivities(int index) {
-        if (activitiesBuilder_ == null) {
-          return activities_.get(index);
-        } else {
-          return activitiesBuilder_.getMessage(index);
-        }
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder setActivities(
-          int index, com.caidt.proto.ProtoActivity.Activity value) {
-        if (activitiesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureActivitiesIsMutable();
-          activities_.set(index, value);
-          onChanged();
-        } else {
-          activitiesBuilder_.setMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder setActivities(
-          int index, com.caidt.proto.ProtoActivity.Activity.Builder builderForValue) {
-        if (activitiesBuilder_ == null) {
-          ensureActivitiesIsMutable();
-          activities_.set(index, builderForValue.build());
-          onChanged();
-        } else {
-          activitiesBuilder_.setMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder addActivities(com.caidt.proto.ProtoActivity.Activity value) {
-        if (activitiesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureActivitiesIsMutable();
-          activities_.add(value);
-          onChanged();
-        } else {
-          activitiesBuilder_.addMessage(value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder addActivities(
-          int index, com.caidt.proto.ProtoActivity.Activity value) {
-        if (activitiesBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          ensureActivitiesIsMutable();
-          activities_.add(index, value);
-          onChanged();
-        } else {
-          activitiesBuilder_.addMessage(index, value);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder addActivities(
-          com.caidt.proto.ProtoActivity.Activity.Builder builderForValue) {
-        if (activitiesBuilder_ == null) {
-          ensureActivitiesIsMutable();
-          activities_.add(builderForValue.build());
-          onChanged();
-        } else {
-          activitiesBuilder_.addMessage(builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder addActivities(
-          int index, com.caidt.proto.ProtoActivity.Activity.Builder builderForValue) {
-        if (activitiesBuilder_ == null) {
-          ensureActivitiesIsMutable();
-          activities_.add(index, builderForValue.build());
-          onChanged();
-        } else {
-          activitiesBuilder_.addMessage(index, builderForValue.build());
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder addAllActivities(
-          java.lang.Iterable<? extends com.caidt.proto.ProtoActivity.Activity> values) {
-        if (activitiesBuilder_ == null) {
-          ensureActivitiesIsMutable();
-          com.google.protobuf.AbstractMessageLite.Builder.addAll(
-              values, activities_);
-          onChanged();
-        } else {
-          activitiesBuilder_.addAllMessages(values);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder clearActivities() {
-        if (activitiesBuilder_ == null) {
-          activities_ = java.util.Collections.emptyList();
-          bitField0_ = (bitField0_ & ~0x00000001);
-          onChanged();
-        } else {
-          activitiesBuilder_.clear();
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public Builder removeActivities(int index) {
-        if (activitiesBuilder_ == null) {
-          ensureActivitiesIsMutable();
-          activities_.remove(index);
-          onChanged();
-        } else {
-          activitiesBuilder_.remove(index);
-        }
-        return this;
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public com.caidt.proto.ProtoActivity.Activity.Builder getActivitiesBuilder(
-          int index) {
-        return getActivitiesFieldBuilder().getBuilder(index);
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public com.caidt.proto.ProtoActivity.ActivityOrBuilder getActivitiesOrBuilder(
-          int index) {
-        if (activitiesBuilder_ == null) {
-          return activities_.get(index);  } else {
-          return activitiesBuilder_.getMessageOrBuilder(index);
-        }
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public java.util.List<? extends com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
-           getActivitiesOrBuilderList() {
-        if (activitiesBuilder_ != null) {
-          return activitiesBuilder_.getMessageOrBuilderList();
-        } else {
-          return java.util.Collections.unmodifiableList(activities_);
-        }
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public com.caidt.proto.ProtoActivity.Activity.Builder addActivitiesBuilder() {
-        return getActivitiesFieldBuilder().addBuilder(
-            com.caidt.proto.ProtoActivity.Activity.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public com.caidt.proto.ProtoActivity.Activity.Builder addActivitiesBuilder(
-          int index) {
-        return getActivitiesFieldBuilder().addBuilder(
-            index, com.caidt.proto.ProtoActivity.Activity.getDefaultInstance());
-      }
-      /**
-       * <pre>
-       * 所有在线活动
-       * </pre>
-       *
-       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
-       */
-      public java.util.List<com.caidt.proto.ProtoActivity.Activity.Builder> 
-           getActivitiesBuilderList() {
-        return getActivitiesFieldBuilder().getBuilderList();
-      }
-      private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.caidt.proto.ProtoActivity.Activity, com.caidt.proto.ProtoActivity.Activity.Builder, com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
-          getActivitiesFieldBuilder() {
-        if (activitiesBuilder_ == null) {
-          activitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.caidt.proto.ProtoActivity.Activity, com.caidt.proto.ProtoActivity.Activity.Builder, com.caidt.proto.ProtoActivity.ActivityOrBuilder>(
-                  activities_,
-                  ((bitField0_ & 0x00000001) == 0x00000001),
-                  getParentForChildren(),
-                  isClean());
-          activities_ = null;
-        }
-        return activitiesBuilder_;
-      }
-      @java.lang.Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @java.lang.Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:com.caidt.proto.GetAllActivityResponse)
-    }
-
-    // @@protoc_insertion_point(class_scope:com.caidt.proto.GetAllActivityResponse)
-    private static final com.caidt.proto.ProtoActivity.GetAllActivityResponse DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.GetAllActivityResponse();
-    }
-
-    public static com.caidt.proto.ProtoActivity.GetAllActivityResponse getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GetAllActivityResponse>
-        PARSER = new com.google.protobuf.AbstractParser<GetAllActivityResponse>() {
-      @java.lang.Override
-      public GetAllActivityResponse parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetAllActivityResponse(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<GetAllActivityResponse> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<GetAllActivityResponse> getParserForType() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.caidt.proto.ProtoActivity.GetAllActivityResponse getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface ActivityOrBuilder extends
       // @@protoc_insertion_point(interface_extends:com.caidt.proto.Activity)
       com.google.protobuf.MessageOrBuilder {
@@ -1411,6 +86,10 @@ public final class ProtoActivity {
     int getReadPoint();
   }
   /**
+   * <pre>
+   * 活动简单信息
+   * </pre>
+   *
    * Protobuf type {@code com.caidt.proto.Activity}
    */
   public  static final class Activity extends
@@ -1903,6 +582,10 @@ public final class ProtoActivity {
       return builder;
     }
     /**
+     * <pre>
+     * 活动简单信息
+     * </pre>
+     *
      * Protobuf type {@code com.caidt.proto.Activity}
      */
     public static final class Builder extends
@@ -2419,8 +1102,1333 @@ public final class ProtoActivity {
 
   }
 
-  public interface GetActivityRequestOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.caidt.proto.GetActivityRequest)
+  public interface AllActivityRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.AllActivityRequest)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   * 获取所有在线活动 --&gt; GetAllActivityResponse
+   * </pre>
+   *
+   * Protobuf type {@code com.caidt.proto.AllActivityRequest}
+   */
+  public  static final class AllActivityRequest extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.AllActivityRequest)
+      AllActivityRequestOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AllActivityRequest.newBuilder() to construct.
+    private AllActivityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AllActivityRequest() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AllActivityRequest(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityRequest_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityRequest_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.caidt.proto.ProtoActivity.AllActivityRequest.class, com.caidt.proto.ProtoActivity.AllActivityRequest.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.caidt.proto.ProtoActivity.AllActivityRequest)) {
+        return super.equals(obj);
+      }
+      com.caidt.proto.ProtoActivity.AllActivityRequest other = (com.caidt.proto.ProtoActivity.AllActivityRequest) obj;
+
+      boolean result = true;
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.caidt.proto.ProtoActivity.AllActivityRequest prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 获取所有在线活动 --&gt; GetAllActivityResponse
+     * </pre>
+     *
+     * Protobuf type {@code com.caidt.proto.AllActivityRequest}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.AllActivityRequest)
+        com.caidt.proto.ProtoActivity.AllActivityRequestOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityRequest_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityRequest_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.caidt.proto.ProtoActivity.AllActivityRequest.class, com.caidt.proto.ProtoActivity.AllActivityRequest.Builder.class);
+      }
+
+      // Construct using com.caidt.proto.ProtoActivity.AllActivityRequest.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityRequest_descriptor;
+      }
+
+      @java.lang.Override
+      public com.caidt.proto.ProtoActivity.AllActivityRequest getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoActivity.AllActivityRequest.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.caidt.proto.ProtoActivity.AllActivityRequest build() {
+        com.caidt.proto.ProtoActivity.AllActivityRequest result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.caidt.proto.ProtoActivity.AllActivityRequest buildPartial() {
+        com.caidt.proto.ProtoActivity.AllActivityRequest result = new com.caidt.proto.ProtoActivity.AllActivityRequest(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.caidt.proto.ProtoActivity.AllActivityRequest) {
+          return mergeFrom((com.caidt.proto.ProtoActivity.AllActivityRequest)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.caidt.proto.ProtoActivity.AllActivityRequest other) {
+        if (other == com.caidt.proto.ProtoActivity.AllActivityRequest.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.caidt.proto.ProtoActivity.AllActivityRequest parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.caidt.proto.ProtoActivity.AllActivityRequest) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.AllActivityRequest)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.AllActivityRequest)
+    private static final com.caidt.proto.ProtoActivity.AllActivityRequest DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.AllActivityRequest();
+    }
+
+    public static com.caidt.proto.ProtoActivity.AllActivityRequest getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AllActivityRequest>
+        PARSER = new com.google.protobuf.AbstractParser<AllActivityRequest>() {
+      @java.lang.Override
+      public AllActivityRequest parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AllActivityRequest(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AllActivityRequest> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AllActivityRequest> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.caidt.proto.ProtoActivity.AllActivityRequest getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface AllActivityResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.AllActivityResponse)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    java.util.List<com.caidt.proto.ProtoActivity.Activity> 
+        getActivitiesList();
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    com.caidt.proto.ProtoActivity.Activity getActivities(int index);
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    int getActivitiesCount();
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    java.util.List<? extends com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
+        getActivitiesOrBuilderList();
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    com.caidt.proto.ProtoActivity.ActivityOrBuilder getActivitiesOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code com.caidt.proto.AllActivityResponse}
+   */
+  public  static final class AllActivityResponse extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.AllActivityResponse)
+      AllActivityResponseOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use AllActivityResponse.newBuilder() to construct.
+    private AllActivityResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private AllActivityResponse() {
+      activities_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private AllActivityResponse(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                activities_ = new java.util.ArrayList<com.caidt.proto.ProtoActivity.Activity>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              activities_.add(
+                  input.readMessage(com.caidt.proto.ProtoActivity.Activity.PARSER, extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          activities_ = java.util.Collections.unmodifiableList(activities_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityResponse_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityResponse_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.caidt.proto.ProtoActivity.AllActivityResponse.class, com.caidt.proto.ProtoActivity.AllActivityResponse.Builder.class);
+    }
+
+    public static final int ACTIVITIES_FIELD_NUMBER = 1;
+    private java.util.List<com.caidt.proto.ProtoActivity.Activity> activities_;
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    public java.util.List<com.caidt.proto.ProtoActivity.Activity> getActivitiesList() {
+      return activities_;
+    }
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    public java.util.List<? extends com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
+        getActivitiesOrBuilderList() {
+      return activities_;
+    }
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    public int getActivitiesCount() {
+      return activities_.size();
+    }
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    public com.caidt.proto.ProtoActivity.Activity getActivities(int index) {
+      return activities_.get(index);
+    }
+    /**
+     * <pre>
+     * 所有在线活动
+     * </pre>
+     *
+     * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+     */
+    public com.caidt.proto.ProtoActivity.ActivityOrBuilder getActivitiesOrBuilder(
+        int index) {
+      return activities_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      for (int i = 0; i < getActivitiesCount(); i++) {
+        if (!getActivities(i).isInitialized()) {
+          memoizedIsInitialized = 0;
+          return false;
+        }
+      }
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < activities_.size(); i++) {
+        output.writeMessage(1, activities_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < activities_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, activities_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.caidt.proto.ProtoActivity.AllActivityResponse)) {
+        return super.equals(obj);
+      }
+      com.caidt.proto.ProtoActivity.AllActivityResponse other = (com.caidt.proto.ProtoActivity.AllActivityResponse) obj;
+
+      boolean result = true;
+      result = result && getActivitiesList()
+          .equals(other.getActivitiesList());
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getActivitiesCount() > 0) {
+        hash = (37 * hash) + ACTIVITIES_FIELD_NUMBER;
+        hash = (53 * hash) + getActivitiesList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.caidt.proto.ProtoActivity.AllActivityResponse prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code com.caidt.proto.AllActivityResponse}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.AllActivityResponse)
+        com.caidt.proto.ProtoActivity.AllActivityResponseOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityResponse_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityResponse_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.caidt.proto.ProtoActivity.AllActivityResponse.class, com.caidt.proto.ProtoActivity.AllActivityResponse.Builder.class);
+      }
+
+      // Construct using com.caidt.proto.ProtoActivity.AllActivityResponse.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getActivitiesFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (activitiesBuilder_ == null) {
+          activities_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          activitiesBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_AllActivityResponse_descriptor;
+      }
+
+      @java.lang.Override
+      public com.caidt.proto.ProtoActivity.AllActivityResponse getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.caidt.proto.ProtoActivity.AllActivityResponse build() {
+        com.caidt.proto.ProtoActivity.AllActivityResponse result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.caidt.proto.ProtoActivity.AllActivityResponse buildPartial() {
+        com.caidt.proto.ProtoActivity.AllActivityResponse result = new com.caidt.proto.ProtoActivity.AllActivityResponse(this);
+        int from_bitField0_ = bitField0_;
+        if (activitiesBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            activities_ = java.util.Collections.unmodifiableList(activities_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.activities_ = activities_;
+        } else {
+          result.activities_ = activitiesBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.caidt.proto.ProtoActivity.AllActivityResponse) {
+          return mergeFrom((com.caidt.proto.ProtoActivity.AllActivityResponse)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.caidt.proto.ProtoActivity.AllActivityResponse other) {
+        if (other == com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance()) return this;
+        if (activitiesBuilder_ == null) {
+          if (!other.activities_.isEmpty()) {
+            if (activities_.isEmpty()) {
+              activities_ = other.activities_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureActivitiesIsMutable();
+              activities_.addAll(other.activities_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.activities_.isEmpty()) {
+            if (activitiesBuilder_.isEmpty()) {
+              activitiesBuilder_.dispose();
+              activitiesBuilder_ = null;
+              activities_ = other.activities_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              activitiesBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getActivitiesFieldBuilder() : null;
+            } else {
+              activitiesBuilder_.addAllMessages(other.activities_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        for (int i = 0; i < getActivitiesCount(); i++) {
+          if (!getActivities(i).isInitialized()) {
+            return false;
+          }
+        }
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.caidt.proto.ProtoActivity.AllActivityResponse parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.caidt.proto.ProtoActivity.AllActivityResponse) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.caidt.proto.ProtoActivity.Activity> activities_ =
+        java.util.Collections.emptyList();
+      private void ensureActivitiesIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          activities_ = new java.util.ArrayList<com.caidt.proto.ProtoActivity.Activity>(activities_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.Activity, com.caidt.proto.ProtoActivity.Activity.Builder, com.caidt.proto.ProtoActivity.ActivityOrBuilder> activitiesBuilder_;
+
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public java.util.List<com.caidt.proto.ProtoActivity.Activity> getActivitiesList() {
+        if (activitiesBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(activities_);
+        } else {
+          return activitiesBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public int getActivitiesCount() {
+        if (activitiesBuilder_ == null) {
+          return activities_.size();
+        } else {
+          return activitiesBuilder_.getCount();
+        }
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public com.caidt.proto.ProtoActivity.Activity getActivities(int index) {
+        if (activitiesBuilder_ == null) {
+          return activities_.get(index);
+        } else {
+          return activitiesBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder setActivities(
+          int index, com.caidt.proto.ProtoActivity.Activity value) {
+        if (activitiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureActivitiesIsMutable();
+          activities_.set(index, value);
+          onChanged();
+        } else {
+          activitiesBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder setActivities(
+          int index, com.caidt.proto.ProtoActivity.Activity.Builder builderForValue) {
+        if (activitiesBuilder_ == null) {
+          ensureActivitiesIsMutable();
+          activities_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          activitiesBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder addActivities(com.caidt.proto.ProtoActivity.Activity value) {
+        if (activitiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureActivitiesIsMutable();
+          activities_.add(value);
+          onChanged();
+        } else {
+          activitiesBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder addActivities(
+          int index, com.caidt.proto.ProtoActivity.Activity value) {
+        if (activitiesBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureActivitiesIsMutable();
+          activities_.add(index, value);
+          onChanged();
+        } else {
+          activitiesBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder addActivities(
+          com.caidt.proto.ProtoActivity.Activity.Builder builderForValue) {
+        if (activitiesBuilder_ == null) {
+          ensureActivitiesIsMutable();
+          activities_.add(builderForValue.build());
+          onChanged();
+        } else {
+          activitiesBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder addActivities(
+          int index, com.caidt.proto.ProtoActivity.Activity.Builder builderForValue) {
+        if (activitiesBuilder_ == null) {
+          ensureActivitiesIsMutable();
+          activities_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          activitiesBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder addAllActivities(
+          java.lang.Iterable<? extends com.caidt.proto.ProtoActivity.Activity> values) {
+        if (activitiesBuilder_ == null) {
+          ensureActivitiesIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, activities_);
+          onChanged();
+        } else {
+          activitiesBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder clearActivities() {
+        if (activitiesBuilder_ == null) {
+          activities_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          activitiesBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public Builder removeActivities(int index) {
+        if (activitiesBuilder_ == null) {
+          ensureActivitiesIsMutable();
+          activities_.remove(index);
+          onChanged();
+        } else {
+          activitiesBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public com.caidt.proto.ProtoActivity.Activity.Builder getActivitiesBuilder(
+          int index) {
+        return getActivitiesFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public com.caidt.proto.ProtoActivity.ActivityOrBuilder getActivitiesOrBuilder(
+          int index) {
+        if (activitiesBuilder_ == null) {
+          return activities_.get(index);  } else {
+          return activitiesBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public java.util.List<? extends com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
+           getActivitiesOrBuilderList() {
+        if (activitiesBuilder_ != null) {
+          return activitiesBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(activities_);
+        }
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public com.caidt.proto.ProtoActivity.Activity.Builder addActivitiesBuilder() {
+        return getActivitiesFieldBuilder().addBuilder(
+            com.caidt.proto.ProtoActivity.Activity.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public com.caidt.proto.ProtoActivity.Activity.Builder addActivitiesBuilder(
+          int index) {
+        return getActivitiesFieldBuilder().addBuilder(
+            index, com.caidt.proto.ProtoActivity.Activity.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 所有在线活动
+       * </pre>
+       *
+       * <code>repeated .com.caidt.proto.Activity activities = 1;</code>
+       */
+      public java.util.List<com.caidt.proto.ProtoActivity.Activity.Builder> 
+           getActivitiesBuilderList() {
+        return getActivitiesFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.caidt.proto.ProtoActivity.Activity, com.caidt.proto.ProtoActivity.Activity.Builder, com.caidt.proto.ProtoActivity.ActivityOrBuilder> 
+          getActivitiesFieldBuilder() {
+        if (activitiesBuilder_ == null) {
+          activitiesBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.caidt.proto.ProtoActivity.Activity, com.caidt.proto.ProtoActivity.Activity.Builder, com.caidt.proto.ProtoActivity.ActivityOrBuilder>(
+                  activities_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          activities_ = null;
+        }
+        return activitiesBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.AllActivityResponse)
+    }
+
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.AllActivityResponse)
+    private static final com.caidt.proto.ProtoActivity.AllActivityResponse DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.AllActivityResponse();
+    }
+
+    public static com.caidt.proto.ProtoActivity.AllActivityResponse getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<AllActivityResponse>
+        PARSER = new com.google.protobuf.AbstractParser<AllActivityResponse>() {
+      @java.lang.Override
+      public AllActivityResponse parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new AllActivityResponse(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<AllActivityResponse> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<AllActivityResponse> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.caidt.proto.ProtoActivity.AllActivityResponse getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface ActivityRequestOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.ActivityRequest)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2437,18 +2445,18 @@ public final class ProtoActivity {
    * 获取活动时间信息 --&gt; GetActivityResponse
    * </pre>
    *
-   * Protobuf type {@code com.caidt.proto.GetActivityRequest}
+   * Protobuf type {@code com.caidt.proto.ActivityRequest}
    */
-  public  static final class GetActivityRequest extends
+  public  static final class ActivityRequest extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.caidt.proto.GetActivityRequest)
-      GetActivityRequestOrBuilder {
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.ActivityRequest)
+      ActivityRequestOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use GetActivityRequest.newBuilder() to construct.
-    private GetActivityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ActivityRequest.newBuilder() to construct.
+    private ActivityRequest(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private GetActivityRequest() {
+    private ActivityRequest() {
       uid_ = 0;
     }
 
@@ -2457,7 +2465,7 @@ public final class ProtoActivity {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetActivityRequest(
+    private ActivityRequest(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2502,15 +2510,15 @@ public final class ProtoActivity {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityRequest_descriptor;
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityRequest_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityRequest_fieldAccessorTable
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.caidt.proto.ProtoActivity.GetActivityRequest.class, com.caidt.proto.ProtoActivity.GetActivityRequest.Builder.class);
+              com.caidt.proto.ProtoActivity.ActivityRequest.class, com.caidt.proto.ProtoActivity.ActivityRequest.Builder.class);
     }
 
     private int bitField0_;
@@ -2573,10 +2581,10 @@ public final class ProtoActivity {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.caidt.proto.ProtoActivity.GetActivityRequest)) {
+      if (!(obj instanceof com.caidt.proto.ProtoActivity.ActivityRequest)) {
         return super.equals(obj);
       }
-      com.caidt.proto.ProtoActivity.GetActivityRequest other = (com.caidt.proto.ProtoActivity.GetActivityRequest) obj;
+      com.caidt.proto.ProtoActivity.ActivityRequest other = (com.caidt.proto.ProtoActivity.ActivityRequest) obj;
 
       boolean result = true;
       result = result && (hasUid() == other.hasUid());
@@ -2604,69 +2612,69 @@ public final class ProtoActivity {
       return hash;
     }
 
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(byte[] data)
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseDelimitedFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2679,7 +2687,7 @@ public final class ProtoActivity {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.caidt.proto.ProtoActivity.GetActivityRequest prototype) {
+    public static Builder newBuilder(com.caidt.proto.ProtoActivity.ActivityRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2699,26 +2707,26 @@ public final class ProtoActivity {
      * 获取活动时间信息 --&gt; GetActivityResponse
      * </pre>
      *
-     * Protobuf type {@code com.caidt.proto.GetActivityRequest}
+     * Protobuf type {@code com.caidt.proto.ActivityRequest}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.caidt.proto.GetActivityRequest)
-        com.caidt.proto.ProtoActivity.GetActivityRequestOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.ActivityRequest)
+        com.caidt.proto.ProtoActivity.ActivityRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityRequest_descriptor;
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityRequest_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityRequest_fieldAccessorTable
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.caidt.proto.ProtoActivity.GetActivityRequest.class, com.caidt.proto.ProtoActivity.GetActivityRequest.Builder.class);
+                com.caidt.proto.ProtoActivity.ActivityRequest.class, com.caidt.proto.ProtoActivity.ActivityRequest.Builder.class);
       }
 
-      // Construct using com.caidt.proto.ProtoActivity.GetActivityRequest.newBuilder()
+      // Construct using com.caidt.proto.ProtoActivity.ActivityRequest.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2744,17 +2752,17 @@ public final class ProtoActivity {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityRequest_descriptor;
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityRequest_descriptor;
       }
 
       @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetActivityRequest getDefaultInstanceForType() {
-        return com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance();
+      public com.caidt.proto.ProtoActivity.ActivityRequest getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoActivity.ActivityRequest.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetActivityRequest build() {
-        com.caidt.proto.ProtoActivity.GetActivityRequest result = buildPartial();
+      public com.caidt.proto.ProtoActivity.ActivityRequest build() {
+        com.caidt.proto.ProtoActivity.ActivityRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2762,8 +2770,8 @@ public final class ProtoActivity {
       }
 
       @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetActivityRequest buildPartial() {
-        com.caidt.proto.ProtoActivity.GetActivityRequest result = new com.caidt.proto.ProtoActivity.GetActivityRequest(this);
+      public com.caidt.proto.ProtoActivity.ActivityRequest buildPartial() {
+        com.caidt.proto.ProtoActivity.ActivityRequest result = new com.caidt.proto.ProtoActivity.ActivityRequest(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -2809,16 +2817,16 @@ public final class ProtoActivity {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.caidt.proto.ProtoActivity.GetActivityRequest) {
-          return mergeFrom((com.caidt.proto.ProtoActivity.GetActivityRequest)other);
+        if (other instanceof com.caidt.proto.ProtoActivity.ActivityRequest) {
+          return mergeFrom((com.caidt.proto.ProtoActivity.ActivityRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.caidt.proto.ProtoActivity.GetActivityRequest other) {
-        if (other == com.caidt.proto.ProtoActivity.GetActivityRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.caidt.proto.ProtoActivity.ActivityRequest other) {
+        if (other == com.caidt.proto.ProtoActivity.ActivityRequest.getDefaultInstance()) return this;
         if (other.hasUid()) {
           setUid(other.getUid());
         }
@@ -2840,11 +2848,11 @@ public final class ProtoActivity {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.caidt.proto.ProtoActivity.GetActivityRequest parsedMessage = null;
+        com.caidt.proto.ProtoActivity.ActivityRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.caidt.proto.ProtoActivity.GetActivityRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.caidt.proto.ProtoActivity.ActivityRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2899,48 +2907,48 @@ public final class ProtoActivity {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.caidt.proto.GetActivityRequest)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.ActivityRequest)
     }
 
-    // @@protoc_insertion_point(class_scope:com.caidt.proto.GetActivityRequest)
-    private static final com.caidt.proto.ProtoActivity.GetActivityRequest DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.ActivityRequest)
+    private static final com.caidt.proto.ProtoActivity.ActivityRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.GetActivityRequest();
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.ActivityRequest();
     }
 
-    public static com.caidt.proto.ProtoActivity.GetActivityRequest getDefaultInstance() {
+    public static com.caidt.proto.ProtoActivity.ActivityRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GetActivityRequest>
-        PARSER = new com.google.protobuf.AbstractParser<GetActivityRequest>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ActivityRequest>
+        PARSER = new com.google.protobuf.AbstractParser<ActivityRequest>() {
       @java.lang.Override
-      public GetActivityRequest parsePartialFrom(
+      public ActivityRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetActivityRequest(input, extensionRegistry);
+        return new ActivityRequest(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<GetActivityRequest> parser() {
+    public static com.google.protobuf.Parser<ActivityRequest> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetActivityRequest> getParserForType() {
+    public com.google.protobuf.Parser<ActivityRequest> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.caidt.proto.ProtoActivity.GetActivityRequest getDefaultInstanceForType() {
+    public com.caidt.proto.ProtoActivity.ActivityRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  public interface GetActivityResponseOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:com.caidt.proto.GetActivityResponse)
+  public interface ActivityResponseOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:com.caidt.proto.ActivityResponse)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2957,18 +2965,18 @@ public final class ProtoActivity {
     com.caidt.proto.ProtoActivity.ActivityOrBuilder getActivityOrBuilder();
   }
   /**
-   * Protobuf type {@code com.caidt.proto.GetActivityResponse}
+   * Protobuf type {@code com.caidt.proto.ActivityResponse}
    */
-  public  static final class GetActivityResponse extends
+  public  static final class ActivityResponse extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:com.caidt.proto.GetActivityResponse)
-      GetActivityResponseOrBuilder {
+      // @@protoc_insertion_point(message_implements:com.caidt.proto.ActivityResponse)
+      ActivityResponseOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use GetActivityResponse.newBuilder() to construct.
-    private GetActivityResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use ActivityResponse.newBuilder() to construct.
+    private ActivityResponse(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private GetActivityResponse() {
+    private ActivityResponse() {
     }
 
     @java.lang.Override
@@ -2976,7 +2984,7 @@ public final class ProtoActivity {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private GetActivityResponse(
+    private ActivityResponse(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -3029,15 +3037,15 @@ public final class ProtoActivity {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityResponse_descriptor;
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityResponse_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityResponse_fieldAccessorTable
+      return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.caidt.proto.ProtoActivity.GetActivityResponse.class, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder.class);
+              com.caidt.proto.ProtoActivity.ActivityResponse.class, com.caidt.proto.ProtoActivity.ActivityResponse.Builder.class);
     }
 
     private int bitField0_;
@@ -3108,10 +3116,10 @@ public final class ProtoActivity {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.caidt.proto.ProtoActivity.GetActivityResponse)) {
+      if (!(obj instanceof com.caidt.proto.ProtoActivity.ActivityResponse)) {
         return super.equals(obj);
       }
-      com.caidt.proto.ProtoActivity.GetActivityResponse other = (com.caidt.proto.ProtoActivity.GetActivityResponse) obj;
+      com.caidt.proto.ProtoActivity.ActivityResponse other = (com.caidt.proto.ProtoActivity.ActivityResponse) obj;
 
       boolean result = true;
       result = result && (hasActivity() == other.hasActivity());
@@ -3139,69 +3147,69 @@ public final class ProtoActivity {
       return hash;
     }
 
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(byte[] data)
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseDelimitedFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse parseFrom(
+    public static com.caidt.proto.ProtoActivity.ActivityResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3214,7 +3222,7 @@ public final class ProtoActivity {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.caidt.proto.ProtoActivity.GetActivityResponse prototype) {
+    public static Builder newBuilder(com.caidt.proto.ProtoActivity.ActivityResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -3230,26 +3238,26 @@ public final class ProtoActivity {
       return builder;
     }
     /**
-     * Protobuf type {@code com.caidt.proto.GetActivityResponse}
+     * Protobuf type {@code com.caidt.proto.ActivityResponse}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:com.caidt.proto.GetActivityResponse)
-        com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder {
+        // @@protoc_insertion_point(builder_implements:com.caidt.proto.ActivityResponse)
+        com.caidt.proto.ProtoActivity.ActivityResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityResponse_descriptor;
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityResponse_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityResponse_fieldAccessorTable
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.caidt.proto.ProtoActivity.GetActivityResponse.class, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder.class);
+                com.caidt.proto.ProtoActivity.ActivityResponse.class, com.caidt.proto.ProtoActivity.ActivityResponse.Builder.class);
       }
 
-      // Construct using com.caidt.proto.ProtoActivity.GetActivityResponse.newBuilder()
+      // Construct using com.caidt.proto.ProtoActivity.ActivityResponse.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -3280,17 +3288,17 @@ public final class ProtoActivity {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_GetActivityResponse_descriptor;
+        return com.caidt.proto.ProtoActivity.internal_static_com_caidt_proto_ActivityResponse_descriptor;
       }
 
       @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetActivityResponse getDefaultInstanceForType() {
-        return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+      public com.caidt.proto.ProtoActivity.ActivityResponse getDefaultInstanceForType() {
+        return com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance();
       }
 
       @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetActivityResponse build() {
-        com.caidt.proto.ProtoActivity.GetActivityResponse result = buildPartial();
+      public com.caidt.proto.ProtoActivity.ActivityResponse build() {
+        com.caidt.proto.ProtoActivity.ActivityResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -3298,8 +3306,8 @@ public final class ProtoActivity {
       }
 
       @java.lang.Override
-      public com.caidt.proto.ProtoActivity.GetActivityResponse buildPartial() {
-        com.caidt.proto.ProtoActivity.GetActivityResponse result = new com.caidt.proto.ProtoActivity.GetActivityResponse(this);
+      public com.caidt.proto.ProtoActivity.ActivityResponse buildPartial() {
+        com.caidt.proto.ProtoActivity.ActivityResponse result = new com.caidt.proto.ProtoActivity.ActivityResponse(this);
         int from_bitField0_ = bitField0_;
         int to_bitField0_ = 0;
         if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
@@ -3349,16 +3357,16 @@ public final class ProtoActivity {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.caidt.proto.ProtoActivity.GetActivityResponse) {
-          return mergeFrom((com.caidt.proto.ProtoActivity.GetActivityResponse)other);
+        if (other instanceof com.caidt.proto.ProtoActivity.ActivityResponse) {
+          return mergeFrom((com.caidt.proto.ProtoActivity.ActivityResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.caidt.proto.ProtoActivity.GetActivityResponse other) {
-        if (other == com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.caidt.proto.ProtoActivity.ActivityResponse other) {
+        if (other == com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance()) return this;
         if (other.hasActivity()) {
           mergeActivity(other.getActivity());
         }
@@ -3382,11 +3390,11 @@ public final class ProtoActivity {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.caidt.proto.ProtoActivity.GetActivityResponse parsedMessage = null;
+        com.caidt.proto.ProtoActivity.ActivityResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.caidt.proto.ProtoActivity.GetActivityResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.caidt.proto.ProtoActivity.ActivityResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -3527,41 +3535,41 @@ public final class ProtoActivity {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:com.caidt.proto.GetActivityResponse)
+      // @@protoc_insertion_point(builder_scope:com.caidt.proto.ActivityResponse)
     }
 
-    // @@protoc_insertion_point(class_scope:com.caidt.proto.GetActivityResponse)
-    private static final com.caidt.proto.ProtoActivity.GetActivityResponse DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:com.caidt.proto.ActivityResponse)
+    private static final com.caidt.proto.ProtoActivity.ActivityResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.GetActivityResponse();
+      DEFAULT_INSTANCE = new com.caidt.proto.ProtoActivity.ActivityResponse();
     }
 
-    public static com.caidt.proto.ProtoActivity.GetActivityResponse getDefaultInstance() {
+    public static com.caidt.proto.ProtoActivity.ActivityResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    @java.lang.Deprecated public static final com.google.protobuf.Parser<GetActivityResponse>
-        PARSER = new com.google.protobuf.AbstractParser<GetActivityResponse>() {
+    @java.lang.Deprecated public static final com.google.protobuf.Parser<ActivityResponse>
+        PARSER = new com.google.protobuf.AbstractParser<ActivityResponse>() {
       @java.lang.Override
-      public GetActivityResponse parsePartialFrom(
+      public ActivityResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new GetActivityResponse(input, extensionRegistry);
+        return new ActivityResponse(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<GetActivityResponse> parser() {
+    public static com.google.protobuf.Parser<ActivityResponse> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<GetActivityResponse> getParserForType() {
+    public com.google.protobuf.Parser<ActivityResponse> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.caidt.proto.ProtoActivity.GetActivityResponse getDefaultInstanceForType() {
+    public com.caidt.proto.ProtoActivity.ActivityResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4481,30 +4489,30 @@ public final class ProtoActivity {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_caidt_proto_GetAllActivityRequest_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_caidt_proto_GetAllActivityRequest_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_caidt_proto_GetAllActivityResponse_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_caidt_proto_GetAllActivityResponse_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_caidt_proto_Activity_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_com_caidt_proto_Activity_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_caidt_proto_GetActivityRequest_descriptor;
+    internal_static_com_caidt_proto_AllActivityRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_caidt_proto_GetActivityRequest_fieldAccessorTable;
+      internal_static_com_caidt_proto_AllActivityRequest_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_com_caidt_proto_GetActivityResponse_descriptor;
+    internal_static_com_caidt_proto_AllActivityResponse_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_com_caidt_proto_GetActivityResponse_fieldAccessorTable;
+      internal_static_com_caidt_proto_AllActivityResponse_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_caidt_proto_ActivityRequest_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_caidt_proto_ActivityRequest_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_com_caidt_proto_ActivityResponse_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_com_caidt_proto_ActivityResponse_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_com_caidt_proto_ScActivity_descriptor;
   private static final 
@@ -4520,16 +4528,15 @@ public final class ProtoActivity {
   static {
     java.lang.String[] descriptorData = {
       "\n\024proto_activity.proto\022\017com.caidt.proto\"" +
-      "\027\n\025GetAllActivityRequest\"G\n\026GetAllActivi" +
-      "tyResponse\022-\n\nactivities\030\001 \003(\0132\031.com.cai" +
-      "dt.proto.Activity\"j\n\010Activity\022\013\n\003uid\030\001 \002" +
-      "(\005\022\014\n\004type\030\002 \002(\005\022\014\n\004name\030\003 \001(\t\022\021\n\tstartT" +
-      "ime\030\004 \002(\003\022\017\n\007endTime\030\005 \002(\003\022\021\n\treadPoint\030" +
-      "\006 \001(\005\"!\n\022GetActivityRequest\022\013\n\003uid\030\001 \002(\005" +
-      "\"B\n\023GetActivityResponse\022+\n\010activity\030\001 \001(" +
-      "\0132\031.com.caidt.proto.Activity\";\n\nScActivi" +
-      "ty\022-\n\nactivities\030\001 \003(\0132\031.com.caidt.proto" +
-      ".Activity"
+      "j\n\010Activity\022\013\n\003uid\030\001 \002(\005\022\014\n\004type\030\002 \002(\005\022\014" +
+      "\n\004name\030\003 \001(\t\022\021\n\tstartTime\030\004 \002(\003\022\017\n\007endTi" +
+      "me\030\005 \002(\003\022\021\n\treadPoint\030\006 \001(\005\"\024\n\022AllActivi" +
+      "tyRequest\"D\n\023AllActivityResponse\022-\n\nacti" +
+      "vities\030\001 \003(\0132\031.com.caidt.proto.Activity\"" +
+      "\036\n\017ActivityRequest\022\013\n\003uid\030\001 \002(\005\"?\n\020Activ" +
+      "ityResponse\022+\n\010activity\030\001 \001(\0132\031.com.caid" +
+      "t.proto.Activity\";\n\nScActivity\022-\n\nactivi" +
+      "ties\030\001 \003(\0132\031.com.caidt.proto.Activity"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4543,35 +4550,35 @@ public final class ProtoActivity {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
         }, assigner);
-    internal_static_com_caidt_proto_GetAllActivityRequest_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_com_caidt_proto_GetAllActivityRequest_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_caidt_proto_GetAllActivityRequest_descriptor,
-        new java.lang.String[] { });
-    internal_static_com_caidt_proto_GetAllActivityResponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_com_caidt_proto_GetAllActivityResponse_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_caidt_proto_GetAllActivityResponse_descriptor,
-        new java.lang.String[] { "Activities", });
     internal_static_com_caidt_proto_Activity_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_com_caidt_proto_Activity_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_com_caidt_proto_Activity_descriptor,
         new java.lang.String[] { "Uid", "Type", "Name", "StartTime", "EndTime", "ReadPoint", });
-    internal_static_com_caidt_proto_GetActivityRequest_descriptor =
+    internal_static_com_caidt_proto_AllActivityRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
+    internal_static_com_caidt_proto_AllActivityRequest_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_caidt_proto_AllActivityRequest_descriptor,
+        new java.lang.String[] { });
+    internal_static_com_caidt_proto_AllActivityResponse_descriptor =
+      getDescriptor().getMessageTypes().get(2);
+    internal_static_com_caidt_proto_AllActivityResponse_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_com_caidt_proto_AllActivityResponse_descriptor,
+        new java.lang.String[] { "Activities", });
+    internal_static_com_caidt_proto_ActivityRequest_descriptor =
       getDescriptor().getMessageTypes().get(3);
-    internal_static_com_caidt_proto_GetActivityRequest_fieldAccessorTable = new
+    internal_static_com_caidt_proto_ActivityRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_caidt_proto_GetActivityRequest_descriptor,
+        internal_static_com_caidt_proto_ActivityRequest_descriptor,
         new java.lang.String[] { "Uid", });
-    internal_static_com_caidt_proto_GetActivityResponse_descriptor =
+    internal_static_com_caidt_proto_ActivityResponse_descriptor =
       getDescriptor().getMessageTypes().get(4);
-    internal_static_com_caidt_proto_GetActivityResponse_fieldAccessorTable = new
+    internal_static_com_caidt_proto_ActivityResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_com_caidt_proto_GetActivityResponse_descriptor,
+        internal_static_com_caidt_proto_ActivityResponse_descriptor,
         new java.lang.String[] { "Activity", });
     internal_static_com_caidt_proto_ScActivity_descriptor =
       getDescriptor().getMessageTypes().get(5);

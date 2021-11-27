@@ -64,10 +64,10 @@ class ExcelManager {
     BEFORE_LOAD_EXCEL.forEach { reload(it) }
 
     for (clazz in classes) {
-      if (clazz in map) continue // already load
+      if (loaded(clazz)) continue // already load
 
       // 个别[ExcelConfig]之间有依赖关系，需要先加载依赖的excel
-      DEPEND_EXCEL.filter { it.first === clazz && it.second !in map }
+      DEPEND_EXCEL.filter { it.first === clazz && loaded(it.second) }
         .forEach { reload(it.second) }
       @Suppress("UNCHECKED_CAST")
       reload(clazz as Class<out ExcelConfig>)
@@ -90,11 +90,13 @@ class ExcelManager {
   }
 
   fun afterLoadAll() {
-    map.forEach { (clazz, config) ->
+    for ((clazz, config) in map) {
       config.afterLoadAll()
       logger.debug("after load all excelConfig: ${clazz.simpleName}")
     }
   }
+
+  private fun loaded(clazz: Class<*>): Boolean = clazz in map
 
 }
 

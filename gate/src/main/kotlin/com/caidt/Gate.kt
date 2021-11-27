@@ -1,6 +1,9 @@
 package com.caidt
 
-import akka.actor.*
+import akka.actor.ActorRef
+import akka.actor.ActorSystem
+import akka.actor.PoisonPill
+import akka.actor.Props
 import akka.cluster.client.ClusterClientReceptionist
 import akka.cluster.singleton.ClusterSingletonManager
 import akka.cluster.singleton.ClusterSingletonManagerSettings
@@ -26,7 +29,6 @@ object Gate {
   /** netty actor session*/
   private val clientNetty: NettyTcpServer = NettyTcpServer(port = 12121)
 
-
   private fun buildActorSystem(): ActorSystem {
     val additionConfig: String = """
       akka.remote.netty.tcp.port=$port
@@ -39,24 +41,26 @@ object Gate {
     clientNetty.start()
     startUidGenerator()
   }
-  
+
   private fun startUidGenerator() {
     val settings = ClusterSingletonManagerSettings.create(actorSystem).withRole(role.name)
-    val actorRef = actorSystem.actorOf(
-      ClusterSingletonManager.props(UidGenerator.props(), PoisonPill.getInstance(), settings),
-      "uidGenerator"
+    val props = ClusterSingletonManager.props(
+        Props.create(UidGenerator::class.java), PoisonPill.getInstance(), settings
     )
+    val actorRef = actorSystem.actorOf(props, "uidGenerator")
     ClusterClientReceptionist.get(actorSystem).registerService(actorRef)
+  }
 
-    val channel = 128L
-    Bus.subscribe(actorRef, channel)
-    Bus.unsubscribe(actorRef, channel)
-    Bus.unsubscribeAll(actorRef)
+  fun testBus() {
+    // val channel = 128L
+    // Bus.subscribe(actorRef, channel)
+    // Bus.unsubscribe(actorRef, channel)
+    // Bus.unsubscribeAll(actorRef)
   }
 
 }
 
 
-fun main() {
+fun main(args: Array<String>) {
   Gate.start()
 }

@@ -1,7 +1,8 @@
-group 'com.uuzu'
-version '1.0-SNAPSHOT'
+apply plugin: 'application'
 
-archivesBaseName = 'world'
+application {
+    mainClassName = 'com.caidt.WorldKt'
+}
 
 dependencies {
     implementation project(":shared")

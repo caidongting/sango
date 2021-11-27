@@ -1,4 +1,4 @@
-package com;
+package com.caidt;
 
 
 public final class Singleton {

@@ -4,7 +4,9 @@ import org.apache.poi.ss.usermodel.CellType
 import org.apache.poi.xssf.usermodel.XSSFCell
 import org.apache.poi.xssf.usermodel.XSSFRow
 import java.security.InvalidParameterException
-import java.text.*
+import java.text.DecimalFormat
+import java.text.NumberFormat
+import java.text.ParseException
 import java.util.*
 
 /**
@@ -21,7 +23,7 @@ object PoiUtils {
     if (cell == null || cell.toString().trim { it <= ' ' }.isEmpty()) {
       return 0
     }
-    return if (cell.cellTypeEnum == CellType.FORMULA)
+    return if (cell.cellType == CellType.FORMULA)
       cell.numericCellValue.toInt()
     else
       cell.toString().toDouble().toInt()
@@ -31,7 +33,7 @@ object PoiUtils {
     if (cell == null || cell.toString().trim { it <= ' ' }.isEmpty()) {
       return 0L
     }
-    return if (cell.cellTypeEnum == CellType.FORMULA)
+    return if (cell.cellType == CellType.FORMULA)
       cell.numericCellValue.toLong()
     else
       cell.rawValue.toLong()
@@ -63,7 +65,7 @@ object PoiUtils {
     if (cell == null) {
       return ""
     }
-    return when (cell.cellTypeEnum) {
+    return when (cell.cellType) {
       CellType.STRING -> cell.toString().trim { it <= ' ' }
       CellType.NUMERIC -> {
         val str = FMT_NUMBER.format(cell.numericCellValue)
@@ -78,7 +80,7 @@ object PoiUtils {
 
   fun getFloatValue(cell: XSSFCell?): Float {
     if (cell == null) return 0.0f
-    if (cell.cellTypeEnum == CellType.FORMULA) {
+    if (cell.cellType == CellType.FORMULA) {
       return cell.numericCellValue.toFloat()
     }
     val cellStr = cell.toString()
@@ -135,16 +137,16 @@ object PoiUtils {
 
   private fun convertAAs1(c: Char): Char {
     return when {
-      c in '1'..'9' -> (c.toInt() + ('A' - '1')).toChar() // 1~9 -> A->I
-      c != '0' -> (c.toInt() - ('a' - 'J')).toChar() // a~p -> J~Z
+      c in '1'..'9' -> (c.code + ('A' - '1')).toChar() // 1~9 -> A->I
+      c != '0' -> (c.code - ('a' - 'J')).toChar() // a~p -> J~Z
       else -> c
     }
   }
 
   private fun convertAAs0(c: Char): Char {
     return if (c in '0'..'9')
-      (c.toInt() + ('A' - '0')).toChar() // 0~9 -> A->J
+      (c.code + ('A' - '0')).toChar() // 0~9 -> A->J
     else
-      (c.toInt() - ('a' - 'K')).toChar() // a~p -> K~Z
+      (c.code - ('a' - 'K')).toChar() // a~p -> K~Z
   }
 }

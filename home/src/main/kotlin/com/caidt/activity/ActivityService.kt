@@ -7,7 +7,7 @@ import com.caidt.proto.ProtoActivity
 @AllOpen
 class ActivityService {
 
-  fun activityList(playerActor: PlayerActor, req: ProtoActivity.GetAllActivityRequest) {
+  fun activityList(playerActor: PlayerActor, req: ProtoActivity.AllActivityRequest) {
 
   }
 

@@ -1,4 +1,4 @@
-package com.caidt
+package com.caidt.share
 
 import kotlin.reflect.KProperty1
 

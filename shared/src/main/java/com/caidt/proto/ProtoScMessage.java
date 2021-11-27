@@ -48,7 +48,7 @@ public final class ProtoScMessage {
      *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
      * </pre>
      *
-     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
      */
     boolean hasGetAllActivityResponse();
     /**
@@ -56,30 +56,30 @@ public final class ProtoScMessage {
      *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
      * </pre>
      *
-     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
      */
-    com.caidt.proto.ProtoActivity.GetAllActivityResponse getGetAllActivityResponse();
+    com.caidt.proto.ProtoActivity.AllActivityResponse getGetAllActivityResponse();
     /**
      * <pre>
      *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
      * </pre>
      *
-     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
      */
-    com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder();
+    com.caidt.proto.ProtoActivity.AllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder();
 
     /**
-     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
      */
     boolean hasGetActivityResponse();
     /**
-     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
      */
-    com.caidt.proto.ProtoActivity.GetActivityResponse getGetActivityResponse();
+    com.caidt.proto.ProtoActivity.ActivityResponse getGetActivityResponse();
     /**
-     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
      */
-    com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder getGetActivityResponseOrBuilder();
+    com.caidt.proto.ProtoActivity.ActivityResponseOrBuilder getGetActivityResponseOrBuilder();
 
     /**
      * <code>optional .com.caidt.proto.ScActivity scActivity = 105;</code>
@@ -150,28 +150,28 @@ public final class ProtoScMessage {
               break;
             }
             case 826: {
-              com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder subBuilder = null;
+              com.caidt.proto.ProtoActivity.AllActivityResponse.Builder subBuilder = null;
               if (cmdCase_ == 103) {
-                subBuilder = ((com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_).toBuilder();
+                subBuilder = ((com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_).toBuilder();
               }
               cmd_ =
-                  input.readMessage(com.caidt.proto.ProtoActivity.GetAllActivityResponse.PARSER, extensionRegistry);
+                  input.readMessage(com.caidt.proto.ProtoActivity.AllActivityResponse.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_);
+                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_);
                 cmd_ = subBuilder.buildPartial();
               }
               cmdCase_ = 103;
               break;
             }
             case 834: {
-              com.caidt.proto.ProtoActivity.GetActivityResponse.Builder subBuilder = null;
+              com.caidt.proto.ProtoActivity.ActivityResponse.Builder subBuilder = null;
               if (cmdCase_ == 104) {
-                subBuilder = ((com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_).toBuilder();
+                subBuilder = ((com.caidt.proto.ProtoActivity.ActivityResponse) cmd_).toBuilder();
               }
               cmd_ =
-                  input.readMessage(com.caidt.proto.ProtoActivity.GetActivityResponse.PARSER, extensionRegistry);
+                  input.readMessage(com.caidt.proto.ProtoActivity.ActivityResponse.PARSER, extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_);
+                subBuilder.mergeFrom((com.caidt.proto.ProtoActivity.ActivityResponse) cmd_);
                 cmd_ = subBuilder.buildPartial();
               }
               cmdCase_ = 104;
@@ -310,7 +310,7 @@ public final class ProtoScMessage {
      *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
      * </pre>
      *
-     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
      */
     public boolean hasGetAllActivityResponse() {
       return cmdCase_ == 103;
@@ -320,52 +320,52 @@ public final class ProtoScMessage {
      *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
      * </pre>
      *
-     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
      */
-    public com.caidt.proto.ProtoActivity.GetAllActivityResponse getGetAllActivityResponse() {
+    public com.caidt.proto.ProtoActivity.AllActivityResponse getGetAllActivityResponse() {
       if (cmdCase_ == 103) {
-         return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+         return (com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_;
       }
-      return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+      return com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance();
     }
     /**
      * <pre>
      *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
      * </pre>
      *
-     * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+     * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
      */
-    public com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder() {
+    public com.caidt.proto.ProtoActivity.AllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder() {
       if (cmdCase_ == 103) {
-         return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+         return (com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_;
       }
-      return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+      return com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance();
     }
 
     public static final int GETACTIVITYRESPONSE_FIELD_NUMBER = 104;
     /**
-     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
      */
     public boolean hasGetActivityResponse() {
       return cmdCase_ == 104;
     }
     /**
-     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
      */
-    public com.caidt.proto.ProtoActivity.GetActivityResponse getGetActivityResponse() {
+    public com.caidt.proto.ProtoActivity.ActivityResponse getGetActivityResponse() {
       if (cmdCase_ == 104) {
-         return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+         return (com.caidt.proto.ProtoActivity.ActivityResponse) cmd_;
       }
-      return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+      return com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance();
     }
     /**
-     * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+     * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
      */
-    public com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder getGetActivityResponseOrBuilder() {
+    public com.caidt.proto.ProtoActivity.ActivityResponseOrBuilder getGetActivityResponseOrBuilder() {
       if (cmdCase_ == 104) {
-         return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+         return (com.caidt.proto.ProtoActivity.ActivityResponse) cmd_;
       }
-      return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+      return com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance();
     }
 
     public static final int SCACTIVITY_FIELD_NUMBER = 105;
@@ -436,10 +436,10 @@ public final class ProtoScMessage {
         output.writeMessage(101, (com.caidt.proto.ProtoDescriptor.LoginResponse) cmd_);
       }
       if (cmdCase_ == 103) {
-        output.writeMessage(103, (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_);
+        output.writeMessage(103, (com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_);
       }
       if (cmdCase_ == 104) {
-        output.writeMessage(104, (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_);
+        output.writeMessage(104, (com.caidt.proto.ProtoActivity.ActivityResponse) cmd_);
       }
       if (cmdCase_ == 105) {
         output.writeMessage(105, (com.caidt.proto.ProtoActivity.ScActivity) cmd_);
@@ -459,11 +459,11 @@ public final class ProtoScMessage {
       }
       if (cmdCase_ == 103) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(103, (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_);
+          .computeMessageSize(103, (com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_);
       }
       if (cmdCase_ == 104) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(104, (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_);
+          .computeMessageSize(104, (com.caidt.proto.ProtoActivity.ActivityResponse) cmd_);
       }
       if (cmdCase_ == 105) {
         size += com.google.protobuf.CodedOutputStream
@@ -1039,13 +1039,13 @@ public final class ProtoScMessage {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoActivity.GetAllActivityResponse, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder> getAllActivityResponseBuilder_;
+          com.caidt.proto.ProtoActivity.AllActivityResponse, com.caidt.proto.ProtoActivity.AllActivityResponse.Builder, com.caidt.proto.ProtoActivity.AllActivityResponseOrBuilder> getAllActivityResponseBuilder_;
       /**
        * <pre>
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
       public boolean hasGetAllActivityResponse() {
         return cmdCase_ == 103;
@@ -1055,19 +1055,19 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
-      public com.caidt.proto.ProtoActivity.GetAllActivityResponse getGetAllActivityResponse() {
+      public com.caidt.proto.ProtoActivity.AllActivityResponse getGetAllActivityResponse() {
         if (getAllActivityResponseBuilder_ == null) {
           if (cmdCase_ == 103) {
-            return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+            return (com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_;
           }
-          return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+          return com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance();
         } else {
           if (cmdCase_ == 103) {
             return getAllActivityResponseBuilder_.getMessage();
           }
-          return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+          return com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance();
         }
       }
       /**
@@ -1075,9 +1075,9 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
-      public Builder setGetAllActivityResponse(com.caidt.proto.ProtoActivity.GetAllActivityResponse value) {
+      public Builder setGetAllActivityResponse(com.caidt.proto.ProtoActivity.AllActivityResponse value) {
         if (getAllActivityResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1095,10 +1095,10 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
       public Builder setGetAllActivityResponse(
-          com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder builderForValue) {
+          com.caidt.proto.ProtoActivity.AllActivityResponse.Builder builderForValue) {
         if (getAllActivityResponseBuilder_ == null) {
           cmd_ = builderForValue.build();
           onChanged();
@@ -1113,13 +1113,13 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
-      public Builder mergeGetAllActivityResponse(com.caidt.proto.ProtoActivity.GetAllActivityResponse value) {
+      public Builder mergeGetAllActivityResponse(com.caidt.proto.ProtoActivity.AllActivityResponse value) {
         if (getAllActivityResponseBuilder_ == null) {
           if (cmdCase_ == 103 &&
-              cmd_ != com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance()) {
-            cmd_ = com.caidt.proto.ProtoActivity.GetAllActivityResponse.newBuilder((com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_)
+              cmd_ != com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoActivity.AllActivityResponse.newBuilder((com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_)
                 .mergeFrom(value).buildPartial();
           } else {
             cmd_ = value;
@@ -1139,7 +1139,7 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
       public Builder clearGetAllActivityResponse() {
         if (getAllActivityResponseBuilder_ == null) {
@@ -1162,9 +1162,9 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
-      public com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder getGetAllActivityResponseBuilder() {
+      public com.caidt.proto.ProtoActivity.AllActivityResponse.Builder getGetAllActivityResponseBuilder() {
         return getGetAllActivityResponseFieldBuilder().getBuilder();
       }
       /**
@@ -1172,16 +1172,16 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
-      public com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder() {
+      public com.caidt.proto.ProtoActivity.AllActivityResponseOrBuilder getGetAllActivityResponseOrBuilder() {
         if ((cmdCase_ == 103) && (getAllActivityResponseBuilder_ != null)) {
           return getAllActivityResponseBuilder_.getMessageOrBuilder();
         } else {
           if (cmdCase_ == 103) {
-            return (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_;
+            return (com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_;
           }
-          return com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+          return com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance();
         }
       }
       /**
@@ -1189,18 +1189,18 @@ public final class ProtoScMessage {
        *        GetPlayerInfoResponse getPlayerInfoResponse = 102;
        * </pre>
        *
-       * <code>optional .com.caidt.proto.GetAllActivityResponse GetAllActivityResponse = 103;</code>
+       * <code>optional .com.caidt.proto.AllActivityResponse GetAllActivityResponse = 103;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoActivity.GetAllActivityResponse, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder> 
+          com.caidt.proto.ProtoActivity.AllActivityResponse, com.caidt.proto.ProtoActivity.AllActivityResponse.Builder, com.caidt.proto.ProtoActivity.AllActivityResponseOrBuilder> 
           getGetAllActivityResponseFieldBuilder() {
         if (getAllActivityResponseBuilder_ == null) {
           if (!(cmdCase_ == 103)) {
-            cmd_ = com.caidt.proto.ProtoActivity.GetAllActivityResponse.getDefaultInstance();
+            cmd_ = com.caidt.proto.ProtoActivity.AllActivityResponse.getDefaultInstance();
           }
           getAllActivityResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.caidt.proto.ProtoActivity.GetAllActivityResponse, com.caidt.proto.ProtoActivity.GetAllActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetAllActivityResponseOrBuilder>(
-                  (com.caidt.proto.ProtoActivity.GetAllActivityResponse) cmd_,
+              com.caidt.proto.ProtoActivity.AllActivityResponse, com.caidt.proto.ProtoActivity.AllActivityResponse.Builder, com.caidt.proto.ProtoActivity.AllActivityResponseOrBuilder>(
+                  (com.caidt.proto.ProtoActivity.AllActivityResponse) cmd_,
                   getParentForChildren(),
                   isClean());
           cmd_ = null;
@@ -1211,33 +1211,33 @@ public final class ProtoScMessage {
       }
 
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoActivity.GetActivityResponse, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder> getActivityResponseBuilder_;
+          com.caidt.proto.ProtoActivity.ActivityResponse, com.caidt.proto.ProtoActivity.ActivityResponse.Builder, com.caidt.proto.ProtoActivity.ActivityResponseOrBuilder> getActivityResponseBuilder_;
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
       public boolean hasGetActivityResponse() {
         return cmdCase_ == 104;
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
-      public com.caidt.proto.ProtoActivity.GetActivityResponse getGetActivityResponse() {
+      public com.caidt.proto.ProtoActivity.ActivityResponse getGetActivityResponse() {
         if (getActivityResponseBuilder_ == null) {
           if (cmdCase_ == 104) {
-            return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+            return (com.caidt.proto.ProtoActivity.ActivityResponse) cmd_;
           }
-          return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+          return com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance();
         } else {
           if (cmdCase_ == 104) {
             return getActivityResponseBuilder_.getMessage();
           }
-          return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+          return com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
-      public Builder setGetActivityResponse(com.caidt.proto.ProtoActivity.GetActivityResponse value) {
+      public Builder setGetActivityResponse(com.caidt.proto.ProtoActivity.ActivityResponse value) {
         if (getActivityResponseBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1251,10 +1251,10 @@ public final class ProtoScMessage {
         return this;
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
       public Builder setGetActivityResponse(
-          com.caidt.proto.ProtoActivity.GetActivityResponse.Builder builderForValue) {
+          com.caidt.proto.ProtoActivity.ActivityResponse.Builder builderForValue) {
         if (getActivityResponseBuilder_ == null) {
           cmd_ = builderForValue.build();
           onChanged();
@@ -1265,13 +1265,13 @@ public final class ProtoScMessage {
         return this;
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
-      public Builder mergeGetActivityResponse(com.caidt.proto.ProtoActivity.GetActivityResponse value) {
+      public Builder mergeGetActivityResponse(com.caidt.proto.ProtoActivity.ActivityResponse value) {
         if (getActivityResponseBuilder_ == null) {
           if (cmdCase_ == 104 &&
-              cmd_ != com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance()) {
-            cmd_ = com.caidt.proto.ProtoActivity.GetActivityResponse.newBuilder((com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_)
+              cmd_ != com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance()) {
+            cmd_ = com.caidt.proto.ProtoActivity.ActivityResponse.newBuilder((com.caidt.proto.ProtoActivity.ActivityResponse) cmd_)
                 .mergeFrom(value).buildPartial();
           } else {
             cmd_ = value;
@@ -1287,7 +1287,7 @@ public final class ProtoScMessage {
         return this;
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
       public Builder clearGetActivityResponse() {
         if (getActivityResponseBuilder_ == null) {
@@ -1306,37 +1306,37 @@ public final class ProtoScMessage {
         return this;
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
-      public com.caidt.proto.ProtoActivity.GetActivityResponse.Builder getGetActivityResponseBuilder() {
+      public com.caidt.proto.ProtoActivity.ActivityResponse.Builder getGetActivityResponseBuilder() {
         return getGetActivityResponseFieldBuilder().getBuilder();
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
-      public com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder getGetActivityResponseOrBuilder() {
+      public com.caidt.proto.ProtoActivity.ActivityResponseOrBuilder getGetActivityResponseOrBuilder() {
         if ((cmdCase_ == 104) && (getActivityResponseBuilder_ != null)) {
           return getActivityResponseBuilder_.getMessageOrBuilder();
         } else {
           if (cmdCase_ == 104) {
-            return (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_;
+            return (com.caidt.proto.ProtoActivity.ActivityResponse) cmd_;
           }
-          return com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+          return com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance();
         }
       }
       /**
-       * <code>optional .com.caidt.proto.GetActivityResponse getActivityResponse = 104;</code>
+       * <code>optional .com.caidt.proto.ActivityResponse getActivityResponse = 104;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.caidt.proto.ProtoActivity.GetActivityResponse, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder> 
+          com.caidt.proto.ProtoActivity.ActivityResponse, com.caidt.proto.ProtoActivity.ActivityResponse.Builder, com.caidt.proto.ProtoActivity.ActivityResponseOrBuilder> 
           getGetActivityResponseFieldBuilder() {
         if (getActivityResponseBuilder_ == null) {
           if (!(cmdCase_ == 104)) {
-            cmd_ = com.caidt.proto.ProtoActivity.GetActivityResponse.getDefaultInstance();
+            cmd_ = com.caidt.proto.ProtoActivity.ActivityResponse.getDefaultInstance();
           }
           getActivityResponseBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.caidt.proto.ProtoActivity.GetActivityResponse, com.caidt.proto.ProtoActivity.GetActivityResponse.Builder, com.caidt.proto.ProtoActivity.GetActivityResponseOrBuilder>(
-                  (com.caidt.proto.ProtoActivity.GetActivityResponse) cmd_,
+              com.caidt.proto.ProtoActivity.ActivityResponse, com.caidt.proto.ProtoActivity.ActivityResponse.Builder, com.caidt.proto.ProtoActivity.ActivityResponseOrBuilder>(
+                  (com.caidt.proto.ProtoActivity.ActivityResponse) cmd_,
                   getParentForChildren(),
                   isClean());
           cmd_ = null;
@@ -1550,14 +1550,14 @@ public final class ProtoScMessage {
     java.lang.String[] descriptorData = {
       "\n\026proto_sc_message.proto\022\017com.caidt.prot" +
       "o\032\026proto_descriptor.proto\032\022proto_player." +
-      "proto\032\024proto_activity.proto\"\224\002\n\tScMessag" +
+      "proto\032\024proto_activity.proto\"\216\002\n\tScMessag" +
       "e\0227\n\rloginResponse\030e \001(\0132\036.com.caidt.pro" +
-      "to.LoginResponseH\000\022I\n\026GetAllActivityResp" +
-      "onse\030g \001(\0132\'.com.caidt.proto.GetAllActiv" +
-      "ityResponseH\000\022C\n\023getActivityResponse\030h \001" +
-      "(\0132$.com.caidt.proto.GetActivityResponse" +
-      "H\000\0221\n\nscActivity\030i \001(\0132\033.com.caidt.proto" +
-      ".ScActivityH\000B\005\n\003cmdJ\004\010f\020g"
+      "to.LoginResponseH\000\022F\n\026GetAllActivityResp" +
+      "onse\030g \001(\0132$.com.caidt.proto.AllActivity" +
+      "ResponseH\000\022@\n\023getActivityResponse\030h \001(\0132" +
+      "!.com.caidt.proto.ActivityResponseH\000\0221\n\n" +
+      "scActivity\030i \001(\0132\033.com.caidt.proto.ScAct" +
+      "ivityH\000B\005\n\003cmdJ\004\010f\020g"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

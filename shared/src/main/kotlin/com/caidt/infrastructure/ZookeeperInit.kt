@@ -5,7 +5,8 @@ import org.apache.curator.framework.CuratorFrameworkFactory
 import org.apache.curator.retry.ExponentialBackoffRetry
 import org.apache.zookeeper.CreateMode
 
-const val zooKeeperPath = "192.168.125.199:2181,192.168.125.199:2182,192.168.125.199:2183"
+const val testZookeeperIp = "106.14.65.149"
+const val zooKeeperPath = "$testZookeeperIp:2181,$testZookeeperIp:2182,$testZookeeperIp:2183"
 
 fun main(args: Array<String>) {
   initZookeeper(ZK_ROOT)
@@ -24,7 +25,11 @@ fun initZookeeper(zkroot: String) {
 
 
   // 1. 更新seedNodes
-  curatorFramework.delete().deletingChildrenIfNeeded().forPath("/seedNodes")
+  val seedNodes = "/seedNodes"
+  val exists = curatorFramework.checkExists().forPath(seedNodes)
+  if (exists != null) {
+    curatorFramework.delete().deletingChildrenIfNeeded().forPath(seedNodes)
+  }
   val data = listOf(
     "home:akka.tcp:$localhost:2552",
     "world:akka.tcp:$localhost:2553"
@@ -33,9 +38,7 @@ fun initZookeeper(zkroot: String) {
   curatorFramework.create()
     .creatingParentsIfNeeded()
     .withMode(CreateMode.PERSISTENT)
-    .forPath("/seedNodes", JSON.toByteArray(data))
-
-  // 2. 配置表
+    .forPath(seedNodes, JSON.toByteArray(data))
 
   // 3.
 

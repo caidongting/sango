@@ -2,6 +2,7 @@ package com.caidt.service
 
 import com.caidt.PlayerActor
 import com.caidt.TestCmd
+import com.caidt.util.tryCatch
 import org.slf4j.LoggerFactory
 
 class TestCmdService {
@@ -14,7 +15,6 @@ class TestCmdService {
       testCmd.exec(player, args)
     } catch (t: Throwable) {
       logger.error("exec cmd error", t)
-      t.printStackTrace()
     }
   }
 

@@ -1,7 +1,9 @@
 package com.caidt.infrastructure.config
 
 import com.caidt.infrastructure.EXCEL_CONFIG_DIR
-import com.caidt.share.config.*
+import com.caidt.share.config.ActivityConfig
+import com.caidt.share.config.ItemConfig
+import com.caidt.share.config.RobotConfig
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 
@@ -9,8 +11,7 @@ object ExcelConfigs {
 
   private val logger: Logger = LoggerFactory.getLogger(javaClass)
 
-  lateinit var manager: ExcelManager
-    private set
+  lateinit var manager: ExcelManager private set
 
   fun init() {
     val manager = ExcelManager()

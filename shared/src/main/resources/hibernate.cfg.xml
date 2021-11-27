@@ -1,32 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-configuration PUBLIC
-		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
-		"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
-	<session-factory>
-		<!-- 配置数据库的相关信息 -->
-		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
-<!--		<property name="current_session_context_class">thread</property>-->
-		<property name="hibernate.show_sql">true</property>
-		<property name="hibernate.format_sql">true</property>
-		<property name="hibernate.hbm2ddl.auto">update</property>
+    <session-factory>
+        <!-- 配置数据库的相关信息 -->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
+        <!--<property name="current_session_context_class">thread</property>-->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+        <property name="hibernate.hbm2ddl.auto">update</property>
 
-		<!-- 配置连接池 mysql	-->
-		<property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/majsoul</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password">25770</property>
+        <!-- 配置连接池 mysql	-->
+        <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+        <!--<property name="connection.url">jdbc:mysql://localhost:3306/majsoul</property>-->
+        <property name="connection.url">jdbc:mysql://aliyun-caidt-01pm.mysql.rds.aliyuncs.com:3306</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">25770CDTqz</property>
 
-		<!-- 配置连接池 postgresql -->
-		<!--<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>-->
-		<!--<property name="connection.url">jdbc:postgresql://localhost:5432/majsoul</property>-->
-		<!--<property name="connection.username">postgres</property>-->
-		<!--<property name="connection.password">257701</property>-->
+        <!-- 配置连接池 postgresql -->
+        <!--<property name="hibernate.connection.driver_class">org.postgresql.Driver</property>-->
+        <!--<property name="connection.url">jdbc:postgresql://localhost:5432/majsoul</property>-->
+        <!--<property name="connection.username">postgres</property>-->
+        <!--<property name="connection.password">257701</property>-->
 
-		<!-- mapping class -->
-		<mapping class="com.caidt.share.entity.PlayerAccountEntity"/>
-		<mapping class="com.caidt.share.entity.ItemEntity"/>
-		<mapping class="com.caidt.share.entity.ResourceEntity"/>
+        <!-- mapping class -->
+        <mapping class="com.caidt.share.entity.PlayerAccountEntity"/>
+        <mapping class="com.caidt.share.entity.ItemEntity"/>
+        <mapping class="com.caidt.share.entity.ResourceEntity"/>
 
-	</session-factory>
+    </session-factory>
 </hibernate-configuration>

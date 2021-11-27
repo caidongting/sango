@@ -4,11 +4,21 @@ import com.caidt.infrastructure.database.EntityWrapper
 import com.caidt.infrastructure.database.EntityWrapperManager
 import com.caidt.infrastructure.database.IEntity
 import java.io.Serializable
+import java.lang.reflect.ParameterizedType
 
 // 数据库表 容器
 abstract class DataContainer<T : IEntity, E : EntityWrapper<T>> {
 
   private val map: HashMap<Serializable, E> = hashMapOf()
+
+  private lateinit var manager: EntityWrapperManager
+
+  private val clazz: Class<T>
+
+  init {
+    val genericSuperclass = this.javaClass.genericSuperclass as ParameterizedType
+    clazz = genericSuperclass.actualTypeArguments[0] as Class<T>
+  }
 
   abstract fun load(entity: T)
 
@@ -28,18 +38,18 @@ abstract class DataContainer<T : IEntity, E : EntityWrapper<T>> {
 
   private fun wrap(wrapper: E): E {
     map[wrapper.primaryKey()] = wrapper
-    EntityWrapperManager.update(wrapper)
+    manager.createTracker(clazz, wrapper)
     return wrapper
   }
 
   fun save(wrapper: E): E {
     map[wrapper.primaryKey()] = wrapper
-    EntityWrapperManager.save(wrapper)
+    manager.save(clazz, wrapper)
     return wrapper
   }
 
   fun delete(wrapper: E) {
     map.remove(wrapper.primaryKey())
-    EntityWrapperManager.delete(wrapper)
+    manager.delete(clazz, wrapper)
   }
 }

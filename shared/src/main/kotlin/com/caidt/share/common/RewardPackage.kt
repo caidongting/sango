@@ -12,6 +12,7 @@ data class ItemData(
 
   val cfg: ItemCfg get() = ExcelConfigs.itemConfig[id]
   val name: String get() = cfg.name
+  val type: ProtoCommon.ItemType get() = cfg.type
 
   operator fun plus(itemData: ItemData): ItemData {
     return this.copy(count = count + itemData.count)
@@ -40,11 +41,11 @@ class RewardPackage private constructor(
   fun builder(): Builder = newBuilder() + this
 
   fun getCount(resource: ProtoCommon.Resource): Long {
-    return resources.filter { it.type == resource }.map { it.count }.sum()
+    return resources.filter { it.type == resource }.sumOf { it.count }
   }
 
   fun getCount(itemId: Int): Long {
-    return items.filter { it.id == itemId }.map { it.count }.sum()
+    return items.filter { it.id == itemId }.sumOf { it.count }
   }
 
   companion object {
@@ -95,9 +96,4 @@ class RewardPackage private constructor(
     }
   }
 
-}
-
-fun main() {
-  val newBuilder: RewardPackage.Builder = RewardPackage.newBuilder()
-  newBuilder.build()
 }

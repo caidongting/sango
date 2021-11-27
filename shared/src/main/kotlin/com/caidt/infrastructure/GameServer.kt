@@ -10,9 +10,7 @@ import akka.cluster.sharding.ShardRegion
 import com.caidt.infrastructure.config.ExcelConfigs
 import com.caidt.infrastructure.database.Session
 import com.caidt.infrastructure.database.buildSessionFactory
-import com.caidt.share.GenerateUid
-import com.caidt.share.PlayerEnvelope
-import com.caidt.share.WorldEnvelope
+import com.caidt.share.*
 import com.typesafe.config.Config
 import com.typesafe.config.ConfigFactory
 import org.slf4j.Logger
@@ -31,8 +29,8 @@ enum class Role {
 
 fun getRemoteSeedNodes(): List<Address> {
   return listOf(
-    Address("akka.tcp", CLUSTER_NAME, localhost, 2552),
-    Address("akka.tcp", CLUSTER_NAME, localhost, 2553)
+      Address("akka.tcp", CLUSTER_NAME, localhost, 2552),
+      Address("akka.tcp", CLUSTER_NAME, localhost, 2553)
   )
 }
 
@@ -48,23 +46,18 @@ abstract class GameServer(val port: Int) {
   /** actor system */
   val actorSystem: ActorSystem by lazy { buildActorSystem() }
 
-  lateinit var cluster: Cluster
-    private set
+  lateinit var cluster: Cluster private set
 
   /** znode */
   private val znode = ZNode()
 
-  lateinit var shardRegion: ActorRef
-    private set
+  lateinit var shardRegion: ActorRef private set
 
-  lateinit var homeProxy: ActorRef
-    private set
+  lateinit var homeProxy: ActorRef private set
 
-  lateinit var worldProxy: ActorRef
-    private set
+  lateinit var worldProxy: ActorRef private set
 
-  lateinit var clusterClient: ActorRef
-    private set
+  lateinit var clusterClient: ActorRef private set
 
   fun start() {
     startSystem()
@@ -113,7 +106,7 @@ abstract class GameServer(val port: Int) {
   fun startShardRegion(props: Props) {
     val settings = ClusterShardingSettings.create(actorSystem).withRole(role.name)
     shardRegion = ClusterSharding.get(actorSystem)
-      .start(javaClass.simpleName, props, settings, messageExtractor)
+        .start(role.name, props, settings, messageExtractor)
     // logger.info("cluster shardRegion is started!")
   }
 
@@ -125,7 +118,7 @@ abstract class GameServer(val port: Int) {
 
   fun startHomeProxy() {
     homeProxy = ClusterSharding.get(actorSystem)
-      .startProxy("homeProxy", Optional.of(Role.home.name), messageExtractor)
+        .startProxy("homeProxy", Optional.of(Role.home.name), messageExtractor)
   }
 
   fun closeHomeProxy() {
@@ -134,7 +127,7 @@ abstract class GameServer(val port: Int) {
 
   fun startWorldProxy() {
     worldProxy = ClusterSharding.get(actorSystem)
-      .startProxy("worldProxy", Optional.of(Role.world.name), messageExtractor)
+        .startProxy("worldProxy", Optional.of(Role.world.name), messageExtractor)
   }
 
   fun closeWorldProxy() {
@@ -157,8 +150,12 @@ abstract class GameServer(val port: Int) {
 val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.MessageExtractor {
   override fun entityId(message: Any): String {
     return when (message) {
+      // 外部消息
       is PlayerEnvelope -> message.playerId.toString()
       is WorldEnvelope -> message.worldId.toString()
+//      // 内部消息
+//      is PlayerMessage -> message.playerId.toString()
+//      is WorldMessage -> message.worldId.toString()
       else -> message.toString()
     }
   }
@@ -167,14 +164,18 @@ val messageExtractor: ShardRegion.MessageExtractor = object : ShardRegion.Messag
     return when (message) {
       is PlayerEnvelope -> message.payload
       is WorldEnvelope -> message.payload
-      else -> message.toString()
+      else -> message
     }
   }
 
   override fun shardId(message: Any): String {
     return when (message) {
+      // 外部消息
       is PlayerEnvelope -> (message.playerId % NUMBER_OF_SHARDS).toString()
       is WorldEnvelope -> (message.worldId % NUMBER_OF_SHARDS).toString()
+//      // 内部消息
+//      is PlayerMessage -> (message.playerId % NUMBER_OF_SHARDS).toString()
+//      is WorldMessage -> (message.worldId % NUMBER_OF_SHARDS).toString()
       else -> message.toString()
     }
   }

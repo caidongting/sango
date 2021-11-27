@@ -5,6 +5,12 @@ package com.caidt.infrastructure
  * be careful when modifies (add, remove or update etc.) this file.
  */
 
+/** 本机ip 需确定在unix环境下是否适用 */
+val localhost: String = "192.168.1.4"
+// val localhost: String = InetAddress.getLocalHost().hostAddress ?: "192.168.1.3"
+/** 是否开发模式 */
+val isDev: Boolean = System.getenv("MODE") == "dev"
+
 
 /** 虚拟结点数 */
 const val VIRTUAL_NUM = 100
@@ -17,26 +23,20 @@ const val NUMBER_OF_SHARDS = 1000
 /** hibernate config file */
 const val HIBERNATE_CFG_FILE = "hibernate.cfg.xml"
 
-const val LARGE_MAILBOX = "akka.actor.large-unbounded-mailbox"
-const val SMALL_MAILBOX = "akka.actor.small-unbounded-mailbox"
+const val LARGE_MAILBOX = "akka.actor.mailbox.large-unbounded-mailbox"
+const val SMALL_MAILBOX = "akka.actor.mailbox.small-unbounded-mailbox"
 
 /** 集群名称，各节点相同 */
 const val CLUSTER_NAME = "cluster"
 /** 默认用户 */
 const val DEFAULT_ROOT = "root"
 
-/** 本机ip 需确定在unix环境下是否适用 */
-const val localhost: String = "192.168.1.3"
-// val localhost: String = InetAddress.getLocalHost().hostAddress ?: "192.168.1.3"
-/** 是否开发模式 */
-val isDev: Boolean = System.getenv("MODE") == "dev"
-
 /** zk namespace */
 val ZK_ROOT: String = System.getProperty("zkroot", DEFAULT_ROOT)
 /** zk online node directory */
-val ZK_ONLINE_NODE_DIR: String = "$ZK_ROOT/server"
+val ZK_ONLINE_NODE_DIR: String = "/$ZK_ROOT/server"
 /** zk seed nodes directory */
-val ZK_SEED_NODE_DIR: String = "$ZK_ROOT/seedNodes"
+val ZK_SEED_NODE_DIR: String = "/$ZK_ROOT/seedNodes"
 
 /** excel config 目录 */
 const val EXCEL_CONFIG_DIR = "com.caidt.share.config"

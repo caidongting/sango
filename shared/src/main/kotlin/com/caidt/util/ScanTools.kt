@@ -10,8 +10,7 @@ import java.util.jar.JarFile
 fun scanPackage(pkgName: String, filter: (Class<*>) -> Boolean = { true }): List<Class<*>> {
   val result: MutableList<Class<*>> = arrayListOf()
   val urls = Thread.currentThread().contextClassLoader.getResources(pkgName.replace('.', '/'))
-  while (urls.hasMoreElements()) {
-    val url = urls.nextElement()
+  for (url in urls) {
     when (url.protocol) {
       "file" -> scanFile(pkgName, File(url.file), result, filter)
       "jar" -> {
@@ -42,9 +41,7 @@ internal fun scanFile(pkgName: String, file: File, result: MutableList<Class<*>>
 }
 
 internal fun scanJar(jarFile: JarFile, result: MutableList<Class<*>>, filter: (Class<*>) -> Boolean) {
-  val entries = jarFile.entries()
-  while (entries.hasMoreElements()) {
-    val jarEntry = entries.nextElement()
+  for (jarEntry in jarFile.entries()) {
     if (jarEntry.name.endsWith(".class")) {
       val classname = jarEntry.name.substring(0, jarEntry.name.lastIndexOf('.'))
       val clazz = Class.forName(classname)

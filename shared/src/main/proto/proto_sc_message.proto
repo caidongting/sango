@@ -9,11 +9,11 @@ message ScMessage {
     reserved 102;
 
     oneof cmd {
-//        Pong pong = 1;
+        //        Pong pong = 1;
         LoginResponse loginResponse = 101;
-//        GetPlayerInfoResponse getPlayerInfoResponse = 102;
-        GetAllActivityResponse GetAllActivityResponse = 103;
-        GetActivityResponse getActivityResponse = 104;
+        //        GetPlayerInfoResponse getPlayerInfoResponse = 102;
+        AllActivityResponse GetAllActivityResponse = 103;
+        ActivityResponse getActivityResponse = 104;
         ScActivity scActivity = 105;
     }
 

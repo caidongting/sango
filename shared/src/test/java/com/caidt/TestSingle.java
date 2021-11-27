@@ -1,13 +1,15 @@
-package com;
+package com.caidt;
 
+import org.openjdk.jmh.annotations.*;
 
-import org.junit.Test;
-
+@BenchmarkMode(Mode.AverageTime)
 public class TestSingle {
 
-    @Test
+    @Benchmark
+    @Warmup(iterations = 3)
+    @Measurement(iterations = 5)
     public void check() {
-        Thread[] threads = new Thread[20];
+        Thread[] threads = new Thread[1];
         for (int i = 0; i < threads.length; i++) {
             Thread thread = new Thread(() -> System.out.println(Singleton.getInstance4().hashCode()));
             threads[i] = thread;

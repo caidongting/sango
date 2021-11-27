@@ -23,7 +23,7 @@ fun Row.readItemType(column: String): ProtoCommon.ItemType {
   return ProtoCommon.ItemType.valueOf(string)
 }
 
-// =================== 复杂 =====================
+// =================== complex =====================
 
 internal val bracketRegex = "[\\[\\]]".toRegex()
 

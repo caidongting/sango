@@ -1,16 +1,16 @@
 package com.caidt
 
-import akka.actor.ActorContext
 import akka.actor.ActorRef
+import akka.actor.ActorSystem
 import com.caidt.share.TickDuration
 import com.caidt.share.TickTimer
 import com.caidt.share.Worker
 import java.time.Instant
 
 
-class CommonTick(context: ActorContext) {
+class CommonTick(system: ActorSystem) {
 
-  private val executor: ActorRef = context.actorOf(Worker.props())
+  private val executor: ActorRef = system.actorOf(Worker.props())
 
   private val common: TickDuration = TickDuration("commonTick", executor, 10)
 
